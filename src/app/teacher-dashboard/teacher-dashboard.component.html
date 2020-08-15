@@ -1,0 +1,35 @@
+<div class="">
+  <div class="col-md-12 col-lg-12">
+      <nav class="navbar navbar-expand-lg navbar-light navbarClass">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTeacherDashboardContent"
+        aria-controls="navbarTeacherDashboardContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+          <div class="collapse navbar-collapse" id="navbarTeacherDashboardContent">
+              <ul class="navbar-nav">
+                  <!-- <li class="nav-item navitem ml-4"> -->
+                  <li class="nav-item navitem">
+                      <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teacherliveclass" routerLinkActive="active">Live Class</a>
+                  </li>
+                  <li class="nav-item navitem">
+                      <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teacheruploadvideo" routerLinkActive="active">Upload Videos</a>
+                  </li>
+                  <li class="nav-item navitem">
+                      <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teacherhomework"routerLinkActive="active">Homework</a>
+                  </li>
+                  <li class="nav-item navitem">
+                      <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teachernotes" routerLinkActive="active">Notes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teacherstudentlist" routerLinkActive="active">Students List</a>
+                </li>
+              </ul>
+          </div>
+      </nav>
+      <app-sidebar-ss></app-sidebar-ss>
+  </div>
+</div>
+
+<div class="container ml-2 mt-4">
+    <router-outlet></router-outlet>
+</div>

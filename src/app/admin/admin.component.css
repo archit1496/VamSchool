@@ -1,0 +1,31 @@
+.container{
+    /* font-family: 'Londrina Outline', cursive; */
+    margin-top: 50px;
+}
+
+.admin-title{
+    text-decoration: underline;
+    font-family: 'Londrina Outline', cursive; 
+    font-size: 38px;
+    font-weight: 400;
+}
+
+li{
+    background-color: #FFE6E6;
+    text-align: left;
+    font: Bold 20px/36px Segoe UI;
+    /* letter-spacing: 0px; */
+    color: #5B86E5;
+    opacity: 1;
+}
+
+card{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 12px #81818133;
+    border-radius: 22px;
+    opacity: 1;
+}
+
+.timetablebadge{
+    cursor: pointer;
+}

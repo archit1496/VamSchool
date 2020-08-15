@@ -1,0 +1,30 @@
+<div class="mt-4">
+    <div class="col-md-12 text-center">
+      <app-header></app-header>
+      <app-sidebar-ss></app-sidebar-ss>
+       <div class="card mt-4">
+           <div class="card-body">
+               <h4 class="card-title admin-title">
+                   Admin Panel
+               </h4>
+               <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  No. of Teachers
+                  <span class="badge badge-primary badge-pill">{{adminDetails?.total_teachers}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  No. of Students
+                  <span class="badge badge-primary badge-pill">{{adminDetails?.total_students}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Time Table
+                  <span class="badge timetablebadge" style="font-size: 35px;
+                  margin-right: -10px;" (click)="timeTable()">
+                    &rarr;
+                  </span>
+                </li>
+              </ul>
+           </div>
+       </div>
+    </div>
+</div>

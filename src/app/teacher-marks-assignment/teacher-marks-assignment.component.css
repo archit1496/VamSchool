@@ -1,0 +1,57 @@
+.teacher-assignments {
+  top: 200px;
+  left: 494px;
+  width: 895px;
+  height: 698px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 6px 12px #81818133;
+  border-radius: 24px;
+  opacity: 1;
+  
+  max-height: 600px;
+  overflow-y: scroll;
+
+}
+
+.assignments {
+  top: 20px;
+  text-align: center;
+  font: bold 20px Segoe UI;
+  letter-spacing: 0px;
+  color: #4a97d6;
+  opacity: 1;
+}
+
+img {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+  }
+  .row{
+    margin-top:10px;
+    height: 50px;
+    width: 100%;
+    padding: 2px 16px;
+    background-color: #e98080;
+    border-radius: 12px;
+  }
+  .col{
+    padding-top: 7px;
+    text-align: center;
+    font: normal 22px Segoe UI;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+
+  }
+
+  .inputBox{
+    width: 25%;
+    border: none;
+    text-align: right;
+  }
+
+  .assignmentColor{
+    text-decoration: underline;
+    color: #36d1dc;
+  }

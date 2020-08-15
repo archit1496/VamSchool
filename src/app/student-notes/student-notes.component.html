@@ -1,0 +1,31 @@
+<div class="mt-4">
+    <div *ngIf="isLoading" class="text-center">
+        Loading Data, Please wait...
+    </div>
+    <div *ngIf="notesList.length == 0 && !isLoading">
+        <h2 class="text-center">No records found!</h2>
+    </div>
+    <div class="col-12" *ngIf="!isLoading && notesList.length > 0">
+        <div class="card">
+            <div class="card-body">
+                <ul class="list-group" *ngFor="let note of notesList">
+                    <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <h4 class="chapter">{{note.topic}}</h4>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 wtchVideo">
+                                    <button class="btn btn-primary liveBtnVideo" (click)="readNotes(note.note)">
+                                        <span class="mr-3">Read</span>
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

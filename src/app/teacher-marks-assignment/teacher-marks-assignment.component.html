@@ -1,0 +1,39 @@
+
+<div class="teacher-assignments">
+  <div class="assignments assignmentColor">
+    Check Assignment - {{topicId.split('?')[0]}}
+  </div>
+  <div *ngIf="isLoading" class="text-center">
+    Loading Data, Please wait...
+</div>
+  <div class="assignement-list">
+    <div class="d-flex bd-highlight">
+    <div class="p-2 w-25 bd-highlight" style="color: #007BEE;">
+      <b>Submitted by</b>
+      
+    </div>
+    <div class="p-2 w-75 bd-highlight" style="color: #007BEE;">
+<b>Mark as Submitted</b>
+      
+    </div>
+  </div>
+
+  <div class="d-flex bd-highlight" *ngFor="let i of assignmentQuestionsList ">
+    <div class="d-flex p-2 bd-highlight" style="width: 15%;">
+      {{i.student_name}}
+    </div>
+   <div class="d-flex bd-highlight">
+    <div class="d-flex p-2 bd-highlight">
+      {{i.updatedDate}}
+    </div>
+    <div class="d-flex p-2 bd-highlight">
+      <input type="text" class="inputBox" [(ngModel)]="i.mark"><span>/100</span>
+    </div>
+    <div>
+      <button class="btn" style="background-color: #36d1dc;" type="button" (click)="getData(i)">Save</button>
+      <button class="btn" style="background-color: #36d1dc;" type="button">Download</button>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

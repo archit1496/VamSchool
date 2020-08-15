@@ -1,0 +1,53 @@
+.login-title {
+  margin-top: 65px;
+}
+
+.loginform{
+  margin-top: 55px;
+}
+
+.loginBtn{
+  background-color: #36D1DC;
+  color: white;
+}
+
+.loginBtn:disabled{
+  cursor: no-drop;
+}
+
+.loginBtn:hover{
+  background-color: #10e2f1;
+}
+
+a{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: -10px 26px 46px #00000029;
+  height: 670px;
+  margin-top: 15px;
+}
+
+.loginInputDiv{
+  border-bottom: 1px solid #D3D3D3;
+}
+
+.inputText{
+  border: 0;
+  width: 90%;
+}
+
+.loginAddIcons{
+  background-color: transparent;
+  border: 0;
+}
+
+.contact-row{
+  background-color: #36D1DC;
+}
+
+section{
+  padding: 0;
+}

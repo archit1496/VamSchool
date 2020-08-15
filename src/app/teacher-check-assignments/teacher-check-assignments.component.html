@@ -1,0 +1,13 @@
+<div class="teacher-assignments">
+    <div class="assignments">
+        Check AssignMents
+    </div>
+    <div *ngIf="isLoading" class="text-center">
+        Loading Data, Please wait...
+    </div>
+    <div class="assignement-list" *ngIf="!isLoading">
+        <div class="row" *ngFor="let i of assignmentTopicsList">
+            <div class="col"  [routerLink]="['/wrapper/teacherdashboard/teachermarksassignments', i.topic+'?'+i.id]" routerLinkActive="active">{{i.topic}}</div>
+        </div>
+    </div>
+</div>

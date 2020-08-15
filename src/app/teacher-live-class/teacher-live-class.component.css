@@ -1,0 +1,17 @@
+.upload-notes{
+  margin: 0 auto;
+}
+
+.live-class-image {
+  background: url("src\assets\images\chatbot.svg") no-repeat;
+  margin: auto;
+  padding: 10px;
+  width: 436px;
+  height: 399px;
+  opacity: 1;
+}
+
+.remote-containers div{
+  height: 250px;
+  width: 250px;
+}

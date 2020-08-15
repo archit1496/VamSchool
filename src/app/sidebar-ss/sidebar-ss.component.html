@@ -1,0 +1,16 @@
+<div class="col-sm-12 col-xs-12 navSideBarForSS">
+    <nav class="nav">
+        <a class="nav-link ml-5" *ngIf="role == 'STUDENT'" routerLink="/wrapper/student-main-page" routerLinkActive="active">
+            Dashboard
+        </a>
+        <a class="nav-link ml-5" *ngIf="role == 'TEACHER'" routerLink="/wrapper/teacher-main-page" routerLinkActive="active">
+            Dashboard
+        </a>
+        <a class="nav-link ml-5" *ngIf="role == 'OWNER'" routerLink="/wrapper/admin" routerLinkActive="active">
+            Dashboard
+        </a>
+        <a class="nav-link ml-5" routerLink="/wrapper/teachertimetable" routerLinkActive="active">
+            Time Table
+        </a>
+    </nav>
+</div>

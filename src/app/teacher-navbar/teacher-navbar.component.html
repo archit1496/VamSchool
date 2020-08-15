@@ -1,0 +1,68 @@
+<div class="mt-2">
+    <div class="col-12">
+        <app-header></app-header>
+        <app-sidebar-ss></app-sidebar-ss>
+        <div class="subjects mt-4">
+            <div class="col-12">
+                <div class="card mb-4" *ngFor="let teacherInfo of teacherCourseList[0]?.course">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class=" col-md-12 col-sm-12 col-xs-12 col-lg-5">
+                                <img src="../../assets/images/teacher-img.png"
+                                    alt="img" height="200" width="250" class="imgResponsive">
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-7">
+                                <div>
+                                    <h2>{{teacherInfo?.subject?.subject_name}}</h2>
+                                </div>
+                                <div class="mt-3">
+                                    <h3>{{teacherInfo?.class_of?.class_name}}</h3>
+                                </div>
+                                <div class="mt-3">
+                                    <h4>Section-{{teacherInfo?.class_of?.section}}</h4>
+                                </div>
+                                <div class="mt-4">
+                                    <button type="button" class="btn btn-lg w-75" style="background-color: #36d1dc;" 
+                                    (click)="gotoClassroom(teacherInfo.id)">
+                                        Go to Classroom
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="card mt-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5 ml-5">
+                                <img src="../../assets/images/teacher-img.png"
+                                    alt="img" height="200" width="250">
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <h2>Class 8th</h2>
+                                </div>
+                                <div class="mt-3">
+                                    <h3>English Class</h3>
+                                </div>
+                                <div class="mt-3">
+                                    <h4>Section-A</h4>
+                                </div>
+                                <div class="mt-4">
+                                    <button type="button" class="btn btn-lg w-75" style="background-color: #36d1dc;"
+                                    (click)="gotoClassroom()">
+                                        Go to Classroom
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div> -->
+                
+            </div>
+        </div>
+    </div>
+</div>

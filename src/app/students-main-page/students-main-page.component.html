@@ -1,0 +1,35 @@
+<div class="mt-1">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <app-header></app-header>
+        <app-sidebar-ss></app-sidebar-ss>
+        <div *ngIf="isLoading" class="text-center">
+            Loading Data, Please wait...
+        </div>
+        <div class="subjects">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-md-6 col-lg-3 mt-4" *ngFor="let studentData of studentDataList[0]?.course">
+                    <div class="card text-center" (click)="oncardClick()">
+                        <div class="card-header col-sm-12">
+                            <b>{{studentData.subject?.subject_name}}</b>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-3">
+                                    <img src="https://thumbs.dreamstime.com/b/two-little-girls-sitting-bench-reading-book-together-vector-illustration-141741175.jpg"
+                                     alt="image" height="80" width="60">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-9">
+                                    <div>
+                                        <span><b>Teacher</b>-Miss. {{studentData.teacher.user.first_name | json}}</span>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span>Total Students-{{studentData.students_count}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

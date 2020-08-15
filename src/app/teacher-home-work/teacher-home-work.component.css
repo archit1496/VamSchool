@@ -1,0 +1,27 @@
+.homework {
+  top: 200px;
+  left: 494px;
+  width: 895px;
+  height: 698px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 6px 12px #81818133;
+  border-radius: 24px;
+  opacity: 1;
+  width: 100%;
+}
+
+.home-work-image {
+  background: url("src\assets\images\study-from-books.svg") no-repeat;
+  margin: auto;
+  padding: 10px;
+  width: 436px;
+  height: 399px;
+  opacity: 1;
+}
+
+.btn-primary {
+    width:100%;
+}
+.row{
+    margin-top: 35px;
+}

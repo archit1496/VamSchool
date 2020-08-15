@@ -1,0 +1,33 @@
+<div *ngIf="spinnerFlag">
+<div class="myOverlay text-center">
+  <div class="btn btn-static font-xl bg-light">
+    <span class="fa fa-spinner rotate"> </span> Processing Request...
+  </div>
+</div>
+</div>
+<div class="uploadvideo">
+  <div class="row">
+    <div class="upload-video-image"></div>
+  </div>
+ <div class="col-12"> 
+  <div class="row">
+    <div class="col-6 mt-4 upload-video">
+     <div class="input-group mb-3">
+       <input type="text" class="form-control" placeholder="Enter Topic" aria-describedby="basic-addon2"
+       [(ngModel)]="videoTopic">
+       <div class="input-group-append">
+         <input type="file" id="file" (change)="selectVideo($event)">
+         <label for="file">
+             Select Video
+         </label>
+       </div>
+     </div>
+   </div>
+   </div>
+  <!-- <div class="col-3 upload-video">
+    <button class="btn btn-primary" (click)="uploadVideo()">
+      Upload Video <i class="fa fa-upload" aria-hidden="true"></i>
+    </button>
+  </div> -->
+  </div>
+</div>

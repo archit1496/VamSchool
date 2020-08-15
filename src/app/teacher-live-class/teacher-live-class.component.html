@@ -1,0 +1,38 @@
+<div *ngIf="spinnerFlag">
+  <div class="myOverlay text-center">
+    <div class="btn btn-static font-xl bg-light">
+      <span class="fa fa-spinner rotate"> </span> Processing Request...
+    </div>
+  </div>
+  </div>
+<section>
+  <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 live-class-image" *ngIf="showImage">
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="!showImage">
+    <div id="agora_local">
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+        <div class="remote-containers" *ngFor="let remote of remoteCalls;">
+          <div class="remote_calls" [id]="remote">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <h3>Meeting Id: 15634828</h3>
+  </div>
+  <div class="text-center mt-3" *ngIf="showStopBtn">
+    <button type="button" class="btn btn-info" (click)="stopLive()">Leave</button>
+  </div>
+  <div class="col-md-6 mt-4 upload-notes" *ngIf="!showStopBtn">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Enter Channel Name" aria-describedby="basic-addon2"
+        name="channel_name" id="channel_name">
+      <div class="input-group-append">
+        <button type="button" class="btn btn-primary" (click)="goLive()">Go Live</button>
+      </div>
+    </div>
+  </div>
+</section>

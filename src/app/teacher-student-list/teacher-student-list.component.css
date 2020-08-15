@@ -1,0 +1,41 @@
+.teacher-student-list {
+  top: 71px;
+  left: 1460px;
+  width: 422px;
+  height: 897px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 34px;
+  opacity: 1;
+}
+
+.student {
+  top: 20px;
+  text-align: center;
+  font: bold 20px Segoe UI;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+img {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+  }
+  .row{
+    margin-top:10px;
+    height: 50px;
+    width: 100%;
+    padding: 2px 16px;
+    background-color: #f1f1f1;
+  }
+  .col{
+    padding-top: 7px;
+    text-align: center;
+    font: normal 22px Segoe UI;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+
+  }

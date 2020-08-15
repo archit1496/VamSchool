@@ -1,0 +1,24 @@
+[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
+  
+  [type="file"] + label {
+    width: 180px;
+    background: transparent linear-gradient(256deg, #36D1DC 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    border: 1px solid #007bff;;
+    border-radius: 18px;
+    cursor: pointer;
+    position: relative;
+    padding: 1rem 50px;
+    font-weight: 400;
+    text-align: center;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    margin-top: 8px;
+    height: 39px;
+}
+  

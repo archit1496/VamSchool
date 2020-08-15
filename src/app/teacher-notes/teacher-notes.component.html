@@ -1,0 +1,30 @@
+<div *ngIf="spinnerFlag">
+  <div class="myOverlay text-center">
+    <div class="btn btn-static font-xl bg-light">
+      <span class="fa fa-spinner rotate"> </span> Processing Request...
+    </div>
+  </div>
+  </div>
+<div class="notes">
+  <div class="row">
+    <div class="notes-image"></div>
+  </div>
+
+  <div class="col-md-6 mt-4 upload-notes">
+    <div class="input-group mb-3 notesSectionTeacher">
+      <div>
+      <input type="text" class="form-control" placeholder="Enter Topic" aria-describedby="basic-addon2"
+      [(ngModel)]="notesTopic">
+    </div>
+      <div class="input-group-append">
+        <input type="file" id="file" (change)="uploadNotes($event)">
+        <label for="file">
+            Upload Notes
+        <i class="fa fa-upload" aria-hidden="true"></i>
+        </label>
+          <!-- <button class="btn btn-primary" >Upload Notes</button> -->
+      </div>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,264 @@
+/* You can add global styles to this file, and also import other style files */
+/* 
+* {
+  box-sizing: border-box;
+} */
+
+html, body { 
+    height: 100%;
+}
+body {
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.chapter{
+    color: rgba(0,0,0,.5);
+}
+
+.liveBtn{
+    width: 180px;
+    background: transparent linear-gradient(256deg, var(--unnamed-color-36d1dc) 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(256deg, #36D1DC 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
+    border-radius: 18px;
+    opacity: 1;
+}
+
+.liveBtnVideo{
+  /* width: 180px; */
+  background: transparent linear-gradient(256deg, var(--unnamed-color-36d1dc) 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(256deg, #36D1DC 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
+  border-radius: 18px;
+  opacity: 1;
+}
+
+.card{
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.welcome{
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    backdrop-filter: blur(30px); 
+    -webkit-backdrop-filter: blur(30px);
+    /* width: 1300px; */
+    /* margin-left: -28px; */
+    height: 60px;
+}
+
+.student-name{
+    padding-left: 80px;
+}
+
+.navbarLink{
+    font-size: 18px;
+}
+
+.navitem{
+    margin-right: 7rem;
+}
+
+.navbarClass{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 12px #81818133;
+    border-radius: 22px 22px 0px 0px;
+    opacity: 1;
+}
+
+.navbar-light .navbar-nav .active.nav-link{
+    background-color: #007bff;
+    border-radius: .25rem;
+}
+
+.myOverlay {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding-top: 20%;
+
+}
+.rotate {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    -ms-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+   }
+   
+   @-ms-keyframes spin { 100% { -ms-transform: rotate(360deg); } }
+   @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+   @media only screen and (max-width: 360px) {
+    .login-image{
+        display: none;
+    }
+    .wtchVideo{
+      text-align: left;
+    }
+    .downloadBtn{
+      margin-left: -32px !important;
+      width: 150px !important;
+    }
+    .liveBtnVideo{
+      /* width: 160px; */
+    }
+    .sideBarLS{
+      display: none;
+    }
+    .navSideBarForSS{
+      display: block;
+    }
+    #agora_local{
+      margin:auto;
+      height: 500px;
+      width: 500px;
+      display: inline-block;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .login-image{
+        display: none;
+    }
+    .wtchVideo{
+      text-align: left;
+    }
+    .downloadBtn{
+      margin-left: -25px;
+      width: 180px;
+    }
+    .liveBtnVideo{
+      /* width: 160px; */
+    }
+    .sideBarLS{
+      display: none;
+    }
+    .navSideBarForSS{
+      display: block;
+    }
+
+    .imgResponsive{
+      max-width: 100%;
+      height: auto;
+    }
+
+    .contact-us{
+      padding-top: 50px !important;
+    }
+    
+    .teacher-student-list{
+      width: 100% !important;
+    }
+      
+    .notesSectionTeacher{
+      top:20px;
+    } 
+    #agora_local{
+      margin:auto;
+      height: 500px;
+      width: 500px;
+      display: inline-block;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .wtchVideo{
+    text-align: left;
+  }
+  .liveBtnVideo{
+    /* width: 160px; */
+  }
+  .downloadBtn{
+    margin-left: auto;
+  }
+  .sideBarLS{
+    display: none;
+  }
+  .navSideBarForSS{
+    display: block;
+  }
+  #agora_local{
+    height: 500px;
+    width: 500px;
+    display: inline-block;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .wtchVideo{
+    text-align: right;
+  }
+  .downloadBtn{
+    margin-left: auto;
+    width: 180px;
+  }
+  .navSideBarForSS{
+    display: none;
+  }
+  .sideBarLS{
+    display: block;
+  }
+  #agora_local{
+    height: 551px;
+    width: 1142px;
+    display: inline-block;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .wtchVideo{
+    text-align: right;
+  }
+  .downloadBtn{
+    margin-left: auto;
+    width: 180px;
+  }
+  .navSideBarForSS{
+    display: none;
+  }
+  .sideBarLS{
+    display: block;
+  }
+  #agora_local{
+    height: 551px;
+    width: 1142px;
+    display: inline-block;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .wtchVideo{
+    text-align: right;
+  }
+  .downloadBtn{
+    margin-left: auto;
+    width: 180px;
+  }
+  .navSideBarForSS{
+    display: none;
+  }
+  .sideBarLS{
+    display: block;
+  }
+  #agora_local{
+    height: 551px;
+    width: 1142px;
+    display: inline-block;
+  }
+}
