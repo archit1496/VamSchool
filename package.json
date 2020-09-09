@@ -22,7 +22,6 @@
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
-    "@zoomus/websdk": "^1.8.0",
     "angular-agora-rtc": "^0.1.0",
     "bootstrap": "^4.5.0",
     "font-awesome": "^4.7.0",

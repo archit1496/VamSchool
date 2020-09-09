@@ -10,6 +10,7 @@ export class StudentNotesComponent implements OnInit {
 
   notesList = [];
   isLoading = false;
+  twilioToken;
 
   constructor(
     private studentService: StudentService
@@ -19,12 +20,21 @@ export class StudentNotesComponent implements OnInit {
     this.fetchNotes();
   }
 
+  getTwilioToken(){
+    this.studentService.getTwilioToken().subscribe(res => {
+      this.twilioToken = res;
+      console.log("Token = "+this.twilioToken)
+    })
+  }
+
+
   fetchNotes(){
     this.isLoading = true;
     this.studentService.fetchNotes().subscribe(res => {
       this.isLoading = false;
       this.notesList = res;
     })
+    this.getTwilioToken();
   }
 
   readNotes(notes){

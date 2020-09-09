@@ -76,7 +76,11 @@ export class AppUrl {
   }
 
   static get FETCH_UPLOADED_VIDEOS(): string {
-    return AppUrl.APP_URL + 'video/?course=4'
+    return AppUrl.APP_URL + 'video/?course=4';
+  }
+
+  static get GET_TWILIO_TOKEN(): string {
+    return AppUrl.APP_URL + 'course/token';
   }
   
 }
