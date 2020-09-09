@@ -5,10 +5,10 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 
-import { ZoomMtg } from '@zoomus/websdk';
+// import { ZoomMtg } from '@zoomus/websdk';
 
-ZoomMtg.preLoadWasm();
-ZoomMtg.prepareJssdk();
+// ZoomMtg.preLoadWasm();
+// ZoomMtg.prepareJssdk();
 
 @Component({
   selector: 'app-teacher-live-class',
@@ -44,50 +44,50 @@ export class TeacherLiveClassComponent implements OnInit {
     this.getSignature();
   }
 
-  goLive(){
-    console.log("Signature = "+this.signature)
-    document.getElementById('zmmtg-root').style.display = 'block'
+  // goLive(){
+  //   console.log("Signature = "+this.signature)
+  //   document.getElementById('zmmtg-root').style.display = 'block'
 
-    ZoomMtg.init({
-      leaveUrl: this.leaveUrl,
-      isSupportAV: true,
-      success: (success) => {
-        console.log(success)
+  //   ZoomMtg.init({
+  //     leaveUrl: this.leaveUrl,
+  //     isSupportAV: true,
+  //     success: (success) => {
+  //       console.log(success)
 
-        ZoomMtg.join({
-          signature: this.signature,
-          meetingNumber: this.meetingNumber,
-          userName: this.userName,
-          apiKey: this.apiKey,
-          userEmail: this.userEmail,
-          passWord: this.passWord,
-          success: (success) => {
-            console.log(success)
-          },
-          error: (error) => {
-            console.log(error)
-          }
-        })
+  //       ZoomMtg.join({
+  //         signature: this.signature,
+  //         meetingNumber: this.meetingNumber,
+  //         userName: this.userName,
+  //         apiKey: this.apiKey,
+  //         userEmail: this.userEmail,
+  //         passWord: this.passWord,
+  //         success: (success) => {
+  //           console.log(success)
+  //         },
+  //         error: (error) => {
+  //           console.log(error)
+  //         }
+  //       })
 
-      },
-      error: (error) => {
-        console.log(error)
-      }
-    })
+  //     },
+  //     error: (error) => {
+  //       console.log(error)
+  //     }
+  //   })
 
-  }
+  // }
 
-  getSignature() {
-    //alert("Entered")
-    this.signature = ZoomMtg.generateSignature({
-		  meetingNumber: this.meetingNumber,
-		  apiKey: this.apiKey,
-		  apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
-		  role: 1,
-		  success: function(res){
-		  console.log(res.result);
-		  }
-		  });
-  }
+  // getSignature() {
+  //   //alert("Entered")
+  //   this.signature = ZoomMtg.generateSignature({
+	// 	  meetingNumber: this.meetingNumber,
+	// 	  apiKey: this.apiKey,
+	// 	  apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
+	// 	  role: 1,
+	// 	  success: function(res){
+	// 	  console.log(res.result);
+	// 	  }
+	// 	  });
+  // }
   
 }
