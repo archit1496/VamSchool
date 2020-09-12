@@ -12,15 +12,16 @@ const routes: Routes = [
 
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'help', component: HelpComponent },
   { path: 'contact', component: ContactusComponent },
   { path: 'wrapper', loadChildren: () => import('./shared-modules/shared.module').then(m => m.SharedModule)},
 
   // Wildcard Route
-  { path: '**', component: LoginComponent },
+  { path: '**', component: HomeComponent },
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent }
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

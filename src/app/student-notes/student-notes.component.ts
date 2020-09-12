@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/service/student.service';
+import { TwilioService } from 'src/service/twilio.service';
 
 @Component({
   selector: 'app-student-notes',
@@ -11,24 +12,37 @@ export class StudentNotesComponent implements OnInit {
   notesList = [];
   isLoading = false;
   twilioToken;
+  accessToken: any;
+  roomName: string;
+  username: string;
+  message: string;
 
   constructor(
-    private studentService: StudentService
+    private studentService: StudentService,
+    private twilioService: TwilioService
   ) { }
 
   ngOnInit() {
     this.fetchNotes();
   }
 
-  getTwilioToken(){
+  getTwilioToken() {
     this.studentService.getTwilioToken().subscribe(res => {
       this.twilioToken = res;
-      console.log("Token = "+this.twilioToken)
-    })
+      console.log("Token = " + JSON.stringify(this.twilioToken))
+      this.accessToken = this.twilioToken.token;
+      this.connect(this.accessToken);
+    });
   }
 
+  connect(accessToken) {
+    let Chat = require('twilio-chat');
+    Chat.Client.create(accessToken).then(client => {
+        // Use client
+    });
+  }
 
-  fetchNotes(){
+  fetchNotes() {
     this.isLoading = true;
     this.studentService.fetchNotes().subscribe(res => {
       this.isLoading = false;
@@ -37,7 +51,7 @@ export class StudentNotesComponent implements OnInit {
     this.getTwilioToken();
   }
 
-  readNotes(notes){
+  readNotes(notes) {
     window.open(notes, "_new");
   }
 

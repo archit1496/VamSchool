@@ -41,7 +41,7 @@ export class TeacherLiveClassComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getSignature();
+    //this.getSignature();
   }
 
   // goLive(){

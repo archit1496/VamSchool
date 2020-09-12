@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-light bg-white pt-4">
     <div class="container-fluid">
-      <a class="navbar-brand ml-5" href="#" style="color: #36D1DC;font-size: 24px;">
+      <a class="navbar-brand ml-5 homeNavbrand" href="#">
         <b>VAM</b>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -12,22 +12,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mr-5">
           <li class="nav-item">
-            <a class="nav-link ml-5" routerLink="/login" routerLinkActive="active">
-              <b>Home</b>
+            <a class="nav-link ml-5 loginItems" routerLink="/aboutus" routerLinkActive="active">
+              About
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link ml-5" routerLink="/aboutus" routerLinkActive="active">
-              <b>About Us</b>
+            <a class="nav-link ml-5 loginItems" routerLink="/contact" routerLinkActive="active">
+              Contact Us
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link ml-5" routerLink="/help" routerLinkActive="active">
-              <b>Help</b></a>
+            <a class="nav-link ml-5 loginItems" (click)="login()" routerLinkActive="active">
+              Login
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link ml-5" routerLink="/contact" routerLinkActive="active">
-              <b>Contact Us</b>
+            <a class="nav-link ml-5">
+              <button type="button" class="requestDemo btn">Request Demo</button>
             </a>
           </li>
         </ul>
@@ -100,58 +101,3 @@
     </div>
   </div>
 </section>
-
-<!-- <section class="container-fluid mt-5 text-center" id="contact">
-  <div class="contact-row col-12">
-      <h2 class="font-weight-bold pt-3">Contact</h2>
-      <address class="mt-4">
-          MS Plaza, Rathyatra Crossing<br>
-           Varanasi,
-          Uttar Pradesh - 221010
-      </address>
-      <div>
-          <span><b>Mobile:</b>
-              <a href="tel:7688884790"> +91-7688884790</a></span>
-          &nbsp;
-          <span><b>Mail:</b>
-              <a href="mailto:vamgenschool@gmail.com"> vamgenschool@gmail.com</a></span>
-      </div>
-      <div class="pb-2 pt-4">
-          <span class="copyright">&copy; Vam School; Estd: 2020</span>
-      </div>
-</div>
-
-</section> -->
-
-<!--   
-<div class="py-5">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        <span class="anchor" id="formLogin"></span>
-  
-        
-        <div class="card rounded-0">
-          <div class="card-header">
-            <h3 class="mb-0">Login</h3>
-          </div>
-          <div class="card-body">
-            <form class="form">
-              <div class="form-group">
-                <label for="uname1">Username</label>
-                <input type="text" class="form-control rounded-0" [(ngModel)]="loginUserData.email" name="email" required>
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control rounded-0" [(ngModel)]="loginUserData.password" name="password" required>
-              </div>
-              <button type="button" (click)="loginUser()" class="btn btn-success float-right">Login</button>
-            </form>
-          </div>
-        
-        </div>
-     
-  
-      </div>
-    </div>
-  </div>
-   -->

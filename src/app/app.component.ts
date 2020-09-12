@@ -25,7 +25,7 @@ export class AppComponent {
       
     }
     else{
-       this.router.navigate(['/login'])
+       this.router.navigate(['/home'])
     }
   }
 }
