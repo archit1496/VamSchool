@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/service/student.service';
-import { TwilioService } from 'src/service/twilio.service';
 
 @Component({
   selector: 'app-student-notes',
@@ -18,9 +17,7 @@ export class StudentNotesComponent implements OnInit {
   message: string;
 
   constructor(
-    private studentService: StudentService,
-    private twilioService: TwilioService
-  ) { }
+    private studentService: StudentService) { }
 
   ngOnInit() {
     this.fetchNotes();
@@ -31,16 +28,16 @@ export class StudentNotesComponent implements OnInit {
       this.twilioToken = res;
       console.log("Token = " + JSON.stringify(this.twilioToken))
       this.accessToken = this.twilioToken.token;
-      this.connect(this.accessToken);
+     // this.connect(this.accessToken);
     });
   }
 
-  connect(accessToken) {
-    let Chat = require('twilio-chat');
-    Chat.Client.create(accessToken).then(client => {
-        // Use client
-    });
-  }
+  // connect(accessToken) {
+  //   let Chat = require('twilio-chat');
+  //   Chat.Client.create(accessToken).then(client => {
+  //       // Use client
+  //   });
+  // }
 
   fetchNotes() {
     this.isLoading = true;

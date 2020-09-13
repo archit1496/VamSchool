@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,16 +8,13 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  @Input() showHeader: Boolean;
+
   constructor(
     public router: Router
   ) { }
 
   ngOnInit() {
-  }
-
-  login(){
-    alert("enetred")
-    this.router.navigate(['/login']);
   }
 
 }

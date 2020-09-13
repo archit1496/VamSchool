@@ -18,6 +18,7 @@ import { MaterialModule } from './shared-modules/material.module';
 import { HtpInterceptor } from 'src/service/interceptor.service';
 
 import { ToastrModule } from 'ngx-toastr';
+import { HomeHeaderComponent } from './home-header/home-header.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     AboutusComponent,
     HelpComponent,
-    ContactusComponent
+    ContactusComponent,
+    HomeHeaderComponent
   ],
   imports: [
     FormsModule,
