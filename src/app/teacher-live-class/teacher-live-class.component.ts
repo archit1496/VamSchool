@@ -44,9 +44,9 @@ export class TeacherLiveClassComponent implements OnInit {
     this.getSignature();
   }
 
-  goLive(){
-    console.log("Signature = "+this.signature)
-    document.getElementById('zmmtg-root').style.display = 'block'
+  startMeeting(signature){
+    console.log("Signature = "+signature)
+   document.getElementById('zmmtg-root').style.display = 'block'
 
     ZoomMtg.init({
       leaveUrl: this.leaveUrl,
@@ -55,7 +55,7 @@ export class TeacherLiveClassComponent implements OnInit {
         console.log(success)
 
         ZoomMtg.join({
-          signature: this.signature,
+          signature: signature,
           meetingNumber: this.meetingNumber,
           userName: this.userName,
           apiKey: this.apiKey,
@@ -85,6 +85,7 @@ export class TeacherLiveClassComponent implements OnInit {
 		  apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
 		  role: 1,
 		  success: function(res){
+	          this.startMeeting(res.result)
 		  console.log(res.result);
 		  }
 		  });
