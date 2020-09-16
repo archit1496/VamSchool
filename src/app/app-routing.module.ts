@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'help', component: HelpComponent },
   { path: 'contact', component: ContactusComponent },
   { path: 'home-header', component: HomeHeaderComponent },
+  { path: 'password-change', component: PasswordChangeComponent },
   { path: 'wrapper', loadChildren: () => import('./shared-modules/shared.module').then(m => m.SharedModule)},
 
   // Wildcard Route
