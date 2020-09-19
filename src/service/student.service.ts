@@ -44,5 +44,8 @@ export class StudentService extends BaseService{
     return this.getRequest(AppUrl.FETCH_UPLOADED_VIDEOS);
   }
 
+  getTwilioToken(): Observable<any>{
+    return this.twilioGetRequest(AppUrl.GET_TWILIO_TOKEN);
+  }
 
 }

@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   }
   
   loginUser() {
+    this.router.navigate(['wrapper/student-main-page']);
       this.isLoading = true;
       this.loginError = '';
       this.loginForm.get('password').markAsTouched();
@@ -36,14 +37,14 @@ export class LoginComponent implements OnInit {
       this.authService.authenticate(this.loginForm.value).subscribe(data => {
         this.isLoading = false;
         StorageService.setItem('token',data.token);
-        StorageService.setItem('role',data.role[0]);
-        if(data.role[0]==='TEACHER')
+        StorageService.setItem('role',data.role);
+        if(data.role==='TEACHER')
         {
           this.router.navigate(['wrapper/teacher-main-page']);
-        } else if(data.role[0]==='STUDENT'){
+        } else if(data.role==='STUDENT'){
           this.router.navigate(['wrapper/student-main-page']);
         }
-        else if(data.role[0]==='OWNER'){
+        else if(data.role==='OWNER'){
           this.router.navigate(['wrapper/admin']);
         }
         

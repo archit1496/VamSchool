@@ -7,20 +7,25 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { HomeHeaderComponent } from './home-header/home-header.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 const routes: Routes = [
 
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'help', component: HelpComponent },
   { path: 'contact', component: ContactusComponent },
+  { path: 'home-header', component: HomeHeaderComponent },
+  { path: 'password-change', component: PasswordChangeComponent },
   { path: 'wrapper', loadChildren: () => import('./shared-modules/shared.module').then(m => m.SharedModule)},
 
   // Wildcard Route
-  { path: '**', component: LoginComponent },
+  { path: '**', component: HomeComponent },
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent }
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

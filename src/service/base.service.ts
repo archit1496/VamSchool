@@ -1,4 +1,3 @@
-
 import {HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {throwError} from 'rxjs';
@@ -80,6 +79,16 @@ export class BaseService {
     return this.http.get(url, {params}).pipe(
       map(res => {
         return res['data'];
+      }),
+      catchError(err => {
+        return this.handleError(err);
+      })
+    );
+  }
+  public twilioGetRequest(url, params = {}) {
+    return this.http.get(url, {params}).pipe(
+      map(res => {
+        return res;
       }),
       catchError(err => {
         return this.handleError(err);
