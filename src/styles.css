@@ -303,3 +303,11 @@ body {
     display: inline-block;
   }
 }
+
+#zmmtg-root {
+  display: none;
+}
+
+.font-size14{
+  font-size: 14px;
+}

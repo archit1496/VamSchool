@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
+    "@zoomus/websdk": "^1.8.0",
     "angular-agora-rtc": "^0.1.0",
     "bootstrap": "^4.5.2",
     "font-awesome": "^4.7.0",
@@ -31,7 +32,6 @@
     "popper.js": "^1.16.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
-    "twilio-chat": "^2.2.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

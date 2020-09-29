@@ -1,0 +1,49 @@
+.boxModel{
+    padding: 0;
+    height: 100%;
+    overflow: scroll;
+}
+
+.standardDiv{
+    margin-left: 26rem;
+    margin-right: 26rem;
+}
+
+.main-card{
+    border: 1px solid black;
+    height: 95px;
+    width: 95px;
+    background-color: lightgray;
+}
+
+.live-card{
+    border: 1px solid black;
+    height: 200px !important;
+    width: 100%;
+    background-color: lightgray;
+}
+
+.activity-card{
+    border: 1px solid black;
+    height: 200px !important;
+    width: 100%;
+    background-color: lightgray;
+}
+
+.startNow{
+    display: flex;
+    justify-content:flex-end; 
+}
+
+.carousel-control-next {
+
+}
+
+.carousel-control-prev {
+
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: black;
+}

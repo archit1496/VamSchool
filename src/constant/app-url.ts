@@ -16,7 +16,7 @@ export class AppUrl {
   }
 
   static get STUDENT_COURSE_LIST(): string {
-    return AppUrl.APP_URL + 'student/course/';
+    return AppUrl.APP_URL + 'v1/student/course/';
   }
 
   static get STUDENT_IN_COURSE(): string {
@@ -81,6 +81,14 @@ export class AppUrl {
 
   static get GET_TWILIO_TOKEN(): string {
     return AppUrl.APP_URL + 'course/token';
+  }
+
+  static CREATE_MEETING(): string {
+    return AppUrl.APP_URL + 'course/create_live_class/';
+  }
+
+  static get GET_MEETING(): string {
+    return AppUrl.APP_URL + 'course/live_class/?course_id=4';
   }
   
 }

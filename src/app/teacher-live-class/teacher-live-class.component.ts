@@ -5,10 +5,11 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 
-// import { ZoomMtg } from '@zoomus/websdk';
+import { ZoomMtg } from '@zoomus/websdk';
+import { TeacherService } from 'src/service/teacher.service';
 
-// ZoomMtg.preLoadWasm();
-// ZoomMtg.prepareJssdk();
+ZoomMtg.preLoadWasm();
+ZoomMtg.prepareJssdk();
 
 @Component({
   selector: 'app-teacher-live-class',
@@ -17,6 +18,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class TeacherLiveClassComponent implements OnInit {
 
+  topicName: any;
   channelName: string;
   localStream: Stream;
   remoteCalls: any = [];
@@ -27,67 +29,82 @@ export class TeacherLiveClassComponent implements OnInit {
   apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
   meetingNumber = 4583021480
   role = 1
-  leaveUrl = 'http://localhost:4201'
+  leaveUrl = 'http://localhost:4200'
   userName = 'Daily Standup Meeting'
   userEmail = ''
   passWord = 'vamdeepak'
   signature: any;
+  joinURL: any;
 
   constructor(
-    private toaster: ToastrService,
-    public httpClient: HttpClient, 
-    @Inject(DOCUMENT) document
+    private teacherService: TeacherService,
+    private toaster: ToastrService
   ) { 
   }
 
   ngOnInit() {
-    //this.getSignature();
   }
 
-  // goLive(){
-  //   console.log("Signature = "+this.signature)
-  //   document.getElementById('zmmtg-root').style.display = 'block'
+  getSignature() {
+    this.signature = ZoomMtg.generateSignature({
+      meetingNumber: this.meetingNumber,
+      apiKey: this.apiKey,
+      apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
+      role: 1,
+      success: (res) => {
+        console.log(res.result);
+        this.startMeeting(res.result)
+      }
+    });
+  }
 
-  //   ZoomMtg.init({
-  //     leaveUrl: this.leaveUrl,
-  //     isSupportAV: true,
-  //     success: (success) => {
-  //       console.log(success)
+  startMeeting(signature){
+    console.log("Signature = "+signature)
+   document.getElementById('zmmtg-root').style.display = 'block';
 
-  //       ZoomMtg.join({
-  //         signature: this.signature,
-  //         meetingNumber: this.meetingNumber,
-  //         userName: this.userName,
-  //         apiKey: this.apiKey,
-  //         userEmail: this.userEmail,
-  //         passWord: this.passWord,
-  //         success: (success) => {
-  //           console.log(success)
-  //         },
-  //         error: (error) => {
-  //           console.log(error)
-  //         }
-  //       })
+    ZoomMtg.init({
+      leaveUrl: this.leaveUrl,
+      isSupportAV: true,
+      success: (success) => {
+        console.log(success)
 
-  //     },
-  //     error: (error) => {
-  //       console.log(error)
-  //     }
-  //   })
+        ZoomMtg.join({
+          signature: signature,
+          meetingNumber: this.meetingNumber,
+          userName: this.userName,
+          apiKey: this.apiKey,
+          userEmail: this.userEmail,
+          passWord: this.passWord,
+          success: (success) => {
+            console.log(success)
+          },
+          error: (error) => {
+            console.log(error)
+          }
+        })
 
-  // }
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
 
-  // getSignature() {
-  //   //alert("Entered")
-  //   this.signature = ZoomMtg.generateSignature({
-	// 	  meetingNumber: this.meetingNumber,
-	// 	  apiKey: this.apiKey,
-	// 	  apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
-	// 	  role: 1,
-	// 	  success: function(res){
-	// 	  console.log(res.result);
-	// 	  }
-	// 	  });
-  // }
+  }
+
+
+  getMeetingDetails(){
+    this.teacherService.getMeetingDetails().subscribe(res => {
+      console.log("Meeting = "+JSON.stringify(res))
+      this.joinURL =  res.join_url;
+    })
+  }
+
+  createMeeting(){
+    this.teacherService.createZoomMeeting(this.topicName, this.topicName, 4).subscribe(res => {
+      console.log("Response = "+JSON.stringify(res))
+    })
+    this.getMeetingDetails();
+  }
+
   
 }
