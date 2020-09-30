@@ -62,6 +62,14 @@ export class TeacherService extends BaseService {
     return this.http.post(AppUrl.UPLOAD_VIDEO(url), formData, { headers });
   }
 
+  createZoomMeeting(topic,agenda,courseId): Observable<any> {
+    let params = new HttpParams().set("topic", topic).set("agenda", agenda).set("course_id", courseId);
+    return this.postRequest(AppUrl.CREATE_MEETING(), );
+  }
+
+  getMeetingDetails(): Observable<any> {
+    return this.getRequest(AppUrl.GET_MEETING);
+  }
 
 
 }

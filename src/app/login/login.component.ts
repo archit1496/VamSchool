@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
   
   loginUser() {
-    this.router.navigate(['wrapper/student-main-page']);
+    //this.router.navigate(['wrapper/student-main-page']);
       this.isLoading = true;
       this.loginError = '';
       this.loginForm.get('password').markAsTouched();
@@ -40,11 +40,11 @@ export class LoginComponent implements OnInit {
         StorageService.setItem('role',data.role);
         if(data.role==='TEACHER')
         {
-          this.router.navigate(['wrapper/teacher-main-page']);
+          this.router.navigate(['wrapper/teacherdashboard']);
         } else if(data.role==='STUDENT'){
           this.router.navigate(['wrapper/student-main-page']);
         }
-        else if(data.role==='OWNER'){
+        else if(data.role==='SUPER_ADMIN'){
           this.router.navigate(['wrapper/admin']);
         }
         

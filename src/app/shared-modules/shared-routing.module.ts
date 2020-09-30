@@ -33,19 +33,20 @@ const routes: Routes = [
       { path: 'stutimetable', component: StudentTimetableComponent },
       { path: 'stuassignments', component: StudentAssignementsComponent },
       {
-        path: 'teacherdashboard', component: TeacherDashboardComponent, children: [
-          { path: 'teachernotes', component: TeacherNotesComponent },
-          { path: 'teacheruploadvideo', component: TeacherUploadVideoComponent },
-          { path: 'teacherliveclass', component: TeacherLiveClassComponent },
-          { path: 'teacherhomework', component: TeacherHomeWorkComponent },
-          { path: 'teacherstudentlist', component: TeacherStudentListComponent },
-          { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent},
-          {path: 'teachermarksassignments/:topicId', component: TeacherMarksAssignmentComponent}
-        ]
+        path: 'teacherdashboard', component: TeacherDashboardComponent
       },
-      { path: 'teacher-main-page', component: TeacherNavbarComponent, children: [
-        { path: 'header', component: HeaderComponent}
-     ]},
+      { path: 'teachernotes', component: TeacherNotesComponent },
+      { path: 'teacheruploadvideo', component: TeacherUploadVideoComponent },
+      { path: 'teacherliveclass', component: TeacherLiveClassComponent },
+      { path: 'teacherhomework', component: TeacherHomeWorkComponent },
+      { path: 'teacherstudentlist', component: TeacherStudentListComponent },
+      { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent },
+      { path: 'teachermarksassignments/:topicId', component: TeacherMarksAssignmentComponent },
+      // {
+      //   path: 'teacher-main-page', component: TeacherNavbarComponent, children: [
+      //     { path: 'header', component: HeaderComponent }
+      //   ]
+      // },
       {
         path: 'student-dashboard', component: StudentDashboardComponent, children: [
           { path: 'student-live-class', component: StudentLiveClassComponent },
@@ -54,10 +55,12 @@ const routes: Routes = [
           { path: 'student-notes', component: StudentNotesComponent }
         ]
       },
-      { path: 'student-main-page', component: StudentsMainPageComponent, children: [
-        { path: 'header', component: HeaderComponent}
-     ] },
-      
+      {
+        path: 'student-main-page', component: StudentsMainPageComponent, children: [
+          { path: 'header', component: HeaderComponent }
+        ]
+      },
+
     ]
   }
 ]

@@ -20,6 +20,7 @@ import { HtpInterceptor } from 'src/service/interceptor.service';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import { ClassesComponent } from './classes/classes.component';
 
 
 @NgModule({
@@ -32,8 +33,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     HelpComponent,
     ContactusComponent,
     HomeHeaderComponent,
-    PasswordChangeComponent,
-    
+    PasswordChangeComponent
   ],
   imports: [
     FormsModule,

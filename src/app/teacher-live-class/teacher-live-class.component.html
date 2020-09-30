@@ -30,9 +30,13 @@
   <div class="col-md-6 mt-4 upload-notes">
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Enter Channel Name" aria-describedby="basic-addon2"
-        name="channel_name" id="channel_name">
+        name="channel_name" id="channel_name" [(ngModel)]="topicName">
       <div class="input-group-append">
-        <button type="button" class="btn btn-primary" (click)="goLive()">Go Live</button>
+        <button type="button" class="btn btn-primary" (click)="getSignature()">Go Live</button>
+      </div>
+      <div class="ml-4
+      ">
+        <button class="btn btn-primary" (click)="createMeeting()">Create Meeting</button>
       </div>
     </div>
   </div>
