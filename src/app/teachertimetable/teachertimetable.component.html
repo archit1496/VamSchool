@@ -1,3 +1,35 @@
 <div class="container-fluid boxModel">
   <app-teacher-navbar></app-teacher-navbar>
+  <div class="mt-1 standardDiv">
+    <app-classes></app-classes>
+    <h5 class="mt-2"><b>This Week</b></h5>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="col-12">
+          <div class="row">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col mt-2" *ngFor="let data of dummyData">
+                  <div class="main-card">
+                    <span class="mt-4">
+                      {{data.class}} <br>
+                      {{data.when}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

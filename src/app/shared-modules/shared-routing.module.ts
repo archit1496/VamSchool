@@ -32,14 +32,12 @@ const routes: Routes = [
       { path: 'studashboard', component: StudentHomeDashboardComponent },
       { path: 'stutimetable', component: StudentTimetableComponent },
       { path: 'stuassignments', component: StudentAssignementsComponent },
-      {
-        path: 'teacherdashboard', component: TeacherDashboardComponent
-      },
+      { path: 'teacherdashboard', component: TeacherDashboardComponent },
       { path: 'teachernotes', component: TeacherNotesComponent },
       { path: 'teacheruploadvideo', component: TeacherUploadVideoComponent },
       { path: 'teacherliveclass', component: TeacherLiveClassComponent },
       { path: 'teacherhomework', component: TeacherHomeWorkComponent },
-      { path: 'teacherstudentlist', component: TeacherStudentListComponent },
+      { path: 'teacheractivity', component: TeacherStudentListComponent },
       { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent },
       { path: 'teachermarksassignments/:topicId', component: TeacherMarksAssignmentComponent },
       // {

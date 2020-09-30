@@ -1,3 +1,7 @@
 .boxModel{
   padding: 0;
 }
+
+a{
+  cursor: pointer;
+}

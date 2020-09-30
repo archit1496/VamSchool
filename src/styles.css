@@ -311,3 +311,20 @@ body {
 .font-size14{
   font-size: 14px;
 }
+
+.standardDiv{
+    margin-left: 26rem;
+    margin-right: 26rem;
+}
+
+.main-card{
+  border: 1px solid black;
+  height: 95px;
+  width: 100px;
+  background-color: lightgray;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: black;
+}
