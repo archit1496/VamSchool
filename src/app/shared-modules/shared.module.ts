@@ -64,7 +64,8 @@ const agoraConfig: AgoraConfig = {
     StudentHomeDashboardComponent,
     StudentTimetableComponent,
     StudentAssignementsComponent,
-    ClassesComponent
+    ClassesComponent,
+    routingModule
   ],
   imports: [
     CommonModule,
