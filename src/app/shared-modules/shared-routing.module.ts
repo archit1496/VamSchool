@@ -20,12 +20,18 @@ import { StudentsMainPageComponent } from '../students-main-page/students-main-p
 import { TeacherNavbarComponent } from '../teacher-navbar/teacher-navbar.component';
 import { HeaderComponent } from '../header/header.component';
 import { TeacherMarksAssignmentComponent } from '../teacher-marks-assignment/teacher-marks-assignment.component';
+import { StudentHomeDashboardComponent } from '../student-home-dashboard/student-home-dashboard.component';
+import { StudentTimetableComponent } from '../student-timetable/student-timetable.component';
+import { StudentAssignementsComponent } from '../student-assignements/student-assignements.component';
 
 const routes: Routes = [
   {
     path: '', component: WrapperComponent, children: [
       { path: 'admin', component: AdminComponent },
       { path: 'teachertimetable', component: TeachertimetableComponent },
+      { path: 'studashboard', component: StudentHomeDashboardComponent },
+      { path: 'stutimetable', component: StudentTimetableComponent },
+      { path: 'stuassignments', component: StudentAssignementsComponent },
       {
         path: 'teacherdashboard', component: TeacherDashboardComponent
       },

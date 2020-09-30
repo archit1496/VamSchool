@@ -22,6 +22,7 @@ import { HomeHeaderComponent } from './home-header/home-header.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { ClassesComponent } from './classes/classes.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +33,7 @@ import { ClassesComponent } from './classes/classes.component';
     HelpComponent,
     ContactusComponent,
     HomeHeaderComponent,
-    PasswordChangeComponent,
-    ClassesComponent
+    PasswordChangeComponent
   ],
   imports: [
     FormsModule,

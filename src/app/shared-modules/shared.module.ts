@@ -25,6 +25,9 @@ import { HeaderComponent } from '../header/header.component';
 import { HtpInterceptor } from 'src/service/interceptor.service';
 import { TeacherMarksAssignmentComponent } from '../teacher-marks-assignment/teacher-marks-assignment.component';
 import { SidebarSsComponent } from '../sidebar-ss/sidebar-ss.component';
+import { StudentHomeDashboardComponent } from '../student-home-dashboard/student-home-dashboard.component';
+import { StudentTimetableComponent } from '../student-timetable/student-timetable.component';
+import { StudentAssignementsComponent } from '../student-assignements/student-assignements.component';
 
 import { AgoraConfig, AngularAgoraRtcModule } from 'angular-agora-rtc';
 
@@ -56,7 +59,10 @@ const agoraConfig: AgoraConfig = {
     TeacherNavbarComponent,
     HeaderComponent,
     SidebarSsComponent,
-    routingModule
+    routingModule,
+    StudentHomeDashboardComponent,
+    StudentTimetableComponent,
+    StudentAssignementsComponent
   ],
   imports: [
     CommonModule,
@@ -85,7 +91,10 @@ const agoraConfig: AgoraConfig = {
     StudentsMainPageComponent,
     TeacherNavbarComponent,
     HeaderComponent,
-    SidebarSsComponent
+    SidebarSsComponent,
+    StudentHomeDashboardComponent,
+    StudentTimetableComponent,
+    StudentAssignementsComponent
   ],
   providers: [HtpInterceptor]
 })

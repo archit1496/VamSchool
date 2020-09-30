@@ -1,3 +1,6 @@
+import { StudentAssignementsComponent } from './student-assignements/student-assignements.component';
+import { StudentTimetableComponent } from './student-timetable/student-timetable.component';
+import { StudentHomeDashboardComponent } from './student-home-dashboard/student-home-dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadingStrategy, PreloadAllModules } from '@angular/router';
 
@@ -20,6 +23,12 @@ const routes: Routes = [
   { path: 'contact', component: ContactusComponent },
   { path: 'home-header', component: HomeHeaderComponent },
   { path: 'password-change', component: PasswordChangeComponent },
+  
+
+
+
+
+
   { path: 'wrapper', loadChildren: () => import('./shared-modules/shared.module').then(m => m.SharedModule)},
 
   // Wildcard Route
