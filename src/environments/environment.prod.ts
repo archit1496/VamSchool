@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  appUrl: 'https://api.onwardlearn.in/'
+  appUrl: 'https://api.vamschool.in/'
 };
