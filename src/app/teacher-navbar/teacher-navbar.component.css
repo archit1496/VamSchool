@@ -2,3 +2,32 @@
     border-bottom: 1px solid black;
     border-width: 10px;
 }
+
+.name
+{
+    position:absolute;
+    padding-left:200px;
+    font-size:30px;
+}
+
+.logo-img{
+    margin-top: -4px !important;
+    position: absolute;
+    margin-left: -17rem;
+    background-color: beige;
+}
+
+.logo-name{
+    color: black;
+}
+
+.logo-name-div{
+    position: absolute;
+    margin-left: -11rem;
+}
+
+.logo-school-div{
+    position: absolute;
+    margin-top: 2rem;
+    margin-left: -11rem;
+}

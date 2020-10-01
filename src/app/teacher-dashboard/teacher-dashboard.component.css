@@ -1,3 +1,13 @@
+a b{
+    color: black;
+    cursor: pointer;
+}
+
+a b:hover{
+    color: blue;
+}
+
+
 .boxModel{
     padding: 0;
     height: 100%;
@@ -29,4 +39,8 @@
 
 .carousel-control-prev {
 
+}
+
+.class-in-div{
+    margin-top: 7.5rem;
 }
