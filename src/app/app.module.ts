@@ -32,7 +32,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     HelpComponent,
     ContactusComponent,
     HomeHeaderComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
   ],
   imports: [
     FormsModule,

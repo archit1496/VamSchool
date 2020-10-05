@@ -31,6 +31,8 @@ import { StudentAssignementsComponent } from '../student-assignements/student-as
 
 import { AgoraConfig, AngularAgoraRtcModule } from 'angular-agora-rtc';
 import { ClassesComponent } from '../classes/classes.component';
+import { StudentNavBarComponent } from '../student-nav-bar/student-nav-bar.component';
+import { StudentClassSubjectComponent } from '../student-class-subject/student-class-subject.component';
 
 const agoraConfig: AgoraConfig = {
   AppID: 'd93c22ae894740f6a8051d3d34f74da1',
@@ -65,7 +67,9 @@ const agoraConfig: AgoraConfig = {
     StudentTimetableComponent,
     StudentAssignementsComponent,
     ClassesComponent,
-    routingModule
+    routingModule,
+    StudentNavBarComponent,
+    StudentClassSubjectComponent
   ],
   imports: [
     CommonModule,
@@ -98,7 +102,9 @@ const agoraConfig: AgoraConfig = {
     StudentHomeDashboardComponent,
     StudentTimetableComponent,
     StudentAssignementsComponent,
-    ClassesComponent
+    ClassesComponent,
+    StudentNavBarComponent,
+    StudentClassSubjectComponent
   ],
   providers: [HtpInterceptor]
 })

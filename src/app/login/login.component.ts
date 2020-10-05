@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         {
           this.router.navigate(['wrapper/teacherdashboard']);
         } else if(data.role==='STUDENT'){
-          this.router.navigate(['wrapper/student-main-page']);
+          this.router.navigate(['wrapper/studashboard']);
         }
         else if(data.role==='SUPER_ADMIN'){
           this.router.navigate(['wrapper/admin']);

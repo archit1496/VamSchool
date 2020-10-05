@@ -17,7 +17,7 @@ export class AppComponent {
   checkLogin() {
     if (StorageService.getItem('token')) {
       if(StorageService.getItem('role')==='STUDENT')
-          this.router.navigate(['wrapper/student-main-page']);
+          this.router.navigate(['wrapper/studashboard']);
       else if(StorageService.getItem('role')==='TEACHER')
          this.router.navigate(['wrapper/teacherdashboard']);
       else if(StorageService.getItem('role')==='OWNER')
