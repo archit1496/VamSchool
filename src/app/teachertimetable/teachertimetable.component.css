@@ -3,3 +3,15 @@
     height: 100%;
     overflow: scroll !important;
 }
+
+/* .carousel-control-next{
+    position: fixed;
+    top: -16rem !important;
+    right: 25rem !important;
+}
+
+.carousel-control-prev{
+    position: fixed;
+    top: -16rem !important;
+    left: 53rem !important;
+} */

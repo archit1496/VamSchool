@@ -11,6 +11,11 @@ body {
     margin: 0;
 }
 
+a{
+  cursor: pointer !important;
+  color: black !important;
+}
+
 .chapter{
     color: rgba(0,0,0,.5);
 }
@@ -322,13 +327,13 @@ body {
 }
 
 .main-card{
-  border: 1px solid black;
-  height: 95px;
-  width: 100px;
-  background-color: lightgray;
+  border: 1px solid black !important;
+  height: 95px !important;
+  width: 100px !important;
+  background-color: lightgray !important;
 }
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-    background-color: black;
+    background-color: black !important;
 }

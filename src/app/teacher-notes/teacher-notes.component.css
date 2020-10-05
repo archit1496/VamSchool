@@ -2,6 +2,15 @@
   padding: 0;
 }
 
-a{
-  cursor: pointer;
+.main-card-study{
+  border: 1px solid black !important;
+  height: 120px !important;
+  width: 155px !important;
+  background-color: lightgray !important;
+}
+
+.subject{
+  top: 2.5rem;
+  margin-left: 10px;
+  position: relative;
 }
