@@ -24,7 +24,7 @@ export class TeacherNotesComponent implements OnInit {
   ngOnInit() {
     this.dummyData = [
       {
-        'lastUpdated': 'Today',
+        'lastUpdated': 'Wed',
         'numOfFiles': '10',
         'subject': 'Physics'
       },

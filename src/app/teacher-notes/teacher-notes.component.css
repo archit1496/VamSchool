@@ -1,11 +1,13 @@
 .boxModel{
   padding: 0;
+  height: 100%;
+  overflow: scroll !important;
 }
 
 .main-card-study{
   border: 1px solid black !important;
   height: 120px !important;
-  width: 155px !important;
+  width: 152px !important;
   background-color: lightgray !important;
 }
 
