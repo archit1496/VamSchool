@@ -5,28 +5,28 @@
       <div class="navbar-collapse justify-content-left" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link mr-3">
-              <b routerLink="/teacherdashboard/expert-education" routerLinkActive="active">This week</b>
+            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+              <b>This week</b>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-3">
-              <b routerLink="/teacherdashboard/expert-services" routerLinkActive="active">Last week</b>
+            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+              <b>Last week</b>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-3">
-              <b routerLink="/teacherdashboard/expert-availability" routerLinkActive="active">All Previous</b>
+            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+              <b>All Previous</b>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-3">
-              <b routerLink="/teacherdashboard/expert-services" routerLinkActive="active">All Complete</b>
+            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+              <b>All Complete</b>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-3">
-              <b routerLink="/teacherdashboard/expert-availability" routerLinkActive="active">All Incomplete</b>
+            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+              <b>All Incomplete</b>
             </a>
           </li>
         </ul>
@@ -35,34 +35,34 @@
     <div class="mt-3">
       <h5><b>This Week</b></h5>
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-              <div class="col-12">
-                  <div class="row">
-                      <div class="carousel-item active">
-                          <div class="row">
-                              <div class="col" *ngFor="let data of classesDummyData">
-                                  <div class="main-card">
-                                      <span class="mt-4">
-                                          {{data.class}} <br>
-                                          {{data.when}}
-                                      </span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+        <div class="carousel-inner">
+          <div class="col-12">
+            <div class="row">
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col" *ngFor="let data of classesDummyData">
+                    <div class="main-card">
+                      <span class="mt-4">
+                        {{data.class}} <br>
+                        {{data.when}}
+                      </span>
+                    </div>
                   </div>
-                  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                  </a>
+                </div>
               </div>
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
+        </div>
       </div>
-  </div>
+    </div>
     <hr class="mt-3">
     <div class="mt-3">
       <app-classes></app-classes>

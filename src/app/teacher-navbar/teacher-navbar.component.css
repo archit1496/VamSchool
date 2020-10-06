@@ -1,6 +1,7 @@
 .nav-link.active{
-    border-bottom: 1px solid black;
-    border-width: 10px;
+    border-bottom: 1px solid #007bff;
+    border-width: 4px;
+    color: #007bff !important;
 }
 
 .name
@@ -14,7 +15,7 @@
     margin-top: -4px !important;
     position: absolute;
     margin-left: -17rem;
-    background-color: beige;
+    background-color: #007bff;
 }
 
 .logo-name{

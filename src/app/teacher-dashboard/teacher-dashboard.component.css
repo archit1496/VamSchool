@@ -33,14 +33,26 @@ a b:hover{
     justify-content:flex-end; 
 }
 
-.carousel-control-next {
-
+.carousel-control-next{
+    top: -130px !important;
+    right: 0 !important;
 }
-
-.carousel-control-prev {
-
+  
+.carousel-control-prev{
+    top: -133px !important;
+    left: 520px !important;
 }
 
 .class-in-div{
     margin-top: 7.5rem;
+}
+
+.nav-link b .active{
+    border-bottom: 1px solid rgb(15, 15, 182);
+}
+
+.settings-icon{
+    position: absolute;
+    right: 24rem;
+    top: 4rem;
 }

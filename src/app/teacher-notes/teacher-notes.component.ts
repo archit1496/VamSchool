@@ -13,6 +13,8 @@ export class TeacherNotesComponent implements OnInit {
   uploadedNotesResp = [];
   notesTopic: string;
   spinnerFlag = false;
+  dummyData: any;
+  isTiles: boolean;
 
   constructor(
     private toaster: ToastrService,
@@ -20,7 +22,64 @@ export class TeacherNotesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.dummyData = [
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Physics'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Chemistry'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Math'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Physics'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Physics'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Physics'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Physics'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Physics'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Math'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Physics'
+      },
+      {
+        'lastUpdated': 'Wed',
+        'numOfFiles': '10',
+        'subject': 'Math'
+      }
+    ];
+    this.isTiles = true;
   }
 
   uploadNotes(fileInput) {
@@ -41,6 +100,14 @@ export class TeacherNotesComponent implements OnInit {
       this.spinnerFlag = false;
       this.toaster.error("Failed to upload file!", "Failed")
     });
+  }
+
+  tiles(){
+    this.isTiles = true;
+  }
+
+  list(){
+    this.isTiles = false;
   }
 
 }
