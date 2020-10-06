@@ -50,3 +50,9 @@ a b:hover{
 .nav-link b .active{
     border-bottom: 1px solid rgb(15, 15, 182);
 }
+
+.settings-icon{
+    position: absolute;
+    right: 24rem;
+    top: 4rem;
+}
