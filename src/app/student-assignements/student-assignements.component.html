@@ -1,4 +1,4 @@
-
+<!-- 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -83,4 +83,28 @@
  
    
    </div>
-  
+   -->
+
+<div class="container-fluid boxModel">
+  <app-student-nav-bar></app-student-nav-bar>
+  <div class="mt-1 standardDiv">
+    <app-student-class-subject></app-student-class-subject>
+    <h5 class="mt-2"><b>This Week</b></h5>
+
+    <div class="row">
+      <div class="col-2 mt-2" *ngFor="let data of dummyData">
+        <div class="main-card">
+          <span class="mt-4">
+            {{ data.noOfFiles }} <br />
+            <span style="font-size: 10px">
+              {{ data.update }}
+            </span>
+            <div>
+              {{ data.subject }}
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

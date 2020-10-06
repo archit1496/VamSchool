@@ -1,15 +1,5 @@
-
-  .faketimetablescreen {
-    height: 90px;
-	width:80px;
-    background: #aaa;
-  }
-  .scroll-area {
-  width:100%;
-  
-  height:100%;
-   
-  float:left;
-  overflow-x:scroll;
-  overflow-y:hidden;
+.boxModel{
+  padding: 0;
+  height: 100%;
+  overflow: scroll !important;
 }

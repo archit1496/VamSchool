@@ -6,7 +6,58 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-assignements.component.css']
 })
 export class StudentAssignementsComponent implements OnInit {
-
+  dummyData = [
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Physics'
+    },
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Chemistry'
+    },
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Maths'
+    },
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Chemistry'
+    },
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Maths'
+    },
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Maths'
+    },
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Maths'
+    },
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Maths'
+    },
+    {
+      "noOfFiles": "10 Files",
+      "update": "Last Update Today",
+      "subject":'Maths'
+    },
+    // {
+    //   "noOfFiles": "10 Files",
+    //   "update": "Last Update Today",
+    //   "subject":'Maths'
+    // },
+  ]
   constructor() { }
 
   ngOnInit() {
