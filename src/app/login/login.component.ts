@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
         StorageService.setItem('token',data.token);
         StorageService.setItem('role',data.role);
+        StorageService.setItem('firstname',data.first_name);
+        StorageService.setItem('lastname',data.last_name);
         if(data.role==='TEACHER')
         {
           this.router.navigate(['wrapper/teacherdashboard']);

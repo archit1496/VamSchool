@@ -126,28 +126,31 @@
   </div>
    -->
    <div class="container-fluid boxModel">
-    <app-student-nav-bar></app-student-nav-bar>
+    <app-student-nav-bar  [studentDataList]="studentData"  ></app-student-nav-bar>
     <div class="mt-1 standardDiv">
         <app-student-class-subject></app-student-class-subject>
+        <div *ngIf="isLoading" class="text-center">
+          Loading Data, Please wait... 
+      </div>
         <img src="" alt="" height="350" class="mt-2 w-100">
         <div class="row mt-3">
             <div class="col-2">
-                <h1><b>3</b></h1>
+                <h1><b>{{studentDataList?.hw_pending}}</b></h1>
                 <br>
                 <span class="font-size14"><b>HW Pending</b></span>
             </div>
             <div class="col-2">
-                <h1><b>98%</b></h1>
+                <h1><b>{{studentDataList?.attendance}}</b></h1>
                 <br>
                 <span class="font-size14"><b>Attendance</b></span>
             </div>
             <div class="col-2">
-                <h1><b>68%</b></h1>
+                <h1><b>{{studentDataList?.average}}</b></h1>
                 <br>
                 <span class="font-size14"><b>Average</b></span>
             </div>
             <div class="col-2">
-                <h1><b>1</b></h1>
+                <h1><b>{{studentDataList?.test}}</b></h1>
                 <br>
                 <span class="font-size14"><b>Testing</b></span>
             </div>
@@ -157,14 +160,14 @@
             <h5><b>Classes Today</b></h5>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item" *ngFor="let data of dummyData;let i = index"
+                    <div class="carousel-item" *ngFor="let data of todayClassData;let i = index"
                         [ngClass]="{'active' : i == 0}">
                         <div class="row">
                             <div class="col">
                                 <div class="main-card">
                                     <span class="mt-4">
-                                        {{data.class}} <br>
-                                        {{data.when}}
+                                      {{ data?.class_of?.class_name }} {{ data?.class_of?.section }} <br>
+                                        {{ data?.start_time }}
                                     </span>
                                 </div>
                             </div>
@@ -196,9 +199,9 @@
                             </div>
                         </div>
                         <div class="class-in-div">
-                            <span>X Std Section A
-                                <br>
-                                10:00 AM
+                            <span>
+                              {{ todayClassData[0]?.class_of?.class_name }} {{ todayClassData[0]?.class_of?.section }} <br>
+                              {{ todayClassData[0]?.start_time }}
                             </span>
                         </div>
                     </div>

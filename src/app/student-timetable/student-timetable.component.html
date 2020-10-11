@@ -3,14 +3,16 @@
   <div class="mt-1 standardDiv">
     <app-student-class-subject></app-student-class-subject>
     <h5 class="mt-2"><b>This Week</b></h5>
-
+    <div *ngIf="isLoading" class="text-center">
+      Loading Data, Please wait... 
+  </div>
     <div class="row">
-      <div class="col-2 mt-2" *ngFor="let data of dummyData">
+      <div class="col-2 mt-2" *ngFor="let data of timeTableData">
         <div class="main-card">
           <span class="mt-4">
-            {{ data.subject }} <br />
+            {{ data?.course?.subject?.subject_name }} <br />
             <span style="font-size: 13px">
-              {{ data.time }}
+              {{ data?.start_time }}
             </span>
           
           </span>
