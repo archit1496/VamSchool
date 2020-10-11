@@ -1,4 +1,4 @@
-
+<!-- 
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   
@@ -124,4 +124,100 @@
       </div>
     </div>
   </div>
-  
+   -->
+   <div class="container-fluid boxModel">
+    <app-student-nav-bar  [studentDataList]="studentData"  ></app-student-nav-bar>
+    <div class="mt-1 standardDiv">
+        <app-student-class-subject></app-student-class-subject>
+        <div *ngIf="isLoading" class="text-center">
+          Loading Data, Please wait... 
+      </div>
+        <img src="" alt="" height="350" class="mt-2 w-100">
+        <div class="row mt-3">
+            <div class="col-2">
+                <h1><b>{{studentDataList?.hw_pending}}</b></h1>
+                <br>
+                <span class="font-size14"><b>HW Pending</b></span>
+            </div>
+            <div class="col-2">
+                <h1><b>{{studentDataList?.attendance}}</b></h1>
+                <br>
+                <span class="font-size14"><b>Attendance</b></span>
+            </div>
+            <div class="col-2">
+                <h1><b>{{studentDataList?.average}}</b></h1>
+                <br>
+                <span class="font-size14"><b>Average</b></span>
+            </div>
+            <div class="col-2">
+                <h1><b>{{studentDataList?.test}}</b></h1>
+                <br>
+                <span class="font-size14"><b>Testing</b></span>
+            </div>
+        </div>
+        <hr class="mt-2">
+        <div class="mt-3">
+            <h5><b>Classes Today</b></h5>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item" *ngFor="let data of todayClassData;let i = index"
+                        [ngClass]="{'active' : i == 0}">
+                        <div class="row">
+                            <div class="col">
+                                <div class="main-card">
+                                    <span class="mt-4">
+                                      {{ data?.class_of?.class_name }} {{ data?.class_of?.section }} <br>
+                                        {{ data?.start_time }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <div class="mt-2">
+            <div class="row">
+                <div class="col-4">
+                    <h5><b>Now</b></h5>
+                    <div class="live-card mr-3">
+                        <div class="row">
+                            <div class="text-left ml-4 mr-2">
+                                Overdue
+                            </div>
+                            <div class="startNow">
+                               <a (click)="getSignature()" target="_new"><b>Start Now ></b></a>
+                            </div>
+                        </div>
+                        <div class="class-in-div">
+                            <span>
+                              {{ todayClassData[0]?.class_of?.class_name }} {{ todayClassData[0]?.class_of?.section }} <br>
+                              {{ todayClassData[0]?.start_time }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <h5><b>Activity</b></h5>
+                    <div class="activity-card">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-4">
+    <router-outlet></router-outlet>
+</div>
+<footer class="mt-5">
+
+</footer>

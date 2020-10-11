@@ -1,4 +1,4 @@
-.fakeimg {
+/* .fakeimg {
     height: 200px;
     background: #aaa;
   }
@@ -15,4 +15,51 @@
   float:left;
   overflow-x:scroll;
   overflow-y:hidden;
+} */
+
+a b{
+  color: black;
+  cursor: pointer;
+}
+
+a b:hover{
+  color: blue;
+}
+
+
+.boxModel{
+  padding: 0;
+  height: 100%;
+  overflow: scroll;
+}
+
+.live-card{
+  border: 1px solid black;
+  height: 200px !important;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.activity-card{
+  border: 1px solid black;
+  height: 200px !important;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.startNow{
+  display: flex;
+  justify-content:flex-end; 
+}
+
+.carousel-control-next {
+
+}
+
+.carousel-control-prev {
+
+}
+
+.class-in-div{
+  margin-top: 7.5rem;
 }

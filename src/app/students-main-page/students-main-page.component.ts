@@ -18,16 +18,16 @@ export class StudentsMainPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.fetchStudentDetails();
+  //  this.fetchStudentDetails();
   }
 
-  fetchStudentDetails() {
-    this.isLoading = true;
-    this.studentService.fetchStudentDetails().subscribe(res => {
-      this.isLoading = false;
-      this.studentDataList = res;
-    });
-  }
+  // fetchStudentDetails() {
+  //   this.isLoading = true;
+  //   this.studentService.fetchStudentDetails().subscribe(res => {
+  //     this.isLoading = false;
+  //     this.studentDataList = res;
+  //   });
+  // }
 
   oncardClick() {
     this.router.navigate(['/wrapper/student-dashboard/student-live-class']);

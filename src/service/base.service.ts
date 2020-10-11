@@ -95,10 +95,20 @@ export class BaseService {
       })
     );
   }
+  public studentGetRequest(url, params = {}) {
+    return this.http.get(url, {params}).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError(err => {
+        return this.handleError(err);
+      })
+    );
+  }
 
   public handleError(error: HttpErrorResponse) {
     if (error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
+     // console.error('An error occurred:', error.error.message);
     } else {
       console.error(
         `Backend returned code ${error.status}, ` +

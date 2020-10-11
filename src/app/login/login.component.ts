@@ -38,11 +38,13 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
         StorageService.setItem('token',data.token);
         StorageService.setItem('role',data.role);
+        StorageService.setItem('firstname',data.first_name);
+        StorageService.setItem('lastname',data.last_name);
         if(data.role==='TEACHER')
         {
           this.router.navigate(['wrapper/teacherdashboard']);
         } else if(data.role==='STUDENT'){
-          this.router.navigate(['wrapper/student-main-page']);
+          this.router.navigate(['wrapper/studashboard']);
         }
         else if(data.role==='SUPER_ADMIN'){
           this.router.navigate(['wrapper/admin']);

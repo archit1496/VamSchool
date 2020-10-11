@@ -17,7 +17,13 @@ export class StudentService extends BaseService{
   }
 
   fetchStudentDetails(): Observable<any> {
-    return this.getRequest(AppUrl.STUDENT_COURSE_LIST);
+    return this.studentGetRequest(AppUrl.STUDENT_COURSE_LIST);
+  }
+  fetchClassTodayData(): Observable<any> {
+    return this.studentGetRequest(AppUrl.FETCH_CLASS_TODAY_DATA);
+  }
+  fetchTimeTable(): Observable<any>{
+    return this.studentGetRequest(AppUrl.FETCH_TIMETABLE);
   }
 
   fetchAssignmentQuestions(): Observable<any>{

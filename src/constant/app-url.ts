@@ -1,3 +1,4 @@
+import { StorageService } from 'src/service/storage.service';
 import {environment} from '../environments/environment';
 
 export class AppUrl {
@@ -16,9 +17,11 @@ export class AppUrl {
   }
 
   static get STUDENT_COURSE_LIST(): string {
-    return AppUrl.APP_URL + 'v1/student/course/';
+    return AppUrl.APP_URL + 'v1/student/dashboard/';
   }
-
+  static get FETCH_CLASS_TODAY_DATA(): string {
+    return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/?today=true`;
+  }
   static get STUDENT_IN_COURSE(): string {
     return AppUrl.APP_URL + 'course/students_in_course/?course_id=';
   }
@@ -31,9 +34,11 @@ export class AppUrl {
     return AppUrl.APP_URL + 'assignment-questions/';
   }
   static get FETCH_ASSIGNMENT_QUESTIONS(): string {
-    return AppUrl.APP_URL + 'assignment-questions/course_assignments/?course=1';
+    return AppUrl.APP_URL + 'v1/student/assignment_question/';
   }
-  
+  static get FETCH_TIMETABLE(): string {
+    return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/`;
+  }
   static get ASSIGNMENT_LIST(): string {
     return AppUrl.APP_URL + 'assignment-questions/course_assignments/?course=';
   }
