@@ -14,7 +14,6 @@ export class TeacherService extends BaseService {
     super(http);
 
    }
-
  
   getTeacherCourselist(): Observable<any> {
     return this.getRequest(AppUrl.TEACHER_COURSE_LIST);
@@ -71,5 +70,12 @@ export class TeacherService extends BaseService {
     return this.getRequest(AppUrl.GET_MEETING);
   }
 
+  fetchTeacher(): Observable<any> {
+    return this.getRequestNew(AppUrl.FETCHTEACHER);
+  }
+
+  fetchTeacherCourse(): Observable<any> {
+    return this.getRequestNew(AppUrl.FETCHTEACHERCOURSE);
+  }
 
 }

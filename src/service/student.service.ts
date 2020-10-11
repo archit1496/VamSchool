@@ -51,7 +51,7 @@ export class StudentService extends BaseService{
   }
 
   getTwilioToken(): Observable<any>{
-    return this.twilioGetRequest(AppUrl.GET_TWILIO_TOKEN);
+    return this.getRequestNew(AppUrl.GET_TWILIO_TOKEN);
   }
 
 }

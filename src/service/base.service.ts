@@ -85,7 +85,7 @@ export class BaseService {
       })
     );
   }
-  public twilioGetRequest(url, params = {}) {
+  public getRequestNew(url, params = {}) {
     return this.http.get(url, {params}).pipe(
       map(res => {
         return res;

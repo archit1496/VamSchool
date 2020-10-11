@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ZoomMtg } from '@zoomus/websdk';
+import { TeacherService } from 'src/service/teacher.service';
 
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareJssdk();
@@ -23,12 +24,13 @@ export class TeacherDashboardComponent implements OnInit {
   userEmail = ''
   passWord = 'vamdeepak'
   signature: any;
+  teacherCourseData: any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private teacherService: TeacherService) {
   }
 
-
   ngOnInit() {
+    this.fetchTeacherCourse();
     this.dummyData = [
       {
         "class": "X Std A",
@@ -100,7 +102,12 @@ export class TeacherDashboardComponent implements OnInit {
         console.log(error)
       }
     })
+  }
 
+  fetchTeacherCourse(){
+    this.teacherService.fetchTeacherCourse().subscribe(res => {
+      this.teacherCourseData = res;
+    })
   }
 
 

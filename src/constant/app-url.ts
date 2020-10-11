@@ -95,5 +95,13 @@ export class AppUrl {
   static get GET_MEETING(): string {
     return AppUrl.APP_URL + 'course/live_class/?course_id=4';
   }
+
+  static get FETCHTEACHER(): string {
+    return AppUrl.APP_URL + 'v1/teacher/dashboard';
+  }
   
+  static get FETCHTEACHERCOURSE(): string {
+    return AppUrl.APP_URL + 'v1/teacher/course';
+  }
+
 }

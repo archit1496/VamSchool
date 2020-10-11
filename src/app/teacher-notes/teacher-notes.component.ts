@@ -87,9 +87,9 @@ export class TeacherNotesComponent implements OnInit {
     const formData: FormData = new FormData();
     const files: File = fileInput.target.files;
     formData.append('note', files[0], files[0].name);
-    formData.append('teacher', "1");
-    formData.append('course', "2");
-    formData.append('topic', this.notesTopic);
+    formData.append('teacher', "2");
+    formData.append('course', "3");
+    formData.append('topic', files[0].name);
     this.teacherService.uploadNotes(formData).subscribe(data => {
       this.uploadedNotesResp = data;
       this.notesTopic = '';

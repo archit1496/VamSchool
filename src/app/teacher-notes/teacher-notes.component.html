@@ -33,6 +33,12 @@
             <b>{{data.subject}}</b>
           </span>
         </div>
+        <div class="main-card-study mt-4">
+          <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
+          <label for="upload-notes" class="downloadBtn ml-5">
+            <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+          </label>
+        </div>
       </div>
     </div>
 
