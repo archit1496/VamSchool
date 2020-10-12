@@ -16,6 +16,8 @@ export class TeacherNotesComponent implements OnInit {
   dummyData: any;
   isTiles: boolean;
   notesData: any;
+  teacherId: any;
+  courseId;
 
   constructor(
     private toaster: ToastrService,
@@ -23,65 +25,15 @@ export class TeacherNotesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.fetchNotes();
-    this.dummyData = [
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Physics'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Chemistry'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Math'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Physics'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Physics'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Physics'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Physics'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Physics'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Math'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Physics'
-      },
-      {
-        'lastUpdated': 'Wed',
-        'numOfFiles': '10',
-        'subject': 'Math'
-      }
-    ];
+    this.fetchTeacher();
     this.isTiles = true;
+  }
+
+  fetchTeacher() {
+    this.teacherService.fetchTeacher().subscribe(res => {
+      this.teacherId = res.id;
+      this.fetchNotes();
+    })
   }
 
   uploadNotes(fileInput) {
@@ -89,8 +41,8 @@ export class TeacherNotesComponent implements OnInit {
     const formData: FormData = new FormData();
     const files: File = fileInput.target.files;
     formData.append('note', files[0], files[0].name);
-    formData.append('teacher', "2");
-    formData.append('course', "3");
+    formData.append('teacher', this.teacherId);
+    formData.append('course', "5");
     formData.append('topic', files[0].name);
     this.teacherService.uploadNotes(formData).subscribe(data => {
       this.uploadedNotesResp = data;
@@ -114,8 +66,10 @@ export class TeacherNotesComponent implements OnInit {
 
   fetchNotes(){
     this.teacherService.fetchNotes().subscribe(res => {
-      console.log("res notes = "+JSON.stringify(res))
       this.notesData = res;
+      // console.log("Notes data = "+JSON.stringify(this.notesData))
+      // this.courseId = this.notesData.course;
+      // alert(JSON.stringify(this.courseId))
     })
   }
 
