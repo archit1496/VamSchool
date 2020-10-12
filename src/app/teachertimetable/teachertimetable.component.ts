@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TeacherService } from 'src/service/teacher.service';
 
 @Component({
   selector: 'app-teachertimetable',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeachertimetableComponent implements OnInit {
   dummyData: { class: string; when: string; }[];
+  timetableData: any;
 
-  constructor() { }
+  constructor(
+    private teacherService: TeacherService
+  ) { }
 
   ngOnInit() {
+    this.fetchTimetableForTeacher();
     this.dummyData = [
       {
         "class": "X Std A",
@@ -133,6 +138,13 @@ export class TeachertimetableComponent implements OnInit {
         "when": "14:00"
       }
     ]
+  }
+
+  fetchTimetableForTeacher(){
+    this.teacherService.fetchTimetable().subscribe(res => {
+      this.timetableData = res;
+      console.log("Response TT= "+JSON.stringify(this.timetableData))
+    })
   }
 
 }

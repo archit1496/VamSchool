@@ -15,6 +15,7 @@ export class TeacherNotesComponent implements OnInit {
   spinnerFlag = false;
   dummyData: any;
   isTiles: boolean;
+  notesData: any;
 
   constructor(
     private toaster: ToastrService,
@@ -22,6 +23,7 @@ export class TeacherNotesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.fetchNotes();
     this.dummyData = [
       {
         'lastUpdated': 'Wed',
@@ -108,6 +110,13 @@ export class TeacherNotesComponent implements OnInit {
 
   list(){
     this.isTiles = false;
+  }
+
+  fetchNotes(){
+    this.teacherService.fetchNotes().subscribe(res => {
+      console.log("res notes = "+JSON.stringify(res))
+      this.notesData = res;
+    })
   }
 
 }

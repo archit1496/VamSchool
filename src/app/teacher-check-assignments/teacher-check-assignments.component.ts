@@ -13,6 +13,7 @@ export class TeacherCheckAssignmentsComponent implements OnInit {
   assignmentTopicsList = [];
   dummyData;
   classesDummyData: { class: string; when: string; }[];
+  teacherId: any;
 
   constructor(
     public teacherService: TeacherService
@@ -105,17 +106,23 @@ export class TeacherCheckAssignmentsComponent implements OnInit {
         "when": "14:00"
       }
     ]
-    //this.getAssignmentData();
+    this.fetchTeacher();
   }
 
-  // getAssignmentData() {
-  //   const ids = JSON.parse(sessionStorage.getItem('teacherAndCourseId'));
-  //   this.isLoading = true;
-  //   this.teacherService.getAssignmentlist(ids.courseId).subscribe(res => {
-  //     this.isLoading = false;
+  fetchTeacher() {
+    this.teacherService.fetchTeacher().subscribe(res => {
+      this.teacherId = res.id;
+      this.getAssignmentData();
+    })
+  }
 
-  //     this.assignmentTopicsList = res;
+  getAssignmentData() {
+    this.isLoading = true;
+    this.teacherService.getAssignmentlist(this.teacherId).subscribe(res => {
+      this.isLoading = false;
+      this.assignmentTopicsList = res;
+      console.log("Assignment data = "+JSON.stringify(this.assignmentTopicsList))
 
-  //   });
-  // }
+    });
+  }
 }

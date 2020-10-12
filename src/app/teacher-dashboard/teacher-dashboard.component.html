@@ -33,13 +33,13 @@
             <h5><b>Classes Today</b></h5>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div *ngFor="let data of dummyData;let i = index"
+                    <div *ngFor="let data of todaysTimeTable;let i = index"
                         [ngClass]="{'active' : i == 0}" class="carousel-item">
                             <div class="col-3">
                                 <div class="main-card">
                                     <span class="mt-4">
-                                        {{data.class}} <br>
-                                        {{data.when}}
+                                        {{data.class_of.class_name}} {{data.class_of.section}} <br>
+                                        {{data.start_time}}
                                     </span>
                                 </div>
                         </div>
@@ -62,7 +62,7 @@
                     <h5><b>Now</b></h5>
                     <div class="live-card mr-3">
                         <div class="row">
-                            <div class="text-left ml-4 mr-2">
+                            <div class="text-left ml-3 mr-2">
                                 Overdue
                             </div>
                             <div class="startNow">

@@ -19,6 +19,7 @@ a b:hover{
     height: 200px !important;
     width: 100%;
     background-color: lightgray;
+    padding: .5rem;
 }
 
 .activity-card{
@@ -26,6 +27,7 @@ a b:hover{
     height: 200px !important;
     width: 100%;
     background-color: lightgray;
+    padding: 0.5rem;
 }
 
 .startNow{
@@ -44,7 +46,8 @@ a b:hover{
 }
 
 .class-in-div{
-    margin-top: 7.5rem;
+    position: relative;
+    bottom: -7rem;
 }
 
 .nav-link b .active{

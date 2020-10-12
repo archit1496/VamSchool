@@ -318,7 +318,7 @@ a{
 }
 
 .font-size12{
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 .standardDiv{
@@ -328,9 +328,23 @@ a{
 
 .main-card{
   border: 1px solid black !important;
-  height: 95px !important;
+  height: 100px !important;
   width: 100px !important;
   background-color: lightgray !important;
+  padding: 0.5rem;
+}
+
+.main-card-study{
+  border: 1px solid black !important;
+  height: 120px !important;
+  width: 152px !important;
+  background-color: lightgray !important;
+  padding: .5rem;
+}
+
+.subject{
+  position: relative !important;
+  bottom: -8px !important;
 }
 
 .carousel-control-next-icon,

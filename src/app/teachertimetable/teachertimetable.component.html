@@ -9,11 +9,11 @@
           <div class="row">
             <div class="carousel-item active">
               <div class="row">
-                <div class="col mt-2" *ngFor="let data of dummyData">
+                <div class="col mt-2" *ngFor="let data of timetableData">
                   <div class="main-card">
                     <span class="mt-4">
-                      {{data.class}} <br>
-                      {{data.when}}
+                      {{data.class_of.class_name}} {{data.class_of.section}} <br>
+                      {{data.start_time}}
                     </span>
                   </div>
                 </div>

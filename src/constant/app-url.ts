@@ -40,7 +40,7 @@ export class AppUrl {
     return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/`;
   }
   static get ASSIGNMENT_LIST(): string {
-    return AppUrl.APP_URL + 'assignment-questions/course_assignments/?course=';
+    return AppUrl.APP_URL + 'evaluate-answer';
   }
 
     
@@ -104,4 +104,11 @@ export class AppUrl {
     return AppUrl.APP_URL + 'v1/teacher/course';
   }
 
+  static get FETCH_TEACHER_TIMETABLE(): string {
+    return AppUrl.APP_URL + 'v1/teacher/time-table/';
+  }
+
+  static get FETCH_TEACHER_TIMETABLE_TODAY(): string {
+    return AppUrl.APP_URL + 'v1/teacher/time-table/?today=true';
+  }
 }

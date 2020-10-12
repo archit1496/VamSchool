@@ -40,11 +40,16 @@
             <div class="row">
               <div class="carousel-item active">
                 <div class="row">
-                  <div class="col" *ngFor="let data of classesDummyData">
-                    <div class="main-card">
-                      <span class="mt-4">
-                        {{data.class}} <br>
-                        {{data.when}}
+                  <div class="col" *ngFor="let data of assignmentTopicsList">
+                    <div class="main-card-study mr-4 mt-4">
+                      <span>
+                        10 Files <br>
+                      </span>
+                      <span class="mt-2 font-size12"> 
+                        Last updated {{data.created_on | date: 'dd/mm/yyyy hh:mm'}} <br>
+                      </span>
+                      <span class="subject">
+                        <b>{{data.question.course.class_of.class_name}} {{data.question.course.class_of.section}}</b>
                       </span>
                     </div>
                   </div>
@@ -69,12 +74,12 @@
       <div class="mt-2">
         <table class="table table-borderless">
           <tbody>
-            <tr *ngFor="let data of dummyData">
+            <tr *ngFor="let data of assignmentTopicsList">
               <td>
-                <b>{{data.name}} Just Submitted his assignment</b>
+                <b>{{data.student.first_name}} {{data.student.last_name}} Just Submitted his assignment</b>
               </td>
               <td>
-                <b>"{{data.topic}}", {{data.numOfPages}} pages</b>
+                <b>"{{data.question.topic}}", 10 pages</b>
               </td>
             </tr>
           </tbody>

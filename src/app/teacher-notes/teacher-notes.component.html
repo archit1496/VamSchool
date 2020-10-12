@@ -22,15 +22,15 @@
 
     <div class="mt-4 ml-3" *ngIf="isTiles">
       <div class="row">
-        <div class="main-card-study mr-4 mt-4" *ngFor="let data of dummyData">
+        <div class="main-card-study mr-4 mt-4" *ngFor="let data of notesData;let i=index;">
           <span>
-            {{data.numOfFiles}} Files <br>
+            10 Files <br>
           </span>
-          <span> 
-            Last updated {{data.lastUpdated}} <br>
+          <span class="mt-2 font-size12"> 
+            Last updated {{data.created_on | date: 'dd/mm/yyyy hh:mm'}} <br>
           </span>
           <span class="subject">
-            <b>{{data.subject}}</b>
+            <b>{{data.course.subject.subject_name}}</b>
           </span>
         </div>
         <div class="main-card-study mt-4">
@@ -44,16 +44,22 @@
 
     <div class="mt-4" *ngIf="!isTiles">
       <div class="">
-        <div class="main-card-study mr-4 mt-4" *ngFor="let data of dummyData">
-          <span class="ml-1">
-            {{data.numOfFiles}} Files <br>
+        <div class="main-card-study mr-4 mt-4" *ngFor="let data of notesData;">
+          <span>
+            10 Files <br>
           </span>
-          <span class="ml-1"> 
-            Last updated {{data.lastUpdated}} <br>
+          <span class="mt-2 font-size12"> 
+            Last updated {{data.created_on | date: 'dd/mm/yyyy hh:mm'}} <br>
           </span>
           <span class="subject">
-            <b>{{data.subject}}</b>
+            <b>{{data.course.subject.subject_name}}</b>
           </span>
+        </div>
+        <div class="main-card-study mt-4">
+          <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
+          <label for="upload-notes" class="downloadBtn ml-5">
+            <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+          </label>
         </div>
       </div>
     </div>

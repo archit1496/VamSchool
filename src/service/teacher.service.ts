@@ -24,7 +24,7 @@ export class TeacherService extends BaseService {
   }
 
   getAssignmentlist(courseId): Observable<any> {
-    return this.getRequest(AppUrl.ASSIGNMENT_LIST+courseId);
+    return this.getRequest(AppUrl.ASSIGNMENT_LIST);
   }
 
   getQuestionsList(questionId): Observable<any> {
@@ -78,4 +78,15 @@ export class TeacherService extends BaseService {
     return this.getRequestNew(AppUrl.FETCHTEACHERCOURSE);
   }
 
+  fetchNotes(): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_NOTES);
+  }
+
+  fetchTimetable(): Observable<any>{
+    return this.getRequestNew(AppUrl.FETCH_TEACHER_TIMETABLE);
+  }
+
+  fetchTimetableToday(): Observable<any>{
+    return this.getRequestNew(AppUrl.FETCH_TEACHER_TIMETABLE_TODAY);
+  }
 }

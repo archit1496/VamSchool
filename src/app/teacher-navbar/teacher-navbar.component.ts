@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { AuthService } from 'src/service/auth.service';
-import { StorageService } from 'src/service/storage.service';
 import { TeacherService } from 'src/service/teacher.service';
 
 @Component({
@@ -11,22 +10,28 @@ import { TeacherService } from 'src/service/teacher.service';
 })
 export class TeacherNavbarComponent implements OnInit {
   
-  teacherData: any;
+  firstName: any;
+  subject: any;
+  school: any;
+  lastName: string;
 
   constructor(
     private router: Router, public authService: AuthService, public teacherService: TeacherService) {
-    this.fetchTeacher();
   }
 
   ngOnInit() {
+    this.fetchTeacher();
+    this.firstName = JSON.parse(sessionStorage.getItem('firstname'));
+    this.lastName = JSON.parse(sessionStorage.getItem('lastname'));
   }
 
   fetchTeacher() {
     this.teacherService.fetchTeacher().subscribe(res => {
-      this.teacherData = res;
-      console.log("Teacher Data 12= " + this.teacherData)
+      this.subject = res.subject;
+      this.school = res.school;
     })
   }
+
   gotoClassroom(id: number) {
     // const navigationExtras: NavigationExtras = {
     //   state: {

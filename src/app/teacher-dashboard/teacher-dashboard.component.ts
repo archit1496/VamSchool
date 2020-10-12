@@ -25,6 +25,7 @@ export class TeacherDashboardComponent implements OnInit {
   passWord = 'vamdeepak'
   signature: any;
   teacherCourseData: any;
+  todaysTimeTable: any;
 
   constructor(private router: Router, private teacherService: TeacherService) {
   }
@@ -108,7 +109,14 @@ export class TeacherDashboardComponent implements OnInit {
     this.teacherService.fetchTeacherCourse().subscribe(res => {
       this.teacherCourseData = res;
     })
+    this.fetchTodaysTimeTable();
   }
 
+  fetchTodaysTimeTable(){
+    this.teacherService.fetchTimetableToday().subscribe(res => {
+      this.todaysTimeTable = res;
+      console.log("time table today = "+JSON.stringify(res))
+    })
+  }
 
 }
