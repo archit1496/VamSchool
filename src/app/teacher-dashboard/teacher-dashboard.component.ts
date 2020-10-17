@@ -19,7 +19,7 @@ export class TeacherDashboardComponent implements OnInit {
   apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
   meetingNumber = 4583021480
   role = 1
-  leaveUrl = 'http://localhost:4200'
+  leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
   userName = 'Daily Standup Meeting'
   userEmail = ''
   passWord = 'vamdeepak'
