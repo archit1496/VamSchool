@@ -34,33 +34,22 @@
                     <b>Assignments</b>
                 </a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link mr-5 titleColor" >
-                    <b routerLink="/wrapper/studashboard" routerLinkActive="active">Dashboard</b>
-                </a>
-            </li>
             <li class="nav-item">
-                <a class="nav-link mr-5 titleColor">
-                    <b routerLink="/wrapper/stutimetable" routerLinkActive="active">Time
-                        Table</b>
+                <a class="nav-link mr-5" routerLink="/wrapper/studentStudyMaterial" routerLinkActive="active">
+                    <b>Study Material</b>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link mr-5 titleColor">
-                    <b routerLink="/wrapper/stuassignments"
-                        routerLinkActive="active">Assignments</b>
-                </a>
-            </li> -->
-            <li class="nav-item" style="visibility: hidden;">
-                <a class="nav-link mr-5">
-                    <b routerLink="/wrapper/teacheractivity"
-                        routerLinkActive="active">Activity</b>
-                </a>
-            </li>
+          
             <li class="nav-item" style="visibility: hidden;">
                 <a class="nav-link">
                     <b routerLink="/wrapper/teachernotes" routerLinkActive="active">Study
                         Material</b>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <b (click)="logout()" routerLinkActive="active">
+                        Logout</b>
                 </a>
             </li>
         </ul>

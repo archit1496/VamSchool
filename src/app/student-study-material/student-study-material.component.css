@@ -1,0 +1,24 @@
+.boxModel{
+    padding: 0;
+    height: 100%;
+    overflow: scroll !important;
+  }
+  
+  .subject{
+    position: relative;
+    bottom: -8px;
+  }
+  
+  .add-icon{
+    cursor: pointer;
+    padding: 3rem;
+    position: absolute;
+    top: 25.5rem;
+  }
+  
+  [type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
+  

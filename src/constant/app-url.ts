@@ -57,7 +57,7 @@ export class AppUrl {
   }
 
   static get FETCH_NOTES(): string {
-    return AppUrl.APP_URL + 'notes/?course=2';
+    return AppUrl.APP_URL + 'v1/student/note';
   }
 
   static get UPLOAD_ANSWERS(): string{
