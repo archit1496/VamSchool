@@ -23,6 +23,7 @@ import { TeacherMarksAssignmentComponent } from '../teacher-marks-assignment/tea
 import { StudentHomeDashboardComponent } from '../student-home-dashboard/student-home-dashboard.component';
 import { StudentTimetableComponent } from '../student-timetable/student-timetable.component';
 import { StudentAssignementsComponent } from '../student-assignements/student-assignements.component';
+import { StudentStudyMaterialComponent } from '../student-study-material/student-study-material.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,9 @@ const routes: Routes = [
       { path: 'teacheractivity', component: TeacherStudentListComponent },
       { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent },
       { path: 'teachermarksassignments/:topicId', component: TeacherMarksAssignmentComponent },
+      { path: 'studentStudyMaterial', component: StudentStudyMaterialComponent },
+    
+
       // {
       //   path: 'teacher-main-page', component: TeacherNavbarComponent, children: [
       //     { path: 'header', component: HeaderComponent }

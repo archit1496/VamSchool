@@ -199,7 +199,7 @@
                             </div>
                         </div>
                         <div class="class-in-div">
-                            <span>
+                            <span *ngIf="todayClassData?.length>0">
                               {{ todayClassData[0]?.class_of?.class_name }} {{ todayClassData[0]?.class_of?.section }} <br>
                               {{ todayClassData[0]?.start_time }}
                             </span>
