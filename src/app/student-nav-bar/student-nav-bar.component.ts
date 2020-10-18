@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/service/auth.service';
 import { StorageService } from 'src/service/storage.service';
 @Component({
   selector: 'app-student-nav-bar',
@@ -19,10 +20,20 @@ export class StudentNavBarComponent implements OnInit {
    this.schoolName=StorageService.getItem('schoolName');
    this.subjectName=StorageService.getItem('subjectName');
  }
-  constructor() { }
+  constructor(public authService:AuthService) { }
 
   ngOnInit() {
   }
- 
+  logout()
+  {
+   
+    this.authService.logout().subscribe(res=>{
+      if(res)
+      {
+        StorageService.clearAll();
+        location.reload();
+      }
+    })
+  }
 
 }
