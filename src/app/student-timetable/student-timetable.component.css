@@ -3,3 +3,7 @@
   height: 100%;
   overflow: scroll !important;
 }
+.outerDiv{
+  width: 500px;
+  justify-content: center;
+}
