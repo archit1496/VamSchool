@@ -1,10 +1,10 @@
-<app-home-header></app-home-header>
+<app-home-header *ngIf="!fromHome"></app-home-header>
 <section id="contact" class="contact-row" style="margin-top: 200px;">
   <div class="col-12">
    <div class="row">
-     <div class="col-5 mt-5 ml-5">
+     <div class="col-5 m-5">
       <span class="homeNavbrand"><b>VAM</b></span>
-      <p>
+      <p class="mb-5">
         <b>Central Spine, Vidyadhar Nagar, Jaipur,
           <br>
           Rajasthan 302039, India.
@@ -13,7 +13,7 @@
         </b>
       </p>
      </div>
-     <div class="col-4 mt-5">
+     <!-- <div class="col-4 mt-5">
        <b>
          <a href="#" class="footer">About Us</a>
        </b>
@@ -33,7 +33,7 @@
        <b>
          <a href="" class="footer">User Guidance</a>
        </b>
-     </div>
+     </div> -->
      <div class="col-2 mt-5">
        <b>Follow us on: </b><br>
        <div class="mt-4">

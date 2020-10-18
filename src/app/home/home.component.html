@@ -16,8 +16,8 @@
       </div>
     </div>
   </div>
-</section>
 
-<app-aboutus></app-aboutus>
-<app-contactus></app-contactus>
-<router-outlet></router-outlet>
+  <app-aboutus [fromHome]="true"></app-aboutus>
+  <app-contactus [fromHome]="true"></app-contactus>
+  <router-outlet></router-outlet>
+</section>
