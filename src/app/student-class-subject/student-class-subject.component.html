@@ -2,27 +2,27 @@
     <div class="navbar-collapse justify-content-left" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link mr-3 titleColor">
+                <a class="nav-link mr-3 titleColor" (click)="onSubjectTypeClick('All')" [ngClass]="{'active':subjectType==='All'}">
                     <b>All</b>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mr-3 titleColor">
+                <a class="nav-link mr-3 titleColor" (click)="onSubjectTypeClick('Physics')" [ngClass]="{'active':subjectType==='Physics'}">
                     <b >Physics</b>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mr-3 titleColor">
+                <a class="nav-link mr-3 titleColor" (click)="onSubjectTypeClick('Chemistry')" [ngClass]="{'active':subjectType==='Chemistry'}">
                     <b >Chemistry</b>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mr-3 titleColor">
+                <a class="nav-link mr-3 titleColor" (click)="onSubjectTypeClick('Bio')" [ngClass]="{'active':subjectType==='Bio'}">
                     <b >Bio</b>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mr-3 titleColor">
+                <a class="nav-link mr-3 titleColor" (click)="onSubjectTypeClick('Maths')" [ngClass]="{'active':subjectType==='Maths'}">
                     <b >Maths</b>
                 </a>
             </li>

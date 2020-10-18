@@ -15,6 +15,7 @@ export class StudentTimetableComponent implements OnInit {
   thrusdayData;
   fridayData;
   saturdayData;
+  valueWithOutSubjectFilter;
   days=[
     "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"
   ]
@@ -30,6 +31,7 @@ export class StudentTimetableComponent implements OnInit {
     this.studentService.fetchTimeTable().subscribe(res => {
       this.isLoading = false;
       this.timeTableData = res;
+      this.valueWithOutSubjectFilter=[...this.timeTableData];
       this.prepareTimeTableData();
     });
   }
@@ -42,5 +44,19 @@ export class StudentTimetableComponent implements OnInit {
     this.fridayData=this.timeTableData.filter(elm=>elm.day.day=='Friday');
     this.saturdayData=this.timeTableData.filter(elm=>elm.day.day=='Saturday');
     
+  }
+  subjectSelected(event){
+    if(event==='All')
+    {
+      this.timeTableData=[...this.valueWithOutSubjectFilter];
+    }
+    else{
+      let filterValue=this.timeTableData.filter(elm=>elm.course.subject.subject_name=='event');
+      this.timeTableData=filterValue;
+      console.log("ddddd",this.timeTableData);
+
+    }
+    this.prepareTimeTableData();
+   
   }
 }

@@ -9,6 +9,7 @@ import { StudentService } from 'src/service/student.service';
 export class StudentAssignementsComponent implements OnInit {
   isLoading:boolean;
   studentAssignmentData;
+  valueWithOutSubjectFilter;
   dummyData = [
     {
       "noOfFiles": "10 Files",
@@ -73,10 +74,23 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentService.fetchAssignmentQuestions().subscribe(res => {
       this.isLoading = false;
       this.studentAssignmentData = res;
+      this.valueWithOutSubjectFilter=[...this.studentAssignmentData]
     });
   }
 
   getDate(date){
     return (new Date(date).getDate()+'-'+new Date(date).getMonth()+'-'+new Date(date).getFullYear());
+  }
+  subjectSelected(event){
+    if(event==='All')
+    {
+      this.studentAssignmentData=[...this.valueWithOutSubjectFilter];
+    }
+    else{
+      let filterValue=this.studentAssignmentData.filter(elm=>elm.course.subject.subject_name=='event');
+      this.studentAssignmentData=filterValue;
+      console.log("ddddd",this.studentAssignmentData);
+
+    }
   }
 }

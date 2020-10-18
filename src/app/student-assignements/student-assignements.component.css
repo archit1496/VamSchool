@@ -3,3 +3,17 @@
   height: 100%;
   overflow: scroll !important;
 }
+.outerDiv{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.innerDiv{
+  width: 100%;
+  max-width: 832px;
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}

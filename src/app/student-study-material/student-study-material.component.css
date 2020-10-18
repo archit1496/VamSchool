@@ -4,21 +4,18 @@
     overflow: scroll !important;
   }
   
-  .subject{
-    position: relative;
-    bottom: -8px;
+  .outerDiv{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .add-icon{
-    cursor: pointer;
-    padding: 3rem;
-    position: absolute;
-    top: 25.5rem;
+  .innerDiv{
+    width: 100%;
+    max-width: 832px;
   }
-  
-  [type="file"] {
-    height: 0;
-    overflow: hidden;
-    width: 0;
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
   }
   

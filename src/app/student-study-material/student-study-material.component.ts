@@ -9,6 +9,7 @@ import { StudentService } from 'src/service/student.service';
 export class StudentStudyMaterialComponent implements OnInit {
   notesData;
   isLoading:boolean;
+  valueWithOutSubjectFilter;
   constructor(public studentService:StudentService) { }
 
   ngOnInit() {
@@ -19,9 +20,20 @@ export class StudentStudyMaterialComponent implements OnInit {
     this.studentService.fetchNotes().subscribe(res => {
       this.isLoading=false;
       this.notesData = res;
-      // console.log("Notes data = "+JSON.stringify(this.notesData))
-      // this.courseId = this.notesData.course;
-      // alert(JSON.stringify(this.courseId))
+      this.valueWithOutSubjectFilter=[...this.notesData];
+     
     })
+  }
+  subjectSelected(event){
+    if(event==='All')
+    {
+      this.notesData=[...this.valueWithOutSubjectFilter];
+    }
+    else{
+      let filterValue=this.notesData.filter(elm=>elm.course.subject.subject_name=='event');
+      this.notesData=filterValue;
+      console.log("ddddd",this.notesData);
+
+    }
   }
 }
