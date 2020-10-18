@@ -12,4 +12,8 @@ export class ClassesComponent implements OnInit {
   ngOnInit() {
   }
 
+  class(){
+    alert("worked")
+  }
+
 }
