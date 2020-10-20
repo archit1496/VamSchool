@@ -112,13 +112,13 @@ export class TeacherCheckAssignmentsComponent implements OnInit {
   fetchTeacher() {
     this.teacherService.fetchTeacher().subscribe(res => {
       this.teacherId = res.id;
-      this.getAssignmentData();
+      this.getAssignmentData('this');
     })
   }
 
-  getAssignmentData() {
+  getAssignmentData(when) {
     this.isLoading = true;
-    this.teacherService.getAssignmentlist(this.teacherId).subscribe(res => {
+    this.teacherService.getAssignmentlist(this.teacherId, when).subscribe(res => {
       this.isLoading = false;
       this.assignmentTopicsList = res;
       console.log("Assignment data = "+JSON.stringify(this.assignmentTopicsList))
