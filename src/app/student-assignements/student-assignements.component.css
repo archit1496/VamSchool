@@ -4,16 +4,24 @@
   overflow: scroll !important;
 }
 .outerDiv{
-  justify-content: center;
+  flex: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .innerDiv{
   width: 100%;
-  max-width: 832px;
+  max-width: 796px;
+  align-self: flex-end;
 }
 .grid{
   display: grid;
   grid-template-columns: repeat(6,1fr);
+  grid-gap: 5px;
+}
+.activity-card{
+  border: 1px solid black;
+  height: 600px;
+  width: 300px;
+  background-color: lightgray;
 }
