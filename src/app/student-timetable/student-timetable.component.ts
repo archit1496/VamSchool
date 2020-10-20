@@ -9,40 +9,17 @@ import { StudentService } from 'src/service/student.service';
 export class StudentTimetableComponent implements OnInit {
   isLoading:boolean;
   timeTableData=[];
-  dummyData = [
-    {
-      "subject":'Physics',
-      "time":"10:00 Am"
-    },
-    {
-      "subject":'Chemistry',
-      "time":"10:00 Am"
-    },
-    {
-      "subject":'Maths',
-      "time":"10:00 Am"
-    },
-    {
-      "subject":'Physics',
-      "time":"10:00 Am"
-    },
-    {
-      "subject":'Chemistry',
-      "time":"10:00 Am"
-    },
-    {
-      "subject":'Maths',
-      "time":"10:00 Am"
-    },
-    {
-      "subject":'Chemistry',
-      "time":"10:00 Am"
-    },
-    {
-      "subject":'Physics',
-      "time":"10:00 Am"
-    },
+  mondayData;
+  tuesdayData;
+  wednesdayData;
+  thrusdayData;
+  fridayData;
+  saturdayData;
+  valueWithOutSubjectFilter;
+  days=[
+    "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"
   ]
+  
   constructor(public studentService:StudentService) {
     this.fetchTimeTableData();
    }
@@ -54,6 +31,32 @@ export class StudentTimetableComponent implements OnInit {
     this.studentService.fetchTimeTable().subscribe(res => {
       this.isLoading = false;
       this.timeTableData = res;
+      this.valueWithOutSubjectFilter=[...this.timeTableData];
+      this.prepareTimeTableData();
     });
+  }
+
+  prepareTimeTableData(){
+    this.mondayData=this.timeTableData.filter(elm=>elm.day.day=='Monday');
+    this.tuesdayData=this.timeTableData.filter(elm=>elm.day.day=='Tuesday');
+    this.wednesdayData=this.timeTableData.filter(elm=>elm.day.day=='Wednesday');
+    this.thrusdayData=this.timeTableData.filter(elm=>elm.day.day=='Thursday');
+    this.fridayData=this.timeTableData.filter(elm=>elm.day.day=='Friday');
+    this.saturdayData=this.timeTableData.filter(elm=>elm.day.day=='Saturday');
+    
+  }
+  subjectSelected(event){
+    if(event==='All')
+    {
+      this.timeTableData=[...this.valueWithOutSubjectFilter];
+    }
+    else{
+      let filterValue=this.timeTableData.filter(elm=>elm.course.subject.subject_name=='event');
+      this.timeTableData=filterValue;
+      console.log("ddddd",this.timeTableData);
+
+    }
+    this.prepareTimeTableData();
+   
   }
 }

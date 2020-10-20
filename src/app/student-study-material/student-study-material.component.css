@@ -4,21 +4,25 @@
     overflow: scroll !important;
   }
   
-  .subject{
-    position: relative;
-    bottom: -8px;
+  .outerDiv{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .add-icon{
-    cursor: pointer;
-    padding: 3rem;
-    position: absolute;
-    top: 25.5rem;
+  .innerDiv{
+    width: 100%;
+    max-width: 796px;
+    align-self: flex-end;
   }
-  
-  [type="file"] {
-    height: 0;
-    overflow: hidden;
-    width: 0;
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-gap: 5px;
   }
-  
+  .activity-card{
+    border: 1px solid black;
+    height: 600px;
+    width: 300px;
+    background-color: lightgray;
+  }

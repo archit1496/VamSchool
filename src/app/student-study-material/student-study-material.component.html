@@ -1,35 +1,49 @@
 <div class="container-fluid boxModel">
-    <app-student-nav-bar></app-student-nav-bar>
-    <div class="mt-1 standardDiv">
-      <app-student-class-subject></app-student-class-subject>
-      <h5 class="mt-2"><b>This Week</b></h5>
-      <div *ngIf="isLoading" class="text-center">
-        Loading Data, Please wait... 
-    </div>
-      <div class="row">
-        
-            
-              <div class="main-card-study mr-4 mt-4" *ngFor="let data of notesData;">
-                <span>
-                  10 Files <br>
-                </span>
-                <span class="mt-2 font-size12"> 
-                  Last updated {{data.created_on | date: 'dd/mm/yyyy hh:mm'}} <br>
-                </span>
-                <span class="subject">
-                  <b>{{data.course.subject.subject_name}}</b>
-                </span>
-              </div>
-              <!-- <div class="main-card-study mt-4">
-                <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
-                <label for="upload-notes" class="downloadBtn ml-5">
-                  <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
-                </label>
-              </div> -->
-          
-        
+  <app-student-nav-bar></app-student-nav-bar>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      flex-wrap: wrap;
+    "
+  >
+    <section class="outerDiv">
+      <div class="mt-1 innerDiv">
+        <app-student-class-subject
+          (subjectSelected)="subjectSelected($event)"
+        ></app-student-class-subject>
+        <h5 class="mt-2"><b>This Week</b></h5>
+        <div *ngIf="isLoading" class="text-center">
+          Loading Data, Please wait...
+        </div>
+        <div class="grid" *ngIf="notesData?.length > 0">
+          <div class="main-card-study mr-4 mt-4" *ngFor="let data of notesData">
+            <span> 10 Files <br /> </span>
+            <span class="mt-2 font-size12">
+              Last updated {{ data.created_on | date: "dd/mm/yyyy hh:mm" }}
+              <br />
+            </span>
+            <span class="subject">
+              <b>{{ data.course.subject.subject_name }}</b>
+            </span>
+          </div>
+        </div>
+        <div *ngIf="notesData?.length == 0" style="text-align: center">
+          <b>No Data To Display</b>
+        </div>
       </div>
+    </section>
+    <div
+      style="
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      "
+    >
+      <b>Activity</b>
+      <div class="activity-card"></div>
     </div>
   </div>
-
-  
+</div>
