@@ -20,3 +20,7 @@
   overflow: hidden;
   width: 0;
 }
+
+a:hover{
+  color: #368EDB !important;
+}
