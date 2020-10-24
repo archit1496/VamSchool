@@ -366,3 +366,8 @@ a{
 .carousel-control-prev-icon {
     background-color: black !important;
 }
+
+.footer-div{
+  height: 120px !important;
+  background-color: #A9A9A9 !important;
+}
