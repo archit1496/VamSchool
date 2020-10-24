@@ -366,3 +366,11 @@ a{
 .carousel-control-prev-icon {
     background-color: black !important;
 }
+
+.bottom-activity-card{
+  border: 1px solid black;
+  height: 58px;
+  width: 98vw;
+  background-color: lightgray;
+  margin-bottom: 55px;
+}
