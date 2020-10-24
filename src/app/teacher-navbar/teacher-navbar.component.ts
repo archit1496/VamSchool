@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { AuthService } from 'src/service/auth.service';
+import { StorageService } from 'src/service/storage.service';
 import { TeacherService } from 'src/service/teacher.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { TeacherService } from 'src/service/teacher.service';
   styleUrls: ['./teacher-navbar.component.css']
 })
 export class TeacherNavbarComponent implements OnInit {
-  
+
   firstName: any;
   subject: any;
   school: any;
@@ -45,6 +46,15 @@ export class TeacherNavbarComponent implements OnInit {
     //     };
     // sessionStorage.setItem('teacherAndCourseId', JSON.stringify(data));
     // this.router.navigate(['/wrapper/teacherdashboard/teacherliveclass']);
+  }
+
+  logout() {
+    this.authService.logout().subscribe(res => {
+      if (res) {
+        StorageService.clearAll();
+        location.reload();
+      }
+    })
   }
 
 }

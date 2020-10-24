@@ -17,7 +17,7 @@
                 </div>
             </div>
         </a>
-        <ul class="navbar-nav mb-n2">
+        <ul class="navbar-nav mb-n2 ml-5">
             <li class="nav-item">
                 <a class="nav-link mr-5" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
                     <span><b>Dashboard</b></span>
@@ -46,5 +46,8 @@
                 </a>
             </li>
         </ul>
+        <a class="nav-link logout" (click)="logout()">
+            <b>Log Out</b>
+        </a>
     </div>
 </nav>

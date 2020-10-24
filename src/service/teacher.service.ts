@@ -23,8 +23,8 @@ export class TeacherService extends BaseService {
     return this.getRequest(AppUrl.STUDENT_IN_COURSE+courseId);
   }
 
-  getAssignmentlist(courseId): Observable<any> {
-    return this.getRequest(AppUrl.ASSIGNMENT_LIST);
+  getAssignmentlist(courseId, when): Observable<any> {
+    return this.getRequest(AppUrl.ASSIGNMENT_LIST+'?week='+when );
   }
 
   getQuestionsList(questionId): Observable<any> {

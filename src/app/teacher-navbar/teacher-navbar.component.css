@@ -32,3 +32,9 @@
     margin-top: 2rem;
     margin-left: -11rem;
 }
+
+.logout{
+    position: relative;
+    left: 15rem;
+    top: 5px;
+}

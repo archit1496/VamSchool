@@ -6,12 +6,12 @@
       <div class="navbar-collapse justify-content-left" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+            <a class="nav-link mr-3" (click)="getAssignmentData('this')">
               <b>This week</b>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+            <a class="nav-link mr-3" (click)="getAssignmentData('last')">
               <b>Last week</b>
             </a>
           </li>
@@ -21,12 +21,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+            <a class="nav-link mr-3" (click)="getAssignmentData('complete')">
               <b>All Complete</b>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mr-3" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+            <a class="nav-link mr-3" (click)="getAssignmentData('incomplete')">
               <b>All Incomplete</b>
             </a>
           </li>
@@ -92,3 +92,5 @@
   </div>
 </div>
 </div>
+<footer class="footer-div mt-3">
+</footer>

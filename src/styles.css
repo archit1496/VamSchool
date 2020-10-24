@@ -367,10 +367,14 @@ a{
     background-color: black !important;
 }
 
-.bottom-activity-card{
+.footer-card{
   border: 1px solid black;
   height: 58px;
   width: 98vw;
   background-color: lightgray;
   margin-bottom: 55px;
+}
+.footer-div{
+  height: 120px !important;
+  background-color: #A9A9A9 !important;
 }
