@@ -33,8 +33,20 @@ export class AppUrl {
   static uploadDocs(): string {
     return AppUrl.APP_URL + 'assignment-questions/';
   }
-  static get FETCH_ASSIGNMENT_QUESTIONS(): string {
-    return AppUrl.APP_URL + 'v1/student/assignment_question/';
+  static get FETCH_ASSIGNMENT_QUESTIONS_SUBJECT(): string {
+    return AppUrl.APP_URL + "v1/student/dir/?dir_type=1";
+  }
+  static get FETCH_NOTES_QUESTIONS_SUBJECT(): string {
+    return AppUrl.APP_URL + "v1/student/dir/?dir_type=0";
+  }
+  static FETCH_ASSIGNMENT_QUESTIONS_CHAPTER(id): string {
+    return AppUrl.APP_URL + `v1/student/dir/?sub_dir=${id}`;
+  }
+  static FETCH_NOTES_QUESTIONS_CHAPTER(id): string {
+    return AppUrl.APP_URL + `v1/student/dir/?sub_dir=${id}`;
+  }
+  static FETCH_ASSIGNMENT_DATA(id): string {
+    return AppUrl.APP_URL + `v1/student/dir/${id}/assignment_question/`;
   }
   static get FETCH_TIMETABLE(): string {
     return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/`;
@@ -56,8 +68,8 @@ export class AppUrl {
     return AppUrl.APP_URL + 'evaluate-answer/';
   }
 
-  static get FETCH_NOTES(): string {
-    return AppUrl.APP_URL + 'v1/student/note';
+  static FETCH_NOTES(id): string {
+    return AppUrl.APP_URL + `v1/student/dir/${id}/notes/`;
   }
 
   static get UPLOAD_ANSWERS(): string{

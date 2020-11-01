@@ -8,8 +8,11 @@ import { StudentService } from 'src/service/student.service';
 })
 export class StudentAssignementsComponent implements OnInit {
   isLoading:boolean;
-  studentAssignmentData;
+  studentAssignmentDataSubjectWise;
+  studentAssignmentDataTopicWise;
+  assignmentData=[];
   valueWithOutSubjectFilter;
+  subjectFilter:boolean=false;
   dummyData = [
     {
       "noOfFiles": "10 Files",
@@ -63,34 +66,60 @@ export class StudentAssignementsComponent implements OnInit {
     // },
   ]
   constructor(public studentService:StudentService) {
-    this.fetchAssignmentData();
+    this.fetchAssignmentDataSubject();
    }
 
   ngOnInit() {
   }
   
-  fetchAssignmentData() {
+  fetchAssignmentDataSubject() {
+    this.subjectFilter=false;
     this.isLoading = true;
-    this.studentService.fetchAssignmentQuestions().subscribe(res => {
+    this.studentService.fetchAssignmentQuestionsSubject().subscribe(res => {
       this.isLoading = false;
-      this.studentAssignmentData = res;
-      this.valueWithOutSubjectFilter=[...this.studentAssignmentData]
+      this.studentAssignmentDataSubjectWise = res;
+      this.valueWithOutSubjectFilter=[...this.studentAssignmentDataSubjectWise]
     });
   }
-
+  fetchAssignmentDataTopicWise(id:number) {
+    this.subjectFilter=false;
+    this.isLoading = true;
+    this.studentService.fetchAssignmentQuestionsTopic(id).subscribe(res => {
+      this.isLoading = false;
+      this.studentAssignmentDataTopicWise = res;
+      this.studentAssignmentDataSubjectWise=[];
+    });
+  }
+  fetchAssignmentData(id:number) {
+    this.subjectFilter=false;
+    this.isLoading = true;
+    this.studentService.fetchAssignmentData(id).subscribe(res => {
+      this.isLoading = false;
+      this.assignmentData = res;
+      this.studentAssignmentDataTopicWise=[];
+      this.studentAssignmentDataSubjectWise=[];
+    });
+  }
   getDate(date){
     return (new Date(date).getDate()+'-'+new Date(date).getMonth()+'-'+new Date(date).getFullYear());
   }
   subjectSelected(event){
+    this.subjectFilter=true;
+    this.assignmentData = [];
+      this.studentAssignmentDataTopicWise=[];
+      this.studentAssignmentDataSubjectWise=[];
     if(event==='All')
     {
-      this.studentAssignmentData=[...this.valueWithOutSubjectFilter];
+      this.studentAssignmentDataSubjectWise=[...this.valueWithOutSubjectFilter];
     }
     else{
-      let filterValue=this.studentAssignmentData.filter(elm=>elm.course.subject.subject_name=='event');
-      this.studentAssignmentData=filterValue;
-      console.log("ddddd",this.studentAssignmentData);
+      let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.name==event);
+      this.studentAssignmentDataSubjectWise=filterValue;
+      console.log("ddddd",this.studentAssignmentDataSubjectWise);
 
     }
+  }
+  onAssignmentClick(url){
+    window.open(url);
   }
 }

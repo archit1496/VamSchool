@@ -26,12 +26,24 @@ export class StudentService extends BaseService{
     return this.studentGetRequest(AppUrl.FETCH_TIMETABLE);
   }
 
-  fetchAssignmentQuestions(): Observable<any>{
-    return this.getRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS);
+  fetchAssignmentQuestionsSubject(): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_SUBJECT);
+  }
+  fetchAssignmentQuestionsTopic(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_CHAPTER(id));
+  }
+  fetchAssignmentData(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_ASSIGNMENT_DATA(id));
   }
 
-  fetchNotes(): Observable<any>{
-    return this.getRequest(AppUrl.FETCH_NOTES);
+  fetchNotes(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_NOTES(id));
+  }
+  fetchNotesQuestionsSubject(): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_NOTES_QUESTIONS_SUBJECT);
+  }
+  fetchNotesQuestionsTopic(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_NOTES_QUESTIONS_CHAPTER(id));
   }
 
   uploadAnswers(data): Observable<any> {

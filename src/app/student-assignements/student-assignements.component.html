@@ -97,24 +97,56 @@
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div>
-        <div class="grid" *ngIf="studentAssignmentData?.length > 0">
+        <div class="grid" *ngIf="studentAssignmentDataSubjectWise?.length > 0">
           <div
-            class="main-card mt-2"
-            *ngFor="let data of studentAssignmentData"
+            class="assignment-card mt-2"
+            *ngFor="let data of studentAssignmentDataSubjectWise" (click)="fetchAssignmentDataTopicWise(data?.id)"
           >
-            <span class="mt-4">
-              5 Files <br />
+            <span class="mt-4 cursor-pointer" >
+              {{data?.file_count}} Files <br />
               <span style="font-size: 10px">
                 {{ getDate(data.created_on) }}
               </span>
               <div>
-                {{ data?.course?.subject?.subject_name }}
+                {{ data?.name }}
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="grid" *ngIf="studentAssignmentDataTopicWise?.length > 0">
+          <div
+            class="assignment-card mt-2"
+            *ngFor="let data of studentAssignmentDataTopicWise" (click)="fetchAssignmentData(data?.id)"
+          >
+            <span class="mt-4 cursor-pointer" >
+              {{data?.file_count}} Files <br />
+              <span style="font-size: 10px">
+                {{ getDate(data.created_on) }}
+              </span>
+              <div>
+                {{ data?.name }}
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="grid" *ngIf="assignmentData?.length > 0">
+          <div
+            class="assignment-card mt-2"
+            *ngFor="let data of assignmentData" (click)="onAssignmentClick(data?.doc_question)"
+          >
+            <span class="mt-4 cursor-pointer" >
+              {{ data?.topic }}<br />
+              <span style="font-size: 10px">
+                {{ getDate(data.created_on) }}
+              </span>
+              <div>
+                {{data?.json_question}} 
               </div>
             </span>
           </div>
         </div>
         <div
-          *ngIf="studentAssignmentData?.length == 0"
+          *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter"
           style="text-align: center"
         >
           <b>No Data To Display</b>

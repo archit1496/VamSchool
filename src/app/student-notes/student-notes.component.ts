@@ -46,7 +46,7 @@ export class StudentNotesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.fetchNotes();
+    //this.fetchNotes();
   }
 
   getTwilioToken() {
@@ -62,14 +62,14 @@ export class StudentNotesComponent implements OnInit {
   //  this.chatService.connect(accessToken)
   // }
 
-  fetchNotes() {
-    this.isLoading = true;
-    this.studentService.fetchNotes().subscribe(res => {
-      this.isLoading = false;
-      this.notesList = res;
-    })
-    this.getTwilioToken();
-  }
+  // fetchNotes() {
+  //   this.isLoading = true;
+  //   this.studentService.fetchNotes().subscribe(res => {
+  //     this.isLoading = false;
+  //     this.notesList = res;
+  //   })
+  //   this.getTwilioToken();
+  // }
 
   readNotes(notes) {
     window.open(notes, "_new");

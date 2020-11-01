@@ -34,6 +34,16 @@ a b:hover{
   justify-content:flex-end; 
 }
 
+.carousel-control-next{
+  top: -130px !important;
+  right: 0 !important;
+}
+
+.carousel-control-prev{
+  top: -133px !important;
+  left: 620px !important;
+}
+
 .carousel-control-next {
 
 }

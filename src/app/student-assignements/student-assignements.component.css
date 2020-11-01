@@ -26,3 +26,11 @@
   width: 300px;
   background-color: lightgray;
 }
+.assignment-card{
+  border: 1px solid black !important;
+    /* height: 100px !important; */
+    /* width: 100px !important; */
+    background-color: lightgray !important;
+    padding: 0.5rem;
+   cursor: pointer;
+}

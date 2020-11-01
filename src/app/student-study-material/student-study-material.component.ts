@@ -8,32 +8,73 @@ import { StudentService } from 'src/service/student.service';
 })
 export class StudentStudyMaterialComponent implements OnInit {
   notesData;
+  studentNotesDataSubjectWise;
+  studentNotesDataTopicWise;
   isLoading:boolean;
   valueWithOutSubjectFilter;
+  subjectFilter:boolean=false;
   constructor(public studentService:StudentService) { }
 
   ngOnInit() {
-    this.fetchNotes();
+    this.fetchNotesDataSubject();
   }
-  fetchNotes(){
-    this.isLoading=true;
-    this.studentService.fetchNotes().subscribe(res => {
-      this.isLoading=false;
-      this.notesData = res;
-      this.valueWithOutSubjectFilter=[...this.notesData];
+  // fetchNotes(){
+  //   this.isLoading=true;
+  //   this.studentService.fetchNotes().subscribe(res => {
+  //     this.isLoading=false;
+  //     this.notesData = res;
+  //     this.valueWithOutSubjectFilter=[...this.notesData];
      
-    })
+  //   })
+  // }
+  fetchNotesDataSubject() {
+    this.subjectFilter=false;
+    this.isLoading = true;
+    this.studentService.fetchNotesQuestionsSubject().subscribe(res => {
+      this.isLoading = false;
+      this.studentNotesDataSubjectWise = res;
+      this.valueWithOutSubjectFilter=[...this.studentNotesDataSubjectWise]
+    });
+  }
+  fetchNotesDataTopicWise(id:number) {
+    this.subjectFilter=false;
+    this.isLoading = true;
+    this.studentService.fetchNotesQuestionsTopic(id).subscribe(res => {
+      this.isLoading = false;
+      this.studentNotesDataTopicWise = res;
+      this.studentNotesDataSubjectWise=[];
+    });
+  }
+  fetchNotesData(id:number) {
+    this.subjectFilter=false;
+    this.isLoading = true;
+    this.studentService.fetchNotes(id).subscribe(res => {
+      this.isLoading = false;
+      this.notesData = res;
+      this.studentNotesDataTopicWise=[];
+      this.studentNotesDataSubjectWise=[];
+    });
+  }
+  getDate(date){
+    return (new Date(date).getDate()+'-'+new Date(date).getMonth()+'-'+new Date(date).getFullYear());
   }
   subjectSelected(event){
+    this.subjectFilter=true;
+    this.notesData = [];
+      this.studentNotesDataTopicWise=[];
+      this.studentNotesDataSubjectWise=[];
     if(event==='All')
     {
-      this.notesData=[...this.valueWithOutSubjectFilter];
+      this.studentNotesDataSubjectWise=[...this.valueWithOutSubjectFilter];
     }
     else{
-      let filterValue=this.notesData.filter(elm=>elm.course.subject.subject_name=='event');
-      this.notesData=filterValue;
-      console.log("ddddd",this.notesData);
+      let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.course.subject.subject_name==event);
+      this.studentNotesDataSubjectWise=filterValue;
+      console.log("ddddd",this.studentNotesDataSubjectWise);
 
     }
+  }
+  onNotesClick(url){
+    window.open(url);
   }
 }
