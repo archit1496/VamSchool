@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-classes',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classes.component.css']
 })
 export class ClassesComponent implements OnInit {
-
+  @Output() classSelected = new EventEmitter<string>();
+  classType:string="All";
   constructor() { }
 
   ngOnInit() {
@@ -15,5 +16,9 @@ export class ClassesComponent implements OnInit {
   class(){
     alert("worked")
   }
+  onClassTypeClick(type:string){
+    this.classType=type;
+    this.classSelected.emit(this.classType);
+}
 
 }

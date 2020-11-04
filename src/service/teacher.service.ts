@@ -78,9 +78,9 @@ export class TeacherService extends BaseService {
     return this.getRequestNew(AppUrl.FETCHTEACHERCOURSE);
   }
 
-  fetchNotes(): Observable<any>{
-    return this.getRequest(AppUrl.FETCH_NOTES);
-  }
+  // fetchNotes(): Observable<any>{
+  //   return this.getRequest(AppUrl.FETCH_NOTES);
+  // }
 
   fetchTimetable(): Observable<any>{
     return this.getRequestNew(AppUrl.FETCH_TEACHER_TIMETABLE);
@@ -88,5 +88,24 @@ export class TeacherService extends BaseService {
 
   fetchTimetableToday(): Observable<any>{
     return this.getRequestNew(AppUrl.FETCH_TEACHER_TIMETABLE_TODAY);
+  }
+  
+  fetchAssignmentQuestionsSubject(): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT);
+  }
+  fetchAssignmentQuestionsTopic(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_TEACHER_QUESTIONS_CHAPTER(id));
+  }
+  fetchAssignmentData(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_DATA(id));
+  }
+  fetchNotesQuestionsSubject(): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_TEACHER_NOTES_QUESTIONS_SUBJECT);
+  }
+  fetchNotesQuestionsTopic(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_TEACHER_NOTES_QUESTIONS_CHAPTER(id));
+  }
+  fetchNotes(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_TEACHER_NOTES(id));
   }
 }

@@ -1,4 +1,4 @@
-<div class="container-fluid boxModel">
+<!-- <div class="container-fluid boxModel">
   <app-teacher-navbar></app-teacher-navbar>
 <div class="row">
   <div class="mt-2" style="margin-left: 26rem;width: 45%;">
@@ -71,4 +71,95 @@
 </div>
 
 <footer class="footer-div mt-3">
-</footer>
+</footer> -->
+
+<div class="container-fluid boxModel">
+  <app-teacher-navbar></app-teacher-navbar>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      flex-wrap: wrap;
+    "
+  >
+    <section class="outerDiv">
+      <div class="mt-1 innerDiv">
+        <app-classes (classSelected)="classSelected($event)"></app-classes>
+        <h5 class="mt-2"><b>This Week</b></h5>
+        <div *ngIf="isLoading" class="text-center">
+          Loading Data, Please wait...
+        </div>
+        <div class="grid" *ngIf="studentNotesDataSubjectWise?.length > 0">
+          <div
+            class="notes-card mt-2"
+            *ngFor="let data of studentNotesDataSubjectWise" (click)="fetchNotesDataTopicWise(data?.id)"
+          >
+            <span class="mt-4 cursor-pointer" >
+              {{data?.file_count}} Files <br />
+              <span style="font-size: 10px">
+                {{ getDate(data.created_on) }}
+              </span>
+              <div>
+                {{ data?.name }}
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="grid" *ngIf="studentNotesDataTopicWise?.length > 0">
+          <div
+            class="notes-card mt-2"
+            *ngFor="let data of studentNotesDataTopicWise" (click)="fetchNotesData(data?.id)"
+          >
+            <span class="mt-4 cursor-pointer" >
+              {{data?.file_count}} Files <br />
+              <span style="font-size: 10px">
+                {{ getDate(data.created_on) }}
+              </span>
+              <div>
+                {{ data?.name }}
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="grid" *ngIf="notesData?.length > 0">
+          <div
+            class="notes-card mt-2"
+            *ngFor="let data of notesData" (click)="onNotesClick(data?.note)"
+          >
+            <span class="mt-4 cursor-pointer" >
+              {{ data?.course?.class_of?.class_name}} {{ data?.course?.class_of?.section}}<br />
+              <span style="font-size: 10px">
+                {{ getDate(data.created_on) }}
+              </span>
+              <!-- <div>
+                {{data?.json_question}} 
+              </div> -->
+            </span>
+          </div>
+        </div>
+        <div
+          *ngIf="studentNotesDataSubjectWise?.length == 0 && subjectFilter"
+          style="text-align: center"
+        >
+          <b>No Data To Display</b>
+        </div>
+      </div>
+    </section>
+    <div
+      style="
+        flex: 1 23%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        order: 2;
+      "
+    >
+      <b>Activity</b>
+      <div class="activity-card"></div>
+    </div>
+    <div style="order: 3;">
+      <div class="footer-card"></div>
+    </div>
+  </div>
+</div>
