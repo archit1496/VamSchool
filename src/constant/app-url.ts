@@ -73,7 +73,7 @@ export class AppUrl {
     return AppUrl.APP_URL + `v1/student/dir/${id}/assignment_question/`;
   }
   static FETCH_TEACHER_ASSIGNMENT_DATA(id): string {
-    return AppUrl.APP_URL + `v1/teacher/dir/${id}/assignment_question/`;
+    return AppUrl.APP_URL + `v1/teacher/dir/${id}/assignment-questions/`;
   }
   static get FETCH_TIMETABLE(): string {
     return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/`;
