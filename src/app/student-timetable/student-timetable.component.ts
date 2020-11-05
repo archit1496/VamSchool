@@ -51,7 +51,7 @@ export class StudentTimetableComponent implements OnInit {
       this.timeTableData=[...this.valueWithOutSubjectFilter];
     }
     else{
-      let filterValue=this.timeTableData.filter(elm=>elm.course.subject.subject_name=='event');
+      let filterValue=this.timeTableData.filter(elm=>elm.course.subject.subject_name==event);
       this.timeTableData=filterValue;
       console.log("ddddd",this.timeTableData);
 

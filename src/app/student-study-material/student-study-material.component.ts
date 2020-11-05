@@ -13,20 +13,22 @@ export class StudentStudyMaterialComponent implements OnInit {
   isLoading:boolean;
   valueWithOutSubjectFilter;
   subjectFilter:boolean=false;
+  notesActivity;
   constructor(public studentService:StudentService) { }
 
   ngOnInit() {
     this.fetchNotesDataSubject();
+    this.fetchNotesActivity();
   }
-  // fetchNotes(){
-  //   this.isLoading=true;
-  //   this.studentService.fetchNotes().subscribe(res => {
-  //     this.isLoading=false;
-  //     this.notesData = res;
-  //     this.valueWithOutSubjectFilter=[...this.notesData];
-     
-  //   })
-  // }
+  fetchNotesActivity() {
+    this.subjectFilter=false;
+    this.isLoading = true;
+    this.studentService.fetchNotesActivity().subscribe(res => {
+      this.isLoading = false;
+      this.notesActivity = res;
+      
+    });
+  }
   fetchNotesDataSubject() {
     this.subjectFilter=false;
     this.isLoading = true;
@@ -68,7 +70,7 @@ export class StudentStudyMaterialComponent implements OnInit {
       this.studentNotesDataSubjectWise=[...this.valueWithOutSubjectFilter];
     }
     else{
-      let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.course.subject.subject_name==event);
+      let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.name==event);
       this.studentNotesDataSubjectWise=filterValue;
       console.log("ddddd",this.studentNotesDataSubjectWise);
 

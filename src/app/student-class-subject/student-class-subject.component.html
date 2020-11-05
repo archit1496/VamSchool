@@ -6,12 +6,12 @@
                     <b>All</b>
                 </a>
             </li>
-            <li class=" ">
-                <a class=" " (click)="onSubjectTypeClick('Physics')" [ngClass]="{'active':subjectType==='Physics'}">
-                    <b >Physics</b>
+            <li class=" " *ngFor="let data of studentSubjects">
+                <a class=" " (click)="onSubjectTypeClick(data?.subject_name)" [ngClass]="{'active':subjectType===data?.subject_name}">
+                    <b >{{data?.subject_name}}</b>
                 </a>
             </li>
-            <li class=" ">
+            <!-- <li class=" ">
                 <a class=" " (click)="onSubjectTypeClick('Chemistry')" [ngClass]="{'active':subjectType==='Chemistry'}">
                     <b >Chemistry</b>
                 </a>
@@ -25,7 +25,7 @@
                 <a class=" " (click)="onSubjectTypeClick('Maths')" [ngClass]="{'active':subjectType==='Maths'}">
                     <b >Maths</b>
                 </a>
-            </li>
+            </li> -->
         </ul>
     
 </nav>

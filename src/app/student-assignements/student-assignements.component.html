@@ -90,19 +90,15 @@
   <div style="display: flex; justify-content: center; height: 100%;flex-wrap: wrap;">
     <section class="outerDiv">
       <div class="mt-1 innerDiv">
-        <app-student-class-subject
-          (subjectSelected)="subjectSelected($event)"
-        ></app-student-class-subject>
+        <app-student-class-subject (subjectSelected)="subjectSelected($event)"></app-student-class-subject>
         <h5 class="mt-2"><b>This Week</b></h5>
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div>
         <div class="grid" *ngIf="studentAssignmentDataSubjectWise?.length > 0">
-          <div
-            class="assignment-card mt-2"
-            *ngFor="let data of studentAssignmentDataSubjectWise" (click)="fetchAssignmentDataTopicWise(data?.id)"
-          >
-            <span class="mt-4 cursor-pointer" >
+          <div class="assignment-card mt-2" *ngFor="let data of studentAssignmentDataSubjectWise"
+            (click)="fetchAssignmentDataTopicWise(data?.id)">
+            <span class="mt-4 cursor-pointer">
               {{data?.file_count}} Files <br />
               <span style="font-size: 10px">
                 {{ getDate(data.created_on) }}
@@ -114,11 +110,9 @@
           </div>
         </div>
         <div class="grid" *ngIf="studentAssignmentDataTopicWise?.length > 0">
-          <div
-            class="assignment-card mt-2"
-            *ngFor="let data of studentAssignmentDataTopicWise" (click)="fetchAssignmentData(data?.id)"
-          >
-            <span class="mt-4 cursor-pointer" >
+          <div class="assignment-card mt-2" *ngFor="let data of studentAssignmentDataTopicWise"
+            (click)="fetchAssignmentData(data?.id)">
+            <span class="mt-4 cursor-pointer">
               {{data?.file_count}} Files <br />
               <span style="font-size: 10px">
                 {{ getDate(data.created_on) }}
@@ -130,25 +124,20 @@
           </div>
         </div>
         <div class="grid" *ngIf="assignmentData?.length > 0">
-          <div
-            class="assignment-card mt-2"
-            *ngFor="let data of assignmentData" (click)="onAssignmentClick(data?.doc_question)"
-          >
-            <span class="mt-4 cursor-pointer" >
+          <div class="assignment-card mt-2" *ngFor="let data of assignmentData"
+            (click)="onAssignmentClick(data?.doc_question)">
+            <span class="mt-4 cursor-pointer">
               {{ data?.topic }}<br />
               <span style="font-size: 10px">
                 {{ getDate(data.created_on) }}
               </span>
               <div>
-                {{data?.json_question}} 
+                {{data?.json_question}}
               </div>
             </span>
           </div>
         </div>
-        <div
-          *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter"
-          style="text-align: center"
-        >
+        <div *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
           <b>No Data To Display</b>
         </div>
       </div>
@@ -156,12 +145,22 @@
 
     <div style="flex: 1 23%;display: flex;flex-direction: column;align-items: center;order: 2;">
       <b>Activity</b>
-      <div class="activity-card"></div>
+      <div class="activity-card">
+        <div *ngFor="let data of assignmentActivityData" style="display: flex;flex-direction: rows;">
+          <div>
+            <img class="activity-image" src="../../assets/images/circleIcon.svg">
+          </div>
+          <div>
+            {{data.student?.first_name}}  {{data.student?.last_name}} Has Submitted The Answers
+          </div>
+
+        </div>
+      </div>
     </div>
     <div style="order: 3;">
       <div class="footer-card"></div>
     </div>
 
   </div>
- 
+
 </div>

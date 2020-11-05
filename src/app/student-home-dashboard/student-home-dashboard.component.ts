@@ -31,9 +31,10 @@ export class StudentHomeDashboardComponent implements OnInit {
   studentDataList;
   todayClassData;
   studentData;
+  dashboardActivityData;
   constructor(private router: Router,public studentService:StudentService) {
     this.fetchStudentDetails();
-   
+    this.fetchDashboardActivityData();
   }
 
 
@@ -65,7 +66,11 @@ export class StudentHomeDashboardComponent implements OnInit {
       }
     ]
   }
-
+  fetchDashboardActivityData(){
+    this.studentService.fetchDashboardActivity().subscribe(res => {
+      this.dashboardActivityData = res;
+    });
+  }
   fetchStudentDetails() {
     this.isLoading = true;
     this.studentService.fetchStudentDetails().subscribe(res => {

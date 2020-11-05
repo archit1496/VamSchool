@@ -22,6 +22,12 @@ export class AppUrl {
   static get FETCH_CLASS_TODAY_DATA(): string {
     return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/?today=true`;
   }
+  static get FETCH_DASHBOARD_ACTIVITY(): string {
+    return AppUrl.APP_URL + `v1/student/dashboard/activity/`;
+  }
+  static get FETCH_STUDENT_SUBJECT(): string {
+    return AppUrl.APP_URL + `v1/student/subject/`;
+  }
   static get STUDENT_IN_COURSE(): string {
     return AppUrl.APP_URL + 'course/students_in_course/?course_id=';
   }
@@ -38,6 +44,12 @@ export class AppUrl {
   }
   static get FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT(): string {
     return AppUrl.APP_URL + "v1/teacher/dir/?dir_type=1";
+  }
+  static get FETCH_NOTES_ACTIVITY(): string {
+    return AppUrl.APP_URL + "v1/student/notes/activity/";
+  }
+  static get FETCH_ASSIGNMENT_ACTIVITY(): string {
+    return AppUrl.APP_URL + "v1/student/assignment/answers/";
   }
   static get FETCH_NOTES_QUESTIONS_SUBJECT(): string {
     return AppUrl.APP_URL + "v1/student/dir/?dir_type=0";

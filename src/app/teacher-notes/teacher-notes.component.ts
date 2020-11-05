@@ -15,10 +15,14 @@ export class TeacherNotesComponent implements OnInit {
   isLoading:boolean;
   valueWithOutSubjectFilter;
   subjectFilter:boolean=false;
-  constructor(public studentService:StudentService,public teacherService:TeacherService) { }
+  teacherId;
+  spinnerFlag;
+  uploadedNotesResp;
+  constructor(public studentService:StudentService,public teacherService:TeacherService,private toaster: ToastrService) { }
 
   ngOnInit() {
     this.fetchNotesDataSubject();
+    this.fetchTeacher();
   }
   // fetchNotes(){
   //   this.isLoading=true;
@@ -79,6 +83,31 @@ export class TeacherNotesComponent implements OnInit {
   onNotesClick(url){
     window.open(url);
   }
+  fetchTeacher() {
+    this.teacherService.fetchTeacher().subscribe(res => {
+      this.teacherId = res.id;
+    
+    })
+  }
+  uploadNotes(fileInput) {
+    this.spinnerFlag = true;
+    const formData: FormData = new FormData();
+    const files: File = fileInput.target.files;
+    formData.append('note', files[0], files[0].name);
+    formData.append('teacher', this.teacherId);
+    formData.append('course', "5");
+    formData.append('topic', files[0].name);
+    this.teacherService.uploadNotes(formData).subscribe(data => {
+      this.uploadedNotesResp = data;
+      this.spinnerFlag = false;
+      this.toaster.success("File uploaded succesfully!", "Success");
+    },
+    error => {
+      this.spinnerFlag = false;
+      this.toaster.error("Failed to upload file!", "Failed")
+    });
+  }
+
 
   // topicName: string;
   // uploadedNotesResp = [];

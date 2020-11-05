@@ -108,6 +108,14 @@
                 <div class="col-8">
                     <h5><b>Activity</b></h5>
                     <div class="activity-card">
+                        <div *ngFor="let data of dashboardActivityData" style="display: flex;flex-direction: rows;">
+                            <div>
+                                <img class="activity-image" src="../../assets/images/circleIcon.svg">
+                            </div>
+                            <div>
+                                {{data.activity}}
+                            </div>
+                         </div>
                     </div>
                 </div>
             </div>

@@ -27,6 +27,7 @@ a b:hover{
   height: 200px !important;
   width: 100%;
   background-color: lightgray;
+  padding: 5px;
 }
 
 .startNow{

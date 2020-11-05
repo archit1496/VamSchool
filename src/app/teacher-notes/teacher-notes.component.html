@@ -105,6 +105,16 @@
               </div>
             </span>
           </div>
+          <div
+            class="notes-card mt-2"
+            
+             style="width:148px"
+          >
+          <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
+          <label for="upload-notes" class="downloadBtn ml-5">
+            <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+          </label>
+          </div>
         </div>
         <div class="grid" *ngIf="studentNotesDataTopicWise?.length > 0">
           <div

@@ -13,6 +13,7 @@ export class StudentAssignementsComponent implements OnInit {
   assignmentData=[];
   valueWithOutSubjectFilter;
   subjectFilter:boolean=false;
+  assignmentActivityData;
   dummyData = [
     {
       "noOfFiles": "10 Files",
@@ -67,9 +68,19 @@ export class StudentAssignementsComponent implements OnInit {
   ]
   constructor(public studentService:StudentService) {
     this.fetchAssignmentDataSubject();
+    this.fetchAssignmentActivity();
    }
 
   ngOnInit() {
+  }
+  fetchAssignmentActivity() {
+    this.subjectFilter=false;
+    this.isLoading = true;
+    this.studentService.fetchAssignmentActivity().subscribe(res => {
+      this.isLoading = false;
+      this.assignmentActivityData = res;
+      
+    });
   }
   
   fetchAssignmentDataSubject() {

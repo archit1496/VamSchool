@@ -25,6 +25,7 @@
   height: 580px;
   width: 300px;
   background-color: lightgray;
+  padding: 5px;
 }
 .assignment-card{
   border: 1px solid black !important;

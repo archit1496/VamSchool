@@ -22,6 +22,12 @@ export class StudentService extends BaseService{
   fetchClassTodayData(): Observable<any> {
     return this.studentGetRequest(AppUrl.FETCH_CLASS_TODAY_DATA);
   }
+  fetchDashboardActivity(): Observable<any> {
+    return this.getRequest(AppUrl.FETCH_DASHBOARD_ACTIVITY);
+  }
+  fetchStudentSubject(): Observable<any> {
+    return this.getRequest(AppUrl.FETCH_STUDENT_SUBJECT);
+  }
   fetchTimeTable(): Observable<any>{
     return this.studentGetRequest(AppUrl.FETCH_TIMETABLE);
   }
@@ -41,6 +47,12 @@ export class StudentService extends BaseService{
   }
   fetchNotesQuestionsSubject(): Observable<any>{
     return this.getRequest(AppUrl.FETCH_NOTES_QUESTIONS_SUBJECT);
+  }
+  fetchNotesActivity(): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_NOTES_ACTIVITY);
+  }
+  fetchAssignmentActivity(): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_ASSIGNMENT_ACTIVITY);
   }
   fetchNotesQuestionsTopic(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_NOTES_QUESTIONS_CHAPTER(id));

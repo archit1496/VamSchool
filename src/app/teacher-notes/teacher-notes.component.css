@@ -35,3 +35,15 @@ background-color: lightgray;
     padding: 0.5rem;
    cursor: pointer;
 }
+.add-icon{
+  cursor: pointer;
+  padding: 3rem;
+  position: absolute;
+  top: 25.5rem;
+}
+
+[type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}

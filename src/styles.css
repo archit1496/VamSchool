@@ -378,3 +378,11 @@ a{
   height: 120px !important;
   background-color: #A9A9A9 !important;
 }
+.activity-image{
+  width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
