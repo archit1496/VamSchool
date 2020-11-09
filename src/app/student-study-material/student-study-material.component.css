@@ -29,10 +29,11 @@
   padding: 5px;
   }
   .notes-card{
-    border: 1px solid black !important;
-      /* height: 100px !important; */
-      /* width: 100px !important; */
-      background-color: lightgray !important;
-      padding: 0.5rem;
-     cursor: pointer;
+   background-image: url('../../assets/images/folderIcon.svg');
+  background-position-x: center;
+  background-size: 132px 136px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
   }

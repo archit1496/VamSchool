@@ -41,8 +41,8 @@ a b:hover{
 }
 
 .carousel-control-prev{
-  top: -133px !important;
-  left: 620px !important;
+  top: -130px !important;
+  left: 598px !important;
 }
 
 .carousel-control-next {
@@ -65,5 +65,13 @@ a b:hover{
 }
 .innerDiv{
   width: 100%;
-  max-width: 832px;
+  max-width: 650px;
+}
+.ongoingClassDiv{
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+.ongoingClassInfo{
+  margin: 102px 0px 0px 10px;
 }
