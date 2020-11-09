@@ -35,6 +35,10 @@ export class TeacherService extends BaseService {
     return this.patchRequest(AppUrl.MARKS_UPDATE() +questionId+'/', data);
   }
 
+  updateAssignmentMarks(questionId, data): Observable<any> {
+    return this.patchRequest(AppUrl.UPDATE_TEACHER_DASHBOARD_ASSIGNMENT(questionId), data);
+  }
+
   uploadNotes(data): Observable<any>{
     let headers = new HttpHeaders();
     headers.set('Content-Type', null);
@@ -93,12 +97,21 @@ export class TeacherService extends BaseService {
   fetchAssignmentQuestionsSubject(): Observable<any>{
     return this.getRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT);
   }
+
+  fetchTeacherDashboardActivity(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_TEACHER_DASHBOARD_ACTIVITY(id));
+  }
   fetchAssignmentQuestionsTopic(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_TEACHER_QUESTIONS_CHAPTER(id));
   }
   fetchAssignmentData(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_DATA(id));
   }
+
+  addNewAssignmentData(id, obj): Observable<any>{
+    return this.postRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_DATA(id), obj);
+  }
+
   fetchNotesQuestionsSubject(): Observable<any>{
     return this.getRequest(AppUrl.FETCH_TEACHER_NOTES_QUESTIONS_SUBJECT);
   }

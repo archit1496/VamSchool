@@ -1,128 +1,253 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TeacherService } from 'src/service/teacher.service';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/service/student.service';
-
+import * as FileSaver from 'file-saver';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-teacher-check-assignments',
   templateUrl: './teacher-check-assignments.component.html',
   styleUrls: ['./teacher-check-assignments.component.css']
 })
-export class TeacherCheckAssignmentsComponent implements OnInit {
-  isLoading:boolean;
-  studentAssignmentDataSubjectWise;
-  studentAssignmentDataTopicWise;
-  assignmentData=[];
-  valueWithOutSubjectFilter;
-  subjectFilter:boolean=false;
-  dummyData = [
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Physics'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Chemistry'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Chemistry'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject":'Maths'
-    },
-    // {
-    //   "noOfFiles": "10 Files",
-    //   "update": "Last Update Today",
-    //   "subject":'Maths'
-    // },
-  ]
-  constructor(public studentService:StudentService,public teacherService: TeacherService) {
+export class TeacherCheckAssignmentsComponent {
+  // dummyData = [
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Physics'
+  //   },
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Chemistry'
+  //   },
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Maths'
+  //   },
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Chemistry'
+  //   },
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Maths'
+  //   },
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Maths'
+  //   },
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Maths'
+  //   },
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Maths'
+  //   },
+  //   {
+  //     "noOfFiles": "10 Files",
+  //     "update": "Last Update Today",
+  //     "subject":'Maths'
+  //   },
+  //   // {
+  //   //   "noOfFiles": "10 Files",
+  //   //   "update": "Last Update Today",
+  //   //   "subject":'Maths'
+  //   // },
+  // ]
+  constructor(public teacherService: TeacherService, private toastr: ToastrService) {
     this.fetchAssignmentDataSubject();
-   }
-
-  ngOnInit() {
+    this.getActivityData('week=this');
   }
-  
+
+  // @ViewChild('firstClass',null) firstClass: ElementRef;
+  // serverCreated = false;
+  firstClass = false;
+  secondClass = false;
+  showHideList = true;
+  showHideActivity = true;
+  showHideFinalActivity = false;
+  updateHeaderText = 'This week';
+  isLoading: boolean;
+  studentAssignmentDataSubjectWise;
+  selectedStudentAssignmentDataSubjectWise;
+  selectedCourse = '0';
+  // studentAssignmentDataTopicWise;
+  assignmentData = [];
+  topicName;
+  topicQuestion;
+  files;
+  // valueWithOutSubjectFilter;
+  particularAssign = [];
+  // subjectFilter:boolean=false;
+  activityData = [];
+  teacherCourseData = [];
+  visibleIndex = -1;
+
+  update(studentActivity, e) {
+
+    const formData: FormData = new FormData();
+    if (e.target.files) {
+      formData.append('doc_answer', e.target.files[0], e.target.files[0].name);
+    } else {
+
+      formData.append('mark', e.target.value);
+    }
+
+    this.teacherService.updateAssignmentMarks(studentActivity.id, formData).subscribe((res) => {
+      this.toastr.success('updated succesfully!', 'Success');
+
+    });
+  }
+
+  fetchCourse() {
+    this.teacherService.fetchTeacherCourse().subscribe(res => {
+      this.teacherCourseData = res.data;
+    });
+  }
+
+
+  download(studentActivity) {
+    window.open(studentActivity.doc_answer);
+  }
+
+  showSubItem(ind) {
+    if (this.visibleIndex === ind) {
+      this.visibleIndex = -1;
+    } else {
+      this.visibleIndex = ind;
+    }
+  }
+
+  openForm() {
+    this.fetchCourse();
+    document.getElementById('myForm').style.display = 'block';
+    this.topicName = '';
+    this.topicQuestion = '';
+    this.files = null;
+    //  (<HTMLInputElement>document.getElementById("uploadCaptureInputFile")).value = "";
+    const someElement = document.getElementById('mainDiv');
+    someElement.className += ' newclass';
+
+  }
+
+  closeForm() {
+
+    document.getElementById('myForm').style.display = 'none';
+    const element = document.getElementById('mainDiv');
+    element.classList.remove('newclass');
+
+  }
+
+
   fetchAssignmentDataSubject() {
-    this.subjectFilter=false;
+    // this.subjectFilter=false;
     this.isLoading = true;
     this.teacherService.fetchAssignmentQuestionsSubject().subscribe(res => {
       this.isLoading = false;
+      this.firstClass = true;
       this.studentAssignmentDataSubjectWise = res;
-      this.valueWithOutSubjectFilter=[...this.studentAssignmentDataSubjectWise]
+      // this.valueWithOutSubjectFilter=[...this.studentAssignmentDataSubjectWise]
     });
   }
-  fetchAssignmentDataTopicWise(id:number) {
-    this.subjectFilter=false;
-    this.isLoading = true;
-    this.teacherService.fetchAssignmentQuestionsTopic(id).subscribe(res => {
-      this.isLoading = false;
-      this.studentAssignmentDataTopicWise = res;
-      this.studentAssignmentDataSubjectWise=[];
-    });
-  }
-  fetchAssignmentData(id:number) {
-    this.subjectFilter=false;
+
+  // fetchAssignmentDataTopicWise(id:number) {
+  //   this.subjectFilter=false;
+  //   this.isLoading = true;
+  //   this.teacherService.fetchAssignmentQuestionsTopic(id).subscribe(res => {
+
+  //     this.isLoading = false;
+  //     this.studentAssignmentDataTopicWise = res;
+  //     this.studentAssignmentDataSubjectWise=[];
+  //   });
+  // }
+
+  fetchAssignmentData(id: number) {
+    // this.subjectFilter=false;
     this.isLoading = true;
     this.teacherService.fetchAssignmentData(id).subscribe(res => {
+      this.firstClass = false;
+      this.secondClass = true;
+      this.showHideList = false;
+      this.showHideActivity = false;
       this.isLoading = false;
       this.assignmentData = res;
-      this.studentAssignmentDataTopicWise=[];
-      this.studentAssignmentDataSubjectWise=[];
+      // this.studentAssignmentDataTopicWise=[];
+      // this.studentAssignmentDataSubjectWise=[];
     });
   }
-  getDate(date){
-    return (new Date(date).getDate()+'-'+new Date(date).getMonth()+'-'+new Date(date).getFullYear());
-  }
-  classSelected(event){
-    this.subjectFilter=true;
-    this.assignmentData = [];
-      this.studentAssignmentDataTopicWise=[];
-      this.studentAssignmentDataSubjectWise=[];
-    if(event==='All')
-    {
-      this.studentAssignmentDataSubjectWise=[...this.valueWithOutSubjectFilter];
-    }
-    else{
-      let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.name==event);
-      this.studentAssignmentDataSubjectWise=filterValue;
-      console.log("ddddd",this.studentAssignmentDataSubjectWise);
 
-    }
+  uploadNotes(fileInput) {
+    this.files = fileInput.target.files;
   }
-  onAssignmentClick(url){
-    window.open(url);
+
+  postAssignmentData() {
+    this.isLoading = true;
+    const formData: FormData = new FormData();
+    formData.append('doc_question', this.files[0], this.files[0].name);
+    formData.append('dead_line', new Date().getTime().toString());
+    formData.append('topic', this.topicName);
+    formData.append('dir', this.selectedStudentAssignmentDataSubjectWise.id);
+
+    formData.append('json_question', this.topicQuestion);
+    formData.append('course', this.selectedCourse);
+    formData.append('teacher', this.selectedStudentAssignmentDataSubjectWise.teacher);
+    this.teacherService.addNewAssignmentData(this.selectedStudentAssignmentDataSubjectWise.id, formData).subscribe(res => {
+      this.toastr.success('Added succesfully!', 'Success');
+      this.isLoading = false;
+    });
+  }
+
+  getDate(date) {
+    return (new Date(date).getDate() + '-' + new Date(date).getMonth() + '-' + new Date(date).getFullYear());
+  }
+  // classSelected(event){
+  //   this.subjectFilter=true;
+  //   this.assignmentData = [];
+  //     this.studentAssignmentDataTopicWise=[];
+  //     this.studentAssignmentDataSubjectWise=[];
+  //   if(event==='All')
+  //   {
+  //     this.studentAssignmentDataSubjectWise=[...this.valueWithOutSubjectFilter];
+  //   }
+  //   else{
+  //     let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.name==event);
+  //     this.studentAssignmentDataSubjectWise=filterValue;
+
+  //   }
+  // }
+  onAssignmentClick(id) {
+    // window.open(url);
+    // this.subjectFilter=false;
+    this.isLoading = true;
+    this.teacherService.fetchTeacherDashboardActivity('question=' + id).subscribe(res => {
+      this.isLoading = false;
+      this.showHideFinalActivity = true;
+      this.secondClass = false;
+
+      this.particularAssign = res;
+    });
+  }
+
+  getActivityData(id, e?) {
+
+
+    if (e !== undefined) {
+      this.updateHeaderText = e.target.innerText;
+    }
+    // this.subjectFilter=false;
+    this.isLoading = true;
+    this.teacherService.fetchTeacherDashboardActivity(id).subscribe(res => {
+      this.isLoading = false;
+      this.activityData = res;
+    });
   }
   // isLoading = false;
 
@@ -237,7 +362,6 @@ export class TeacherCheckAssignmentsComponent implements OnInit {
   //   this.teacherService.getAssignmentlist(this.teacherId, when).subscribe(res => {
   //     this.isLoading = false;
   //     this.assignmentTopicsList = res;
-  //     console.log("Assignment data = "+JSON.stringify(this.assignmentTopicsList))
 
   //   });
   // }

@@ -45,6 +45,15 @@ export class AppUrl {
   static get FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT(): string {
     return AppUrl.APP_URL + "v1/teacher/dir/?dir_type=1";
   }
+
+  static  FETCH_TEACHER_DASHBOARD_ACTIVITY(week): string {
+    return AppUrl.APP_URL + "v1/teacher/assignment-answer?" + week;
+  }
+
+  static  UPDATE_TEACHER_DASHBOARD_ASSIGNMENT(id): string {
+    return AppUrl.APP_URL + "v1/teacher/assignment-answers/" + id + '/';
+  }
+
   static get FETCH_NOTES_ACTIVITY(): string {
     return AppUrl.APP_URL + "v1/student/notes/activity/";
   }
