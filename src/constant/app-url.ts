@@ -81,6 +81,9 @@ export class AppUrl {
   static FETCH_ASSIGNMENT_DATA(id): string {
     return AppUrl.APP_URL + `v1/student/dir/${id}/assignment_question/`;
   }
+  static FETCH_ASSIGNMENT_TOPIC_DETAIL(): string {
+    return AppUrl.APP_URL + `v1/student/assignment/answers/`;
+  }
   static FETCH_TEACHER_ASSIGNMENT_DATA(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/${id}/assignment-questions/`;
   }
@@ -124,6 +127,9 @@ export class AppUrl {
   
   static get SELECT_VIDEO(): string {
     return AppUrl.APP_URL + 'video/';
+  }
+  static get UPLOAD_ASSIGNMENT(): string {
+    return AppUrl.APP_URL + 'v1/student/assignment/answers/';
   }
 
   static UPLOAD_VIDEO(url): string {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders, HttpBackend } from '@angular/common/http';
 import { BaseService } from 'src/service/base.service';
 import { AppUrl } from 'src/constant/app-url';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class StudentService extends BaseService{
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,public handler: HttpBackend
   ) { 
     super(http)
   }
@@ -41,7 +41,9 @@ export class StudentService extends BaseService{
   fetchAssignmentData(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_ASSIGNMENT_DATA(id));
   }
-
+  fetchAssignmentTopicData(params): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_ASSIGNMENT_TOPIC_DETAIL(),params);
+  }
   fetchNotes(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_NOTES(id));
   }
@@ -64,6 +66,13 @@ export class StudentService extends BaseService{
     headers.set('Accept', "multipart/form-data");
     let params = new HttpParams();
     return this.http.post(AppUrl.UPLOAD_ANSWERS, data, { params, headers });
+  }
+  uploadAssignment(formData){
+    let headers = new HttpHeaders();
+    headers.set('Content-Type', null);
+    headers.set('Accept', "multipart/form-data");
+    let params = new HttpParams();
+    return this.http.post(AppUrl.UPLOAD_ASSIGNMENT, formData, { params, headers });
   }
 
   answers(): Observable<any>{

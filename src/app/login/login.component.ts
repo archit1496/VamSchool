@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         {
           this.router.navigate(['wrapper/teacherdashboard']);
         } else if(data.role==='STUDENT'){
+          StorageService.setItem('student_id',data.id);
           this.router.navigate(['wrapper/studashboard']);
         }
         else if(data.role==='SUPER_ADMIN'){
