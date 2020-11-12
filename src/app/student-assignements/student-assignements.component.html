@@ -110,9 +110,9 @@
           </div>
         </div>
         <div  *ngIf="studentAssignmentDataTopicWise?.length > 0">
-          <div class="mt-2" *ngFor="let data of studentAssignmentDataTopicWise" (click)="getTopicDetails(data?.id)"
+          <div class="mt-2" *ngFor="let data of studentAssignmentDataTopicWise" style="border-bottom: 1px solid black;padding: 4px;" (click)="getTopicDetails(data?.id)"
              >
-            <div style="display:flex;flex-direction: row;border-bottom: 1px solid black;padding: 4px;">
+            <div style="display:flex;flex-direction: row;">
             <div  class="topicName">
             {{data?.topic}}
             </div>
@@ -120,11 +120,11 @@
               {{data?.teacher?.name}}
             </div>
             <div style="flex: 1;">
-              pdf file
+              {{getFileType(data?.doc_question)}} <span *ngIf="data?.doc_question">file</span>
             </div>
           </div>
             <div *ngIf="data?.id==questionId" style="display:flex;flex-direction: row;padding: 4px;">
-              <div style="flex: 2;display: flex;flex-direction: row;">
+              <div style="flex: 3;display: flex;flex-direction: row;">
                 <button class="downloadUploadButton" (click)="onDownloadClick(data?.doc_question)">
                   Download</button>
                   <div >

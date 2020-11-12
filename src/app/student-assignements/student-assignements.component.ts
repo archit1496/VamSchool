@@ -161,4 +161,8 @@ export class StudentAssignementsComponent implements OnInit {
   onDownloadClick(url) {
     window.open(url);
   }
+  getFileType(url:string){
+    if(url)
+    return url.split(".")[url.split(".").length-1];
+  }
 }

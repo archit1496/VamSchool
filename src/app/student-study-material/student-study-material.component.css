@@ -37,3 +37,8 @@
   display: flex;
   justify-content: center;
   }
+  .downloadUploadButton{
+    background: lightgrey;
+      padding: 5px;
+      margin-right: 5px;
+  }

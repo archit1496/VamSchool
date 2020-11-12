@@ -49,20 +49,30 @@
             </span>
           </div>
         </div>
-        <div class="grid" *ngIf="notesData?.length > 0">
+        <div  *ngIf="notesData?.length > 0">
           <div
-            class="notes-card mt-2"
-            *ngFor="let data of notesData" (click)="onNotesClick(data?.note)"
-          >
-            <span class="mt-4 cursor-pointer" >
+            class="mt-2"
+            *ngFor="let data of notesData" >
+            <div style="display:flex;flex-direction: row;border-bottom: 1px solid black;padding: 4px;">
+              <div  class="topicName" style="flex:3">
+              {{data?.topic}}
+              </div>
+              <div  class="teacherName" style="flex:1">
+                {{getFileType(data?.note)}} <span *ngIf="data?.note">file</span>
+                <!-- {{data?.teacher?.name}} -->
+              </div>
+              <div style="flex: 1;">
+                <button class="downloadUploadButton" (click)="onDownloadClick(data?.note)">
+                  Download</button>
+              </div>
+            </div>
+            <!-- <span class="mt-4 cursor-pointer" >
               {{ data?.course?.class_of?.class_name}} {{ data?.course?.class_of?.section}}<br />
               <span style="font-size: 10px">
                 {{ getDate(data.created_on) }}
               </span>
-              <!-- <div>
-                {{data?.json_question}} 
-              </div> -->
-            </span>
+             
+            </span> -->
           </div>
         </div>
         <div
