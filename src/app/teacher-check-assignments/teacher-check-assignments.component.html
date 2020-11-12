@@ -74,7 +74,6 @@
             </span>
           </div>
           <div class="assignment-card mt-2" style="width:148px" (click)="openForm()">
-            <!-- <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)"> -->
             <label for="upload-notes" class="downloadBtn ml-5">
               <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
             </label>
@@ -94,7 +93,7 @@
                   {{ company.class_of.class_name+  company.class_of.section}}</option>
 
               </select>
-              <input type="file" id="uploadCaptureInputFile" (change)="uploadNotes($event)">
+              <input type="file" id="uploadCaptureInputFile" (change)="uploadAssignment($event)">
 
               <button type="submit" class="btn cancel" (click)="closeForm();postAssignmentData()">Save</button>
               <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
@@ -118,6 +117,7 @@
               <div style="width: 50%;">{{studentActivity.student.first_name + ' ' +studentActivity.student.first_name}}
               </div>
               <div style="width: 30%;">{{studentActivity.question.topic}}</div>
+              <div style="width: 10%;">{{studentActivity.doc_answer.slice((Math.max(0, studentActivity.doc_answer.lastIndexOf(".")) || Infinity) + 1)}}</div>
 
               <div>6 page</div>
             </div>
@@ -131,7 +131,7 @@
 
               </div>
               <div>
-                <input type="text" (change)="update(studentActivity, $event)"><span>/90</span>
+                <input type="text" value="{{studentActivity.mark}}" (change)="update(studentActivity, $event)"><span>/90</span>
               </div>
             </div>
           </li>

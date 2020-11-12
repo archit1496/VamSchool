@@ -18,11 +18,43 @@ export class TeacherNotesComponent implements OnInit {
   teacherId;
   spinnerFlag;
   uploadedNotesResp;
+  selectedNotesData;
+  teacherCourseData = [];
+  selectedCourse = '0';
+  files;
+  topic = '';
+  selectedData;
   constructor(public studentService:StudentService,public teacherService:TeacherService,private toaster: ToastrService) { }
-
+  get Math() {
+    return Math;
+  }
+    get Infinity() {
+    return Infinity;
+  }
   ngOnInit() {
     this.fetchNotesDataSubject();
     this.fetchTeacher();
+  }
+
+  postData(){
+  const obj = {
+      "teacher": this.selectedData.teacher,
+      "name": this.topic,
+  "dir_type": 2,
+      "parent": this.selectedData.id
+}
+
+    this.spinnerFlag = true;
+
+    this.teacherService.updateTeacherNotesTopic(obj).subscribe(data => {
+      // this.uploadedNotesResp = data;
+      this.spinnerFlag = false;
+      this.toaster.success("File uploaded succesfully!", "Success");
+    },
+    error => {
+      this.spinnerFlag = false;
+      this.toaster.error("Failed to upload file!", "Failed")
+    });
   }
   // fetchNotes(){
   //   this.isLoading=true;
@@ -76,7 +108,6 @@ export class TeacherNotesComponent implements OnInit {
     else{
       let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.course.subject.subject_name==event);
       this.studentNotesDataSubjectWise=filterValue;
-      console.log("ddddd",this.studentNotesDataSubjectWise);
 
     }
   }
@@ -89,15 +120,79 @@ export class TeacherNotesComponent implements OnInit {
     
     })
   }
+
+  openForm() {
+    this.fetchCourse();
+    document.getElementById('myForm').style.display = 'block';
+    this.selectedCourse = '0';
+    // this.topicQuestion = '';
+    this.files = null;
+    //  (<HTMLInputElement>document.getElementById("uploadCaptureInputFile")).value = "";
+    const someElement = document.getElementById('mainOuterDiv');
+    someElement.className += ' newclass';
+
+  }
+
+  openForm2() {
+this.topic = '';
+    document.getElementById('myForm').style.display = 'block';
+    // this.topicName = '';
+    // this.topicQuestion = '';
+    // this.files = null;
+    //  (<HTMLInputElement>document.getElementById("uploadCaptureInputFile")).value = "";
+    const someElement = document.getElementById('mainOuterDiv');
+    someElement.className += ' newclass';
+
+  }
+
+  fetchCourse() {
+    this.teacherService.fetchTeacherCourse().subscribe(res => {
+      this.teacherCourseData = res.data;
+    });
+  }
+
+
+  closeForm() {
+
+    document.getElementById('myForm').style.display = 'none';
+    const element = document.getElementById('mainOuterDiv');
+    element.classList.remove('newclass');
+
+  }
+
   uploadNotes(fileInput) {
+    this.files = fileInput.target.files;
+    // this.spinnerFlag = true;
+    // const formData: FormData = new FormData();
+    // const files: File = fileInput.target.files;
+    // formData.append('note', files[0], files[0].name);
+    // formData.append('teacher', this.teacherId);
+    // formData.append('course', "5");
+    // formData.append('topic', files[0].name);
+    // this.teacherService.uploadNotes(formData).subscribe(data => {
+    //   this.uploadedNotesResp = data;
+    //   this.spinnerFlag = false;
+    //   this.toaster.success("File uploaded succesfully!", "Success");
+    // },
+    // error => {
+    //   this.spinnerFlag = false;
+    //   this.toaster.error("Failed to upload file!", "Failed")
+    // });
+
+  }
+
+  postNotesData(){
+
     this.spinnerFlag = true;
     const formData: FormData = new FormData();
-    const files: File = fileInput.target.files;
-    formData.append('note', files[0], files[0].name);
-    formData.append('teacher', this.teacherId);
-    formData.append('course', "5");
-    formData.append('topic', files[0].name);
-    this.teacherService.uploadNotes(formData).subscribe(data => {
+
+    formData.append('note', this.files[0], this.files[0].name);
+    formData.append('teacher', this.selectedNotesData.teacher);
+    formData.append('course', this.selectedCourse);
+    formData.append('topic', this.selectedNotesData.name);
+    formData.append('dir', this.selectedNotesData.id);
+
+    this.teacherService.updateNotes(this.selectedNotesData.id, formData).subscribe(data => {
       this.uploadedNotesResp = data;
       this.spinnerFlag = false;
       this.toaster.success("File uploaded succesfully!", "Success");

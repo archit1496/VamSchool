@@ -110,6 +110,12 @@ export class AppUrl {
   static FETCH_TEACHER_NOTES(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/${id}/notes/`;
   }
+
+  static UPDATE_TEACHER_NOTES(): string {
+    return AppUrl.APP_URL + `v1/teacher/dir/`;
+  }
+
+  
   static get UPLOAD_ANSWERS(): string{
     return AppUrl.APP_URL + 'answer/';
   }
