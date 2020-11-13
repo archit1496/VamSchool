@@ -1,1 +1,52 @@
-Registration Works!
+<app-home-header ></app-home-header>
+<section class="container-fluid">
+    <div class="col-md-12 col-lg-12 col-sm-0">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="home">
+                    <span>Registration</span> <br>
+                    <!-- <span class="setPwd">Set your Password</span> -->
+                </div>
+                <form action="">
+                    <div class="mt-5 ml-5">
+                        <div class="form-group">
+                            <label for="setPwd"><b>Name of the Organistion</b></label><br>
+                            <div class="row">
+                                <input type="text" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Name">
+                            </div>
+                            <br>
+                        </div>
+                        <div class="form-group">
+                            <label for="setPwd"><b>Official Email Id</b></label><br>
+                            <div class="row">
+                                <input type="text" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Email Id">
+                            </div>
+                            <br>
+                        </div>
+                        <div class="form-group">
+                            <label for="setPwd"><b>Contact Number</b></label><br>
+                            <div class="row">
+                                <input type="text" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Number">
+                            </div>
+                            <br>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="confirmPwd"><b>Confirm Password</b></label><br>
+                            <div class="row">
+                                <input [type]="showPwd ? 'text' : 'password'" name="confirmPwd" id="confirmPwd" class="inputBox form-control w-75">
+                                <i class="fa fa-eye-slash mt-2 eyeclose" *ngIf="showPwd" title="Hide Password" (click)="showPassword()" aria-hidden="true"></i>
+                                <i class="fa fa-eye mt-2 eyeclose" *ngIf="!showPwd" title="Show Password" (click)="showPassword()" aria-hidden="true"></i>
+                            </div>
+                        </div> -->
+                        <div class="mt-5">
+                            <button type="submit" class="btn btn-submit w-25">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 pwd-img">
+                <img src="../../assets/images/registrationImage.svg" alt="img">
+            </div>
+        </div>
+    </div>
+</section>
