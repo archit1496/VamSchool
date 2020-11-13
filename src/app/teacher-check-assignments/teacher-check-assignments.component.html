@@ -78,7 +78,7 @@
               <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
             </label>
           </div>
-          <div class="form-popup" id="myForm">
+          <!-- <div class="form-popup" id="myForm">
             <form class="form-container">
               <h1>Add New Topic</h1>
 
@@ -99,10 +99,10 @@
               <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
 
             </form>
-          </div>
+          </div> -->
 
         </div>
-
+        <app-add-new-assignment (classSelected)="postAssignmentData($event)" *ngIf="openAddNewAssignmentPage"></app-add-new-assignment>
         <!-- <div
           *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter"
           style="text-align: center"

@@ -34,6 +34,7 @@ import { ClassesComponent } from '../classes/classes.component';
 import { StudentNavBarComponent } from '../student-nav-bar/student-nav-bar.component';
 import { StudentClassSubjectComponent } from '../student-class-subject/student-class-subject.component';
 import { StudentStudyMaterialComponent } from '../student-study-material/student-study-material.component';
+import { AddNewAssignmentComponent } from '../teacher-check-assignments/add-new-assignment/add-new-assignment.component';
 
 const agoraConfig: AgoraConfig = {
   AppID: 'd93c22ae894740f6a8051d3d34f74da1',
@@ -72,7 +73,7 @@ const agoraConfig: AgoraConfig = {
     StudentNavBarComponent,
     StudentClassSubjectComponent,
     StudentStudyMaterialComponent,
-
+    AddNewAssignmentComponent
   ],
   imports: [
     CommonModule,
@@ -109,7 +110,7 @@ const agoraConfig: AgoraConfig = {
     StudentNavBarComponent,
     StudentClassSubjectComponent,
     StudentStudyMaterialComponent,
-
+    AddNewAssignmentComponent
   ],
   providers: [HtpInterceptor]
 })

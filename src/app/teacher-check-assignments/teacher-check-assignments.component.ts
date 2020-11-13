@@ -67,6 +67,7 @@ export class TeacherCheckAssignmentsComponent {
     this.getActivityData('week=this');
   }
 
+  openAddNewAssignmentPage;
   // @ViewChild('firstClass',null) firstClass: ElementRef;
   // serverCreated = false;
   firstClass = false;
@@ -107,11 +108,11 @@ export class TeacherCheckAssignmentsComponent {
     });
   }
 
-  fetchCourse() {
-    this.teacherService.fetchTeacherCourse().subscribe(res => {
-      this.teacherCourseData = res.data;
-    });
-  }
+  // fetchCourse() {
+  //   this.teacherService.fetchTeacherCourse().subscribe(res => {
+  //     this.teacherCourseData = res.data;
+  //   });
+  // }
 
 
   download(studentActivity) {
@@ -127,14 +128,17 @@ export class TeacherCheckAssignmentsComponent {
   }
 
   openForm() {
-    this.fetchCourse();
-    document.getElementById('myForm').style.display = 'block';
-    this.topicName = '';
-    this.topicQuestion = '';
-    this.files = null;
-    //  (<HTMLInputElement>document.getElementById("uploadCaptureInputFile")).value = "";
-    const someElement = document.getElementById('mainDiv');
-    someElement.className += ' newclass';
+    this.openAddNewAssignmentPage = true;
+    this.secondClass = false;
+
+    // this.fetchCourse();
+    // document.getElementById('myForm').style.display = 'block';
+    // this.topicName = '';
+    // this.topicQuestion = '';
+    // this.files = null;
+    // //  (<HTMLInputElement>document.getElementById("uploadCaptureInputFile")).value = "";
+    // const someElement = document.getElementById('mainDiv');
+    // someElement.className += ' newclass';
 
   }
 
@@ -188,21 +192,31 @@ export class TeacherCheckAssignmentsComponent {
     this.files = fileInput.target.files;
   }
 
-  postAssignmentData() {
-    this.isLoading = true;
-    const formData: FormData = new FormData();
-    formData.append('doc_question', this.files[0], this.files[0].name);
-    formData.append('dead_line', new Date().getTime().toString());
-    formData.append('topic', this.topicName);
-    formData.append('dir', this.selectedStudentAssignmentDataSubjectWise.id);
+  postAssignmentData(addNewAssignment) {
 
-    formData.append('json_question', this.topicQuestion);
-    formData.append('course', this.selectedCourse);
-    formData.append('teacher', this.selectedStudentAssignmentDataSubjectWise.teacher);
-    this.teacherService.addNewAssignmentData(this.selectedStudentAssignmentDataSubjectWise.id, formData).subscribe(res => {
-      this.toastr.success('Added succesfully!', 'Success');
-      this.isLoading = false;
-    });
+    if (addNewAssignment.status === 'save') {
+      this.isLoading = true;
+      const formData: FormData = new FormData();
+      formData.append('doc_question', addNewAssignment.files[0], addNewAssignment.files[0].name);
+      formData.append('dead_line', addNewAssignment.date);
+      formData.append('topic', addNewAssignment.topic);
+      formData.append('dir', this.selectedStudentAssignmentDataSubjectWise.id);
+      formData.append('max_mark', addNewAssignment.marks);
+  
+      formData.append('description', addNewAssignment.topicQuestion);
+      formData.append('course', addNewAssignment.selectedCourse);
+      formData.append('teacher', this.selectedStudentAssignmentDataSubjectWise.teacher);
+      this.teacherService.addNewAssignmentData(this.selectedStudentAssignmentDataSubjectWise.id, formData).subscribe(res => {
+        this.toastr.success('Added succesfully!', 'Success');
+        this.isLoading = false;
+      });
+    } 
+    this.secondClass = true;
+
+    this.openAddNewAssignmentPage = false;
+
+
+
   }
 
   get Math() {
