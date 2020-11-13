@@ -1,0 +1,42 @@
+<div style="display: flex;">
+<div class="assignment-card mt-2" style="width:148px" >
+    <label for="upload-notes" class="downloadBtn ml-5">
+      <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+    </label>
+  </div>
+
+<div style="margin-left: 10px;
+width: 100%;">
+<input type="text" style="width: 50%;" placeholder="Title of assignment" name="Topic" required [(ngModel)]="topicName">
+<input type="date" style="width: 50%;" id="birthday" name="birthday" placeholder="Deadline" [(ngModel)]="date">
+<hr>
+<input type="text" style="width: 100%;"  placeholder="Assignment Description" name="psw" [(ngModel)]="topicQuestion">
+</div>
+</div>
+
+
+
+<input type="file" name="file" id="file" class="inputfile" (change)="uploadAssignment($event)">
+<label for="file">Upload Assignment</label>
+<span style="margin-left: 10px;">{{files.length? files[0].name: ''}}</span>
+<div>
+<select name="" id="" style="margin-right: 10px;width: 50%;" name="dfvf" [(ngModel)]="selectedCourse">
+  <option value="0">Select Course</option>
+  <option *ngFor="let company of teacherCourseData" [value]="company.id">
+    {{ company.class_of.class_name+  company.class_of.section}}</option>
+
+</select>
+</div>
+<div>
+    <input type="text" style="width: 50%;" placeholder="Total marks" name="Topic" required [(ngModel)]="marks">
+
+</div>
+<div>
+
+<button type="submit" class="btn cancel" style="    position: absolute;
+bottom: 30px;
+right: 25%;background-color: #118AEB;" (click)="save()">Publish</button>
+<button type="submit" class="btn cancel"  style="    position: absolute;    background-color: grey;
+bottom: 30px;
+left: 25%;" (click)="discard()">Discard</button>
+</div>
