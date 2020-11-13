@@ -72,5 +72,8 @@ export class LoginComponent implements OnInit {
         });
     
   }
+  onForgotPasswordClick(){
+    this.router.navigate(['/password-change']);
+  }
 
 }
