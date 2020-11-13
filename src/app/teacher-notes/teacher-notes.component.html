@@ -73,7 +73,7 @@
 <footer class="footer-div mt-3">
 </footer> -->
 
-<div class="container-fluid boxModel">
+<div class="container-fluid boxModel" id="mainOuterDiv">
   <app-teacher-navbar></app-teacher-navbar>
   <div
     style="
@@ -85,15 +85,16 @@
   >
     <section class="outerDiv">
       <div class="mt-1 innerDiv">
-        <app-classes (classSelected)="classSelected($event)"></app-classes>
+        <!-- <app-classes (classSelected)="classSelected($event)"></app-classes> -->
         <h5 class="mt-2"><b>This Week</b></h5>
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div>
+
         <div class="grid" *ngIf="studentNotesDataSubjectWise?.length > 0">
           <div
             class="notes-card mt-2"
-            *ngFor="let data of studentNotesDataSubjectWise" (click)="fetchNotesDataTopicWise(data?.id)"
+            *ngFor="let data of studentNotesDataSubjectWise" (click)="fetchNotesDataTopicWise(data?.id);selectedData = data;"
           >
             <span class="mt-4 cursor-pointer" >
               {{data?.file_count}} Files <br />
@@ -105,7 +106,7 @@
               </div>
             </span>
           </div>
-          <div
+          <!-- <div
             class="notes-card mt-2"
             
              style="width:148px"
@@ -114,12 +115,13 @@
           <label for="upload-notes" class="downloadBtn ml-5">
             <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
           </label>
-          </div>
+          </div> -->
         </div>
+
         <div class="grid" *ngIf="studentNotesDataTopicWise?.length > 0">
           <div
             class="notes-card mt-2"
-            *ngFor="let data of studentNotesDataTopicWise" (click)="fetchNotesData(data?.id)"
+            *ngFor="let data of studentNotesDataTopicWise" (click)="fetchNotesData(data?.id);selectedNotesData= data;"
           >
             <span class="mt-4 cursor-pointer" >
               {{data?.file_count}} Files <br />
@@ -131,8 +133,30 @@
               </div>
             </span>
           </div>
+               <div
+            class="notes-card mt-2"
+            
+             style="width:148px"
+             (click)="openForm2()">
+
+          <label for="update-notes" class="downloadBtn ml-5">
+            <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+          </label>
+          </div>
+          <div class="form-popup" id="myForm">
+            <form class="form-container">
+              <h1>Add New Topic</h1>
+  
+              <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="topic">
+   
+              <button type="submit" class="btn cancel" (click)="closeForm();postData()">Save</button>
+              <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
+  
+            </form>
+          </div>
         </div>
-        <div class="grid" *ngIf="notesData?.length > 0">
+
+        <!-- <div class="grid" *ngIf="notesData?.length > 0">
           <div
             class="notes-card mt-2"
             *ngFor="let data of notesData" (click)="onNotesClick(data?.note)"
@@ -142,21 +166,63 @@
               <span style="font-size: 10px">
                 {{ getDate(data.created_on) }}
               </span>
-              <!-- <div>
-                {{data?.json_question}} 
-              </div> -->
             </span>
           </div>
+        </div> -->
+        <div *ngIf="notesData?.length > 0">
+          <div
+          class="notes-card mt-2"
+          
+           style="width:148px"
+           (click)="openForm()">
+
+        <label class="downloadBtn ml-5">
+          <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+        </label>
+
         </div>
-        <div
+        <div class="form-popup" id="myForm">
+          <form class="form-container">
+            <h1>Add New Topic</h1>
+
+            <select name="" id="" style="margin-right: 10px;" name="dfvf" [(ngModel)]="selectedCourse">
+              <option value="0">Select Course</option>
+              <option *ngFor="let company of teacherCourseData" [value]="company.id">
+                {{ company.class_of.class_name+  company.class_of.section}}</option>
+
+            </select>
+            <label for="upload-notes" class="downloadBtn ml-5">
+            <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)"> 
+          </label>
+            <button type="submit" class="btn cancel" (click)="closeForm();postNotesData()">Save</button>
+            <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
+
+          </form>
+        </div>
+        <ul class="showlist" >
+          <li class="alignlist" *ngFor="let data of notesData" (click)="onNotesClick(data?.note)">
+
+            <div style="display: flex;">
+
+              <div>"{{data.topic}}"</div>
+              <div style="margin-left: 10px;">{{data.note ? (data.note.slice((Math.max(0, data.note.lastIndexOf(".")) || Infinity) + 1)) : ''}} file</div>
+            </div>
+          </li>
+
+
+
+        </ul>
+        </div>
+  
+        <!-- <div
           *ngIf="studentNotesDataSubjectWise?.length == 0 && subjectFilter"
           style="text-align: center"
         >
           <b>No Data To Display</b>
-        </div>
+        </div> -->
       </div>
     </section>
-    <div
+    <!-- <div
       style="
         flex: 1 23%;
         display: flex;
@@ -170,6 +236,6 @@
     </div>
     <div style="order: 3;">
       <div class="footer-card"></div>
-    </div>
+    </div> -->
   </div>
 </div>

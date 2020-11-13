@@ -184,7 +184,7 @@ export class TeacherCheckAssignmentsComponent {
     });
   }
 
-  uploadNotes(fileInput) {
+  uploadAssignment(fileInput) {
     this.files = fileInput.target.files;
   }
 
@@ -205,6 +205,12 @@ export class TeacherCheckAssignmentsComponent {
     });
   }
 
+  get Math() {
+    return Math;
+  }
+    get Infinity() {
+    return Infinity;
+  }
   getDate(date) {
     return (new Date(date).getDate() + '-' + new Date(date).getMonth() + '-' + new Date(date).getFullYear());
   }

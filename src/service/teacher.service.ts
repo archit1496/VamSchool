@@ -121,4 +121,12 @@ export class TeacherService extends BaseService {
   fetchNotes(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_TEACHER_NOTES(id));
   }
+
+  updateNotes(id, data): Observable<any>{
+    return this.postRequest(AppUrl.FETCH_TEACHER_NOTES(id), data);
+  }
+
+  updateTeacherNotesTopic(data){
+    return this.postRequest(AppUrl.UPDATE_TEACHER_NOTES(), data);
+  }
 }
