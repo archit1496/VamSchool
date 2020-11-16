@@ -12,6 +12,15 @@ export class AppUrl {
   static get Logout(): string {
     return AppUrl.APP_URL + 'users/logout/';
   }
+  static get register(): string {
+    return AppUrl.APP_URL + 'v1/register/';
+  }
+  static get FORGOT_PASSWORD(): string {
+    return AppUrl.APP_URL + 'v1/forgot-password/';
+  }
+  static get CHANGE_PASSWORD(): string {
+    return AppUrl.APP_URL + '/v1/reset-password/';
+  }
   static get TEACHER_COURSE_LIST(): string {
     return AppUrl.APP_URL + 'teacher/course/';
   }

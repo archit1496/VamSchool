@@ -21,5 +21,13 @@ export class AuthService extends BaseService{
   logout() {
      return this.postRequest(AppUrl.Logout);
   }
-
+  register(data):Observable<any> {
+    return this.postRequest(AppUrl.register,data);
+  }
+  forgotPassword(data):Observable<any> {
+    return this.postRequest(AppUrl.FORGOT_PASSWORD,data);
+  }
+  changePassword(data):Observable<any> {
+    return this.postRequest(AppUrl.CHANGE_PASSWORD,data);
+  }
 }

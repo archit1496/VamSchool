@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
 
@@ -23,8 +24,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactusComponent },
   { path: 'home-header', component: HomeHeaderComponent },
   { path: 'password-change', component: PasswordChangeComponent },
-  
-
+  {path:'forgot-password',component:ForgotPasswordComponent},
 
 
 

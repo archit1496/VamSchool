@@ -5,11 +5,12 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/service/auth.service';
 
 @Component({
-  selector: 'app-password-change',
-  templateUrl: './password-change.component.html',
-  styleUrls: ['./password-change.component.css']
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.css']
 })
-export class PasswordChangeComponent implements OnInit {
+
+export class ForgotPasswordComponent implements OnInit {
   changePasswordForm:FormGroup;
   showPwd: Boolean;
 
@@ -17,7 +18,6 @@ export class PasswordChangeComponent implements OnInit {
     this.showPwd = false;
     this.changePasswordForm = this.fb.group({
       'email': ['', Validators.required],
-      'password': ['', Validators.required],
     });
   }
 
@@ -31,14 +31,14 @@ export class PasswordChangeComponent implements OnInit {
     console.log("detail",this.changePasswordForm.value);
     if(this.changePasswordForm.valid)
     {
-      this.authService.changePassword(this.changePasswordForm.value).subscribe(res=>{
+      this.authService.forgotPassword(this.changePasswordForm.value).subscribe(res=>{
         if(res)
         {
-          this.toaster.success("Password changed Succefully!", "Success");
+          this.toaster.success("Succefully!", "Success");
           this.router.navigate(['/login']);
         }
       },error=>{
-        this.toaster.error("Failed to Change Password!", "Failed");
+        this.toaster.error("Failed!", "Failed");
       })
     }
     else{

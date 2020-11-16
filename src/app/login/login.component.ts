@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
     
   }
   onForgotPasswordClick(){
-    this.router.navigate(['/password-change']);
+    this.router.navigate(['/forgot-password']);
   }
 
 }

@@ -7,26 +7,26 @@
                     <span>Registration</span> <br>
                     <!-- <span class="setPwd">Set your Password</span> -->
                 </div>
-                <form action="">
+                <form [formGroup]="registrationForm">
                     <div class="mt-5 ml-5">
                         <div class="form-group">
                             <label for="setPwd"><b>Name of the Organistion</b></label><br>
                             <div class="row">
-                                <input type="text" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Name">
+                                <input type="text" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Name" formControlName="name"> 
                             </div>
                             <br>
                         </div>
                         <div class="form-group">
                             <label for="setPwd"><b>Official Email Id</b></label><br>
                             <div class="row">
-                                <input type="text" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Email Id">
+                                <input type="email" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Email Id" formControlName="email">
                             </div>
                             <br>
                         </div>
                         <div class="form-group">
                             <label for="setPwd"><b>Contact Number</b></label><br>
                             <div class="row">
-                                <input type="text" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Number">
+                                <input type="number" name="setPwd" id="setPwd" class="inputBox form-control w-75" placeholder="Number" formControlName="number">
                             </div>
                             <br>
                         </div>
@@ -39,7 +39,7 @@
                             </div>
                         </div> -->
                         <div class="mt-5">
-                            <button type="submit" class="btn btn-submit w-25">Submit</button>
+                            <button type="submit" class="btn btn-submit w-25" (click)="onRegistration()">Submit</button>
                         </div>
                     </div>
                 </form>
