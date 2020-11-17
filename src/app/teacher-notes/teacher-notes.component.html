@@ -92,10 +92,7 @@
         </div>
 
         <div class="grid" *ngIf="studentNotesDataSubjectWise?.length > 0">
-          <div
-            class="notes-card mt-2"
-            *ngFor="let data of studentNotesDataSubjectWise" (click)="fetchNotesDataTopicWise(data?.id);selectedData = data;"
-          >
+          <div class="notes-card mt-2" *ngFor="let data of studentNotesDataSubjectWise" (click)="fetchNotesDataTopicWise(data?.id);selectedData = data;">
             <span class="mt-4 cursor-pointer" >
               {{data?.file_count}} Files <br />
               <span style="font-size: 10px">
