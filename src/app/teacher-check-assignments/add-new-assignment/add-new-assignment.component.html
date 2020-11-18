@@ -15,12 +15,14 @@ width: 100%;">
 </div>
 
 
-
+<div>
 <input type="file" name="file" id="file" class="inputfile" (change)="uploadAssignment($event)">
 <label for="file">Upload Assignment</label>
 <span style="margin-left: 10px;">{{files.length? files[0].name: ''}}</span>
+</div>
+
 <div>
-<select name="" id="" style="margin-right: 10px;width: 50%;" name="dfvf" [(ngModel)]="selectedCourse">
+<select name="" id="" style="margin-right: 10px;width: 50%;margin-top: 10px;" name="Course" [(ngModel)]="selectedCourse">
   <option value="0">Select Course</option>
   <option *ngFor="let company of teacherCourseData" [value]="company.id">
     {{ company.class_of.class_name+  company.class_of.section}}</option>
@@ -28,7 +30,7 @@ width: 100%;">
 </select>
 </div>
 <div>
-    <input type="text" style="width: 50%;" placeholder="Total marks" name="Topic" required [(ngModel)]="marks">
+    <input type="text" style="width: 50%;margin-top: 10px;" placeholder="Total marks" name="Topic" required [(ngModel)]="marks">
 
 </div>
 <div>

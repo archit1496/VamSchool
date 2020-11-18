@@ -5,31 +5,27 @@
             <div class="col-11">
                 <app-classes></app-classes>
             </div>
-            <div class="col mt-1">
+            <!-- <div class="col mt-1">
                 <i class="fa fa-cog" aria-hidden="true" style="font-size: 24px;"></i>
-            </div>
+            </div> -->
         </div>
             
-        <img src="" alt="" height="350" class="mt-2 w-100">
+        <img style="background: #979797;" alt="" height="350" class="mt-2 w-100">
         <div class="row mt-3">
-            <div class="col-2">
+            <div class="col-2 text-center">
                 <h1><b>3</b></h1>
-                <br>
                 <span class="font-size14"><b>HW Pending</b></span>
             </div>
-            <div class="col-2">
+            <div class="col-2 text-center">
                 <h1><b>98%</b></h1>
-                <br>
                 <span class="font-size14"><b>Attendance</b></span>
             </div>
-            <div class="col-2">
+            <div class="col-2 text-center">
                 <h1><b>68%</b></h1>
-                <br>
                 <span class="font-size14"><b>Average</b></span>
             </div>
-            <div class="col-2">
+            <div class="col-2 text-center">
                 <h1><b>1</b></h1>
-                <br>
                 <span class="font-size14"><b>Testing</b></span>
             </div>
         </div>
@@ -43,7 +39,8 @@
                             <div class="col-3">
                                 <div class="main-card">
                                     <span class="mt-4">
-                                        {{data.class_of.class_name}} {{data.class_of.section}} <br>
+                                        <b>
+                                        {{data.class_of.class_name}} {{data.class_of.section}} </b><br>
                                         {{data.start_time}}
                                     </span>
                                 </div>
@@ -66,8 +63,9 @@
                 <div class="col-4">
                     <h5><b>Now</b></h5>
                     <div class="live-card mr-3">
-                        <div class="row">
+                        <div style="display: flex;justify-content: space-between;">
                             <div class="text-left ml-3 mr-2">
+                                <span class="dot"></span>
                                 Overdue
                             </div>
                             <div class="startNow">
@@ -75,7 +73,9 @@
                             </div>
                         </div>
                         <div class="class-in-div">
-                            <span>X Std Section A
+                            <span>
+                                <b>
+                                X Std Section A</b>
                                 <br>
                                 10:00 AM
                             </span>

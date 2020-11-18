@@ -12,7 +12,13 @@ a b:hover{
     padding: 0;
     height: 100%;
 }
-
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #E52828;
+    border-radius: 50%;
+    display: inline-block;
+  }
 .live-card{
     border: 1px solid black;
     height: 200px !important;
