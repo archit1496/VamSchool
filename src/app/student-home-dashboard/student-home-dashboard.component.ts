@@ -32,6 +32,7 @@ export class StudentHomeDashboardComponent implements OnInit {
   todayClassData;
   studentData;
   dashboardActivityData;
+  hideArrow = true;
   constructor(private router: Router,public studentService:StudentService) {
     this.fetchStudentDetails();
     this.fetchDashboardActivityData();
