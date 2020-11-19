@@ -43,7 +43,42 @@ export class StudentTimetableComponent implements OnInit {
     this.thrusdayData=this.timeTableData.filter(elm=>elm.day.day=='Thursday');
     this.fridayData=this.timeTableData.filter(elm=>elm.day.day=='Friday');
     this.saturdayData=this.timeTableData.filter(elm=>elm.day.day=='Saturday');
+    this.prepareFinalData();
     
+  }
+
+  prepareFinalData(){
+    let mdata=[...this.mondayData];
+    let tdata=[...this.tuesdayData];
+    let wdata=[...this.wednesdayData];
+    let thdata=[...this.thrusdayData];
+    let fdata=[...this.fridayData];
+    let sdata=[...this.saturdayData];
+    
+    for(let x=0;x<=4-mdata.length;x++)
+    {
+        this.mondayData.push({})
+    }
+    for(let x=0;x<=4-tdata.length;x++)
+    {
+        this.tuesdayData.push({})
+    }
+    for(let x=0;x<=4-wdata.length;x++)
+    {
+        this.wednesdayData.push({})
+    }
+    for(let x=0;x<=4-thdata.length;x++)
+    {
+        this.thrusdayData.push({})
+    }
+    for(let x=0;x<=4-fdata.length;x++)
+    {
+        this.fridayData.push({})
+    }
+    for(let x=0;x<=4-sdata.length;x++)
+    {
+        this.saturdayData.push({})
+    }
   }
   subjectSelected(event){
     if(event==='All')

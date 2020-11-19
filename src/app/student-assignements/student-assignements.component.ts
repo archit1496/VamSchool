@@ -17,59 +17,6 @@ export class StudentAssignementsComponent implements OnInit {
   assignmentActivityData;
   assignmentTopicDetail;
   questionId: number = -1;
-
-  dummyData = [
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Physics'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Chemistry'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Chemistry'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Maths'
-    },
-    {
-      "noOfFiles": "10 Files",
-      "update": "Last Update Today",
-      "subject": 'Maths'
-    },
-    // {
-    //   "noOfFiles": "10 Files",
-    //   "update": "Last Update Today",
-    //   "subject":'Maths'
-    // },
-  ]
   constructor(public studentService: StudentService, public toaster: ToastrService) {
     this.fetchAssignmentDataSubject();
     this.fetchAssignmentActivity();
