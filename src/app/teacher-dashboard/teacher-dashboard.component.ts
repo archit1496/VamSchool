@@ -26,6 +26,7 @@ export class TeacherDashboardComponent implements OnInit {
   signature: any;
   teacherCourseData: any;
   todaysTimeTable: any;
+  hideArrow = true;
 
   constructor(private router: Router, private teacherService: TeacherService) {
   }
