@@ -153,3 +153,17 @@ p {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+.al {
+  background-color: lightgrey; 
+  /* height: 35px; */
+}
+
+@media screen and (max-width: 600px) {
+.innerDiv {
+  max-width: inherit;
+  padding: 5px;
+}
+.navbar-nav  {
+  flex-direction: inherit;
+}
+}
