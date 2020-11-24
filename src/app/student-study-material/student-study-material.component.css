@@ -1,7 +1,7 @@
 .boxModel{
     padding: 0;
-    height: 100%;
-    overflow: scroll !important;
+    /* height: 100%;
+    overflow: scroll !important; */
   }
   
   .outerDiv{

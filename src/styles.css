@@ -371,10 +371,11 @@ a{
 
 .footer-card{
   border: 1px solid black;
-  height: 58px;
+  height: 75px;
   width: 98vw;
   background-color: lightgray;
-  margin-bottom: 55px;
+  margin-top: 10px;
+  
 }
 .footer-div{
   height: 120px !important;
@@ -387,4 +388,5 @@ a{
     border-radius: 10px;
     margin-right: 8px;
     margin-bottom: 8px;
+
 }
