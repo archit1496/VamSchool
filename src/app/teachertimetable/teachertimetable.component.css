@@ -41,3 +41,13 @@
   .outerGridBox{
     
   }
+  @media screen and (max-width: 600px) {
+  .standardDiv {
+    margin-left: inherit;
+    margin-right: inherit;
+    padding: 5px;
+}
+.navbar-nav  {
+  flex-direction: inherit;
+}
+  }

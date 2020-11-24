@@ -64,3 +64,11 @@ a b:hover{
     right: 24rem;
     top: 4rem;
 }
+
+@media screen and (max-width: 600px) {
+    .standardDiv {
+        margin-left: inherit;
+        margin-right: inherit;
+        padding: 5px;
+    }
+    }

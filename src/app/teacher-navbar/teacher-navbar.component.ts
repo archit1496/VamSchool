@@ -33,6 +33,14 @@ export class TeacherNavbarComponent implements OnInit {
     })
   }
 
+  myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
   gotoClassroom(id: number) {
     // const navigationExtras: NavigationExtras = {
     //   state: {
