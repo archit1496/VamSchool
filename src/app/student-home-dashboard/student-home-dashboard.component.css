@@ -76,3 +76,25 @@ a b:hover{
 .ongoingClassInfo{
   margin: 102px 0px 0px 10px;
 }
+
+@media only screen and (max-width: 400px) {
+  .outerDiv{
+    align-items: normal;
+  }
+  .innerDiv{
+    max-width: 390px;
+  }
+  .studentInfo{
+    max-width: 112px;
+  }
+  .classNowDiv{
+    max-width: 350px !important;
+  }
+  .callNowActivityDiv{
+    flex-direction: column;
+  }
+  .activityDiv{
+    margin-top: 10px;
+    max-width: 350px !important;
+  }
+}

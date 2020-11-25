@@ -9,22 +9,22 @@
       </div>
       <img style="background: #979797;" alt="" height="350" class="mt-2 w-100">
         <div class="row mt-3">
-            <div class="col-2 text-center">
+            <div class="col-2 text-center studentInfo">
                 <h1><b>{{studentDataList?.hw_pending}}</b></h1>
                 <br>
                 <span class="font-size14"><b>HW Pending</b></span>
             </div>
-            <div class="col-2 text-center">
+            <div class="col-2 text-center studentInfo">
                 <h1><b>{{studentDataList?.attendance}}</b></h1>
                 <br>
                 <span class="font-size14"><b>Attendance</b></span>
             </div>
-            <div class="col-2 text-center">
+            <div class="col-2 text-center studentInfo">
                 <h1><b>{{studentDataList?.average}}</b></h1>
                 <br>
                 <span class="font-size14"><b>Average</b></span>
             </div>
-            <div class="col-2 text-center">
+            <div class="col-2 text-center studentInfo">
                 <h1><b>{{studentDataList?.test}}</b></h1>
                 <br>
                 <span class="font-size14"><b>Testing</b></span>
@@ -87,8 +87,8 @@
         </div>
         <hr>
         <div class="mt-2">
-            <div class="row">
-                <div class="col-4">
+            <div class="row callNowActivityDiv">
+                <div class="col-4 classNowDiv">
                     <h5><b>Now</b></h5>
                     <div class="live-card mr-3">
                         <div class="ongoingClassDiv">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-8">
+                <div class="col-8 activityDiv">
                     <h5><b>Activity</b></h5>
                     <div class="activity-card">
                         <div *ngFor="let data of dashboardActivityData" style="display: flex;flex-direction: rows;">

@@ -36,6 +36,7 @@ export class StudentHomeDashboardComponent implements OnInit {
   constructor(private router: Router,public studentService:StudentService) {
     this.fetchStudentDetails();
     this.fetchDashboardActivityData();
+    console.log("width",screen.width)
   }
 
 
