@@ -22,18 +22,18 @@
     <div class="topnav" id="myTopnav">
         <!-- <ul class="navbar-nav mb-n2 ml-5"> -->
             <!-- <li class="nav-item"> -->
-                <a class="nav-link mr-5" routerLink="/wrapper/teacherdashboard" routerLinkActive="active">
+                <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teacherdashboard" routerLinkActive="active">
                     <span><b>Dashboard</b></span>
                 </a>
             <!-- </li> -->
             <!-- <li class="nav-item"> -->
-                <a class="nav-link mr-5" routerLink="/wrapper/teachertimetable" routerLinkActive="active">
+                <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teachertimetable" routerLinkActive="active">
                     <b>Time
                         Table</b>
                 </a>
             <!-- </li> -->
             <!-- <li class="nav-item"> -->
-                <a class="nav-link mr-5" routerLink="/wrapper/teachercheckassignments" routerLinkActive="active">
+                <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teachercheckassignments" routerLinkActive="active">
                     <b>Assignments</b>
                 </a>
             <!-- </li> -->
@@ -43,7 +43,7 @@
                 </a>
             </li> -->
             <!-- <li class="nav-item"> -->
-                <a class="nav-link" routerLink="/wrapper/teachernotes" routerLinkActive="active">
+                <a class="nav-link" routerLink="/wrapper/teacherNav/teachernotes" routerLinkActive="active">
                     <b>Study
                         Material</b>
                 </a>
@@ -65,3 +65,7 @@
     </div>
     </div>
 </nav>
+
+<div class="col-12 offset">
+    <router-outlet></router-outlet>
+</div>

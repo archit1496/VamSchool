@@ -29,17 +29,17 @@ const routes: Routes = [
   {
     path: '', component: WrapperComponent, children: [
       { path: 'admin', component: AdminComponent },
-      { path: 'teachertimetable', component: TeachertimetableComponent },
+      // { path: 'teachertimetable', component: TeachertimetableComponent },
       { path: 'studashboard', component: StudentHomeDashboardComponent },
       { path: 'stutimetable', component: StudentTimetableComponent },
       { path: 'stuassignments', component: StudentAssignementsComponent },
-      { path: 'teacherdashboard', component: TeacherDashboardComponent },
-      { path: 'teachernotes', component: TeacherNotesComponent },
+      // { path: 'teacherdashboard', component: TeacherDashboardComponent },
+      // { path: 'teachernotes', component: TeacherNotesComponent },
       { path: 'teacheruploadvideo', component: TeacherUploadVideoComponent },
       { path: 'teacherliveclass', component: TeacherLiveClassComponent },
       { path: 'teacherhomework', component: TeacherHomeWorkComponent },
       { path: 'teacheractivity', component: TeacherStudentListComponent },
-      { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent },
+      // { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent },
       { path: 'teachermarksassignments/:topicId', component: TeacherMarksAssignmentComponent },
       { path: 'studentStudyMaterial', component: StudentStudyMaterialComponent },
     
@@ -49,6 +49,15 @@ const routes: Routes = [
       //     { path: 'header', component: HeaderComponent }
       //   ]
       // },
+      {
+        path: 'teacherNav', component: TeacherNavbarComponent, children: [
+          { path: '', redirectTo: '/wrapper/teacherNav/teacherdashboard', pathMatch: 'full' },
+          {path: 'teacherdashboard', component: TeacherDashboardComponent},
+          { path: 'teachertimetable', component: TeachertimetableComponent },
+          { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent },
+          { path: 'teachernotes', component: TeacherNotesComponent },
+        ]
+      },
       {
         path: 'student-dashboard', component: StudentDashboardComponent, children: [
           { path: 'student-live-class', component: StudentLiveClassComponent },

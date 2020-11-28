@@ -19,7 +19,7 @@ export class AppComponent {
       if(StorageService.getItem('role')==='STUDENT')
           this.router.navigate(['wrapper/studashboard']);
       else if(StorageService.getItem('role')==='TEACHER')
-         this.router.navigate(['wrapper/teacherdashboard']);
+         this.router.navigate(['wrapper/teacherNav/teacherdashboard']);
       else if(StorageService.getItem('role')==='OWNER')
          this.router.navigate(['wrapper/admin']);
       

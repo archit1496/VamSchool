@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         StorageService.setItem('lastname',data.last_name);
         if(data.role==='TEACHER')
         {
-          this.router.navigate(['wrapper/teacherdashboard']);
+          this.router.navigate(['wrapper/teacherNav']);
         } else if(data.role==='STUDENT'){
           StorageService.setItem('student_id',data.id);
           this.router.navigate(['wrapper/studashboard']);
