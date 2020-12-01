@@ -3,9 +3,14 @@
 * {
   box-sizing: border-box;
 } */
-
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 html, body { 
     height: 100%;
+    font-size:100%; 
 }
 body {
     margin: 0;
@@ -19,7 +24,9 @@ a{
 .chapter{
     color: rgba(0,0,0,.5);
 }
-
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.2rem;} } 
+@media (min-width:1100px) { body {font-size:1.5rem;} } 
 .liveBtn{
     width: 180px;
     background: transparent linear-gradient(256deg, var(--unnamed-color-36d1dc) 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
