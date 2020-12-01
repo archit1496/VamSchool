@@ -14,7 +14,11 @@
     margin-top: -4px !important;
     position: absolute;
     margin-left: -17rem;
-    background-color: beige;
+    width: 85px;
+    height: 85px;
+    background-image: url('../../assets/images/headerCircle.svg');
+    text-align: center;
+    padding-top: 23px;
 }
 
 .logo-name{

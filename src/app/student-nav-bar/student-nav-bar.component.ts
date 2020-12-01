@@ -12,7 +12,7 @@ export class StudentNavBarComponent implements OnInit {
   lastName=StorageService.getItem('lastname');
   schoolName=StorageService.getItem('schoolName');
   subjectName=StorageService.getItem('subjectName');
-  
+  initial:string;
  @Input('studentDataList') set studentDetails(value){
    this.studentDetail=value;
    this.firstName=StorageService.getItem('firstname');
@@ -23,6 +23,7 @@ export class StudentNavBarComponent implements OnInit {
   constructor(public authService:AuthService) { }
 
   ngOnInit() {
+    this.initial=this.firstName.charAt(0)+this.lastName.charAt(0);
   }
   logout()
   {
