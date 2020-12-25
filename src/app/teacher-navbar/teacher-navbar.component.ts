@@ -15,7 +15,7 @@ export class TeacherNavbarComponent implements OnInit {
   subject: any;
   school: any;
   lastName: string;
-
+  initial:string;
   constructor(
     private router: Router, public authService: AuthService, public teacherService: TeacherService) {
   }
@@ -24,6 +24,7 @@ export class TeacherNavbarComponent implements OnInit {
     this.fetchTeacher();
     this.firstName = JSON.parse(sessionStorage.getItem('firstname'));
     this.lastName = JSON.parse(sessionStorage.getItem('lastname'));
+    this.initial=this.firstName.charAt(0)+this.lastName.charAt(0);
   }
 
   fetchTeacher() {

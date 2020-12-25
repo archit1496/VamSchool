@@ -12,10 +12,14 @@
 }
 
 .logo-img{
-    margin-top: -4px !important;
-    position: absolute;
-    margin-left: -17rem;
-    background-color: #007bff;
+  margin-top: -4px !important;
+  position: absolute;
+  margin-left: -17rem;
+  width: 85px;
+  height: 85px;
+  background-image: url('../../assets/images/headerCircle.svg');
+  text-align: center;
+  padding-top: 23px;
 }
 
 .logo-name{
