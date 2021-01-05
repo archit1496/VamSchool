@@ -14,10 +14,10 @@ ZoomMtg.prepareJssdk();
 })
 export class TeacherDashboardComponent implements OnInit {
 
-  dummyData: { class: string; when: string; }[];
+
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
   apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
-  meetingNumber = 4583021480
+  // meetingNumber: number;
   role = 1
   leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
   userName = 'Daily Standup Meeting'
@@ -28,53 +28,30 @@ export class TeacherDashboardComponent implements OnInit {
   todaysTimeTable: any;
   hideArrow = true;
 
-  constructor(private router: Router, private teacherService: TeacherService) {
+  constructor(private teacherService: TeacherService) {
   }
 
   ngOnInit() {
     this.fetchTeacherCourse();
-    this.dummyData = [
-      {
-        "class": "X Std A",
-        "when": "10:00"
-      },
-      {
-        "class": "X Std B",
-        "when": "11:00"
-      },
-      {
-        "class": "X Std C",
-        "when": "12:00"
-      },
-      {
-        "class": "X Std D",
-        "when": "13:00"
-      },
-      {
-        "class": "X Std E",
-        "when": "14:00"
-      },
-      {
-        "class": "X Std E",
-        "when": "14:00"
-      }
-    ]
+    this.fetchTodaysTimeTable();
   }
 
-  getSignature() {
+  getSignature(meetingNumber) {
+    console.log(meetingNumber, 'meetingNumber');
+    
     this.signature = ZoomMtg.generateSignature({
-      meetingNumber: this.meetingNumber,
+      meetingNumber: meetingNumber,
       apiKey: this.apiKey,
       apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
       role: 1,
       success: (res) => {
         console.log(res.result);
-        this.startMeeting(res.result)
+        this.startMeeting(res.result, meetingNumber)
       }
     });
   }
 
-  startMeeting(signature){
+  startMeeting(signature, meetingNumber){
     console.log("Signature = "+signature)
    document.getElementById('zmmtg-root').style.display = 'block';
 
@@ -86,7 +63,7 @@ export class TeacherDashboardComponent implements OnInit {
 
         ZoomMtg.join({
           signature: signature,
-          meetingNumber: this.meetingNumber,
+          meetingNumber: meetingNumber,
           userName: this.userName,
           apiKey: this.apiKey,
           userEmail: this.userEmail,
@@ -108,15 +85,18 @@ export class TeacherDashboardComponent implements OnInit {
 
   fetchTeacherCourse(){
     this.teacherService.fetchTeacherCourse().subscribe(res => {
-      this.teacherCourseData = res;
+      console.log(res, '1');
+      
+      this.teacherCourseData = res.data;
     })
-    this.fetchTodaysTimeTable();
+    // this.fetchTodaysTimeTable();
   }
 
   fetchTodaysTimeTable(){
     this.teacherService.fetchTimetableToday().subscribe(res => {
+      console.log(res, '2');
+
       this.todaysTimeTable = res;
-      console.log("time table today = "+JSON.stringify(res))
     })
   }
 

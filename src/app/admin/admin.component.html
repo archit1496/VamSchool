@@ -1,30 +1,95 @@
-<div class="mt-4">
-    <div class="col-md-12 text-center">
-      <app-header></app-header>
-      <app-sidebar-ss></app-sidebar-ss>
-       <div class="card mt-4">
-           <div class="card-body">
-               <h4 class="card-title admin-title">
-                   Admin Panel
-               </h4>
-               <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  No. of Teachers
-                  <span class="badge badge-primary badge-pill">{{adminDetails?.total_teachers}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  No. of Students
-                  <span class="badge badge-primary badge-pill">{{adminDetails?.total_students}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Time Table
-                  <span class="badge timetablebadge" style="font-size: 35px;
-                  margin-right: -10px;" (click)="timeTable()">
-                    &rarr;
+<nav class="navbar navbar-expand-lg" style="background-color: darkgray;">
+  <div class="navbar-collapse justify-content-center">
+          <div>
+              <img src="../../assets/images/card1.png" width="85" height="80"
+                  class="d-inline-block align-center logo-img rounded-circle" alt="">
+              <div class="logo-name-div">
+                  <span class="logo-name"><b>Ram yadav</b></span>
+              </div>
+              <div class="font-size12 logo-school-div">
+                  <span class="logo-name">
+                      <b>
+                          Admin <br>
+                          school name
+                      </b>
                   </span>
-                </li>
-              </ul>
-           </div>
-       </div>
+              </div>
+          </div>
+  <div class="topnav" id="myTopnav">
+              <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teacherdashboard" routerLinkActive="active">
+                  <span><b>Teachers</b></span>
+              </a>
+              <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teachertimetable" routerLinkActive="active">
+                  <b>Students</b>
+              </a>
+              <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teachercheckassignments" routerLinkActive="active">
+                  <b>Time
+                    Table</b>
+              </a>
+              <a class="nav-link" routerLink="/wrapper/teacherNav/teachernotes" routerLinkActive="active">
+                  <b>Study
+                      Material</b>
+              </a>
+              <a class="nav-link mr-5" routerLink="/wrapper/teacheractivity" routerLinkActive="active">
+                  <b>Forum</b>
+              </a>
+      <a href="javascript:void(0);" class="icon">
+          <i class="fa fa-bars"></i>
+        </a>
+  </div>
+<div>
+      <a class="nav-link logout">
+          <b>Log Out</b>
+      </a>
+  </div>
+  </div>
+</nav>
+
+<div style="display: flex;">
+  <div class="flex-container">
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="274" height="108.5" viewBox="0 0 274 108.5">
+            <g id="Group_70" data-name="Group 70" transform="translate(-792 -128.5)">
+              <text id="Chemistry" transform="translate(831 233)" font-size="15" font-family="Lato-Light, Lato" font-weight="300"><tspan x="-23.092" y="0">Upload</tspan></text>
+              <text id="Chemistry-2" data-name="Chemistry" transform="translate(930 233)" font-size="15" font-family="Lato-Light, Lato" font-weight="300"><tspan x="-12.532" y="0">Edit</tspan></text>
+              <text id="Chemistry-3" data-name="Chemistry" transform="translate(1027 234)" font-size="15" font-family="Lato-Light, Lato" font-weight="300"><tspan x="-13.095" y="0">Add</tspan></text>
+              <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(792 128.5)" fill="#fff" stroke="#707070" stroke-width="1">
+                <rect width="78" height="78" stroke="none"/>
+                <rect x="0.5" y="0.5" width="77" height="77" fill="none"/>
+              </g>
+              <g id="Group_60" data-name="Group 60">
+                <line id="Line_2" data-name="Line 2" y2="17" transform="translate(831.5 163)" fill="none" stroke="#707070" stroke-width="1"/>
+                <path id="Path_7" data-name="Path 7" d="M0,0-8.152,11.589,0,23.776" transform="translate(842.993 163.23) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
+              </g>
+              <g id="Rectangle_7-2" data-name="Rectangle 7" transform="translate(890 128.5)" fill="#fff" stroke="#707070" stroke-width="1">
+                <rect width="78" height="78" stroke="none"/>
+                <rect x="0.5" y="0.5" width="77" height="77" fill="none"/>
+              </g>
+              <g id="Group_59" data-name="Group 59" transform="translate(646 -50)">
+                <g id="Rectangle_7-3" data-name="Rectangle 7" transform="translate(342 178.5)" fill="#fff" stroke="#707070" stroke-width="1">
+                  <rect width="78" height="78" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="77" height="77" fill="none"/>
+                </g>
+                <line id="Line_2-2" data-name="Line 2" y2="23.776" transform="translate(381.105 206.343)" fill="none" stroke="#707070" stroke-width="1"/>
+                <line id="Line_3" data-name="Line 3" y2="23.776" transform="translate(392.993 218.23) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
+              </g>
+              <g id="Group_61" data-name="Group 61" transform="translate(392.629 -610.391) rotate(45)">
+                <line id="Line_2-3" data-name="Line 2" y2="24" transform="translate(929.5 156)" fill="none" stroke="#707070" stroke-width="5"/>
+                <g id="Polygon_5" data-name="Polygon 5" transform="translate(932 184.5) rotate(180)" fill="#fff">
+                  <path d="M 3.93248176574707 2.5 L 1.067518353462219 2.5 L 2.5 0.7810220122337341 L 3.93248176574707 2.5 Z" stroke="none"/>
+                  <path d="M 2.5 1.562044024467468 L 2.135036706924438 2 L 2.864963293075562 2 L 2.5 1.562044024467468 M 2.5 0 L 5 3 L 0 3 L 2.5 0 Z" stroke="none" fill="#707070"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+          
     </div>
+    <!-- <div>2</div>
+    <div>3</div>   -->
+  </div>
+  
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
 </div>

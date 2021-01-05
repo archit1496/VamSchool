@@ -34,7 +34,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ContactusComponent,
     HomeHeaderComponent,
     PasswordChangeComponent,
-    ForgotPasswordComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     FormsModule,

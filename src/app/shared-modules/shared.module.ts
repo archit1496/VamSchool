@@ -35,6 +35,7 @@ import { StudentNavBarComponent } from '../student-nav-bar/student-nav-bar.compo
 import { StudentClassSubjectComponent } from '../student-class-subject/student-class-subject.component';
 import { StudentStudyMaterialComponent } from '../student-study-material/student-study-material.component';
 import { AddNewAssignmentComponent } from '../teacher-check-assignments/add-new-assignment/add-new-assignment.component';
+import { AdminboardComponent } from '../adminboard/adminboard.component';
 
 const agoraConfig: AgoraConfig = {
   AppID: 'd93c22ae894740f6a8051d3d34f74da1',
@@ -43,6 +44,7 @@ const agoraConfig: AgoraConfig = {
 @NgModule({
   declarations: [
     TeachertimetableComponent,
+    AdminboardComponent,
     TeacherDashboardComponent,
     TeacherMarksAssignmentComponent,
     AdminComponent,
