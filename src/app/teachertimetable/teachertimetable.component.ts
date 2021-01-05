@@ -16,8 +16,10 @@ export class TeachertimetableComponent implements OnInit {
   thrusdayData;
   fridayData;
   saturdayData;
+  sundayData;
+
   days=[
-    "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"
+    "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday", "Sunday"
   ]
   constructor(
     private teacherService: TeacherService
@@ -25,130 +27,6 @@ export class TeachertimetableComponent implements OnInit {
 
   ngOnInit() {
     this.fetchTimetableForTeacher();
-
-    // this.fetchTimetableForTeacher();
-    // this.dummyData = [
-    //   {
-    //     "class": "X Std A",
-    //     "when": "10:00"
-    //   },
-    //   {
-    //     "class": "X Std B",
-    //     "when": "11:00"
-    //   },
-    //   {
-    //     "class": "X Std C",
-    //     "when": "12:00"
-    //   },
-    //   {
-    //     "class": "X Std D",
-    //     "when": "13:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std C",
-    //     "when": "12:00"
-    //   },
-    //   {
-    //     "class": "X Std D",
-    //     "when": "13:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std C",
-    //     "when": "12:00"
-    //   },
-    //   {
-    //     "class": "X Std D",
-    //     "when": "13:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std C",
-    //     "when": "12:00"
-    //   },
-    //   {
-    //     "class": "X Std D",
-    //     "when": "13:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std C",
-    //     "when": "12:00"
-    //   },
-    //   {
-    //     "class": "X Std D",
-    //     "when": "13:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std C",
-    //     "when": "12:00"
-    //   },
-    //   {
-    //     "class": "X Std D",
-    //     "when": "13:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std C",
-    //     "when": "12:00"
-    //   },
-    //   {
-    //     "class": "X Std D",
-    //     "when": "13:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   },
-    //   {
-    //     "class": "X Std E",
-    //     "when": "14:00"
-    //   }
-    // ]
   }
 
   fetchTimetableForTeacher(){
@@ -170,6 +48,8 @@ export class TeachertimetableComponent implements OnInit {
     this.thrusdayData=this.timeTableData.filter(elm=>elm.day.day=='Thursday');
     this.fridayData=this.timeTableData.filter(elm=>elm.day.day=='Friday');
     this.saturdayData=this.timeTableData.filter(elm=>elm.day.day=='Saturday');
+    this.sundayData=this.timeTableData.filter(elm=>elm.day.day=='Sunday');
+
     this.prepareFinalData();
     
   }
@@ -180,6 +60,8 @@ export class TeachertimetableComponent implements OnInit {
     let thdata=[...this.thrusdayData];
     let fdata=[...this.fridayData];
     let sdata=[...this.saturdayData];
+    let sundata=[...this.sundayData];
+
     
     for(let x=0;x<=4-mdata.length;x++)
     {
@@ -204,6 +86,10 @@ export class TeachertimetableComponent implements OnInit {
     for(let x=0;x<=4-sdata.length;x++)
     {
         this.saturdayData.push({})
+    }
+    for(let x=0;x<=4-sundata.length;x++)
+    {
+        this.sundayData.push({})
     }
   }
 }

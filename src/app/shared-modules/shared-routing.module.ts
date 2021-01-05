@@ -1,3 +1,4 @@
+import { AdminboardComponent } from './../adminboard/adminboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -28,7 +29,7 @@ import { StudentStudyMaterialComponent } from '../student-study-material/student
 const routes: Routes = [
   {
     path: '', component: WrapperComponent, children: [
-      { path: 'admin', component: AdminComponent },
+
       // { path: 'teachertimetable', component: TeachertimetableComponent },
       { path: 'studashboard', component: StudentHomeDashboardComponent },
       { path: 'stutimetable', component: StudentTimetableComponent },
@@ -49,6 +50,11 @@ const routes: Routes = [
       //     { path: 'header', component: HeaderComponent }
       //   ]
       // },
+      { path: 'admin', component: AdminComponent, children: [
+          { path: '', redirectTo: '/wrapper/admin/adminboard', pathMatch: 'full' },
+          {path: 'adminboard', component: AdminboardComponent},
+        ]
+      },
       {
         path: 'teacherNav', component: TeacherNavbarComponent, children: [
           { path: '', redirectTo: '/wrapper/teacherNav/teacherdashboard', pathMatch: 'full' },

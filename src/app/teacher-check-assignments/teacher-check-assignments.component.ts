@@ -10,58 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./teacher-check-assignments.component.css']
 })
 export class TeacherCheckAssignmentsComponent {
-  // dummyData = [
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Physics'
-  //   },
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Chemistry'
-  //   },
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Maths'
-  //   },
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Chemistry'
-  //   },
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Maths'
-  //   },
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Maths'
-  //   },
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Maths'
-  //   },
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Maths'
-  //   },
-  //   {
-  //     "noOfFiles": "10 Files",
-  //     "update": "Last Update Today",
-  //     "subject":'Maths'
-  //   },
-  //   // {
-  //   //   "noOfFiles": "10 Files",
-  //   //   "update": "Last Update Today",
-  //   //   "subject":'Maths'
-  //   // },
-  // ]
+  
   constructor(public teacherService: TeacherService, private toastr: ToastrService) {
     this.fetchAssignmentDataSubject();
     this.getActivityData('week=this');

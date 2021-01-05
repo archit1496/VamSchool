@@ -24,7 +24,7 @@ export class TeacherNotesComponent implements OnInit {
   files;
   topic = '';
   selectedData;
-  constructor(public studentService:StudentService,public teacherService:TeacherService,private toaster: ToastrService) { }
+  constructor(public teacherService:TeacherService,private toaster: ToastrService) { }
   get Math() {
     return Math;
   }
@@ -56,15 +56,7 @@ export class TeacherNotesComponent implements OnInit {
       this.toaster.error("Failed to upload file!", "Failed")
     });
   }
-  // fetchNotes(){
-  //   this.isLoading=true;
-  //   this.studentService.fetchNotes().subscribe(res => {
-  //     this.isLoading=false;
-  //     this.notesData = res;
-  //     this.valueWithOutSubjectFilter=[...this.notesData];
-     
-  //   })
-  // }
+
   fetchNotesDataSubject() {
     this.subjectFilter=false;
     this.isLoading = true;
