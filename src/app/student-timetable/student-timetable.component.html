@@ -12,7 +12,7 @@
           <b style="background: #80808069;padding: 0px 18px;">{{ day }}</b>
         </div>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(6, 1fr)" *ngIf="timeTableData?.length>0">
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr);grid-gap: 5px;" *ngIf="timeTableData?.length>0">
         <div style="display: grid">
           <div class="main-card mt-2" *ngFor="let data of mondayData">
             <span class="mt-4">
@@ -67,6 +67,16 @@
         </div>
         <div style="display: grid">
           <div class="main-card mt-2" *ngFor="let data of saturdayData">
+            <span class="mt-4">
+              {{ data?.course?.subject?.subject_name }} <br />
+              <span style="font-size: 13px">
+                {{ data?.start_time }}
+              </span>
+            </span>
+          </div>
+        </div>
+        <div style="display: grid">
+          <div class="main-card mt-2" *ngFor="let data of sundayData">
             <span class="mt-4">
               {{ data?.course?.subject?.subject_name }} <br />
               <span style="font-size: 13px">

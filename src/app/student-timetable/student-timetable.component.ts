@@ -15,9 +15,10 @@ export class StudentTimetableComponent implements OnInit {
   thrusdayData;
   fridayData;
   saturdayData;
+  sundayData;
   valueWithOutSubjectFilter;
   days=[
-    "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday"
+    "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday","Sunday"
   ]
   
   constructor(public studentService:StudentService) {
@@ -43,6 +44,7 @@ export class StudentTimetableComponent implements OnInit {
     this.thrusdayData=this.timeTableData.filter(elm=>elm.day.day=='Thursday');
     this.fridayData=this.timeTableData.filter(elm=>elm.day.day=='Friday');
     this.saturdayData=this.timeTableData.filter(elm=>elm.day.day=='Saturday');
+    this.sundayData=this.timeTableData.filter(elm=>elm.day.day=='Sunday');
     this.prepareFinalData();
     
   }
@@ -54,7 +56,7 @@ export class StudentTimetableComponent implements OnInit {
     let thdata=[...this.thrusdayData];
     let fdata=[...this.fridayData];
     let sdata=[...this.saturdayData];
-    
+    let sunData=[...this.sundayData]
     for(let x=0;x<=4-mdata.length;x++)
     {
         this.mondayData.push({})
@@ -78,6 +80,10 @@ export class StudentTimetableComponent implements OnInit {
     for(let x=0;x<=4-sdata.length;x++)
     {
         this.saturdayData.push({})
+    }
+    for(let x=0;x<=4-sunData.length;x++)
+    {
+        this.sundayData.push({})
     }
   }
   subjectSelected(event){
