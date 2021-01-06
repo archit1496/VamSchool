@@ -95,7 +95,7 @@ export class TeacherService extends BaseService {
   }
   
   fetchAssignmentQuestionsSubject(): Observable<any>{
-    return this.getRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT);
+    return this.getRequest2(AppUrl.FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT);
   }
 
   fetchTeacherDashboardActivity(id): Observable<any>{
@@ -113,7 +113,7 @@ export class TeacherService extends BaseService {
   }
 
   fetchNotesQuestionsSubject(): Observable<any>{
-    return this.getRequest(AppUrl.FETCH_TEACHER_NOTES_QUESTIONS_SUBJECT);
+    return this.getRequest2(AppUrl.FETCH_TEACHER_NOTES_QUESTIONS_SUBJECT);
   }
   fetchNotesQuestionsTopic(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_TEACHER_NOTES_QUESTIONS_CHAPTER(id));

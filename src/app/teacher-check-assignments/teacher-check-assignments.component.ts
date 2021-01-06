@@ -104,6 +104,8 @@ export class TeacherCheckAssignmentsComponent {
     // this.subjectFilter=false;
     this.isLoading = true;
     this.teacherService.fetchAssignmentQuestionsSubject().subscribe(res => {
+      console.log(res);
+      
       this.isLoading = false;
       this.firstClass = true;
       this.studentAssignmentDataSubjectWise = res;

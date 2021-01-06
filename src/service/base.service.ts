@@ -85,6 +85,17 @@ export class BaseService {
       })
     );
   }
+
+  public getRequest2(url, params = {}) {
+    return this.http.get(url, {params}).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError(err => {
+        return this.handleError(err);
+      })
+    );
+  }
   public getRequestNew(url, params = {}) {
     return this.http.get(url, {params}).pipe(
       map(res => {

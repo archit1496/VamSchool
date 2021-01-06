@@ -30,14 +30,14 @@
 
         <div class="grid" *ngIf="firstClass">
           <div class="assignment-card mt-2" *ngFor="let data of studentAssignmentDataSubjectWise"
-            (click)="fetchAssignmentData(data?.id);selectedStudentAssignmentDataSubjectWise= data">
+            (click)="fetchAssignmentData(data?.class_id);selectedStudentAssignmentDataSubjectWise= data">
             <span class="mt-4 cursor-pointer">
-              {{data?.file_count}} Files <br />
+              {{data?.file_count}}  {{ data?.class_name }}<br />
               <span style="font-size: 10px">
                 Last Update: {{ getDate(data.created_on) }}
               </span>
               <div>
-                {{ data?.name }}
+             
               </div>
             </span>
           </div>

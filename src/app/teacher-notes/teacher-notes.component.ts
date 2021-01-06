@@ -61,6 +61,8 @@ export class TeacherNotesComponent implements OnInit {
     this.subjectFilter=false;
     this.isLoading = true;
     this.teacherService.fetchNotesQuestionsSubject().subscribe(res => {
+      console.log(res, 'a');
+      
       this.isLoading = false;
       this.studentNotesDataSubjectWise = res;
       this.valueWithOutSubjectFilter=[...this.studentNotesDataSubjectWise]
