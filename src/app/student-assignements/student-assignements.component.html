@@ -95,18 +95,20 @@
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div>
-        <div class="grid" *ngIf="studentAssignmentDataSubjectWise?.length > 0">
-          <div class="assignment-card mt-2" *ngFor="let data of studentAssignmentDataSubjectWise"
-            (click)="fetchAssignmentDataTopicWise(data?.id)">
+        <div  *ngIf="studentAssignmentDataSubjectWise?.length > 0">
+          <div  class="grid" *ngFor="let data of studentAssignmentDataSubjectWise"
+            >
+            <div class="assignment-card mt-2" *ngFor="let directory of data?.directory_list" (click)="fetchAssignmentDataTopicWise(directory?.id)">
             <span class="mt-4 cursor-pointer">
-              {{data?.file_count}} Files <br />
+              {{directory?.file_count}} Files <br />
               <span style="font-size: 10px">
-                {{ getDate(data.created_on) }}
+                {{ getDate(directory.created_on) }}
               </span>
               <div>
-                {{ data?.name }}
+                {{ directory?.name }}
               </div>
             </span>
+          </div>
           </div>
         </div>
         <div  *ngIf="studentAssignmentDataTopicWise?.length > 0">

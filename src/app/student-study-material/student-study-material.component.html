@@ -16,12 +16,23 @@
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div>
-        <div class="grid" *ngIf="studentNotesDataSubjectWise?.length > 0">
+        <div  *ngIf="studentNotesDataSubjectWise?.length > 0">
           <div
-            class="notes-card mt-2"
-            *ngFor="let data of studentNotesDataSubjectWise" (click)="fetchNotesDataTopicWise(data?.id)"
+            class="grid"
+            *ngFor="let data of studentNotesDataSubjectWise" 
           >
-            <span class="mt-4 cursor-pointer" >
+          <div class="notes-card mt-2" *ngFor="let directory of data?.directory_list" (click)="fetchNotesDataTopicWise(directory?.id)">
+            <span class="mt-4 cursor-pointer">
+              {{directory?.file_count}} Files <br />
+              <span style="font-size: 10px">
+                {{ getDate(directory.created_on) }}
+              </span>
+              <div>
+                {{ directory?.name }}
+              </div>
+            </span>
+          </div>
+            <!-- <span class="mt-4 cursor-pointer" >
               {{data?.file_count}} Files <br />
               <span style="font-size: 10px">
                 {{ getDate(data.created_on) }}
@@ -29,7 +40,7 @@
               <div>
                 {{ data?.name }}
               </div>
-            </span>
+            </span> -->
           </div>
         </div>
         <div class="grid" *ngIf="studentNotesDataTopicWise?.length > 0">
