@@ -33,8 +33,8 @@ const routes: Routes = [
 
   // Wildcard Route
   { path: '**', component: HomeComponent },
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent }
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

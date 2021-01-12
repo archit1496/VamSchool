@@ -10,10 +10,10 @@ import { TeacherService } from 'src/service/teacher.service';
 })
 export class TeacherNotesComponent implements OnInit {
   notesData;
-  studentNotesDataSubjectWise;
+  studentNotesDataSubjectWise = [];
   studentNotesDataTopicWise;
   isLoading:boolean;
-  valueWithOutSubjectFilter;
+  // valueWithOutSubjectFilter;
   subjectFilter:boolean=false;
   teacherId;
   spinnerFlag;
@@ -61,19 +61,21 @@ export class TeacherNotesComponent implements OnInit {
     this.subjectFilter=false;
     this.isLoading = true;
     this.teacherService.fetchNotesQuestionsSubject().subscribe(res => {
-      console.log(res, 'a');
+      console.log(res, 'studentNotesDataSubjectWise');
       
       this.isLoading = false;
       this.studentNotesDataSubjectWise = res;
-      this.valueWithOutSubjectFilter=[...this.studentNotesDataSubjectWise]
+      // this.valueWithOutSubjectFilter=[...this.studentNotesDataSubjectWise]
     });
   }
   fetchNotesDataTopicWise(id:number) {
     this.subjectFilter=false;
     this.isLoading = true;
     this.teacherService.fetchNotesQuestionsTopic(id).subscribe(res => {
+      console.log(res, 'studentNotesDataTopicWise');
+      
       this.isLoading = false;
-      this.studentNotesDataTopicWise = res;
+      this.studentNotesDataTopicWise = res.directory_list;
       this.studentNotesDataSubjectWise=[];
     });
   }
@@ -90,21 +92,21 @@ export class TeacherNotesComponent implements OnInit {
   getDate(date){
     return (new Date(date).getDate()+'-'+new Date(date).getMonth()+'-'+new Date(date).getFullYear());
   }
-  classSelected(event){
-    this.subjectFilter=true;
-    this.notesData = [];
-      this.studentNotesDataTopicWise=[];
-      this.studentNotesDataSubjectWise=[];
-    if(event==='All')
-    {
-      this.studentNotesDataSubjectWise=[...this.valueWithOutSubjectFilter];
-    }
-    else{
-      let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.course.subject.subject_name==event);
-      this.studentNotesDataSubjectWise=filterValue;
+  // classSelected(event){
+  //   this.subjectFilter=true;
+  //   this.notesData = [];
+  //     this.studentNotesDataTopicWise=[];
+  //     this.studentNotesDataSubjectWise=[];
+  //   if(event==='All')
+  //   {
+  //     this.studentNotesDataSubjectWise=[...this.valueWithOutSubjectFilter];
+  //   }
+  //   else{
+  //     let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.course.subject.subject_name==event);
+  //     this.studentNotesDataSubjectWise=filterValue;
 
-    }
-  }
+  //   }
+  // }
   onNotesClick(url){
     window.open(url);
   }
