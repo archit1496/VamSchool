@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { StorageService } from 'src/service/storage.service';
 import { AuthService } from 'src/service/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,8 @@ export class AppComponent {
   title = 'vamschool';
 
   constructor(public authService:AuthService,public router:Router){
+   
+
     this.checkLogin();
   }
   checkLogin() {
@@ -25,7 +27,9 @@ export class AppComponent {
       
     }
     else{
-       this.router.navigate(['/home'])
+      if (!window.location.href.includes('forgot-password')) {
+        this.router.navigate(['/home'])
+      }
     }
   }
 }

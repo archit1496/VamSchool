@@ -94,9 +94,10 @@
         <div class="grid" *ngIf="studentNotesDataSubjectWise?.length > 0">
           <div class="notes-card mt-2" *ngFor="let data of studentNotesDataSubjectWise" (click)="fetchNotesDataTopicWise(data?.class_id);selectedData = data;">
             <span class="mt-4 cursor-pointer" >
-              {{data?.file_count}}        {{ data?.class_name }} <br />
+                {{ data?.class_name }} <br />
               <span style="font-size: 10px">
-                {{ getDate(data.created_on) }}
+                Files:   {{data?.file_count}} 
+                <!-- {{ getDate(data.created_on) }} -->
               </span>
               <div>
          
@@ -126,7 +127,7 @@
                 {{ getDate(data.created_on) }}
               </span>
               <div>
-                {{ data?.name }}
+                {{ data?.class_name }}
               </div>
             </span>
           </div>

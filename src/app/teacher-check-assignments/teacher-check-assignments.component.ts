@@ -38,7 +38,7 @@ export class TeacherCheckAssignmentsComponent {
   particularAssign = [];
   // subjectFilter:boolean=false;
   activityData = [];
-  teacherCourseData = [];
+  // teacherCourseData = [];
   visibleIndex = -1;
 
   update(studentActivity, e) {
@@ -104,7 +104,7 @@ export class TeacherCheckAssignmentsComponent {
     // this.subjectFilter=false;
     this.isLoading = true;
     this.teacherService.fetchAssignmentQuestionsSubject().subscribe(res => {
-      console.log(res);
+      console.log(res, 'studentAssignmentDataSubjectWise');
       
       this.isLoading = false;
       this.firstClass = true;
@@ -151,13 +151,13 @@ export class TeacherCheckAssignmentsComponent {
       formData.append('doc_question', addNewAssignment.files[0], addNewAssignment.files[0].name);
       formData.append('dead_line', addNewAssignment.date);
       formData.append('topic', addNewAssignment.topic);
-      formData.append('dir', this.selectedStudentAssignmentDataSubjectWise.id);
+      formData.append('dir', this.selectedStudentAssignmentDataSubjectWise.class_id);
       formData.append('max_mark', addNewAssignment.marks);
   
       formData.append('description', addNewAssignment.topicQuestion);
       formData.append('course', addNewAssignment.selectedCourse);
       formData.append('teacher', this.selectedStudentAssignmentDataSubjectWise.teacher);
-      this.teacherService.addNewAssignmentData(this.selectedStudentAssignmentDataSubjectWise.id, formData).subscribe(res => {
+      this.teacherService.addNewAssignmentData(this.selectedStudentAssignmentDataSubjectWise.class_id, formData).subscribe(res => {
         this.toastr.success('Added succesfully!', 'Success');
         this.isLoading = false;
       });
