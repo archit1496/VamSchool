@@ -34,6 +34,7 @@ export class TeacherCheckAssignmentsComponent {
   topicName;
   topicQuestion;
   files;
+  AssignmentClick;
   // valueWithOutSubjectFilter;
   particularAssign = [];
   // subjectFilter:boolean=false;
@@ -53,7 +54,7 @@ export class TeacherCheckAssignmentsComponent {
 
     this.teacherService.updateAssignmentMarks(studentActivity.id, formData).subscribe((res) => {
       this.toastr.success('updated succesfully!', 'Success');
-
+        this.onAssignmentClick(this.AssignmentClick.id);
     });
   }
 
@@ -133,7 +134,9 @@ export class TeacherCheckAssignmentsComponent {
       this.showHideList = false;
       this.showHideActivity = false;
       this.isLoading = false;
-      this.assignmentData = res;
+
+    this.assignmentData = res;
+
       // this.studentAssignmentDataTopicWise=[];
       // this.studentAssignmentDataSubjectWise=[];
     });
@@ -160,6 +163,7 @@ export class TeacherCheckAssignmentsComponent {
       this.teacherService.addNewAssignmentData(this.selectedStudentAssignmentDataSubjectWise.class_id, formData).subscribe(res => {
         this.toastr.success('Added succesfully!', 'Success');
         this.isLoading = false;
+        this.fetchAssignmentData(this.selectedStudentAssignmentDataSubjectWise.class_id);
       });
     } 
     this.secondClass = true;

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { StudentService } from 'src/service/student.service';
 import { TeacherService } from 'src/service/teacher.service';
-
+// todo-  no internet connection check
+// todo- field validations
 @Component({
   selector: 'app-teacher-notes',
   templateUrl: './teacher-notes.component.html',
@@ -75,7 +76,7 @@ export class TeacherNotesComponent implements OnInit {
       console.log(res, 'studentNotesDataTopicWise');
       
       this.isLoading = false;
-      this.studentNotesDataTopicWise = res.directory_list;
+      // this.studentNotesDataTopicWise = res.directory_list;
       this.studentNotesDataSubjectWise=[];
     });
   }
@@ -83,6 +84,8 @@ export class TeacherNotesComponent implements OnInit {
     this.subjectFilter=false;
     this.isLoading = true;
     this.teacherService.fetchNotes(id).subscribe(res => {
+      console.log(res, 'notesData');
+      
       this.isLoading = false;
       this.notesData = res;
       this.studentNotesDataTopicWise=[];

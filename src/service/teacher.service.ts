@@ -101,9 +101,9 @@ export class TeacherService extends BaseService {
   fetchTeacherDashboardActivity(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_TEACHER_DASHBOARD_ACTIVITY(id));
   }
-  fetchAssignmentQuestionsTopic(id): Observable<any>{
-    return this.getRequest(AppUrl.FETCH_TEACHER_QUESTIONS_CHAPTER(id));
-  }
+  // fetchAssignmentQuestionsTopic(id): Observable<any>{
+  //   return this.getRequest(AppUrl.FETCH_TEACHER_QUESTIONS_CHAPTER(id));
+  // }
   fetchAssignmentData(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_DATA(id));
   }
