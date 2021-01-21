@@ -116,9 +116,9 @@ export class AppUrl {
     return AppUrl.APP_URL + 'evaluate-answer/';
   }
 
-  static FETCH_NOTES(id): string {
-    return AppUrl.APP_URL + `v1/student/dir/${id}/notes/`;
-  }
+  // static FETCH_NOTES(id): string {
+  //   return AppUrl.APP_URL + `v1/student/dir/${id}/notes/`;
+  // }
   static FETCH_TEACHER_NOTES(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/${id}/notes/`;
   }

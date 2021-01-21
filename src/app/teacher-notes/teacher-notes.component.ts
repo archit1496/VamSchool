@@ -42,7 +42,7 @@ export class TeacherNotesComponent implements OnInit {
       "teacher": this.selectedData.teacher,
       "name": this.topic,
   "dir_type": 2,
-      "parent": this.selectedData.id
+      "parent": this.selectedData.class_id
 }
 
     this.spinnerFlag = true;
@@ -71,25 +71,41 @@ export class TeacherNotesComponent implements OnInit {
   }
   fetchNotesDataTopicWise(id:number) {
     this.subjectFilter=false;
-    this.isLoading = true;
-    this.teacherService.fetchNotesQuestionsTopic(id).subscribe(res => {
-      console.log(res, 'studentNotesDataTopicWise');
-      
-      this.isLoading = false;
+    // this.isLoading = true;
+    // this.teacherService.fetchNotesQuestionsTopic(id).subscribe(res => {
+      // console.log(res, 'studentNotesDataTopicWise');
+   
+
+      for (let index = 0; index < this.studentNotesDataSubjectWise.length; index++) {
+       if (this.studentNotesDataSubjectWise[index].class_id === id) {
+        this.studentNotesDataTopicWise = this.studentNotesDataSubjectWise[index].directory_list;
+        this.studentNotesDataSubjectWise=[];
+        return;
+       }
+        
+      }
+      // this.isLoading = false;
       // this.studentNotesDataTopicWise = res.directory_list;
       this.studentNotesDataSubjectWise=[];
-    });
+    // });
   }
   fetchNotesData(id:number) {
     this.subjectFilter=false;
     this.isLoading = true;
-    this.teacherService.fetchNotes(id).subscribe(res => {
+    this.teacherService.fetchNotesQuestionsTopic(id).subscribe(res => {
       console.log(res, 'notesData');
-      
-      this.isLoading = false;
-      this.notesData = res;
-      this.studentNotesDataTopicWise=[];
-      this.studentNotesDataSubjectWise=[];
+      for (let index = 0; index < res.length; index++) {
+        // const element = array[index];
+        if (res[index].class_id=== this.selectedData.class_id) {
+          this.isLoading = false;
+          this.notesData = res[index].directory_list;
+          this.studentNotesDataTopicWise=[];
+          this.studentNotesDataSubjectWise=[];
+          return;
+        }
+        
+      }
+  
     });
   }
   getDate(date){

@@ -127,7 +127,7 @@
                 {{ getDate(data.created_on) }}
               </span>
               <div>
-                {{ data?.class_name }}
+                {{ data?.name }}
               </div>
             </span>
           </div>
@@ -202,7 +202,7 @@
 
             <div style="display: flex;">
 
-              <div>"{{data.topic}}"</div>
+              <div>"{{data.name}}"</div>
               <div style="margin-left: 10px;">{{data.note ? (data.note.slice((Math.max(0, data.note.lastIndexOf(".")) || Infinity) + 1)) : ''}} file</div>
             </div>
           </li>
