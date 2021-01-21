@@ -33,7 +33,7 @@ export class StudentService extends BaseService{
   }
 
   fetchAssignmentQuestionsSubject(): Observable<any>{
-    return this.getRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_SUBJECT);
+    return this.studentGetRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_SUBJECT);
   }
   fetchAssignmentQuestionsTopic(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_CHAPTER(id));
@@ -48,7 +48,7 @@ export class StudentService extends BaseService{
     return this.getRequest(AppUrl.FETCH_NOTES(id));
   }
   fetchNotesQuestionsSubject(): Observable<any>{
-    return this.getRequest(AppUrl.FETCH_NOTES_QUESTIONS_SUBJECT);
+    return this.studentGetRequest(AppUrl.FETCH_NOTES_QUESTIONS_SUBJECT);
   }
   fetchNotesActivity(): Observable<any>{
     return this.getRequest(AppUrl.FETCH_NOTES_ACTIVITY);
