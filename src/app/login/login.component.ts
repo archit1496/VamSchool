@@ -36,14 +36,18 @@ export class LoginComponent implements OnInit {
       this.authService.authenticate(this.loginForm.value).subscribe(data => {
         this.isLoading = false;
         StorageService.setItem('token',data.token);
-        StorageService.setItem('role',data.role[0]);
-        if(data.role[0]==='TEACHER')
+        alert(JSON.stringify(data));
+        // alert(data["email"]);
+        alert(data.user);
+        alert(data.token);
+        StorageService.setItem('role',data.user.role);
+        if(data.user.role==='TEACHER')
         {
           this.router.navigate(['wrapper/teacher-main-page']);
-        } else if(data.role[0]==='STUDENT'){
+        } else if(data.user.role==='STUDENT'){
           this.router.navigate(['wrapper/student-main-page']);
         }
-        else if(data.role[0]==='OWNER'){
+        else if(data.user.role==='SUPER_ADMIN'){
           this.router.navigate(['wrapper/admin']);
         }
         
