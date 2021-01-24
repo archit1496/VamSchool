@@ -96,8 +96,7 @@
           Loading Data, Please wait...
         </div>
         <div  *ngIf="studentAssignmentDataSubjectWise?.length > 0">
-          <div  class="grid" *ngFor="let data of studentAssignmentDataSubjectWise"
-            >
+          <div  class="grid" *ngFor="let data of studentAssignmentDataSubjectWise">
             <div class="assignment-card mt-2" *ngFor="let directory of data?.directory_list" (click)="fetchAssignmentDataTopicWise(directory?.id)">
             <span class="mt-4 cursor-pointer">
               {{directory?.file_count}} Files <br />

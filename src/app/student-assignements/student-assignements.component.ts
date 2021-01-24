@@ -40,7 +40,8 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentService.fetchAssignmentQuestionsSubject().subscribe(res => {
       this.isLoading = false;
       this.studentAssignmentDataSubjectWise = res;
-      this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise]
+      this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise];
+      console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
     });
   }
   fetchAssignmentDataTopicWise(id: number) {
@@ -49,7 +50,8 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentService.fetchAssignmentData(id).subscribe(res => {
       this.isLoading = false;
       this.studentAssignmentDataTopicWise = res;
-      this.studentAssignmentDataSubjectWise = [];
+     // this.studentAssignmentDataSubjectWise = [];
+      console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }
   getTopicDetails(id) {
@@ -102,8 +104,8 @@ export class StudentAssignementsComponent implements OnInit {
       let filterValue = this.valueWithOutSubjectFilter.filter(elm => elm.name == event);
       this.studentAssignmentDataSubjectWise = filterValue;
       console.log("ddddd", this.studentAssignmentDataSubjectWise);
-
     }
+    console.log("DATA 1 = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
   }
   onDownloadClick(url) {
     window.open(url);

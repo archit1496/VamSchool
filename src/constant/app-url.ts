@@ -1,5 +1,5 @@
 import { StorageService } from 'src/service/storage.service';
-import {environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 
 export class AppUrl {
 
@@ -13,7 +13,7 @@ export class AppUrl {
     return AppUrl.APP_URL + 'users/logout/';
   }
   static get register(): string {
-    return AppUrl.APP_URL + 'v1/register/';
+    return AppUrl.APP_URL + 'users/register/';
   }
   static get FORGOT_PASSWORD(): string {
     return AppUrl.APP_URL + 'v1/forgot-password/';
@@ -55,11 +55,11 @@ export class AppUrl {
     return AppUrl.APP_URL + "v1/teacher/dir/?dir_type=1";
   }
 
-  static  FETCH_TEACHER_DASHBOARD_ACTIVITY(week): string {
+  static FETCH_TEACHER_DASHBOARD_ACTIVITY(week): string {
     return AppUrl.APP_URL + "v1/teacher/assignment-answer?" + week;
   }
 
-  static  UPDATE_TEACHER_DASHBOARD_ASSIGNMENT(id): string {
+  static UPDATE_TEACHER_DASHBOARD_ASSIGNMENT(id): string {
     return AppUrl.APP_URL + "v1/teacher/assignment-answers/" + id + '/';
   }
 
@@ -103,7 +103,7 @@ export class AppUrl {
     return AppUrl.APP_URL + 'evaluate-answer';
   }
 
-    
+
   static get QUESTION_LIST(): string {
     return AppUrl.APP_URL + 'evaluate-answer/?question=';
   }
@@ -116,9 +116,10 @@ export class AppUrl {
     return AppUrl.APP_URL + 'evaluate-answer/';
   }
 
-  // static FETCH_NOTES(id): string {
-  //   return AppUrl.APP_URL + `v1/student/dir/${id}/notes/`;
-  // }
+  static FETCH_NOTES(id): string {
+    return AppUrl.APP_URL + `v1/student/dir/${id}/notes/`;
+  }
+
   static FETCH_TEACHER_NOTES(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/${id}/notes/`;
   }
@@ -127,8 +128,8 @@ export class AppUrl {
     return AppUrl.APP_URL + `v1/teacher/dir/`;
   }
 
-  
-  static get UPLOAD_ANSWERS(): string{
+
+  static get UPLOAD_ANSWERS(): string {
     return AppUrl.APP_URL + 'answer/';
   }
 
@@ -139,7 +140,7 @@ export class AppUrl {
   static get UPLOAD_NOTES(): string {
     return AppUrl.APP_URL + 'notes/';
   }
-  
+
   static get SELECT_VIDEO(): string {
     return AppUrl.APP_URL + 'video/';
   }
@@ -170,7 +171,7 @@ export class AppUrl {
   static get FETCHTEACHER(): string {
     return AppUrl.APP_URL + 'v1/teacher/dashboard';
   }
-  
+
   static get FETCHTEACHERCOURSE(): string {
     return AppUrl.APP_URL + 'v1/teacher/course';
   }
