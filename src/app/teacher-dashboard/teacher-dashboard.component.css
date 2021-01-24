@@ -1,0 +1,79 @@
+a b{
+    color: black;
+    cursor: pointer;
+}
+
+a b:hover{
+    color: blue;
+}
+
+
+.boxModel{
+    padding: 0;
+    height: 100%;
+}
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #E52828;
+    border-radius: 50%;
+    display: inline-block;
+  }
+.live-card{
+    border: 1px solid black;
+    height: 200px !important;
+    width: 100%;
+    background-color: lightgray;
+    padding: .5rem;
+}
+
+.activity-card{
+    border: 1px solid black;
+    height: 200px !important;
+    width: 100%;
+    background-color: lightgray;
+    padding: 0.5rem;
+}
+
+.startNow{
+    display: flex;
+    justify-content:flex-end; 
+}
+
+.carousel-control-next{
+    top: -130px !important;
+    right: 0 !important;
+}
+  
+.carousel-control-prev{
+    top: -133px !important;
+    left: 520px !important;
+}
+
+.class-in-div{
+    position: relative;
+    bottom: -7rem;
+}
+
+.nav-link b .active{
+    border-bottom: 1px solid rgb(15, 15, 182);
+}
+
+.settings-icon{
+    position: absolute;
+    right: 24rem;
+    top: 4rem;
+}
+.standardDiv{
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+
+@media screen and (max-width: 600px) {
+    .standardDiv {
+        margin-left: inherit;
+        margin-right: inherit;
+        padding: 5px;
+    }
+    }

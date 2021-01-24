@@ -21,7 +21,12 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@zoomus/websdk/dist/lib/",
+                "output": "node_modules/@zoomus/websdk/dist/lib/"
+              }
             ],
             "styles": [
               "src/styles.css",
@@ -54,7 +59,7 @@
               "buildOptimizer": true,
               "budgets": [
                 {
-                "type": "initial",
+                  "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
@@ -122,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "vamschool"
+    }
+  },
+  "defaultProject": "vamschool",
+  "cli": {
+    "analytics": "502bd617-be6d-49d6-9a39-988a7a3bf957"
+  }
 }

@@ -1,35 +1,96 @@
-<div class="">
-  <div class="col-md-12 col-lg-12">
-      <nav class="navbar navbar-expand-lg navbar-light navbarClass">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTeacherDashboardContent"
-        aria-controls="navbarTeacherDashboardContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-          <div class="collapse navbar-collapse" id="navbarTeacherDashboardContent">
-              <ul class="navbar-nav">
-                  <!-- <li class="nav-item navitem ml-4"> -->
-                  <li class="nav-item navitem">
-                      <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teacherliveclass" routerLinkActive="active">Live Class</a>
-                  </li>
-                  <li class="nav-item navitem">
-                      <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teacheruploadvideo" routerLinkActive="active">Upload Videos</a>
-                  </li>
-                  <li class="nav-item navitem">
-                      <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teacherhomework"routerLinkActive="active">Homework</a>
-                  </li>
-                  <li class="nav-item navitem">
-                      <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teachernotes" routerLinkActive="active">Notes</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link navbarLink" routerLink="/wrapper/teacherdashboard/teacherstudentlist" routerLinkActive="active">Students List</a>
-                </li>
-              </ul>
-          </div>
-      </nav>
-      <app-sidebar-ss></app-sidebar-ss>
-  </div>
-</div>
-
-<div class="container ml-2 mt-4">
+<section class="container-fluid boxModel">
+    <!-- <app-teacher-navbar></app-teacher-navbar> -->
+    <div class="mt-1 standardDiv">
+        <div class="row">
+            <div class="col-12">
+                <app-classes></app-classes>
+            </div>
+            <!-- <div class="col mt-1">
+                <i class="fa fa-cog" aria-hidden="true" style="font-size: 24px;"></i>
+            </div> -->
+        </div>
+            
+        <img style="background: #979797;" alt="" height="350" class="mt-2 w-100">
+        <div class="row mt-3" *ngIf="false">
+            <div class="col-2 text-center">
+                <h1><b>3</b></h1>
+                <span class="font-size14"><b>HW Pending</b></span>
+            </div>
+            <div class="col-2 text-center">
+                <h1><b>98%</b></h1>
+                <span class="font-size14"><b>Attendance</b></span>
+            </div>
+            <div class="col-2 text-center">
+                <h1><b>68%</b></h1>
+                <span class="font-size14"><b>Average</b></span>
+            </div>
+            <div class="col-2 text-center">
+                <h1><b>1</b></h1>
+                <span class="font-size14"><b>Testing</b></span>
+            </div>
+        </div>
+        <hr class="mt-2">
+        <div class="mt-3">
+            <h5><b>Classes Today</b></h5>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div *ngFor="let data of todaysTimeTable;let i = index"
+                        [ngClass]="{'active' : i == 0}" class="carousel-item">
+                            <div class="col-3">
+                                <div class="main-card">
+                                    <span class="mt-4">
+                                        <b>
+                                        {{data.class_of.class_name}} {{data.class_of.section}} </b><br>
+                                        {{data.start_time}}
+                                    </span>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" *ngIf="hideArrow">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next" *ngIf="hideArrow">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a> -->
+            </div>
+        </div>
+        <hr>
+        <div class="mt-2">
+            <div class="row">
+                <div class="col-4">
+                    <h5><b>Now</b></h5>
+                    <div *ngFor="let data of teacherCourseData" class="live-card mr-3" >
+                        <div style="display: flex;justify-content: space-between;">
+                            <div class="text-left ml-3 mr-2">
+                                <span class="dot"></span>
+                                Overdue
+                            </div>
+                            <div class="startNow">
+                               <a (click)="getSignature(data.meeting_id);hideArrow = false;" target="_new"><b>Start Now ></b></a>
+                            </div>
+                        </div>
+                        <div class="class-in-div">
+                            <span>
+                                <b>
+                                    {{data.class_of.class_name}} {{data.class_of.section}}</b>
+                                <br>
+                                10:00 AM
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 mb-4">
+                    <h5><b>Activity</b></h5>
+                    <div class="activity-card">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="mt-4 mb-4">
     <router-outlet></router-outlet>
-</div>
+</section> -->

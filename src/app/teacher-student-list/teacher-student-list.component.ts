@@ -7,18 +7,19 @@ import { TeacherService } from 'src/service/teacher.service';
   styleUrls: ['./teacher-student-list.component.css']
 })
 export class TeacherStudentListComponent implements OnInit {
+
   studentInCourseList=[];
   constructor(
     public teacherService:TeacherService
   ) { }
 
   ngOnInit() {
-    this.getStudentInCourseList();
+    //this.getStudentInCourseList();
   }
-  getStudentInCourseList(){
-    const ids = JSON.parse(sessionStorage.getItem('teacherAndCourseId'));
-    this.teacherService.getStudentInCourselist(ids.courseId).subscribe(res=>{
-       this.studentInCourseList=res;
-    });
-  }
+  // getStudentInCourseList(){
+  //   const ids = JSON.parse(sessionStorage.getItem('teacherAndCourseId'));
+  //   this.teacherService.getStudentInCourselist(ids.courseId).subscribe(res=>{
+  //      this.studentInCourseList=res;
+  //   });
+  // }
 }

@@ -1,37 +1,54 @@
-.teacher-time-table{
-    top: 200px;
-    left: 494px;
-    width: 895px;
-    height: 698px;
-    background: #ffffff 0% 0% no-repeat padding-box;
-    box-shadow: 0px 6px 12px #81818133;
-    border-radius: 24px;
-    opacity: 1;
+.boxModel{
+    padding: 0;
+    height: 100%;
+    overflow: scroll !important;
 }
 
-.td{
-    text-align: center;
+/* .carousel-control-next{
+    position: fixed;
+    top: -16rem !important;
+    right: 25rem !important;
 }
 
-h1 {
-    font-size: 15pt;
-    color: #20bcd5;
-    text-align: center;
-    padding: 18px 0 18px 0;
-    margin: 0 0 10px 0;
-}
+.carousel-control-prev{
+    position: fixed;
+    top: -16rem !important;
+    left: 53rem !important;
+} */
 
-
-
-table {
+.boxModel{
+    padding: 0;
+    height: 100%;
+    /* overflow: scroll !important; */
+  }
+  .outerDiv{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .innerDiv{
     width: 100%;
-    font-size: 11pt;
+    max-width: 832px;
+    height: 622px;
+  }
+  
+  .outerGrid{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+  }
+  
+  .standardDiv{
+    margin-left: 20rem;
+    margin-right: 20rem;
 }
-table, th, td {
-    border: 2px solid #cecece;
-    border-collapse: collapse;
-    text-align: center;
-    table-layout: fixed;
+  @media screen and (max-width: 600px) {
+  .standardDiv {
+    margin-left: inherit;
+    margin-right: inherit;
+    padding: 5px;
 }
-
-
+.navbar-nav  {
+  flex-direction: inherit;
+}
+  }

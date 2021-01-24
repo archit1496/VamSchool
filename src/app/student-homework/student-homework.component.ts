@@ -23,7 +23,7 @@ export class StudentHomeworkComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.fetchAssignmentQuestions();
+   // this.fetchAssignmentQuestions();
     this.answer();
   }
 
@@ -33,13 +33,13 @@ export class StudentHomeworkComponent implements OnInit {
     })
   }
 
-  fetchAssignmentQuestions() {
-    this.isLoading = true;
-    this.studentService.fetchAssignmentQuestions().subscribe(res => {
-      this.isLoading = false;
-      this.assignmentQuestions = res;
-    })
-  }
+  // fetchAssignmentQuestions() {
+  //   this.isLoading = true;
+  //   this.studentService.fetchAssignmentQuestions().subscribe(res => {
+  //     this.isLoading = false;
+  //     this.assignmentQuestions = res;
+  //   })
+  // }
 
   viewQuestions(url){
     window.open(url, "_new");

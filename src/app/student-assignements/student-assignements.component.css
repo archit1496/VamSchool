@@ -1,0 +1,66 @@
+.boxModel{
+  padding: 0;
+  
+}
+.outerDiv{
+  flex: 3 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  order: 1;
+}
+.innerDiv{
+  width: 100%;
+  max-width: 796px;
+  align-self: flex-end;
+}
+.grid{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-gap: 5px;
+}
+.activity-card{
+  border: 1px solid black;
+  height: 650px;
+  width: 300px;
+  background-color: lightgray;
+  padding: 5px;
+}
+.assignment-card{
+ 
+  background-image: url('../../assets/images/folderIcon.svg');
+  background-position-x: center;
+  background-size: 132px 136px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.topicName{
+  flex: 2;
+  color: black;
+  font-weight: 500;
+}
+.teacherName{
+  color: lightgreys;
+  flex: 1;
+}
+.downloadUploadButton{
+  background: lightgrey;
+    padding: 5px;
+    margin-right: 5px;
+}
+.uploadNotesButton{
+  width: 81px;
+    /* height: 38px; */
+    text-align: center;
+    color: black;
+    background: lightgrey;
+    margin: 0px;
+    padding: 5px;
+}
+[type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}

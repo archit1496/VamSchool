@@ -1,0 +1,44 @@
+.boxModel{
+    padding: 0;
+    /* height: 100%;
+    overflow: scroll !important; */
+  }
+  
+  .outerDiv{
+    flex: 3 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 1;
+  }
+  .innerDiv{
+    width: 100%;
+    max-width: 796px;
+    align-self: flex-end;
+  }
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-gap: 5px;
+  }
+  .activity-card{
+    border: 1px solid black;
+  height: 650px;
+  width: 300px;
+  background-color: lightgray;
+  padding: 5px;
+  }
+  .notes-card{
+   background-image: url('../../assets/images/folderIcon.svg');
+  background-position-x: center;
+  background-size: 132px 136px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  }
+  .downloadUploadButton{
+    background: lightgrey;
+      padding: 5px;
+      margin-right: 5px;
+  }

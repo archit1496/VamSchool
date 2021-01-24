@@ -1,3 +1,4 @@
+import { AdminboardComponent } from './../adminboard/adminboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -20,26 +21,49 @@ import { StudentsMainPageComponent } from '../students-main-page/students-main-p
 import { TeacherNavbarComponent } from '../teacher-navbar/teacher-navbar.component';
 import { HeaderComponent } from '../header/header.component';
 import { TeacherMarksAssignmentComponent } from '../teacher-marks-assignment/teacher-marks-assignment.component';
+import { StudentHomeDashboardComponent } from '../student-home-dashboard/student-home-dashboard.component';
+import { StudentTimetableComponent } from '../student-timetable/student-timetable.component';
+import { StudentAssignementsComponent } from '../student-assignements/student-assignements.component';
+import { StudentStudyMaterialComponent } from '../student-study-material/student-study-material.component';
 
 const routes: Routes = [
   {
     path: '', component: WrapperComponent, children: [
-      { path: 'admin', component: AdminComponent },
-      { path: 'teachertimetable', component: TeachertimetableComponent },
-      {
-        path: 'teacherdashboard', component: TeacherDashboardComponent, children: [
-          { path: 'teachernotes', component: TeacherNotesComponent },
-          { path: 'teacheruploadvideo', component: TeacherUploadVideoComponent },
-          { path: 'teacherliveclass', component: TeacherLiveClassComponent },
-          { path: 'teacherhomework', component: TeacherHomeWorkComponent },
-          { path: 'teacherstudentlist', component: TeacherStudentListComponent },
-          { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent},
-          {path: 'teachermarksassignments/:topicId', component: TeacherMarksAssignmentComponent}
+
+      // { path: 'teachertimetable', component: TeachertimetableComponent },
+      { path: 'studashboard', component: StudentHomeDashboardComponent },
+      { path: 'stutimetable', component: StudentTimetableComponent },
+      { path: 'stuassignments', component: StudentAssignementsComponent },
+      // { path: 'teacherdashboard', component: TeacherDashboardComponent },
+      // { path: 'teachernotes', component: TeacherNotesComponent },
+      { path: 'teacheruploadvideo', component: TeacherUploadVideoComponent },
+      { path: 'teacherliveclass', component: TeacherLiveClassComponent },
+      { path: 'teacherhomework', component: TeacherHomeWorkComponent },
+      { path: 'teacheractivity', component: TeacherStudentListComponent },
+      // { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent },
+      { path: 'teachermarksassignments/:topicId', component: TeacherMarksAssignmentComponent },
+      { path: 'studentStudyMaterial', component: StudentStudyMaterialComponent },
+    
+
+      // {
+      //   path: 'teacher-main-page', component: TeacherNavbarComponent, children: [
+      //     { path: 'header', component: HeaderComponent }
+      //   ]
+      // },
+      { path: 'admin', component: AdminComponent, children: [
+          { path: '', redirectTo: '/wrapper/admin/adminboard', pathMatch: 'full' },
+          {path: 'adminboard', component: AdminboardComponent},
         ]
       },
-      { path: 'teacher-main-page', component: TeacherNavbarComponent, children: [
-        { path: 'header', component: HeaderComponent}
-     ]},
+      {
+        path: 'teacherNav', component: TeacherNavbarComponent, children: [
+          { path: '', redirectTo: '/wrapper/teacherNav/teacherdashboard', pathMatch: 'full' },
+          {path: 'teacherdashboard', component: TeacherDashboardComponent},
+          { path: 'teachertimetable', component: TeachertimetableComponent },
+          { path: 'teachercheckassignments', component: TeacherCheckAssignmentsComponent },
+          { path: 'teachernotes', component: TeacherNotesComponent },
+        ]
+      },
       {
         path: 'student-dashboard', component: StudentDashboardComponent, children: [
           { path: 'student-live-class', component: StudentLiveClassComponent },
@@ -48,10 +72,12 @@ const routes: Routes = [
           { path: 'student-notes', component: StudentNotesComponent }
         ]
       },
-      { path: 'student-main-page', component: StudentsMainPageComponent, children: [
-        { path: 'header', component: HeaderComponent}
-     ] },
-      
+      {
+        path: 'student-main-page', component: StudentsMainPageComponent, children: [
+          { path: 'header', component: HeaderComponent }
+        ]
+      },
+
     ]
   }
 ]

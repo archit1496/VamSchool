@@ -25,8 +25,17 @@ import { HeaderComponent } from '../header/header.component';
 import { HtpInterceptor } from 'src/service/interceptor.service';
 import { TeacherMarksAssignmentComponent } from '../teacher-marks-assignment/teacher-marks-assignment.component';
 import { SidebarSsComponent } from '../sidebar-ss/sidebar-ss.component';
+import { StudentHomeDashboardComponent } from '../student-home-dashboard/student-home-dashboard.component';
+import { StudentTimetableComponent } from '../student-timetable/student-timetable.component';
+import { StudentAssignementsComponent } from '../student-assignements/student-assignements.component';
 
 import { AgoraConfig, AngularAgoraRtcModule } from 'angular-agora-rtc';
+import { ClassesComponent } from '../classes/classes.component';
+import { StudentNavBarComponent } from '../student-nav-bar/student-nav-bar.component';
+import { StudentClassSubjectComponent } from '../student-class-subject/student-class-subject.component';
+import { StudentStudyMaterialComponent } from '../student-study-material/student-study-material.component';
+import { AddNewAssignmentComponent } from '../teacher-check-assignments/add-new-assignment/add-new-assignment.component';
+import { AdminboardComponent } from '../adminboard/adminboard.component';
 
 const agoraConfig: AgoraConfig = {
   AppID: 'd93c22ae894740f6a8051d3d34f74da1',
@@ -35,6 +44,7 @@ const agoraConfig: AgoraConfig = {
 @NgModule({
   declarations: [
     TeachertimetableComponent,
+    AdminboardComponent,
     TeacherDashboardComponent,
     TeacherMarksAssignmentComponent,
     AdminComponent,
@@ -56,7 +66,16 @@ const agoraConfig: AgoraConfig = {
     TeacherNavbarComponent,
     HeaderComponent,
     SidebarSsComponent,
-    routingModule
+    routingModule,
+    StudentHomeDashboardComponent,
+    StudentTimetableComponent,
+    StudentAssignementsComponent,
+    ClassesComponent,
+    routingModule,
+    StudentNavBarComponent,
+    StudentClassSubjectComponent,
+    StudentStudyMaterialComponent,
+    AddNewAssignmentComponent
   ],
   imports: [
     CommonModule,
@@ -85,7 +104,15 @@ const agoraConfig: AgoraConfig = {
     StudentsMainPageComponent,
     TeacherNavbarComponent,
     HeaderComponent,
-    SidebarSsComponent
+    SidebarSsComponent,
+    StudentHomeDashboardComponent,
+    StudentTimetableComponent,
+    StudentAssignementsComponent,
+    ClassesComponent,
+    StudentNavBarComponent,
+    StudentClassSubjectComponent,
+    StudentStudyMaterialComponent,
+    AddNewAssignmentComponent
   ],
   providers: [HtpInterceptor]
 })

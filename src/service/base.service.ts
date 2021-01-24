@@ -1,4 +1,3 @@
-
 import {HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {throwError} from 'rxjs';
@@ -87,9 +86,40 @@ export class BaseService {
     );
   }
 
+  public getRequest2(url, params = {}) {
+    return this.http.get(url, {params}).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError(err => {
+        return this.handleError(err);
+      })
+    );
+  }
+  public getRequestNew(url, params = {}) {
+    return this.http.get(url, {params}).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError(err => {
+        return this.handleError(err);
+      })
+    );
+  }
+  public studentGetRequest(url, params = {}) {
+    return this.http.get(url, {params}).pipe(
+      map(res => {
+        return res;
+      }),
+      catchError(err => {
+        return this.handleError(err);
+      })
+    );
+  }
+
   public handleError(error: HttpErrorResponse) {
     if (error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
+     // console.error('An error occurred:', error.error.message);
     } else {
       console.error(
         `Backend returned code ${error.status}, ` +

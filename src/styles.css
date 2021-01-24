@@ -3,18 +3,30 @@
 * {
   box-sizing: border-box;
 } */
-
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 html, body { 
     height: 100%;
+    font-size:100%; 
 }
 body {
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
+}
+
+a{
+  cursor: pointer !important;
+  color: black !important;
 }
 
 .chapter{
     color: rgba(0,0,0,.5);
 }
-
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.2rem;} } 
+@media (min-width:1100px) { body {font-size:1.5rem;} } 
 .liveBtn{
     width: 180px;
     background: transparent linear-gradient(256deg, var(--unnamed-color-36d1dc) 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
@@ -66,10 +78,10 @@ body {
     opacity: 1;
 }
 
-.navbar-light .navbar-nav .active.nav-link{
+/* .navbar-light .navbar-nav .active.nav-link{
     background-color: #007bff;
     border-radius: .25rem;
-}
+} */
 
 .myOverlay {
     background-color: rgba(0, 0, 0, 0.3);
@@ -125,6 +137,47 @@ body {
       width: 500px;
       display: inline-block;
     }
+}
+
+
+.loginNavbrand{
+  font-family: 'Bevan', cursive;
+}
+  
+.loginItems{
+  font-family: 'Arimo', sans-serif;
+}
+
+.home{
+  margin-top: 8rem;
+  font-size: 50px;
+  text-align: right;
+}
+
+.homeNavbrand{
+  font-family: 'Bevan', cursive;
+  color: #36D1DC;
+  font-size: 2rem;
+}
+
+.homeNavbrand:hover{
+  color: #0aebfb;
+}
+
+.requestDemo{
+  border-radius: 22px;
+  margin-top: -7px;
+  background-color: #36D1DC;
+}
+
+.sticky{
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 10;
+  width: 100%;
+  background-color: aliceblue;
+  margin-left: -30px;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -261,4 +314,86 @@ body {
     width: 1142px;
     display: inline-block;
   }
+}
+
+#zmmtg-root {
+  display: none;
+}
+
+.font-size14{
+  font-size: 14px;
+}
+
+.font-size12{
+  font-size: 12px !important;
+}
+
+.standardDiv{
+    margin-left: 26rem;
+    margin-right: 26rem;
+}
+.studentStandardDiv{
+  margin-left: 21rem;
+  margin-right: 18rem;
+}
+.studymat-activity-div{
+  margin-left: 26rem;
+}
+
+.activity-box{
+  background-color: #D3D3D3;
+  border: 1px solid black;
+  height: 400px;
+  width: 25%;
+  margin-left: 10px;
+}
+
+.main-card{
+  border: 1px solid black !important;
+  height: 100px !important;
+  width: 100px !important;
+  background-color: lightgray !important;
+  padding: 0.5rem;
+  margin-left: 5px;
+
+}
+
+.main-card-study{
+  border: 1px solid black !important;
+  height: 120px !important;
+  width: 152px !important;
+  background-color: lightgray !important;
+  padding: .5rem;
+}
+
+.subject{
+  position: relative !important;
+  bottom: -8px !important;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: black !important;
+}
+
+.footer-card{
+  border: 1px solid black;
+  height: 75px;
+  width: 98vw;
+  background-color: lightgray;
+  margin-top: 10px;
+  
+}
+.footer-div{
+  height: 120px !important;
+  background-color: #A9A9A9 !important;
+}
+.activity-image{
+  width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+
 }

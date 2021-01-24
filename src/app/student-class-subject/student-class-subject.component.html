@@ -1,0 +1,31 @@
+<nav style="display: grid;" >
+   
+        <ul  >
+            <li >
+                <a class="" (click)="onSubjectTypeClick('All')" [ngClass]="{'active':subjectType==='All'}">
+                    <b>All</b>
+                </a>
+            </li>
+            <li class=" " *ngFor="let data of studentSubjects">
+                <a class=" " (click)="onSubjectTypeClick(data?.subject_name)" [ngClass]="{'active':subjectType===data?.subject_name}">
+                    <b >{{data?.subject_name}}</b>
+                </a>
+            </li>
+            <!-- <li class=" ">
+                <a class=" " (click)="onSubjectTypeClick('Chemistry')" [ngClass]="{'active':subjectType==='Chemistry'}">
+                    <b >Chemistry</b>
+                </a>
+            </li>
+            <li class=" ">
+                <a class=" " (click)="onSubjectTypeClick('Bio')" [ngClass]="{'active':subjectType==='Bio'}">
+                    <b >Bio</b>
+                </a>
+            </li>
+            <li class=" ">
+                <a class=" " (click)="onSubjectTypeClick('Maths')" [ngClass]="{'active':subjectType==='Maths'}">
+                    <b >Maths</b>
+                </a>
+            </li> -->
+        </ul>
+    
+</nav>

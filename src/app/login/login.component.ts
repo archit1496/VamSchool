@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   }
   
   loginUser() {
+    //this.router.navigate(['wrapper/student-main-page']);
       this.isLoading = true;
       this.loginError = '';
       this.loginForm.get('password').markAsTouched();
@@ -36,6 +37,17 @@ export class LoginComponent implements OnInit {
       this.authService.authenticate(this.loginForm.value).subscribe(data => {
         this.isLoading = false;
         StorageService.setItem('token',data.token);
+        StorageService.setItem('role',data.role);
+        StorageService.setItem('firstname',data.first_name);
+        StorageService.setItem('lastname',data.last_name);
+        if(data.role==='TEACHER')
+        {
+          this.router.navigate(['wrapper/teacherNav']);
+        } else if(data.role==='STUDENT'){
+          StorageService.setItem('student_id',data.id);
+          this.router.navigate(['wrapper/studashboard']);
+        }
+        else if(data.role==='SUPER_ADMIN'){
         alert(JSON.stringify(data));
         // alert(data["email"]);
         alert(data.user);
@@ -71,6 +83,9 @@ export class LoginComponent implements OnInit {
           // this.alertService.showError({title: 'Login Failure', message: 'User not found'});
         });
     
+  }
+  onForgotPasswordClick(){
+    this.router.navigate(['/forgot-password']);
   }
 
 }

@@ -1,68 +1,72 @@
-<div class="mt-2">
-    <div class="col-12">
-        <app-header></app-header>
-        <app-sidebar-ss></app-sidebar-ss>
-        <div class="subjects mt-4">
-            <div class="col-12">
-                <div class="card mb-4" *ngFor="let teacherInfo of teacherCourseList[0]?.course">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class=" col-md-12 col-sm-12 col-xs-12 col-lg-5">
-                                <img src="../../assets/images/teacher-img.png"
-                                    alt="img" height="200" width="250" class="imgResponsive">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-7">
-                                <div>
-                                    <h2>{{teacherInfo?.subject?.subject_name}}</h2>
-                                </div>
-                                <div class="mt-3">
-                                    <h3>{{teacherInfo?.class_of?.class_name}}</h3>
-                                </div>
-                                <div class="mt-3">
-                                    <h4>Section-{{teacherInfo?.class_of?.section}}</h4>
-                                </div>
-                                <div class="mt-4">
-                                    <button type="button" class="btn btn-lg w-75" style="background-color: #36d1dc;" 
-                                    (click)="gotoClassroom(teacherInfo.id)">
-                                        Go to Classroom
-                                    </button>
-                                </div>
-                            </div>
+<nav class="navbar navbar-expand-lg" style="background-color: darkgray;">
+    <div class="navbar-collapse justify-content-center">
 
-                        </div>
-                    </div>
+        <!-- <a class="navbar-brand" href="#"> -->
+            <div>
+                <div class="d-inline-block align-center logo-img rounded-circle">{{initial}}</div>
+                <!-- <img src="../../assets/images/card1.png" width="85" height="80"
+                    class="d-inline-block align-center logo-img rounded-circle" alt=""> -->
+                <div class="logo-name-div">
+                    <span class="logo-name"><b>{{firstName}} {{lastName}}</b></span>
                 </div>
-
-                <!-- <div class="card mt-4">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-5 ml-5">
-                                <img src="../../assets/images/teacher-img.png"
-                                    alt="img" height="200" width="250">
-                            </div>
-                            <div class="col-6">
-                                <div>
-                                    <h2>Class 8th</h2>
-                                </div>
-                                <div class="mt-3">
-                                    <h3>English Class</h3>
-                                </div>
-                                <div class="mt-3">
-                                    <h4>Section-A</h4>
-                                </div>
-                                <div class="mt-4">
-                                    <button type="button" class="btn btn-lg w-75" style="background-color: #36d1dc;"
-                                    (click)="gotoClassroom()">
-                                        Go to Classroom
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div> -->
-                
+                <div class="font-size12 logo-school-div">
+                    <span class="logo-name">
+                        <b>
+                            {{subject}} Teacher <br>
+                            {{school}}
+                        </b>
+                    </span>
+                </div>
             </div>
-        </div>
+        <!-- </a> -->
+ 
+    <div class="topnav" id="myTopnav">
+        <!-- <ul class="navbar-nav mb-n2 ml-5"> -->
+            <!-- <li class="nav-item"> -->
+                <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teacherdashboard" routerLinkActive="active">
+                    <span><b>Dashboard</b></span>
+                </a>
+            <!-- </li> -->
+            <!-- <li class="nav-item"> -->
+                <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teachertimetable" routerLinkActive="active">
+                    <b>Time
+                        Table</b>
+                </a>
+            <!-- </li> -->
+            <!-- <li class="nav-item"> -->
+                <a class="nav-link mr-5" routerLink="/wrapper/teacherNav/teachercheckassignments" routerLinkActive="active">
+                    <b>Assignments</b>
+                </a>
+            <!-- </li> -->
+            <!-- <li class="nav-item">
+                <a class="nav-link mr-5" routerLink="/wrapper/teacheractivity" routerLinkActive="active">
+                    <b>Activity</b>
+                </a>
+            </li> -->
+            <!-- <li class="nav-item"> -->
+                <a class="nav-link" routerLink="/wrapper/teacherNav/teachernotes" routerLinkActive="active">
+                    <b>Study
+                        Material</b>
+                </a>
+            <!-- </li> -->
+            <!-- <li>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                  </a>
+            </li> -->
+        <!-- </ul> -->
+        <a href="javascript:void(0);" class="icon" (click)="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
     </div>
+<div>
+        <a class="nav-link logout" (click)="logout()">
+            <b>Log Out</b>
+        </a>
+    </div>
+    </div>
+</nav>
+
+<div class="col-12 offset">
+    <router-outlet></router-outlet>
 </div>

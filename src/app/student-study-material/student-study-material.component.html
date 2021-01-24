@@ -1,0 +1,122 @@
+<div class="container-fluid boxModel">
+  <app-student-nav-bar></app-student-nav-bar>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    "
+  >
+    <section class="outerDiv">
+      <div class="mt-1 innerDiv">
+        <app-student-class-subject
+          (subjectSelected)="subjectSelected($event)"
+        ></app-student-class-subject>
+        <h5 class="mt-2"><b>This Week</b></h5>
+        <div *ngIf="isLoading" class="text-center">
+          Loading Data, Please wait...
+        </div>
+        <div  *ngIf="studentNotesDataSubjectWise?.length > 0">
+          <div
+            class="grid"
+            *ngFor="let data of studentNotesDataSubjectWise" 
+          >
+          <div class="notes-card mt-2" *ngFor="let directory of data?.directory_list" (click)="fetchNotesDataTopicWise(directory?.id)">
+            <span class="mt-4 cursor-pointer">
+              {{directory?.file_count}} Files <br />
+              <span style="font-size: 10px">
+                {{ getDate(directory.created_on) }}
+              </span>
+              <div>
+                {{ directory?.name }}
+              </div>
+            </span>
+          </div>
+            <!-- <span class="mt-4 cursor-pointer" >
+              {{data?.file_count}} Files <br />
+              <span style="font-size: 10px">
+                {{ getDate(data.created_on) }}
+              </span>
+              <div>
+                {{ data?.name }}
+              </div>
+            </span> -->
+          </div>
+        </div>
+        <div class="grid" *ngIf="studentNotesDataTopicWise?.length > 0">
+          <div
+            class="notes-card mt-2"
+            *ngFor="let data of studentNotesDataTopicWise" (click)="fetchNotesData(data?.id)"
+          >
+            <span class="mt-4 cursor-pointer" >
+              {{data?.file_count}} Files <br />
+              <span style="font-size: 10px">
+                {{ getDate(data.created_on) }}
+              </span>
+              <div>
+                {{ data?.name }}
+              </div>
+            </span>
+          </div>
+        </div>
+        <div  *ngIf="notesData?.length > 0">
+          <div
+            class="mt-2"
+            *ngFor="let data of notesData" >
+            <div style="display:flex;flex-direction: row;border-bottom: 1px solid black;padding: 4px;">
+              <div  class="topicName" style="flex:3">
+              {{data?.topic}}
+              </div>
+              <div  class="teacherName" style="flex:1">
+                {{getFileType(data?.note)}} <span *ngIf="data?.note">file</span>
+                <!-- {{data?.teacher?.name}} -->
+              </div>
+              <div style="flex: 1;">
+                <button class="downloadUploadButton" (click)="onDownloadClick(data?.note)">
+                  Download</button>
+              </div>
+            </div>
+            <!-- <span class="mt-4 cursor-pointer" >
+              {{ data?.course?.class_of?.class_name}} {{ data?.course?.class_of?.section}}<br />
+              <span style="font-size: 10px">
+                {{ getDate(data.created_on) }}
+              </span>
+             
+            </span> -->
+          </div>
+        </div>
+        <div
+          *ngIf="studentNotesDataSubjectWise?.length == 0 && subjectFilter"
+          style="text-align: center"
+        >
+          <b>No Data To Display</b>
+        </div>
+      </div>
+    </section>
+    <div
+      style="
+        flex: 1 23%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        order: 2;
+      "
+    >
+      <b>Activity</b>
+      <div class="activity-card">
+        <div *ngFor="let data of notesActivity" style="display: flex;flex-direction: rows;">
+          <div>
+              <img class="activity-image" src="../../assets/images/circleIcon.svg">
+          </div>
+          <div>
+              {{data.activity}}
+          </div>
+        
+       </div>
+      </div>
+    </div>
+    <div style="order: 3;">
+      <div class="footer-card"></div>
+    </div>
+  </div>
+</div>

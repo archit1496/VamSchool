@@ -1,0 +1,100 @@
+
+
+a b{
+  color: black;
+  cursor: pointer;
+}
+
+a b:hover{
+  color: blue;
+}
+
+
+.boxModel{
+  padding: 0;
+  height: 100%;
+}
+
+.live-card{
+  border: 1px solid black;
+  height: 200px !important;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.activity-card{
+  border: 1px solid black;
+  height: 200px !important;
+  width: 100%;
+  background-color: lightgray;
+  padding: 5px;
+}
+
+.startNow{
+  display: flex;
+  justify-content:flex-end; 
+}
+
+.carousel-control-next{
+  top: -130px !important;
+  right: 0 !important;
+}
+
+.carousel-control-prev{
+  top: -130px !important;
+  left: 598px !important;
+}
+
+.carousel-control-next {
+
+}
+
+.carousel-control-prev {
+
+}
+
+.class-in-div{
+  margin-top: 7.5rem;
+}
+
+.outerDiv{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.innerDiv{
+  width: 100%;
+  max-width: 648px;
+  margin-bottom: 20px;
+}
+.ongoingClassDiv{
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+.ongoingClassInfo{
+  margin: 102px 0px 0px 10px;
+}
+
+@media only screen and (max-width: 400px) {
+  .outerDiv{
+    align-items: normal;
+  }
+  .innerDiv{
+    max-width: 390px;
+  }
+  .studentInfo{
+    max-width: 112px;
+  }
+  .classNowDiv{
+    max-width: 350px !important;
+  }
+  .callNowActivityDiv{
+    flex-direction: column;
+  }
+  .activityDiv{
+    margin-top: 10px;
+    max-width: 350px !important;
+  }
+}

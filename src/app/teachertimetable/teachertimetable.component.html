@@ -1,65 +1,141 @@
-<div>
-  <app-sidebar-ss></app-sidebar-ss>
-  <h1><span>My Time Table</span></h1>
-</div>
-  <div class="table-responsive">
-    <table class="table">
-      <tr>
-        <th scope="col">Day</th>
-        <th scope="col">1</th>
-        <th scope="col">2</th>
-        <th scope="col">3</th>
-        <th scope="col">4</th>
-        <th scope="col">5</th>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>RMT</td>
-        <td>vp</td>
-        <td>DBM</td>
-        <td>SE</td>
-        <td>VB</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>VB</td>
-        <td>DBM</td>
-        <td>RMT</td>
-        <td>SE</td>
-        <td>VB</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>SE</td>
-        <td>LAB</td>
-        <td>LAB</td>
-        <td>LAB</td>
-        <td>RMT</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>SE</td>
-        <td>DBM</td>
-        <td>RMT</td>
-        <td>DBM</td>
-        <td>RMT</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>LAB</td>
-        <td>LAB</td>
-        <td>LAB</td>
-        <td>SE</td>
-        <td>DBM</td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-        <td>VB</td>
-        <td>RMT</td>
-        <td>SE</td>
-        <td>DBM</td>
-        <td>VB</td>
-      </tr>
-    </table>
+<div class="container-fluid boxModel">
+  <!-- <app-teacher-navbar></app-teacher-navbar> -->
+  <div class="mt-1 standardDiv">
+    <app-classes></app-classes>
+    <div style="display: flex;justify-content: space-between;">
+    <div>
+    <h5 class="mt-2"><b>This Week</b></h5>
   </div>
-
+    <!-- <div style="margin-top: 8px;">
+      <a href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div> -->
+  </div>
+    <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
+      <!-- <div class="carousel-inner"> -->
+        <div class="col-12">
+          <!-- <div class="row">
+            <div class="carousel-item active">
+              <div>
+                <div class="col mt-2" *ngFor="let data of timetableData" style="display: flex;">
+                  <div class="main-card">
+                    <span class="mt-4">
+                      {{data.class_of.class_name}} {{data.class_of.section}} <br>
+                      {{data.start_time}}
+                    </span>
+                  </div>
+                  <div class="main-card">
+                    <span class="mt-4">
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div *ngIf="isLoading" class="text-center">
+            Loading Data, Please wait...
+          </div>
+          <div class="outerGrid" *ngIf="!isLoading && timeTableData?.length>0">
+            <div *ngFor="let day of days" >
+              <b style="background: #80808069;padding: 0px 18px;">{{ day }}</b>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(7, 1fr)" *ngIf="timeTableData?.length>0">
+            <div style="display: grid">
+              <div class="main-card mt-2" *ngFor="let data of mondayData">
+                <span class="mt-4">
+                  {{ data?.course?.subject?.subject_name }} <br />
+                  <span style="font-size: 13px">
+                    {{ data?.start_time }}
+                  </span>
+                </span>
+              </div>
+            </div>
+    
+            <div style="display: grid">
+              <div class="main-card mt-2" *ngFor="let data of tuesdayData">
+                <span class="mt-4">
+                  {{ data?.course?.subject?.subject_name }} <br />
+                  <span style="font-size: 13px">
+                    {{ data?.start_time }}
+                  </span>
+                </span>
+              </div>
+            </div>
+    
+            <div style="display: grid">
+              <div class="main-card mt-2" *ngFor="let data of wednesdayData">
+                <span class="mt-4">
+                  {{ data?.course?.subject?.subject_name }} <br />
+                  <span style="font-size: 13px">
+                    {{ data?.start_time }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div style="display: grid">
+              <div class="main-card mt-2" *ngFor="let data of thrusdayData">
+                <span class="mt-4">
+                  {{ data?.course?.subject?.subject_name }} <br />
+                  <span style="font-size: 13px">
+                    {{ data?.start_time }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div style="display: grid">
+              <div class="main-card mt-2" *ngFor="let data of fridayData">
+                <span class="mt-4">
+                  {{ data?.course?.subject?.subject_name }} <br />
+                  <span style="font-size: 13px">
+                    {{ data?.start_time }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div style="display: grid">
+              <div class="main-card mt-2" *ngFor="let data of saturdayData">
+                <span class="mt-4">
+                  {{ data?.course?.subject?.subject_name }} <br />
+                  <span style="font-size: 13px">
+                    {{ data?.start_time }}
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div style="display: grid">
+              <div class="main-card mt-2" *ngFor="let data of sundayData">
+                <span class="mt-4">
+                  {{ data?.course?.subject?.subject_name }} <br />
+                  <span style="font-size: 13px">
+                    {{ data?.start_time }}
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="timeTableData?.length==0" style="text-align: center;">
+            <b>No Data To Display</b>
+          </div>
+         
+          <!-- <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a> -->
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+</div>
+<!-- <footer class="footer-div mt-3">
+</footer> -->

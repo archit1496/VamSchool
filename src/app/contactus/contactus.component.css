@@ -1,104 +1,12 @@
-.login-title {
-  margin-top: 65px;
-}
-
-.loginform{
-  margin-top: 55px;
-}
-
-.loginBtn{
-  background-color: #36D1DC;
-  color: white;
-}
-
-.loginBtn:disabled{
-  cursor: no-drop;
-}
-
-.loginBtn:hover{
-  background-color: #10e2f1;
-}
-
-a{
-  font-family: 'Montserrat', sans-serif;
-}
-
-.card{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: -10px 26px 46px #00000029;
-  height: 670px;
-  margin-top: 15px;
-}
-
-.loginInputDiv{
-  border-bottom: 1px solid #D3D3D3;
-}
-
-.inputText{
-  border: 0;
-  width: 90%;
-}
-
-.loginAddIcons{
-  background-color: transparent;
-  border: 0;
-}
-
 .contact-row{
-  background-color: #36D1DC;
+    height: 263px;
+    background-color: #5B86E5;
 }
 
-section{
-  padding: 0;
+.footer{
+    color: black;
 }
 
-h3 {
-  text-align: left;
-  color: #19a7b1;
+.fbIcon{
+    width: 40px;
 }
-
-
-.about-us-subtitile-1{
-    
-  border-left: 6px solid rgb(6, 190, 247); 
-  text-align: left;
-  font-weight: 500;
-  opacity: 1;
-  color:rgb(124, 6, 179);
-}
-
-.p-div {
-  padding-left: 5px;
-  font-size: 17px;
-}
-
-.about-us-mission-title{
-  text-align: left; 
-  font-weight: 500;
-  opacity: 1;
-  color:rgb(6, 190, 247);
-}
-
-.about-us-mission-content{
-  opacity: 1;
-  text-align: left;
-  font-weight: 500;
-  color:rgb(124, 6, 179);
-}
-
-.about-us-manage-teaching-title{
-  opacity: 1;
-  text-align: left;
-  font-weight: 500;
-  color:rgb(6, 190, 247);
-}
-
-.about-us-content{
-
-  opacity: 1;
-  text-align: left;
-  font-weight: 500;
-  color:rgb(124, 6, 179);
-}
-
-

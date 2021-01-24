@@ -1,0 +1,160 @@
+.boxModel{
+    padding: 0;
+    height: 100%;
+    overflow: scroll !important;
+  }
+  .outerDiv{
+    flex: 3 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 1;
+  }
+  .innerDiv{
+    width: 100%;
+    max-width: 796px;
+    /* align-self: flex-end; */
+  }
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-gap: 5px;
+  }
+  .activity-card{
+    border: 1px solid black;
+    height: 580px;
+    width: 300px;
+    background-color: lightgray;
+  }
+  .assignment-card{
+    background-image: url('../../../assets/images/folderIcon.svg');
+    background-position-x: center;
+    background-size: 132px 136px;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+  }
+  
+  .alignlist{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid;
+  }
+  
+  .subitem{
+  display: inline-flex;
+  width: 100%;
+  }
+
+  .showlist{
+    list-style-type: none; 
+  }
+  
+  * {box-sizing: border-box;}
+  
+  /* Button used to open the contact form - fixed at the bottom of the page */
+  .open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    /* right: 15px; */
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    /* max-width: 300px; */
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+   input, .form-container input[type=password] {
+    width: 50%;
+    border-width: 0px;
+    border: none;
+    border-bottom: 1px solid;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    /* background-color: red; */
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  
+  .newclass{
+    background-color: #cccccc;
+  }
+  
+  p {
+    font-family: Lato;
+  }
+  
+  
+  .subheader {
+    /* background-color: #f3c062; */
+    display: flex;
+  }
+  
+  .header p {
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .inputfile {
+    /* visibility: hidden etc. wont work */
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .inputfile:focus + label {
+    /* keyboard navigation */
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+  .inputfile + label * {
+    pointer-events: none;
+  }
