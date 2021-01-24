@@ -48,6 +48,18 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['wrapper/studashboard']);
         }
         else if(data.role==='SUPER_ADMIN'){
+        alert(JSON.stringify(data));
+        // alert(data["email"]);
+        alert(data.user);
+        alert(data.token);
+        StorageService.setItem('role',data.user.role);
+        if(data.user.role==='TEACHER')
+        {
+          this.router.navigate(['wrapper/teacher-main-page']);
+        } else if(data.user.role==='STUDENT'){
+          this.router.navigate(['wrapper/student-main-page']);
+        }
+        else if(data.user.role==='SUPER_ADMIN'){
           this.router.navigate(['wrapper/admin']);
         }
         
