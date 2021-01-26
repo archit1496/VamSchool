@@ -53,10 +53,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['wrapper/studashboard']);
         }
         else if(data.role==='SUPER_ADMIN'){
-        alert(JSON.stringify(data));
+      //  alert(JSON.stringify(data));
         // alert(data["email"]);
-        alert(data.user);
-        alert(data.token);
+        //alert(data.user);
+        //alert(data.token);
         StorageService.setItem('role',data.user.role);
         if(data.user.role==='TEACHER')
         {
@@ -67,28 +67,15 @@ export class LoginComponent implements OnInit {
         else if(data.user.role==='SUPER_ADMIN'){
           this.router.navigate(['wrapper/admin']);
         }
-        
-        
-          // this.globalService.setAccessToken(data.token);
-          // this.authService.self({all: true}).subscribe((userDetails) => {
-          //   this.isBusy = false;
-          //   this.globalService.setSelf(userDetails);
-          //   this.metaService.refreshMeta();
-          //   this.alertService.showSuccess({title: 'login Success', message: 'Successfully login'});
-          //   this.router.navigateByUrl('home/recent-feeds');
-          // }, e => {
-          //   this.isBusy = false;
-          //   this.alertService.showError({title: 'Self Request Error', message: e});
-          // });
-        },
-        error => {
+        }error => {
           this.isLoading = false;
           this.loginError = error.error['detail'];
           // this.isBusy = false;
           // this.alertService.showError({title: 'Login Failure', message: 'User not found'});
-        });
-    
+        }
+      });
   }
+
   onForgotPasswordClick(){
     this.router.navigate(['/forgot-password']);
   }
