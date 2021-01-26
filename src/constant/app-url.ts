@@ -16,7 +16,7 @@ export class AppUrl {
     return AppUrl.APP_URL + 'users/register/';
   }
   static get FORGOT_PASSWORD(): string {
-    return AppUrl.APP_URL + 'v1/forgot-password/';
+    return AppUrl.APP_URL + 'users/forgot-password/';
   }
   static get CHANGE_PASSWORD(): string {
     return AppUrl.APP_URL + '/v1/reset-password/';
