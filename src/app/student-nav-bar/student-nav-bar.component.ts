@@ -25,11 +25,12 @@ export class StudentNavBarComponent implements OnInit {
   ngOnInit() {
     this.initial=this.firstName.charAt(0)+this.lastName.charAt(0);
   }
+
   logout()
   {
    
     this.authService.logout().subscribe(res=>{
-      if(res)
+      if(res == null || res == '')
       {
         StorageService.clearAll();
         location.reload();
