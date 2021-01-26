@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/service/storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,14 +16,13 @@ export class LoginComponent implements OnInit {
   isLoading: boolean = false;
   loginError: any;
 
-  constructor(private fb:FormBuilder,public authService:AuthService,public router: Router ) {
+  constructor(private fb:FormBuilder,public authService:AuthService,public router: Router,
+    private toasterMsg: ToastrService) {
     this.loginForm = this.fb.group({
       'email': ['', Validators.required],
       'password': ['', Validators.required]
     });
    }
-  
-
 
   ngOnInit() {
     this.loginError = '';
@@ -37,10 +37,15 @@ export class LoginComponent implements OnInit {
       this.authService.authenticate(this.loginForm.value).subscribe(data => {
         this.isLoading = false;
         StorageService.setItem('token',data.token);
-        StorageService.setItem('role',data.role);
-        StorageService.setItem('firstname',data.first_name);
-        StorageService.setItem('lastname',data.last_name);
-        if(data.role==='TEACHER')
+        StorageService.setItem('role',data.user.role);
+        StorageService.setItem('firstname',data.user.first_name);
+        StorageService.setItem('lastname',data.user.last_name);
+        StorageService.setItem('isEmailVerified', data.is_email_active);
+        console.log("ROLE = "+JSON.stringify(data.user.role));
+        if(!data.is_email_active){
+          this.toasterMsg.error("Please verify you email");
+        }
+        if(data.user.role==='TEACHER')
         {
           this.router.navigate(['wrapper/teacherNav']);
         } else if(data.role==='STUDENT'){

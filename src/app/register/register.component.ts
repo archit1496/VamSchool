@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   constructor(public fb:FormBuilder,public authService:AuthService,public router: Router,public toaster:ToastrService) { 
     this.registrationForm = this.fb.group({
       'email': ['', Validators.required],
-      'password':['',Validators.required],
+      //'password':['',Validators.required],
       'first_name': ['', Validators.required],
       'last_name': ['', Validators.required],
       'role':['',Validators.required],
@@ -30,16 +30,19 @@ export class RegisterComponent implements OnInit {
     formData.append('first_name', this.registrationForm.value.first_name);
     formData.append('last_name', this.registrationForm.value.last_name);
     formData.append('email', this.registrationForm.value.email);
-    formData.append('password', this.registrationForm.value.password);
+    //formData.append('password', this.registrationForm.value.password);
     formData.append('role', this.registrationForm.value.role);
     console.log("Form Data = "+formData)
     if(this.registrationForm.valid)
     {
       this.authService.register(formData).subscribe(res=>{
-        if(res)
+        if(res.status)
         {
-          this.toaster.success("Registered Succefully!", "Success");
+          this.toaster.success("User Account Succefully!", "Success");
+          this.toaster.warning("Email has been sent to"+this.registrationForm.value.email+". Please check your email to proceed further")
           this.router.navigate(['/login']);
+        } else{
+          this.toaster.error(res.detail, "Error");
         }
       },error=>{
         this.toaster.error("Failed to Register!", "Failed");
