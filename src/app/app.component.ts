@@ -12,10 +12,9 @@ export class AppComponent {
   title = 'vamschool';
 
   constructor(public authService:AuthService,public router:Router){
-   
-
     this.checkLogin();
   }
+  
   checkLogin() {
     if (StorageService.getItem('token')) {
       if(StorageService.getItem('role')==='STUDENT')

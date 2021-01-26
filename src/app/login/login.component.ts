@@ -48,17 +48,17 @@ export class LoginComponent implements OnInit {
         if(data.user.role==='TEACHER')
         {
           this.router.navigate(['wrapper/teacherNav']);
-        } else if(data.role==='STUDENT'){
+        } else if(data.user.role==='STUDENT'){
           StorageService.setItem('student_id',data.id);
           this.router.navigate(['wrapper/studashboard']);
         }
-        else if(data.role==='SUPER_ADMIN'){
+        else if(data.user.role==='SUPER_ADMIN'){
       //  alert(JSON.stringify(data));
         // alert(data["email"]);
         //alert(data.user);
         //alert(data.token);
         StorageService.setItem('role',data.user.role);
-        if(data.user.role==='TEACHER')
+        if(data.user.role==='r')
         {
           this.router.navigate(['wrapper/teacher-main-page']);
         } else if(data.user.role==='STUDENT'){
