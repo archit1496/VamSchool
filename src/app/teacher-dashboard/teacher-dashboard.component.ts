@@ -18,11 +18,11 @@ export class TeacherDashboardComponent implements OnInit {
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
   apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
   // meetingNumber: number;
-  role = 1
+  // role = 1
   leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
   userName = 'Daily Standup Meeting'
-  userEmail = ''
-  passWord = 'vamdeepak'
+  userEmail = 'test@gmail.com'
+  // passWord = 'QkllV1NieEkyQlpKMmxtbjVHNWdIdz09'
   signature: any;
   teacherCourseData: any;
   todaysTimeTable: any;
@@ -36,7 +36,10 @@ export class TeacherDashboardComponent implements OnInit {
     this.fetchTodaysTimeTable();
   }
 
-  getSignature(meetingNumber) {
+  getSignature(meetingNumber,meetingPassword) {
+    // meetingNumber = 73519189461
+    alert(meetingNumber);
+    alert(meetingPassword);
     console.log(meetingNumber, 'meetingNumber');
     
     this.signature = ZoomMtg.generateSignature({
@@ -46,12 +49,12 @@ export class TeacherDashboardComponent implements OnInit {
       role: 1,
       success: (res) => {
         console.log(res.result);
-        this.startMeeting(res.result, meetingNumber)
+        this.startMeeting(res.result, meetingNumber, meetingPassword)
       }
     });
   }
 
-  startMeeting(signature, meetingNumber){
+  startMeeting(signature, meetingNumber, meetingPassword){
     console.log("Signature = "+signature)
    document.getElementById('zmmtg-root').style.display = 'block';
 
@@ -67,7 +70,7 @@ export class TeacherDashboardComponent implements OnInit {
           userName: this.userName,
           apiKey: this.apiKey,
           userEmail: this.userEmail,
-          passWord: this.passWord,
+          passWord: meetingPassword,
           success: (success) => {
             console.log(success)
           },
