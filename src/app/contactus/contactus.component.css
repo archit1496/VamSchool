@@ -1,12 +1,45 @@
+#footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    height: auto;
+}
+
+#footer hr {
+    background: #fff;
+}
 .contact-row{
     height: 263px;
-    background-color: #5B86E5;
+    background-color: #073b4c;
 }
 
-.footer{
-    color: black;
+#footer p{
+    color: #8ea942;
 }
 
-.fbIcon{
-    width: 40px;
+#footer h2{
+    color: #598c6a;
 }
+
+.social-media-cnt i{
+    color: #598c6a;
+    font-size: 2rem;
+    margin: 0 1rem;
+}
+
+.social-media-cnt i:hover{
+    color:#8ea942;
+}
+
+.social-media-cnt {
+    text-align: center;
+    justify-content: center;
+}
+
+.contact-details {
+    padding-top: 1rem;
+}
+
+.contact-details i {
+    font-size: 1rem;
+}
+

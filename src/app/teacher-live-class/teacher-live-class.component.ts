@@ -27,8 +27,8 @@ export class TeacherLiveClassComponent implements OnInit {
   spinnerFlag: boolean;
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature'
   apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
-  meetingNumber = 4583021480
-  role = 1
+  meetingNumber = '4583021480'
+  role = '1'
   leaveUrl = 'http://localhost:4200'
   userName = 'Daily Standup Meeting'
   userEmail = ''
@@ -50,7 +50,7 @@ export class TeacherLiveClassComponent implements OnInit {
       meetingNumber: this.meetingNumber,
       apiKey: this.apiKey,
       apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
-      role: 1,
+      role: '1',
       success: (res) => {
         console.log(res.result);
         this.startMeeting(res.result)

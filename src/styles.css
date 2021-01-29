@@ -1,32 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
-/* 
-* {
-  box-sizing: border-box;
-} */
+/* Color theme 
+    1. #806ea2(Voilet)
+    2. #8ea942 (Light Green)
+    3. #9e48b9 (Purple) => Primary 
+    4. #598c6a (Dark Green) => Secondary 
+    5. #bb5b4a (Red) => Secondary
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 html, body { 
-    height: 100%;
-    font-size:100%; 
+  font-family: 'Lato', sans-serif!important;
+  min-height: 100%!important;
+  min-width: auto!important;
+  height: 100%!important;
+  width: 100%!important;
+  overflow: inherit!important;
 }
+
 body {
+    display: block;
     margin: 0;
 }
 
-a{
-  cursor: pointer !important;
-  color: black !important;
+p {
+  font-family: 'Lato', sans-serif;
 }
 
 .chapter{
     color: rgba(0,0,0,.5);
 }
+
 @media (min-width: 640px) { body {font-size:1rem;} } 
 @media (min-width:960px) { body {font-size:1.2rem;} } 
 @media (min-width:1100px) { body {font-size:1.5rem;} } 
+
 .liveBtn{
     width: 180px;
     background: transparent linear-gradient(256deg, var(--unnamed-color-36d1dc) 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
@@ -36,16 +50,10 @@ a{
 }
 
 .liveBtnVideo{
-  /* width: 180px; */
   background: transparent linear-gradient(256deg, var(--unnamed-color-36d1dc) 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
   background: transparent linear-gradient(256deg, #36D1DC 0%, #A0FFC3 100%) 0% 0% no-repeat padding-box;
   border-radius: 18px;
   opacity: 1;
-}
-
-.card{
-    border-radius: 25px;
-    cursor: pointer;
 }
 
 .welcome{
@@ -54,28 +62,11 @@ a{
     opacity: 1;
     backdrop-filter: blur(30px); 
     -webkit-backdrop-filter: blur(30px);
-    /* width: 1300px; */
-    /* margin-left: -28px; */
     height: 60px;
 }
 
 .student-name{
     padding-left: 80px;
-}
-
-.navbarLink{
-    font-size: 18px;
-}
-
-.navitem{
-    margin-right: 7rem;
-}
-
-.navbarClass{
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 6px 12px #81818133;
-    border-radius: 22px 22px 0px 0px;
-    opacity: 1;
 }
 
 /* .navbar-light .navbar-nav .active.nav-link{
@@ -122,9 +113,7 @@ a{
       margin-left: -32px !important;
       width: 150px !important;
     }
-    .liveBtnVideo{
-      /* width: 160px; */
-    }
+
     .sideBarLS{
       display: none;
     }
@@ -137,47 +126,17 @@ a{
       width: 500px;
       display: inline-block;
     }
-}
-
-
-.loginNavbrand{
-  font-family: 'Bevan', cursive;
-}
-  
-.loginItems{
-  font-family: 'Arimo', sans-serif;
-}
-
-.home{
-  margin-top: 8rem;
-  font-size: 50px;
-  text-align: right;
-}
-
-.homeNavbrand{
-  font-family: 'Bevan', cursive;
-  color: #36D1DC;
-  font-size: 2rem;
-}
-
-.homeNavbrand:hover{
-  color: #0aebfb;
-}
-
-.requestDemo{
-  border-radius: 22px;
-  margin-top: -7px;
-  background-color: #36D1DC;
-}
+} 
 
 .sticky{
   position: fixed;
   top: 0;
-  overflow: hidden;
-  z-index: 10;
+  left:0;
   width: 100%;
-  background-color: aliceblue;
-  margin-left: -30px;
+  z-index: 2;
+  background: #ec407a;
+  padding: 0.5rem 1rem;
+  transition-duration: 0.5s ;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -191,9 +150,6 @@ a{
     .downloadBtn{
       margin-left: -25px;
       width: 180px;
-    }
-    .liveBtnVideo{
-      /* width: 160px; */
     }
     .sideBarLS{
       display: none;
@@ -231,9 +187,7 @@ a{
   .wtchVideo{
     text-align: left;
   }
-  .liveBtnVideo{
-    /* width: 160px; */
-  }
+
   .downloadBtn{
     margin-left: auto;
   }
@@ -336,6 +290,7 @@ a{
   margin-left: 21rem;
   margin-right: 18rem;
 }
+
 .studymat-activity-div{
   margin-left: 26rem;
 }
@@ -396,4 +351,35 @@ a{
     margin-right: 8px;
     margin-bottom: 8px;
 
+}
+
+.sec-heading-txt {
+  font-weight: 600;
+  font-family: 'Mulish' sans-serif;
+  justify-content: center;
+  text-align: center;
+  color: #073b4c;
+}
+
+h2.sec-heading-txt:after, h2.sec-heading-txt:before {
+  content: "";
+  width: 20px;
+  height: 4px;
+  background-color: #e91e63;
+  position: absolute;
+  justify-self: center;
+  top: 80px;
+  transform: rotate(30deg);
+}
+
+h2.sec-heading-txt:after {
+  right: 50%;
+}
+
+h2.sec-heading-txt:before {
+  right: 51%;
+}
+
+.sec-heading-cnt {
+  padding: 2rem 0;
 }

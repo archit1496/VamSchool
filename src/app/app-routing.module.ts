@@ -4,27 +4,27 @@ import { StudentHomeDashboardComponent } from './student-home-dashboard/student-
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadingStrategy, PreloadAllModules } from '@angular/router';
 
-import { ContactusComponent } from './contactus/contactus.component';
 import { HelpComponent } from './help/help.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+// import { AboutusComponent } from './home/aboutus/aboutus.component';
+// import { ContactusComponent } from './home/contactus/contactus.component';
 
 const routes: Routes = [
 
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'aboutus', component: AboutusComponent },
+  // { path: 'aboutus', component: AboutusComponent },
   { path: 'help', component: HelpComponent },
-  { path: 'contact', component: ContactusComponent },
+  // { path: 'contact', component: ContactusComponent },
   { path: 'home-header', component: HomeHeaderComponent },
   { path: 'password-change', component: PasswordChangeComponent },
-  {path:'forgot-password',component:ForgotPasswordComponent},
+  { path: 'forgot-password',component:ForgotPasswordComponent},
 
 
 

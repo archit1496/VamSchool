@@ -19,10 +19,10 @@ export class StudentHomeDashboardComponent implements OnInit {
 
   dummyData: { class: string; when: string; }[];
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
-  apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
-  meetingNumber = 4583021480
-  role = 1
-  leaveUrl = 'https://vamschool.in/wrapper/studashboard'
+  apiKey = 'oy0BFe2gSXadvEYjBmkYfw';
+  meetingNumber: string = '4583021480';
+  role: string = '1';
+  leaveUrl = 'https://vamschool.in/wrapper/studashboard';
   userName = 'Daily Standup Meeting'
   userEmail = ''
   passWord = 'vamdeepak'
@@ -95,7 +95,7 @@ export class StudentHomeDashboardComponent implements OnInit {
       meetingNumber: this.meetingNumber,
       apiKey: this.apiKey,
       apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
-      role: 1,
+      role: '1',
       success: (res) => {
         console.log(res.result);
         this.startMeeting(res.result)
@@ -133,8 +133,5 @@ export class StudentHomeDashboardComponent implements OnInit {
         console.log(error)
       }
     })
-
   }
-
-
 }

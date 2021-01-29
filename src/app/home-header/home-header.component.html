@@ -1,39 +1,40 @@
-<header>
-    <nav class="navbar navbar-expand-md navbar-light bg-white pt-4">
-      <div class="container-fluid">
-        <a class="navbar-brand ml-5 homeNavbrand" href="#">
-          <b>VAM</b>
-        </a>
+
+    <nav class="navbar navbar-expand-md navbar-light ">
+      <div class="container">
+        <!-- <a class="navbar-brand homeNavbrand" href="#">
+          <h1>VAM</h1>
+        </a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" #stickyMenu
-        [class.sticky] = "sticky">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" #stickyMenu [class.sticky] = "sticky">
+          <a class="navbar-brand homeNavbrand" href="#">
+            <h1>VAM</h1>
+          </a>
           <ul class="navbar-nav ml-auto mr-5">
             <li class="nav-item">
-              <a class="nav-link ml-5 loginItems" routerLink="/aboutus" routerLinkActive="active">
-                About
+              <a class="nav-link login-items" routerLink="/aboutus" routerLinkActive="active">
+                ABOUT
+              </a>
+            </li>
+            <li class="nav-item"> 
+              <a class="nav-link login-items" routerLink="/contact" routerLinkActive="active">
+                CONTACT US
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ml-5 loginItems" routerLink="/contact" routerLinkActive="active">
-                Contact Us
+              <a class="nav-link login-items" routerLink="/login" routerLinkActive="active">
+                LOGIN
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ml-5 loginItems" routerLink="/login" routerLinkActive="active">
-                Login
+              <a class="nav-link login-items" routerLink="/register" routerLinkActive="active">
+                REGISTER
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link ml-5 loginItems" routerLink="/register" routerLinkActive="active">
-                Register
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link ml-5">
+              <a class="nav-link">
                 <button type="button" class="requestDemo btn">Request Demo</button>
               </a>
             </li>
@@ -41,4 +42,4 @@
         </div>
       </div>
     </nav>
-  </header>
+  

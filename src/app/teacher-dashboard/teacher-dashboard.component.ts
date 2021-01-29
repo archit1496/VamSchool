@@ -18,7 +18,7 @@ export class TeacherDashboardComponent implements OnInit {
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
   apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
   // meetingNumber: number;
-  role = 1
+  role = '1'
   leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
   userName = 'Daily Standup Meeting'
   userEmail = ''
@@ -43,7 +43,7 @@ export class TeacherDashboardComponent implements OnInit {
       meetingNumber: meetingNumber,
       apiKey: this.apiKey,
       apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
-      role: 1,
+      role: '1',
       success: (res) => {
         console.log(res.result);
         this.startMeeting(res.result, meetingNumber)

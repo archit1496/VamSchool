@@ -28,3 +28,8 @@ label {
   border-radius: 40px;
   margin-left: 134px;
 }
+
+.pwd-img img {
+  width: 100%;
+  height: 100%;
+} 

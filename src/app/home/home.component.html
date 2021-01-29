@@ -1,23 +1,18 @@
 <app-home-header></app-home-header>
-
-<section class="container-fluid">
-  <div class="col-md-12 col-lg-12 col-sm-0">
-    <div class="row">
-      <div class="col-lg-4 col-md-5 col-sm-12 home">
-        <b>
-          <span>Welcome to</span> <br>
-          <span>VAM School</span> <br>
-          <button type="button" class="requestDemo btn" style="margin-right: 83px;">Request Demo</button>
-        </b>
-      </div>
-      <div class="col-md-7 col-lg-8 col-sm-8 login-image">
-        <img src="../../assets/images/home-img.png" alt="img" style="margin-top: -16px;
-            margin-left: 217px;">
+  <div class="landing-page">
+    <div class="landing-image">
+      <img src="../../assets/images/landing-home.jpg" alt="img">
+    </div>
+    <div class="container cnt-txt">
+      <div class="home-txt ">
+          <h1><span>Welcome to</span><br>
+          <span> VAM School</span></h1>
+          <button type="button" class="requestDemo btn">Request Demo</button>
       </div>
     </div>
   </div>
+  
 
-  <app-aboutus [fromHome]="true"></app-aboutus>
-  <app-contactus [fromHome]="true"></app-contactus>
-  <router-outlet></router-outlet>
-</section>
+<app-aboutus [fromHome]="true"></app-aboutus>
+<app-contactus [fromHome]="true"></app-contactus>
+<router-outlet></router-outlet>

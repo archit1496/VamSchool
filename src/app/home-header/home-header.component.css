@@ -1,77 +1,64 @@
-.login-title {
-    margin-top: 65px;
-  }
-  
-  .loginform{
-    margin-top: 70px;
-  }
-  
-  .loginBtn{
-    margin-top: 72px;
-    background-color: #36D1DC;
-    color: white;
-    font-size: 24px;
-  }
-  
-  .loginBtn:disabled{
-    cursor: no-drop;
-  }
-  
-  .loginBtn:hover{
-    background-color: #10e2f1;
-  }
-  
-  a{
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .card{
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: -10px 26px 46px #00000029;
-    height: 670px;
-    margin-top: 15px;
-  }
-  
-  .loginInputDiv{
-    border-bottom: 1px solid #D3D3D3;
-  }
-  
-  .inputText{
-    border: 0;
-    width: 90%;
-  }
-  
-  .loginAddIcons{
-    background-color: transparent;
-    border: 0;
-  }
+app-home-header {
+  width: 100%;
+}
 
-  .requestDemo{
-    border-radius: 22px;
-    margin-top: -7px;
-    background-color: #36D1DC;
-  }
-  
-  section{
-    padding: 0;
-  }
-  
-  .loginItems{
-    font-family: 'Arimo', sans-serif;
-  }
-  
-  .home{
-    margin-top: 8rem;
-    font-size: 50px;
-    text-align: right;
-  }
+.navbar {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    background: #ec407a;
+}
 
-  .homeNavbrand{
-    font-family: 'Bevan', cursive;
-    color: #36D1DC;
-    font-size: 2rem;
-  }
+button.requestDemo.btn {
+  border: 2px solid #6d0f8a;
+  background-color: transparent;
+  color: #ffffff;
+  width: max-content;
+  transition-duration: 0.5s;
+}
 
-  .homeNavbrand:hover{
-    color: #0aebfb;
-  }
+button.requestDemo.btn:hover {
+  background-color: #9e48b9;
+  border: 2px solid #9e48b9;
+  color: white;
+}
+
+li .login-items{
+  font-family: 'Mulish', sans-serif;
+  font-weight: 500;
+  color: white;
+  margin: 0 1rem;
+}
+
+li .login-items:hover {
+  color: #000000;
+}
+
+.homeNavbrand{
+  font-family: 'Mulish', sans-serif;
+  color: #202020!important;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.homeNavbrand h1{
+  margin: 0;
+}
+
+.homeNavbrand:hover {
+  color: #9e48b9!important;
+}
+
+.card{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: -10px 26px 46px #00000029;
+  height: 670px;
+  margin-top: 15px;
+}
+  
+.home{
+  margin-top: 8rem;
+  font-size: 50px;
+  text-align: right;
+}
