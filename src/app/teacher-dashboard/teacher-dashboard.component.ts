@@ -27,6 +27,9 @@ export class TeacherDashboardComponent implements OnInit {
   teacherCourseData: any;
   todaysTimeTable: any;
   hideArrow = true;
+  teacherCourseresponse: any;
+  topicName = "test topic"
+  agenda = "test agenda"
 
   constructor(private teacherService: TeacherService) {
   }
@@ -36,11 +39,25 @@ export class TeacherDashboardComponent implements OnInit {
     this.fetchTodaysTimeTable();
   }
 
+
+  createMeeting(course_id){
+    this.teacherService.createZoomMeeting(this.topicName, this.agenda, course_id).subscribe(res => {
+      this.fetchTeacherCourseForHostUrl(course_id);
+      
+    })
+
+  }
+
   getSignature(meetingNumber,meetingPassword) {
-    // meetingNumber = 73519189461
+    // Have to send a POST request to /course/create_live_class/
+    //with the topic,agenda and course_id. Then you will receive 
+    //the new meetingNumber and meetingPassword
+
+
     alert(meetingNumber);
     alert(meetingPassword);
     console.log(meetingNumber, 'meetingNumber');
+    
     
     this.signature = ZoomMtg.generateSignature({
       meetingNumber: meetingNumber,
@@ -95,6 +112,16 @@ export class TeacherDashboardComponent implements OnInit {
     // this.fetchTodaysTimeTable();
   }
 
+  fetchTeacherCourseForHostUrl(course_id){
+    this.teacherService.fetchSelectedTeacherCourse(course_id).subscribe(res => {
+      let data = res.data;
+      console.log("teacher Response = "+JSON.stringify(res.data))
+      this.getSignature(data.meeting_id,data.meeting_password)
+    })
+    
+    // this.fetchTodaysTimeTable();
+  }
+
   fetchTodaysTimeTable(){
     this.teacherService.fetchTimetableToday().subscribe(res => {
       console.log(res, '2');
@@ -102,5 +129,7 @@ export class TeacherDashboardComponent implements OnInit {
       this.todaysTimeTable = res;
     })
   }
+
+  
 
 }

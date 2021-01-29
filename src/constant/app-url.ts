@@ -164,6 +164,10 @@ export class AppUrl {
     return AppUrl.APP_URL + 'course/create_live_class/';
   }
 
+  static FETCH_SELECTED_TEACHER_COURSE(): string {
+    return AppUrl.APP_URL + 'v1/teacher/selected-course/';
+  }
+
   static get GET_MEETING(): string {
     return AppUrl.APP_URL + 'course/live_class/?course_id=4';
   }

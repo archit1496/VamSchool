@@ -67,7 +67,7 @@ export class TeacherService extends BaseService {
 
   createZoomMeeting(topic,agenda,courseId): Observable<any> {
     let params = new HttpParams().set("topic", topic).set("agenda", agenda).set("course_id", courseId);
-    return this.postRequest(AppUrl.CREATE_MEETING(), );
+    return this.postRequest(AppUrl.CREATE_MEETING(),params );
   }
 
   getMeetingDetails(): Observable<any> {
@@ -80,6 +80,12 @@ export class TeacherService extends BaseService {
 
   fetchTeacherCourse(): Observable<any> {
     return this.getRequestNew(AppUrl.FETCHTEACHERCOURSE);
+  }
+
+  fetchSelectedTeacherCourse(course_id): Observable<any> {
+    let params = new HttpParams().set("course_id", course_id);
+    return this.postRequest(AppUrl.FETCH_SELECTED_TEACHER_COURSE(),params );
+    // return this.getRequestNew(AppUrl.FETCHSELECTEDTEACHERCOURSE);
   }
 
   // fetchNotes(): Observable<any>{
