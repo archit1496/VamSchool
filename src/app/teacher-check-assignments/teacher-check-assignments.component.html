@@ -1,6 +1,4 @@
 <div class="container-fluid boxModel" id="mainDiv">
-  <!-- <app-teacher-navbar></app-teacher-navbar> -->
-  <!-- <div style="display: flex; justify-content: center; height: 100%;flex-wrap: wrap;"> -->
     <section class="outerDiv">
       <div class="mt-1 innerDiv">
         <nav class="navbar navbar-expand-lg al">
@@ -26,92 +24,51 @@
           Loading Data, Please wait...
 
         </div>
-        <!-- <p *ngIf="serverCreated;then firstClass else secondClass"></p> -->
 
         <div class="grid" *ngIf="firstClass">
           <div class="assignment-card mt-2" *ngFor="let data of studentAssignmentDataSubjectWise"
-            (click)="fetchAssignmentData(data?.class_id);selectedStudentAssignmentDataSubjectWise= data">
+            (click)="fetchAssignmentData(data?.id);selectedStudentAssignmentDataSubjectWise= data">
             <span class="mt-4 cursor-pointer">
-                {{ data?.class_name }}<br />
-              <span style="font-size: 10px">
-                <!-- Last Update: {{ getDate(data.created_on) }} -->
-                Files: {{data?.file_count}}
-              </span>
-              <div>
-             
-              </div>
+                {{ data?.class_of.class_name }}  {{ data?.class_of.section }}<br />
             </span>
           </div>
         </div>
 
-        <!-- <div class="grid" *ngIf="studentAssignmentDataTopicWise?.length > 0">
-          <div
-            class="assignment-card mt-2"
-            *ngFor="let data of studentAssignmentDataTopicWise" (click)="fetchAssignmentData(data?.id)"
-          >
-            <span class="mt-4 cursor-pointer" >
-              {{data?.file_count}} Files <br />
-              <span style="font-size: 10px">
-                {{ getDate(data.created_on) }}
-              </span>
-              <div>
-                {{ data?.name }}
-              </div>
-            </span>
-          </div>
-        </div> -->
-
         <div class="grid" *ngIf="secondClass">
-
           <div class="assignment-card mt-2" *ngFor="let data of assignmentData" (click)="onAssignmentClick(data?.id);this.AssignmentClick = data;">
             <span class="mt-4 cursor-pointer">
-              {{ data?.file_count }} Files<br />
-              <span style="font-size: 10px">
-                last updated: {{ getDate(data.created_on) }}
-              </span>
-              <div>
                 {{data?.name}}
-
-                <!-- {{data?.json_question}} -->
-              </div>
             </span>
           </div>
-          <div class="assignment-card mt-2" style="width:148px" (click)="openForm()">
+          <div class="assignment-card mt-2" id="secondClass" style="width:148px" (click)="openForm()">
             <label for="upload-notes" class="downloadBtn ml-5">
               <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
             </label>
           </div>
-          <!-- <div class="form-popup" id="myForm">
-            <form class="form-container">
-              <h1>Add New Topic</h1>
-
-              <label for="email"><b>Topic</b></label>
-              <input type="text" placeholder="Enter Topic" name="Topic" required [(ngModel)]="topicName">
-
-              <label for="psw"><b>Question</b></label>
-              <input type="text" placeholder="Enter Question" name="psw" [(ngModel)]="topicQuestion">
-              <select name="" id="" style="margin-right: 10px;" name="dfvf" [(ngModel)]="selectedCourse">
-                <option value="0">Select Course</option>
-                <option *ngFor="let company of teacherCourseData" [value]="company.id">
-                  {{ company.class_of.class_name+  company.class_of.section}}</option>
-
-              </select>
-              <input type="file" id="uploadCaptureInputFile" (change)="uploadAssignment($event)">
-
-              <button type="submit" class="btn cancel" (click)="closeForm();postAssignmentData()">Save</button>
-              <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
-
-            </form>
-          </div> -->
-
         </div>
-        <app-add-new-assignment (classSelected)="postAssignmentData($event)" *ngIf="openAddNewAssignmentPage"></app-add-new-assignment>
-        <!-- <div
-          *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter"
+
+        <div class="grid" *ngIf="thirdClass">
+          <div class="assignment-card mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);">
+            <span class="mt-4 cursor-pointer">
+                {{data?.topic}}
+            </span>
+          </div>
+          <div class="assignment-card mt-2" id="thirdClass" style="width:148px" (click)="openForm2()">
+            <label for="upload-notes" class="downloadBtn ml-5">
+              <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+            </label>
+          </div>
+        </div>
+
+        <app-add-new-assignment [status]="status" (classSelected)="postAssignmentData($event)" *ngIf="openAddNewAssignmentPage"></app-add-new-assignment>
+        
+        <div
+          *ngIf="studentAssignmentDataSubjectWise?.length == 0"
           style="text-align: center"
         >
           <b>No Data To Display</b>
-        </div> -->
+        </div>
+
         <hr *ngIf="showHideList">
         <ul class="showlist" *ngIf="showHideFinalActivity">
           <li class="header" style="border-bottom: 1px solid;"
@@ -127,10 +84,10 @@
             <div *ngIf="visibleIndex === j" class="subheader">
               <div>
                 <button (click)="download(studentActivity)">Download</button>
-                <!-- <button (click)="update(studentActivity)">upload</button> -->
+
                 <label for="files" class="btn">upload</label>
                 <input id="files" style="visibility:hidden;" type="file" (change)="update(studentActivity, $event)">
-                <!-- <input type="file" (change)="update(studentActivity, $event)"> -->
+
 
               </div>
               <div>
@@ -160,35 +117,20 @@
             </ul>
           </div>
         </nav>
+
         <ul class="showlist" *ngIf="showHideActivity">
           <li class="alignlist" *ngFor="let studentActivity of activityData">
             <div>{{studentActivity.student.first_name + ' ' +studentActivity.student.first_name}} just submitted his
               assignment</div>
             <div style="display: flex;">
-
               <div>"{{studentActivity.question.topic}}"</div>
               <div style="margin-left: 10px;">6 page</div>
             </div>
           </li>
-
-
-
         </ul>
+
       </div>
-
     </section>
-
-
-    <!-- <div style="flex: 1 23%;display: flex;flex-direction: column;align-items: center;order: 2;">
-      <b>Activity</b>
-      <div class="activity-card"></div>
-    </div>
-    <div style="order: 3;">
-      <div class="footer-card"></div>
-    </div> -->
-
-  <!-- </div> -->
-
 </div>
 
 
