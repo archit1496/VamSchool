@@ -43,3 +43,32 @@
     font-size: 1rem;
 }
 
+.calling span::before {
+    content: '';
+    width: 0px;
+    height: 1px;
+    background: #4caf50;;
+    position: absolute;
+    justify-content: center;
+    transition-property: 'width';
+    transition-duration: 0.5s;
+}
+
+.calling span:hover::before {
+    width: 80px;
+}
+
+.whatsapp span::before {
+    content: '';
+    width: 0px;
+    height: 1px;
+    background: #4caf50;;
+    position: absolute;
+    justify-content: center;
+    transition-property: 'width';
+    transition-duration: 0.5s;
+}
+
+.whatsapp span:hover::before {
+    width: 80px;
+}

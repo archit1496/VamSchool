@@ -29,6 +29,10 @@ body {
     margin: 0;
 }
 
+a{
+  cursor: pointer;
+}
+
 p {
   font-family: 'Lato', sans-serif;
 }

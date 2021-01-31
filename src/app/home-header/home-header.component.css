@@ -14,12 +14,12 @@ button.requestDemo.btn {
   background-color: transparent;
   color: #ffffff;
   width: max-content;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
 }
 
 button.requestDemo.btn:hover {
   background-color: #9e48b9;
-  border: 2px solid #9e48b9;
+  border: 2px solid #ffffff;
   color: white;
 }
 
