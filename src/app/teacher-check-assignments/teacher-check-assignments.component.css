@@ -46,7 +46,7 @@
    background-image: url('../../assets/images/folderIcon.svg');
    background-position-x: center;
    background-size: 132px 136px;
-   padding: 0.5rem;
+   padding: 2.5rem;
    cursor: pointer;
    display: flex;
    justify-content: center;
@@ -136,9 +136,7 @@ hr {
 }
 
 /* Add a red background color to the cancel button */
-.form-container .cancel {
-  /* background-color: red; */
-}
+
 
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {

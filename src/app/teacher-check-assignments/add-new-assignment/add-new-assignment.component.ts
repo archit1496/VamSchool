@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TeacherService } from 'src/service/teacher.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { TeacherService } from 'src/service/teacher.service';
 })
 export class AddNewAssignmentComponent implements OnInit {
   @Output() classSelected = new EventEmitter();
+  @Input() status;
 
   topicName;
   topicQuestion;
@@ -16,6 +17,7 @@ export class AddNewAssignmentComponent implements OnInit {
   selectedCourse = '0';
   marks;
   files = [];
+  newTopicName = '';
   constructor(public teacherService: TeacherService) { }
 
   ngOnInit() {
@@ -31,12 +33,22 @@ export class AddNewAssignmentComponent implements OnInit {
     });
   }
 
-  save(){
-this.classSelected.emit({'topic': this.topicName, 'topicQuestion': this.topicQuestion, 'date': this.date, 
-'files': this.files, 'marks': this.marks, 'selectedCourse': this.selectedCourse, 'status':'save'});
+  save(type){
+    if (type === 'all') {
+      this.classSelected.emit({'topic': this.topicName, 'topicQuestion': this.topicQuestion, 'date': this.date, 
+'files': this.files, 'marks': this.marks, 'selectedCourse': this.selectedCourse, type: 'all'});
+    } else if(type === 'topic') {
+      this.classSelected.emit({'topic': this.newTopicName, 'type': 'topic'});
+    }
+
   }
 
-  discard(){
-    this.classSelected.emit({ 'status':'close'});
+  discard(type){
+    if (type === 'all') {
+      this.classSelected.emit({ 'status':'closeall'});
+      } else if(type === 'topic') {
+      this.classSelected.emit({ 'status':'closetopic'});
+    }
+
   }
 }

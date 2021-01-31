@@ -96,6 +96,14 @@ export class AppUrl {
   static FETCH_TEACHER_ASSIGNMENT_DATA(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/${id}/assignment-questions/`;
   }
+
+  static FETCH_TEACHER_ASSIGNMENT_DATANew(): string {
+    return AppUrl.APP_URL + `v1/teacher/create-assignment-topic-dir/`;
+  }
+
+  static FETCH_TEACHER_ASSIGNMENT_DATA2(): string {
+    return AppUrl.APP_URL + `v1/teacher/get-assignment-topic-dir/`;
+  }
   static get FETCH_TIMETABLE(): string {
     return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/`;
   }
