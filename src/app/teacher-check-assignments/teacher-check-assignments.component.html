@@ -1,4 +1,4 @@
-<div class="container-fluid boxModel" id="mainDiv">
+<div class="mt-1 standardDiv" id="mainDiv"> 
   <!-- <app-teacher-navbar></app-teacher-navbar> -->
   <!-- <div style="display: flex; justify-content: center; height: 100%;flex-wrap: wrap;"> -->
     <section class="outerDiv">
@@ -19,9 +19,9 @@
             </ul>
           </div>
         </nav>
-        <div class="table-head">
-          <h5 class="mt-2"><b>{{updateHeaderText}}</b></h5>
-        </div>
+        <div class="col-lg-12">
+          <hr><h5 class="mt-2"><b>{{updateHeaderText}}</b></h5><hr>
+        </div> 
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div>

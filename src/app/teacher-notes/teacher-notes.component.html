@@ -73,18 +73,15 @@
 <footer class="footer-div mt-3">
 </footer> -->
 
-<div class="container-fluid boxModel" id="mainOuterDiv">
+<div class="mt-1 standardDiv" id="mainOuterDiv">
   <!-- <app-teacher-navbar></app-teacher-navbar> -->
-  <div style="
-      display: flex;
-      justify-content: center;
-      height: 100%;
-      flex-wrap: wrap;
-    ">
+  <div style="display: flex;justify-content: center;height: 100%;flex-wrap: wrap;">
     <section class="outerDiv">
       <div class="mt-1 innerDiv">
         <!-- <app-classes (classSelected)="classSelected($event)"></app-classes> -->
-        <h5 class="mt-2"><b>This Week</b></h5>
+        <div class="col-lg-12">
+          <hr><h5 class="mt-2"><b>This Week</b></h5><hr>
+        </div> 
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div>

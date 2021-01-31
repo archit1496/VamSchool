@@ -11,10 +11,10 @@ import { TeacherService } from 'src/service/teacher.service';
 })
 export class TeacherNavbarComponent implements OnInit {
 
-  firstName: any;
-  subject: any;
-  school: any; 
-  lastName: string;
+  firstName: any='Anuj';
+  subject: any='English';
+  school: any='Army School'; 
+  lastName: string= 'Kumar';
   initial:string;
   constructor(
     private router: Router, public authService: AuthService, public teacherService: TeacherService) {

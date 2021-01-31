@@ -41,14 +41,14 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div *ngFor="let data of todaysTimeTable;let i = index"
-                        [ngClass]="{'active' : i == 0}" class="carousel-item">
-                            <div class="col-3">
-                                <div class="main-card">
-                                    <span class="mt-4">
-                                        <b>
-                                        {{data.class_of.class_name}} {{data.class_of.section}} </b><br>
+                        [ngClass]="{'active' : i == 0}" class="carousel-item row">
+                            <div class="col-4 col-lg-4 col-sm-4">
+                                <div class="today-card">
+                                    <img class='image' src='../../assets/images/cls-bg-1.jpg'>
+                                    <p>
+                                        {{data.class_of.class_name}} {{data.class_of.section}}<br>
                                         {{data.start_time}}
-                                    </span>
+                                    </p>
                                 </div>
                         </div>
                     </div>

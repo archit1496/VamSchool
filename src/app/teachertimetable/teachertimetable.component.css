@@ -23,7 +23,15 @@
   }
   
   .table-head {
+    padding: 0 10px;
+  }
+
+  .tt-cnt {
     padding: 10px;
+    border: 1px solid rgb(150, 206, 255);
+    box-shadow: 0 0 3px 0 rgb(79 111 139);
+    border-radius: 10px;
+    background: #ddefff;
   }
 
   .outerDiv{
@@ -46,6 +54,11 @@
   .standardDiv{
     margin-left: 20rem;
     margin-right: 20rem;
+    padding: 10px;
+    border: 1px solid rgb(150, 206, 255);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 3px 0 #9e48b9;
 }
   @media screen and (max-width: 600px) {
   .standardDiv {
