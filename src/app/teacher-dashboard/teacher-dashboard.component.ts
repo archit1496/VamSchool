@@ -13,8 +13,6 @@ ZoomMtg.prepareJssdk();
   styleUrls: ['./teacher-dashboard.component.css']
 })
 export class TeacherDashboardComponent implements OnInit {
-
-
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
   apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
   // meetingNumber: number;
@@ -53,7 +51,7 @@ export class TeacherDashboardComponent implements OnInit {
 
   startMeeting(signature, meetingNumber){
     console.log("Signature = "+signature)
-   document.getElementById('zmmtg-root').style.display = 'block';
+    document.getElementById('zmmtg-root').style.display = 'block';
 
     ZoomMtg.init({
       leaveUrl: this.leaveUrl,

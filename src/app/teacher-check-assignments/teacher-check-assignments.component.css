@@ -153,9 +153,14 @@ p {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.al {
-  background-color: lightgrey; 
-  /* height: 35px; */
+.assignment-nav {
+  border-radius: 10px;
+  background-color: aliceblue;
+  border: 2px solid rgb(150, 206, 255);
+}
+
+.table-head {
+  padding: 10px;
 }
 
 @media screen and (max-width: 600px) {

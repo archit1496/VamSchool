@@ -1,19 +1,22 @@
-<nav class="navbar navbar-expand-lg" style="background-color: lightgrey;">
+<nav id='classes' class="navbar navbar-expand-lg">
     <div class="navbar-collapse justify-content-left" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link mr-3" (click)="onClassTypeClick('All')" [ngClass]="{'active':classType==='All'}" >
-                    <b>All</b>
+                <a class="nav-link mr-3" (click)="onClassTypeClick('All')" 
+                    [ngClass]="{'active':classType==='All'}" >
+                    <strong>All</strong>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mr-3" (click)="onClassTypeClick('X Std')" [ngClass]="{'active':classType==='X Std'}">
-                    <b>X Std</b>
+                <a class="nav-link mr-3" (click)="onClassTypeClick('X Std')" 
+                [ngClass]="{'active':classType==='X Std'}">
+                    <strong>X Std</strong>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mr-3" (click)="onClassTypeClick('IX Std')" [ngClass]="{'active':classType==='IX Std'}">
-                    <b>IX Std</b>
+                <a class="nav-link mr-3" (click)="onClassTypeClick('IX Std')" 
+                [ngClass]="{'active':classType==='IX Std'}">
+                    <strong>IX Std</strong>
                 </a>
             </li>
         </ul>

@@ -21,6 +21,11 @@
     height: 100%;
     /* overflow: scroll !important; */
   }
+  
+  .table-head {
+    padding: 10px;
+  }
+
   .outerDiv{
     justify-content: center;
     display: flex;
