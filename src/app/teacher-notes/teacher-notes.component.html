@@ -140,7 +140,7 @@
         <div *ngIf="notesData?.length > 0">
 
           <div class="grid" *ngIf="notesData?.length > 0">
-            <div class="notes-card mt-2" *ngFor="let data of notesData" (click)="onNotesClick(data?.note)">
+            <div class="notes-card mt-2" *ngFor="let data of notesData" (click)="onNotesClick('https://api.vamschool.in' + (data.note ? data.note : data.video))">
               <span class="mt-4 cursor-pointer">
                 {{data.name}} <br />
                 <span style="font-size: 10px">
