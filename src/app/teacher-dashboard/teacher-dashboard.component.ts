@@ -86,11 +86,8 @@ export class TeacherDashboardComponent implements OnInit {
 
   fetchTeacherCourse(){
     this.teacherService.fetchTeacherCourse().subscribe(res => {
-      console.log(res, '1');
-      
       this.teacherCourseData = res.data;
     })
-    // this.fetchTodaysTimeTable();
   }
 
   fetchTodaysTimeTable(){

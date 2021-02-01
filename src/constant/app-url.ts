@@ -58,7 +58,9 @@ export class AppUrl {
   static FETCH_TEACHER_DASHBOARD_ACTIVITY(week): string {
     return AppUrl.APP_URL + "v1/teacher/assignment-answer?" + week;
   }
-
+  static  TEACHER_NOTES(folder_id, url): string {
+    return AppUrl.APP_URL + `v1/teacher/study-material/dir/${folder_id}/${url}/`;
+  }
   static UPDATE_TEACHER_DASHBOARD_ASSIGNMENT(id): string {
     return AppUrl.APP_URL + "v1/teacher/assignment-answers/" + id + '/';
   }
@@ -95,6 +97,10 @@ export class AppUrl {
   }
   static FETCH_TEACHER_ASSIGNMENT_DATA(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/${id}/assignment-questions/`;
+  }
+
+  static FETCH_STUDY_MATERIAL_DATA(id): string {
+    return AppUrl.APP_URL + `v1/teacher/study-material/${id}/dir/`;
   }
 
   static FETCH_TEACHER_ASSIGNMENT_DATANew(): string {

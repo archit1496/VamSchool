@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { timeStamp } from 'console';
 import { ToastrService } from 'ngx-toastr';
 import { StudentService } from 'src/service/student.service';
 import { TeacherService } from 'src/service/teacher.service';
@@ -14,8 +15,7 @@ export class TeacherNotesComponent implements OnInit {
   studentNotesDataSubjectWise = [];
   studentNotesDataTopicWise;
   isLoading:boolean;
-  // valueWithOutSubjectFilter;
-  subjectFilter:boolean=false;
+notesVideos = false;
   teacherId;
   spinnerFlag;
   uploadedNotesResp;
@@ -25,6 +25,8 @@ export class TeacherNotesComponent implements OnInit {
   files;
   topic = '';
   selectedData;
+  newtopic;
+  url = '';
   constructor(public teacherService:TeacherService,private toaster: ToastrService) { }
   get Math() {
     return Math;
@@ -38,19 +40,16 @@ export class TeacherNotesComponent implements OnInit {
   }
 
   postData(){
-  const obj = {
-      "teacher": this.selectedData.teacher,
-      "name": this.topic,
-  "dir_type": 2,
-      "parent": this.selectedData.class_id
-}
+    const data: FormData = new FormData();
+    data.append('name', this.topic);
+    data.append('course', this.selectedData.id.toString());
 
     this.spinnerFlag = true;
 
-    this.teacherService.updateTeacherNotesTopic(obj).subscribe(data => {
-      // this.uploadedNotesResp = data;
+    this.teacherService.postNotesData(data, this.selectedData.id).subscribe(data => {
       this.spinnerFlag = false;
       this.toaster.success("File uploaded succesfully!", "Success");
+      this.fetchNotesDataTopicWise(this.selectedData.id);
     },
     error => {
       this.spinnerFlag = false;
@@ -59,73 +58,30 @@ export class TeacherNotesComponent implements OnInit {
   }
 
   fetchNotesDataSubject() {
-    this.subjectFilter=false;
+
     this.isLoading = true;
-    this.teacherService.fetchNotesQuestionsSubject().subscribe(res => {
-      console.log(res, 'studentNotesDataSubjectWise');
-      
+    this.teacherService.fetchTeacherCourse().subscribe(res => {
       this.isLoading = false;
-      this.studentNotesDataSubjectWise = res;
-      // this.valueWithOutSubjectFilter=[...this.studentNotesDataSubjectWise]
+      this.studentNotesDataSubjectWise = res.data;
     });
   }
   fetchNotesDataTopicWise(id:number) {
-    this.subjectFilter=false;
-    // this.isLoading = true;
-    // this.teacherService.fetchNotesQuestionsTopic(id).subscribe(res => {
-      // console.log(res, 'studentNotesDataTopicWise');
-   
-
-      for (let index = 0; index < this.studentNotesDataSubjectWise.length; index++) {
-       if (this.studentNotesDataSubjectWise[index].class_id === id) {
-        this.studentNotesDataTopicWise = this.studentNotesDataSubjectWise[index].directory_list;
-        this.studentNotesDataSubjectWise=[];
-        return;
-       }
-        
-      }
-      // this.isLoading = false;
-      // this.studentNotesDataTopicWise = res.directory_list;
+    this.isLoading = true;
+    this.teacherService.fetchNoteData(id).subscribe(res => {
+      this.isLoading = false;
       this.studentNotesDataSubjectWise=[];
-    // });
+      this.studentNotesDataTopicWise = res;
+    });
+   
   }
   fetchNotesData(id:number) {
-    this.subjectFilter=false;
-    this.isLoading = true;
-    this.teacherService.fetchNotesQuestionsTopic(id).subscribe(res => {
-      console.log(res, 'notesData');
-      for (let index = 0; index < res.length; index++) {
-        // const element = array[index];
-        if (res[index].class_id=== this.selectedData.class_id) {
-          this.isLoading = false;
-          this.notesData = res[index].directory_list;
-          this.studentNotesDataTopicWise=[];
-          this.studentNotesDataSubjectWise=[];
-          return;
-        }
-        
-      }
-  
-    });
+this.studentNotesDataTopicWise = [];
+ this.notesVideos = true;
   }
   getDate(date){
     return (new Date(date).getDate()+'-'+new Date(date).getMonth()+'-'+new Date(date).getFullYear());
   }
-  // classSelected(event){
-  //   this.subjectFilter=true;
-  //   this.notesData = [];
-  //     this.studentNotesDataTopicWise=[];
-  //     this.studentNotesDataSubjectWise=[];
-  //   if(event==='All')
-  //   {
-  //     this.studentNotesDataSubjectWise=[...this.valueWithOutSubjectFilter];
-  //   }
-  //   else{
-  //     let filterValue=this.valueWithOutSubjectFilter.filter(elm=>elm.course.subject.subject_name==event);
-  //     this.studentNotesDataSubjectWise=filterValue;
 
-  //   }
-  // }
   onNotesClick(url){
     window.open(url);
   }
@@ -177,40 +133,30 @@ this.topic = '';
 
   uploadNotes(fileInput) {
     this.files = fileInput.target.files;
-    // this.spinnerFlag = true;
-    // const formData: FormData = new FormData();
-    // const files: File = fileInput.target.files;
-    // formData.append('note', files[0], files[0].name);
-    // formData.append('teacher', this.teacherId);
-    // formData.append('course', "5");
-    // formData.append('topic', files[0].name);
-    // this.teacherService.uploadNotes(formData).subscribe(data => {
-    //   this.uploadedNotesResp = data;
-    //   this.spinnerFlag = false;
-    //   this.toaster.success("File uploaded succesfully!", "Success");
-    // },
-    // error => {
-    //   this.spinnerFlag = false;
-    //   this.toaster.error("Failed to upload file!", "Failed")
-    // });
-
   }
 
   postNotesData(){
 
     this.spinnerFlag = true;
     const formData: FormData = new FormData();
+if (this.url === 'notes') {
+  formData.append('note', this.files[0], this.files[0].name);
+} else {
+  formData.append('video', this.files[0], this.files[0].name);
+}
+  
 
-    formData.append('note', this.files[0], this.files[0].name);
-    formData.append('teacher', this.selectedNotesData.teacher);
-    formData.append('course', this.selectedCourse);
-    formData.append('topic', this.selectedNotesData.name);
+    
+
+
+    formData.append('name', this.newtopic);
     formData.append('dir', this.selectedNotesData.id);
 
-    this.teacherService.updateNotes(this.selectedNotesData.id, formData).subscribe(data => {
+    this.teacherService.updateNotes(this.selectedNotesData.id, formData, this.url).subscribe(data => {
       this.uploadedNotesResp = data;
       this.spinnerFlag = false;
       this.toaster.success("File uploaded succesfully!", "Success");
+      this.fetchNotes(this.url === 'notes' ? 'note' : 'vid');
     },
     error => {
       this.spinnerFlag = false;
@@ -219,66 +165,18 @@ this.topic = '';
   }
 
 
-  // topicName: string;
-  // uploadedNotesResp = [];
-  // notesTopic: string;
-  // spinnerFlag = false;
-  // dummyData: any;
-  // isTiles: boolean;
-  // notesData: any;
-  // teacherId: any;
-  // courseId;
+  fetchNotes(type){
+    if (type === 'note') {
+      this.url = 'notes';
+    } else if (type === 'vid') {
+      this.url = 'videos';
 
-  // constructor(
-  //   private toaster: ToastrService,
-  //   private teacherService: TeacherService
-  // ) { }
+    }
+    this.teacherService.getTeacherNotes(this.selectedNotesData.id, this.url).subscribe(res => {
+      this.notesVideos = false;
+      this.notesData = res.notes_obj;
 
-  // ngOnInit() {
-  //   this.fetchTeacher();
-  //   this.isTiles = true;
-  // }
-
-  // fetchTeacher() {
-  //   this.teacherService.fetchTeacher().subscribe(res => {
-  //     this.teacherId = res.id;
-  //     this.fetchNotes();
-  //   })
-  // }
-
-  // uploadNotes(fileInput) {
-  //   this.spinnerFlag = true;
-  //   const formData: FormData = new FormData();
-  //   const files: File = fileInput.target.files;
-  //   formData.append('note', files[0], files[0].name);
-  //   formData.append('teacher', this.teacherId);
-  //   formData.append('course', "5");
-  //   formData.append('topic', files[0].name);
-  //   this.teacherService.uploadNotes(formData).subscribe(data => {
-  //     this.uploadedNotesResp = data;
-  //     this.notesTopic = '';
-  //     this.spinnerFlag = false;
-  //     this.toaster.success("File uploaded succesfully!", "Success");
-  //   },
-  //   error => {
-  //     this.spinnerFlag = false;
-  //     this.toaster.error("Failed to upload file!", "Failed")
-  //   });
-  // }
-
-  // tiles(){
-  //   this.isTiles = true;
-  // }
-
-  // list(){
-  //   this.isTiles = false;
-  // }
-
-  // fetchNotes(){
-  //   this.teacherService.fetchNotes().subscribe(res => {
-  //     this.notesData = res;
-     
-  //   })
-  // }
+    })
+  }
 
 }

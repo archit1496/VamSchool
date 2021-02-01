@@ -23,6 +23,10 @@ export class TeacherService extends BaseService {
     return this.getRequest(AppUrl.STUDENT_IN_COURSE+courseId);
   }
 
+  getTeacherNotes(folder_id, url): Observable<any> {
+    return this.getRequest2(AppUrl.TEACHER_NOTES(folder_id, url));
+  }
+
   getAssignmentlist(courseId, when): Observable<any> {
     return this.getRequest(AppUrl.ASSIGNMENT_LIST+'?week='+when );
   }
@@ -110,6 +114,14 @@ export class TeacherService extends BaseService {
   fetchAssignmentData2(obj): Observable<any>{
     return this.postRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_DATA2(), obj);
   }
+
+  fetchNoteData(id): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_STUDY_MATERIAL_DATA(id));
+  }
+  postNotesData(obj, id): Observable<any>{
+    return this.postRequest(AppUrl.FETCH_STUDY_MATERIAL_DATA(id), obj);
+  }
+
   addNewAssignmentData(id, obj): Observable<any>{
     return this.postRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_DATA(id), obj);
   }
@@ -127,8 +139,8 @@ export class TeacherService extends BaseService {
     return this.getRequest(AppUrl.FETCH_TEACHER_NOTES(id));
   }
 
-  updateNotes(id, data): Observable<any>{
-    return this.postRequest(AppUrl.FETCH_TEACHER_NOTES(id), data);
+  updateNotes(id, data, url): Observable<any>{
+    return this.postRequest(AppUrl.TEACHER_NOTES(id, url), data);
   }
 
   updateTeacherNotesTopic(data){
