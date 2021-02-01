@@ -280,7 +280,6 @@ p {
   }
   .downloadBtn{
     margin-left: auto;
-    position: absolute;
     top: 30px;
     left: 22px;
     color: hsl(106deg 100% 40%);

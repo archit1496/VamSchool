@@ -2,6 +2,9 @@ app-home-header {
   width: 100%;
 }
 
+.navbar-light .navbar-toggler {
+  border-color: transparent!important;
+}
 .navbar {
     position: absolute;
     width: 100%;

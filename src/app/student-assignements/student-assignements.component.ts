@@ -30,7 +30,6 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentService.fetchAssignmentActivity().subscribe(res => {
       this.isLoading = false;
       this.assignmentActivityData = res;
-
     });
   }
 
@@ -40,7 +39,8 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentService.fetchAssignmentQuestionsSubject().subscribe(res => {
       this.isLoading = false;
       this.studentAssignmentDataSubjectWise = res;
-      this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise];
+      // alert(res);
+      this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
       console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
     });
   }
@@ -54,14 +54,15 @@ export class StudentAssignementsComponent implements OnInit {
       console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }
+
   getTopicDetails(id) {
 
     this.questionId = id;
     this.subjectFilter = false;
     this.isLoading = true;
     this.studentService.fetchAssignmentTopicData({ 'question': id }).subscribe(res => {
-      this.isLoading = false;
-      this.assignmentTopicDetail = res;
+    this.isLoading = false;
+    this.assignmentTopicDetail = res;
 
     })
   }
@@ -92,6 +93,7 @@ export class StudentAssignementsComponent implements OnInit {
   getDate(date) {
     return (new Date(date).getDate() + '-' + new Date(date).getMonth() + '-' + new Date(date).getFullYear());
   }
+
   subjectSelected(event) {
     this.subjectFilter = true;
     this.assignmentData = [];
@@ -107,9 +109,11 @@ export class StudentAssignementsComponent implements OnInit {
     }
     console.log("DATA 1 = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
   }
+
   onDownloadClick(url) {
     window.open(url);
   }
+
   getFileType(url:string){
     if(url)
     return url.split(".")[url.split(".").length-1];
