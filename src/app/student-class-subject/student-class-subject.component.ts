@@ -15,7 +15,6 @@ export class StudentClassSubjectComponent implements OnInit {
    }
 
   ngOnInit() {
-   
   }
   onSubjectTypeClick(type:string){
       this.subjectType=type;

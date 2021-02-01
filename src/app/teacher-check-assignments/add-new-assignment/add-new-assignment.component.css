@@ -3,6 +3,42 @@
     height: 100%;
     overflow: scroll !important;
   }
+  .btn-container{
+    margin: 2rem 0;
+  }
+  .cancel {
+    margin: 0 0.5rem;
+  }
+  .topic-name,.assignment-title, .assignment-deadline, .total-marks {
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #4CAF50;
+    color:#000000;
+    margin: 0.1rem;
+  }
+
+  .select-course {
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #4CAF50;
+    color:#000000;
+    margin: 0.1rem;
+  }
+  .assignment-description{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #4CAF50;
+    color:#000000;
+    margin: 0.1rem;
+  }
+
+  .upload-assign-cnt{
+    width: 100%;
+    margin: 1rem 0;
+  }
   .outerDiv{
     flex: 3 70%;
     display: flex;
@@ -20,14 +56,14 @@
     grid-template-columns: repeat(6,1fr);
     grid-gap: 5px;
   }
-  .activity-card{
+  /* .activity-card{
     border: 1px solid black;
     height: 580px;
     width: 300px;
     background-color: lightgray;
   }
   .assignment-card{
-    background-image: url('../../../assets/images/folderIcon.svg');
+    background-image: url('../../../assets/images/folder-y.svg');
     background-position-x: center;
     background-size: 132px 136px;
     padding: 0.5rem;
@@ -36,7 +72,27 @@
     justify-content: center;
     align-items: center;
     background-repeat: no-repeat;
+  } */
+
+  .assignment-card-cnt {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    max-width: 106px;
+    position: relative;
   }
+  
+  .assignment-card{
+     background-image: url('../../../assets/images/folder-y.svg');
+     background-position-x: center;
+     background-size: 100%;
+     padding: 2.5rem;
+     cursor: pointer;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-repeat: no-repeat;
+  } 
   
   .alignlist{
     display: flex;

@@ -59,6 +59,7 @@ p {
   color: #9e48b9;
   border: 1px solid;
   border-radius: 5px;
+  padding: 5px;
   background-color: transparent;
   transition-duration: .5s;
 }
@@ -161,6 +162,10 @@ p {
     .downloadBtn{
       margin-left: -32px !important;
     }
+    .addBtn{
+      margin-left: -32px !important;
+      position: absolute;
+    }
 
     .sideBarLS{
       display: none;
@@ -197,6 +202,10 @@ p {
     }
     .downloadBtn{
       margin-left: -25px;
+    }
+    .addBtn{
+      margin-left: -25px;
+      position: absolute;
     }
     .sideBarLS{
       display: none;
@@ -238,6 +247,10 @@ p {
   .downloadBtn{
     margin-left: auto;
   }
+  .addBtn{
+    margin-left: auto;
+    position: absolute
+  }
   .sideBarLS{
     display: none;
   }
@@ -260,6 +273,11 @@ p {
     margin-left: auto;
     /* width: 180px; */
   }
+  .addBtn{
+    margin-left: auto;
+    /* width: 180px; */
+    position: absolute;
+  }
   .navSideBarForSS{
     display: none;
   }
@@ -272,13 +290,22 @@ p {
     display: inline-block;
   }
 }
-
+ 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .wtchVideo{
     text-align: right;
   }
   .downloadBtn{
+    margin-left: auto;
+    top: 30px;
+    left: 22px;
+    color: hsl(106deg 100% 40%);
+    position: absolute;
+    /* width: 180px; */
+  }
+
+  .addBtn{
     margin-left: auto;
     top: 30px;
     left: 22px;
@@ -306,6 +333,11 @@ p {
   .downloadBtn{
     margin-left: auto;
     /* width: 180px; */
+  }
+  .addBtn{
+    margin-left: auto;
+    /* width: 180px; */
+    position: absolute;
   }
   .navSideBarForSS{
     display: none;

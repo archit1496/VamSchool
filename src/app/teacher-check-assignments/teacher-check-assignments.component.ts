@@ -59,9 +59,6 @@ export class TeacherCheckAssignmentsComponent {
     });
   }
 
-
-
-
   download(studentActivity) {
     window.open(studentActivity.doc_answer);
   }
