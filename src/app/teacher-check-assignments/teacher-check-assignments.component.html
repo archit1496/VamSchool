@@ -55,7 +55,7 @@
         </div>
 
         <div class="grid" *ngIf="thirdClass">
-          <div class="assignment-card mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);">
+          <div class="assignment-card mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);AssignmentClick2 = data;">
             <span class="mt-4 cursor-pointer">
                 {{data?.topic}}
             </span>
