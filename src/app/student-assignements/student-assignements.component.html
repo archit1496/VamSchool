@@ -94,9 +94,6 @@
         <h5 class="mt-2"><b>This Week</b> 
           <b><span *ngIf="studentAssignmentDataTopicWise?.length>0">
              > {{studentAssignmentDataTopicWise[0]?.course?.subject?.subject_name}}</span></b></h5>
-        <div *ngIf="isLoading" class="text-center">
-          Loading Data, Please wait...
-        </div> 
         <div *ngIf="studentAssignmentDataSubjectWise.assignment_dirs?.length > 0">
           <div class="grid">
             <div *ngFor="let data of studentAssignmentDataSubjectWise.assignment_dirs">
@@ -168,6 +165,9 @@
             </span>
           </div>
         </div> -->
+        <div *ngIf="isLoading" class="text-center">
+          Loading Data, Please wait...
+        </div> 
         <div *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
           <b>No Data To Display</b>
         </div>
