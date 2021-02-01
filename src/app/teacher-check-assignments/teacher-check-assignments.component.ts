@@ -15,7 +15,7 @@ export class TeacherCheckAssignmentsComponent {
     this.fetchAssignmentDataSubject();
     this.getActivityData('week=this');
   }
-
+  AssignmentClick2;
   openAddNewAssignmentPage;
   status;
   thirdClass = false;
@@ -55,7 +55,7 @@ export class TeacherCheckAssignmentsComponent {
 
     this.teacherService.updateAssignmentMarks(studentActivity.id, formData).subscribe((res) => {
       this.toastr.success('updated succesfully!', 'Success');
-      this.onAssignmentClick(this.AssignmentClick.id);
+      this.onAssignmentClick2(this.AssignmentClick2.id);
     });
   }
 
