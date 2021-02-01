@@ -6,16 +6,28 @@
     overflow: hidden;
   }
 
-  .landing-image {
+.landing-image {
      height: 100vh;
      width: 100%;
-  }
+}
   
-  .landing-page .landing-image img {
+.landing-page .landing-image .image{
+    background-image: url('../../assets/images/landing-home.jpg');
+    background-size: 100% 100vh; 
     width: 100%;
     height: 100vh;
     position: absolute;
-  }
+}
+
+@media screen and (max-width: 600px) {
+  .landing-page .landing-image .image{
+    background-image: url('../../assets/images/landing-home-pt.jpg');
+    background-size: 100% 100vh; 
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+}
 
   .container.cnt-txt {
     position: absolute;

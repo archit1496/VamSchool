@@ -22,7 +22,7 @@ export class StudentClassSubjectComponent implements OnInit {
       this.subjectSelected.emit(this.subjectType);
   }
   fetchStudentSubjectData(){
-    this.studentService.fetchStudentSubject().subscribe(res => {
+      this.studentService.fetchStudentSubject().subscribe(res => {
       this.studentSubjects = res;
     });
   }
