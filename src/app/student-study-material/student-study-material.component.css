@@ -28,8 +28,16 @@
   background-color: lightgray;
   padding: 5px;
   }
+
+  .notes-card-cnt {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    max-width: 106px;
+    position: relative;
+  }
   .notes-card{
-   background-image: url('../../assets/images/folderIcon.svg');
+   background-image: url('../../assets/images/folder-y.svg');
   background-position-x: center;
   background-size: 132px 136px;
   padding: 0.5rem;

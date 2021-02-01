@@ -1,7 +1,7 @@
 <!-- <div class="container-fluid boxModel">
   <app-teacher-navbar></app-teacher-navbar>
 <div class="row">
-  <div class="mt-2" style="margin-left: 26rem;width: 45%;">
+  <div class="" style="margin-left: 26rem;width: 45%;">
     <nav class="navbar navbar-expand-lg" style="background-color: lightgrey; height: 35px;">
       <div class="navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
@@ -21,20 +21,20 @@
       </div>
     </nav>
 
-    <div class="mt-4 ml-3" *ngIf="isTiles">
+    <div class=" ml-3" *ngIf="isTiles">
       <div class="row">
-        <div class="main-card-study mr-4 mt-4" *ngFor="let data of notesData;let i=index;">
+        <div class="main-card-study mr-4 " *ngFor="let data of notesData;let i=index;">
           <span>
             10 Files <br>
           </span>
-          <span class="mt-2 font-size12"> 
+          <span class=" font-size12"> 
             Last updated {{data.created_on | date: 'dd/mm/yyyy hh:mm'}} <br>
           </span>
           <span class="subject">
             <b>{{data.course.subject.subject_name}}</b>
           </span>
         </div>
-        <div class="main-card-study mt-4">
+        <div class="main-card-study ">
           <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
           <label for="upload-notes" class="downloadBtn ml-5">
             <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
@@ -43,20 +43,20 @@
       </div>
     </div>
 
-    <div class="mt-4" *ngIf="!isTiles">
+    <div class="" *ngIf="!isTiles">
       <div class="">
-        <div class="main-card-study mr-4 mt-4" *ngFor="let data of notesData;">
+        <div class="main-card-study mr-4 " *ngFor="let data of notesData;">
           <span>
             10 Files <br>
           </span>
-          <span class="mt-2 font-size12"> 
+          <span class=" font-size12"> 
             Last updated {{data.created_on | date: 'dd/mm/yyyy hh:mm'}} <br>
           </span>
           <span class="subject">
             <b>{{data.course.subject.subject_name}}</b>
           </span>
         </div>
-        <div class="main-card-study mt-4">
+        <div class="main-card-study ">
           <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
           <label for="upload-notes" class="downloadBtn ml-5">
             <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
@@ -65,94 +65,88 @@
       </div>
     </div>
   </div>
-  <div class="activity-box mt-2">
+  <div class="activity-box ">
   </div>
 </div>
 </div>
 
-<footer class="footer-div mt-3">
+<footer class="footer-div ">
 </footer> -->
 
-<div class="mt-1 standardDiv" id="mainOuterDiv">
+<div class=" standardDiv" id="mainOuterDiv">
   <div style="display: flex;justify-content: center;height: 100%;flex-wrap: wrap;">
     <section class="outerDiv">
-      <div class="mt-1 innerDiv">
+      <div class=" innerDiv">
         <div class="col-lg-12">
-          <hr><h5 class="mt-2"><b>This Week</b></h5><hr>
+          <hr><h5 class=""><b>This Week</b></h5><hr>
         </div> 
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div>
 
         <div class="grid" *ngIf="studentNotesDataSubjectWise?.length > 0">
-          <div class="notes-card mt-2" *ngFor="let data of studentNotesDataSubjectWise"
+          <div class="notes-card-cnt " *ngFor="let data of studentNotesDataSubjectWise"
             (click)="fetchNotesDataTopicWise(data?.id);selectedData = data;">
-            <span class="mt-4 cursor-pointer">
-              {{ data?.class_of.class_name }}{{ data?.class_of.section }}<br />
-            </span>
+              <div class="notes-card"></div>
+              <div class="assignment-description">
+                <p class="class-name cursor-pointer"> {{ data?.class_of.class_name }}{{ data?.class_of.section }}</p>
+              </div>
           </div>
         </div>
 
         <div class="grid" *ngIf="studentNotesDataTopicWise?.length > 0">
-          <div class="notes-card mt-2" *ngFor="let data of studentNotesDataTopicWise"
+          <div class="notes-card-cnt " *ngFor="let data of studentNotesDataTopicWise"
             (click)="fetchNotesData();selectedNotesData= data;">
-            <span class="mt-4 cursor-pointer">
-              <div>
-                {{ data?.name }}
-              </div>
-            </span>
+            <div class="notes-card"></div>
+            <div class="assignment-description">
+              <p class="class-name cursor-pointer">{{ data?.name }}</p>
+            </div>
           </div>
-          <div class="notes-card mt-2" style="width:148px" (click)="openForm2()">
-            <label for="update-notes" class="downloadBtn ml-5">
-              <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+          <div class="notes-card-cnt " (click)="openForm2()">
+            <div class="notes-card"></div>
+            <label for="update-notes" class="addBtn ml-5">
+              <i class="fa fa-plus" aria-hidden="true" style="font-size: 1rem;"></i>
             </label>
           </div>
           <div class="form-popup" id="myForm">
             <form class="form-container">
               <h1>Add New Topic</h1>
-
               <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="topic">
-
               <button type="submit" class="btn cancel" (click)="closeForm();postData()">Save</button>
               <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
-
             </form>
           </div>
         </div>
 
         <div class="grid" *ngIf="notesVideos">
-          <div class="notes-card mt-2" (click)="fetchNotes('note')">
-            <span class="mt-4 cursor-pointer">
-              <div>
-               Notes
-              </div>
-            </span>
+          <div class="notes-card-cnt " (click)="fetchNotes('note')">
+            <div class="notes-card"></div>
+            <div class="assignment-description">
+              <p class=" cursor-pointer">Notes</p>
+            </div>
           </div>
-          <div class="notes-card mt-2" (click)="fetchNotes('vid')">
-            <span class="mt-4 cursor-pointer">
-              <div>
-               Videos
-              </div>
-            </span>
+          <div class="notes-card-cnt " (click)="fetchNotes('vid')">
+            <div class="notes-card"></div>
+            <div class="assignment-description">
+              <p class=" cursor-pointer">Videos</p>
+            </div>
           </div>
         </div>
 
         <div *ngIf="notesData?.length > 0">
-
           <div class="grid" *ngIf="notesData?.length > 0">
-            <div class="notes-card mt-2" *ngFor="let data of notesData" (click)="onNotesClick('https://api.vamschool.in' + (data.note ? data.note : data.video))">
-              <span class="mt-4 cursor-pointer">
-                {{data.name}} <br />
-                <span style="font-size: 10px">
-                  {{data.note ? (data.note.slice((Math.max(0, data.note.lastIndexOf(".")) || Infinity) + 1)) : ''}} file
-                </span>
-                <div>
-                </div>
-              </span>
+            <div class="notes-card-cnt " *ngFor="let data of notesData" 
+            (click)="onNotesClick('https://api.vamschool.in' + (data.note ? data.note : data.video))">
+            <div class="notes-card"></div>
+              <div class="assignment-description">
+                <p class=" cursor-pointer">{{data.name}}</p>
+                <p style="font-size: 10px">{{data.note ? (data.note.slice((Math.max(0, data.note.lastIndexOf(".")) || Infinity) + 1)) : ''}} file</p> 
+              </div>
             </div>
-            <div class="notes-card mt-2" style="width:148px" (click)="openForm()">
-              <label class="downloadBtn ml-5">
-                <i class="fa fa-plus" aria-hidden="true" style="font-size: 3rem;"></i>
+            <div class="notes-card-cnt" (click)="openForm()">
+              <div class="notes-card"></div>
+              <label class="addBtn ml-5">
+                <i class="fa fa-plus" aria-hidden="true" style="font-size: 1rem;"></i>
               </label>
             </div>
           </div>
@@ -161,15 +155,14 @@
             <form class="form-container">
               <h1>Add New Topic</h1>
               <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="newtopic">
-
               <select name="" id="" style="margin-right: 10px;" name="dfvf" [(ngModel)]="selectedCourse">
                 <option value="0">Select Course</option>
                 <option *ngFor="let company of teacherCourseData" [value]="company.id">
                   {{ company.class_of.class_name+ company.class_of.section}}</option>
 
               </select>
-              <label for="upload-notes" class="downloadBtn ml-5">
-                <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
+              <label for="upload-notes" class="addBtn ml-5">
+                <input type="file" id="upload-notes" class="addBtn" (change)="uploadNotes($event)">
               </label>
               <button type="submit" class="btn cancel" (click)="closeForm();postNotesData()">Save</button>
               <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>

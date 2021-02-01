@@ -24,7 +24,7 @@
         </div> 
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
-        </div>
+        </div> 
         <!-- <p *ngIf="serverCreated;then firstClass else secondClass"></p> -->
         <div class="grid" *ngIf="firstClass">
           <div class='assignment-file-cnt' *ngFor="let data of studentAssignmentDataSubjectWise"
@@ -32,7 +32,6 @@
             <div class="assignment-file"></div>
             <div class="assignment-description">
               <p class="cursor-pointer class-name"> {{ data?.class_of.class_name }}{{ data?.class_of.section }}</p>
-             
             </div>
           </div>
         </div>
