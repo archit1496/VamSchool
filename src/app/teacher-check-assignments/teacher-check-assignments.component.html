@@ -79,14 +79,14 @@
           <li class="header" style="border-bottom: 1px solid;"
             *ngFor="let studentActivity of particularAssign; let j = index">
             <div (click)="showSubItem(j)" class="subitem row">
-              <div class='col-lg-3 col-sm-3 text-overflow-ellipse'>
+              <div class='col-lg-12 col-sm-3 text-overflow-ellipse'>
                 {{studentActivity.student.first_name + ' ' +studentActivity.student.first_name}}
               </div>
-              <div class='col-lg-3 col-sm-3 text-overflow-ellipse'>
+              <div class='col-lg-12 col-sm-3 text-overflow-ellipse'>
                 {{studentActivity.question.topic}}</div>
-              <div class='col-lg-3 col-sm-3 cursor-pointer text-overflow-ellipse link-blue'>
+              <div class='col-lg-12 col-sm-3 cursor-pointer text-overflow-ellipse link-blue'>
                 {{studentActivity.doc_answer.slice((Math.max(0, studentActivity.doc_answer.lastIndexOf(".")) || Infinity) + 1)}}</div>
-              <div class='col-lg-3 col-sm-3 text-overflow-ellipse'>6 page</div>
+              <div class='col-lg-12 col-sm-3 text-overflow-ellipse'>6 page</div>
             </div>
             <div *ngIf="visibleIndex === j" class="subheader row">
               <div class='col-lg-6 col-sm-6'>
