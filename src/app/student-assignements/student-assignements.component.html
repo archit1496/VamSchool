@@ -37,7 +37,7 @@
                   Download</button>
                   <div>
                     <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
-                    <label for="solid-btn-green" class="uploadNotesButton">Upload</label>
+                    <label for='upload-notes' class="solid-btn-green">Upload</label>
                   </div>
               </div>
               <div style="flex: 1;">
@@ -48,20 +48,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="grid" *ngIf="assignmentData?.length > 0">
-          <div class="assignment-card mt-2" *ngFor="let data of assignmentData"
-            (click)="onAssignmentClick(data?.doc_question)">
-            <span class="mt-4 cursor-pointer">
-              {{ data?.topic }}<br />
-              <span style="font-size: 10px">
-                {{ getDate(data.created_on) }}
-              </span>
-              <div>
-                {{data?.json_question}}
-              </div>
-            </span>
-          </div>
-        </div> -->
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
         </div> 
@@ -71,17 +57,18 @@
       </div>
     </section>
 
-    <div style="flex: 1 23%;display: flex;flex-direction: column;align-items: center;order: 2;">
-      <b>Activity</b>
+    <div class="activity-column">
+      <div class="activity-heading">
+        <h2>Activity</h2>
+      </div>
       <div class="activity-card">
         <div *ngFor="let data of assignmentActivityData" style="display: flex;flex-direction: rows;">
-          <div>
-            <img class="activity-image" src="../../assets/images/circleIcon.svg">
-          </div>
-          <div>
+          <div  class='activity-card-element'>
+            <p><span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
             {{data.student?.first_name}}  {{data.student?.last_name}} Has Submitted The Answers
+            </p>
+            <hr>
           </div>
-
         </div>
       </div>
     </div>
