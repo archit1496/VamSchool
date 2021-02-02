@@ -36,17 +36,23 @@ export class StudentAssignementsComponent implements OnInit {
     });
   }
 
-  fetchAssignmentDataSubject() {
-    this.subjectFilter = false;
-    this.isLoading = true;
-    this.studentService.fetchAssignmentQuestionsSubject().subscribe(res => {
-      this.isLoading = false;
-      this.studentAssignmentDataSubjectWise = res.assignment_dirs;
-      // alert(res);
-      // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
-      // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
-    });
-  }
+  // fetchAssignmentDataSubject() {
+  //   this.subjectFilter = false;
+  //   this.isLoading = true;
+  //   this.studentService.fetchAssignmentQuestionsSubject().subscribe(res => {
+  //     this.isLoading = false;
+  //     this.studentAssignmentDataSubjectWise = res.assignment_dirs;
+  //     // alert(res);
+  //     // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
+  //     // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
+  //   });
+  // }
+
+  fetchAssignmentDataSubject(){
+    this.studentService.fetchStudentSubject().subscribe(res => {
+    this.studentAssignmentDataSubjectWise = res;
+  });
+}
 
   fetchAssignmentDataSubject2(id) {
     this.subjectFilter = false;
