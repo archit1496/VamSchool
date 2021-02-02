@@ -35,6 +35,11 @@ export class StudentService extends BaseService{
   fetchAssignmentQuestionsSubject(): Observable<any>{
     return this.studentGetRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_SUBJECT);
   }
+
+  fetchAssignmentQuestionsSubject2(id): Observable<any>{
+    return this.studentGetRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_SUBJECT2(id));
+  }
+
   fetchAssignmentQuestionsTopic(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_CHAPTER(id));
   }

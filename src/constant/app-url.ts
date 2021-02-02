@@ -51,6 +51,11 @@ export class AppUrl {
   static get FETCH_ASSIGNMENT_QUESTIONS_SUBJECT(): string {
     return AppUrl.APP_URL + "v1/student/dir/?dir_type=1";
   }
+
+  static FETCH_ASSIGNMENT_QUESTIONS_SUBJECT2(subject_id): string {
+    return AppUrl.APP_URL + `v1/student/dir/?subject=${subject_id}`;
+  }
+
   static get FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT(): string {
     return AppUrl.APP_URL + "v1/teacher/dir/?dir_type=1";
   }

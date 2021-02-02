@@ -90,24 +90,36 @@
   <div style="display: flex; justify-content: center; height: 100%;flex-wrap: wrap;">
     <section class="outerDiv">
       <div class="mt-1 innerDiv">
-        <app-student-class-subject (subjectSelected)="subjectSelected($event)"></app-student-class-subject>
+        <!-- <app-student-class-subject (subjectSelected)="subjectSelected($event)"></app-student-class-subject> -->
         <h5 class="mt-2"><b>This Week</b> 
           <b><span *ngIf="studentAssignmentDataTopicWise?.length>0">
              > {{studentAssignmentDataTopicWise[0]?.course?.subject?.subject_name}}</span></b></h5>
-        <div *ngIf="studentAssignmentDataSubjectWise.assignment_dirs?.length > 0">
+        <div *ngIf="studentAssignmentDataSubjectWise?.length > 0">
           <div class="grid">
-            <div *ngFor="let data of studentAssignmentDataSubjectWise.assignment_dirs">
-              <div class="assignment-card mt-2" (click)="fetchAssignmentDataTopicWise(data?.id)">
-                <span class="mt-4 cursor-pointer">{{data?.file_count}} Files <br />
-                <span style="font-size: 10px">{{ getDate(data.created_on) }}</span>
-                <div>{{ data?.name }}
+            <div *ngFor="let data of studentAssignmentDataSubjectWise">
+              <div class="assignment-card mt-2" (click)="fetchAssignmentDataSubject2(data?.id)">
+                <span class="mt-4 cursor-pointer"> <br />
+                <!-- <span style="font-size: 10px">{{ getDate(data.created_on) }}</span> -->
+                <div>{{ data?.subject_name }}
               </div>
             </span>
           </div>
           </div>
         </div>
       </div>
-
+      <div *ngIf="subjectFilterData?.length > 0">
+        <div class="grid">
+          <div *ngFor="let data of subjectFilterData">
+            <div class="assignment-card mt-2" (click)="fetchAssignmentDataTopicWise(data?.id)">
+              <span class="mt-4 cursor-pointer">{{data?.file_count}} Files <br />
+              <span style="font-size: 10px">{{ getDate(data.created_on) }}</span>
+              <div>{{ data?.name }}
+            </div>
+          </span>
+        </div>
+        </div>
+      </div>
+    </div>
       <div  *ngIf="studentAssignmentDataTopicWise?.length > 0">
         <div class="mt-2" *ngFor="let data of studentAssignmentDataTopicWise" 
               style="border-bottom: 1px solid black;padding: 4px;" 

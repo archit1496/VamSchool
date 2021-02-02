@@ -74,7 +74,7 @@ notesVideos = false;
     });
    
   }
-  fetchNotesData(id:number) {
+  fetchNotesData() {
 this.studentNotesDataTopicWise = [];
  this.notesVideos = true;
   }
@@ -106,7 +106,7 @@ this.studentNotesDataTopicWise = [];
 
   openForm2() {
 this.topic = '';
-    document.getElementById('myForm').style.display = 'block';
+    document.getElementById('myForm2').style.display = 'block';
     // this.topicName = '';
     // this.topicQuestion = '';
     // this.files = null;
@@ -126,6 +126,14 @@ this.topic = '';
   closeForm() {
 
     document.getElementById('myForm').style.display = 'none';
+    const element = document.getElementById('mainOuterDiv');
+    element.classList.remove('newclass');
+
+  }
+
+  closeForm2() {
+
+    document.getElementById('myForm2').style.display = 'none';
     const element = document.getElementById('mainOuterDiv');
     element.classList.remove('newclass');
 

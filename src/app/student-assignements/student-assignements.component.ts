@@ -12,17 +12,20 @@ export class StudentAssignementsComponent implements OnInit {
   studentAssignmentDataSubjectWise;
   studentAssignmentDataTopicWise;
   assignmentData = [];
-  valueWithOutSubjectFilter;
+  // valueWithOutSubjectFilter;
   subjectFilter: boolean = false;
   assignmentActivityData;
   assignmentTopicDetail;
   questionId: number = -1;
+
+  subjectFilterData = [];
   constructor(public studentService: StudentService, public toaster: ToastrService) {
-    this.fetchAssignmentDataSubject();
-    this.fetchAssignmentActivity();
+
   }
 
   ngOnInit() {
+    this.fetchAssignmentDataSubject();
+    this.fetchAssignmentActivity();
   }
   fetchAssignmentActivity() {
     this.subjectFilter = false;
@@ -33,25 +36,46 @@ export class StudentAssignementsComponent implements OnInit {
     });
   }
 
-  fetchAssignmentDataSubject() {
+  // fetchAssignmentDataSubject() {
+  //   this.subjectFilter = false;
+  //   this.isLoading = true;
+  //   this.studentService.fetchAssignmentQuestionsSubject().subscribe(res => {
+  //     this.isLoading = false;
+  //     this.studentAssignmentDataSubjectWise = res.assignment_dirs;
+  //     // alert(res);
+  //     // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
+  //     // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
+  //   });
+  // }
+
+  fetchAssignmentDataSubject(){
+    this.studentService.fetchStudentSubject().subscribe(res => {
+    this.studentAssignmentDataSubjectWise = res;
+  });
+}
+
+  fetchAssignmentDataSubject2(id) {
     this.subjectFilter = false;
     this.isLoading = true;
-    this.studentService.fetchAssignmentQuestionsSubject().subscribe(res => {
+    this.studentService.fetchAssignmentQuestionsSubject2(id).subscribe(res => {
       this.isLoading = false;
-      this.studentAssignmentDataSubjectWise = res;
+      this.subjectFilterData = res.assignment_dirs;
+      this.studentAssignmentDataSubjectWise = [];
       // alert(res);
-      this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
-      console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
+      // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
+      // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
     });
   }
+
   fetchAssignmentDataTopicWise(id: number) {
     this.subjectFilter = false;
     this.isLoading = true;
     this.studentService.fetchAssignmentData(id).subscribe(res => {
       this.isLoading = false;
       this.studentAssignmentDataTopicWise = res;
-     // this.studentAssignmentDataSubjectWise = [];
-      console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
+     this.studentAssignmentDataSubjectWise = [];
+     this.subjectFilterData = [];
+      // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }
 
@@ -71,7 +95,7 @@ export class StudentAssignementsComponent implements OnInit {
     const files: File = fileInput.target.files;
     formData.append('doc_answer', files[0], files[0].name);
     formData.append('question', String(this.questionId));
-    formData.append('student', sessionStorage.getItem('student_id'));
+    formData.append('student',  sessionStorage.getItem('student_id'));
     this.studentService.uploadAssignment(formData).subscribe(data => {
       this.toaster.success("File uploaded succesfully!", "Success");
     },
@@ -100,12 +124,12 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentAssignmentDataTopicWise = [];
     this.studentAssignmentDataSubjectWise = [];
     if (event === 'All') {
-      this.studentAssignmentDataSubjectWise = [...this.valueWithOutSubjectFilter];
+      // this.studentAssignmentDataSubjectWise = [...this.valueWithOutSubjectFilter];
     }
     else {
-      let filterValue = this.valueWithOutSubjectFilter.filter(elm => elm.name == event);
-      this.studentAssignmentDataSubjectWise = filterValue;
-      console.log("ddddd", this.studentAssignmentDataSubjectWise);
+      // let filterValue = this.valueWithOutSubjectFilter.filter(elm => elm.name == event);
+      // this.studentAssignmentDataSubjectWise = filterValue;
+      // console.log("ddddd", this.studentAssignmentDataSubjectWise);
     }
     console.log("DATA 1 = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
   }
