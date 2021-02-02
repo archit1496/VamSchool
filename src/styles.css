@@ -163,8 +163,10 @@ p {
       margin-left: -32px !important;
     }
     .addBtn{
-      margin-left: -32px !important;
-      position: absolute;
+      margin-left: auto;
+      top: 30px;
+      left: 22px;
+      color: hsl(106deg 100% 40%);
     }
 
     .sideBarLS{
@@ -204,7 +206,10 @@ p {
       margin-left: -25px;
     }
     .addBtn{
-      margin-left: -25px;
+      margin-left: auto;
+      top: 30px;
+      left: 22px;
+      color: hsl(106deg 100% 40%);
       position: absolute;
     }
     .sideBarLS{
@@ -249,7 +254,10 @@ p {
   }
   .addBtn{
     margin-left: auto;
-    position: absolute
+    top: 30px;
+    left: 22px;
+    color: hsl(106deg 100% 40%);
+    position: absolute;
   }
   .sideBarLS{
     display: none;
@@ -275,7 +283,9 @@ p {
   }
   .addBtn{
     margin-left: auto;
-    /* width: 180px; */
+    top: 30px;
+    left: 22px;
+    color: hsl(106deg 100% 40%);
     position: absolute;
   }
   .navSideBarForSS{
@@ -336,7 +346,9 @@ p {
   }
   .addBtn{
     margin-left: auto;
-    /* width: 180px; */
+    top: 30px;
+    left: 22px;
+    color: hsl(106deg 100% 40%);
     position: absolute;
   }
   .navSideBarForSS{

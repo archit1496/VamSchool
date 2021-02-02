@@ -4,6 +4,7 @@
   overflow: scroll !important;
 }
 .standardDiv{
+  margin-top: 0.5rem;
   margin-left: 20rem;
   margin-right: 20rem;
   padding: 10px;
@@ -41,9 +42,18 @@
 }
 .grid{
   display: grid;
-  grid-template-columns: repeat(6,1fr);
-  grid-gap: 5px;
+  grid-template-columns: repeat(5,1fr);
+  grid-gap: 2px;
 }
+
+@media screen and (max-width: 600px) {
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2px;
+  }
+}
+
 .activity-card{
   border: 1px solid black;
 height: 580px;
@@ -118,18 +128,23 @@ background-color: lightgray;
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
-  position: fixed;
-  bottom: 0;
-  /* right: 15px; */
-  border: 3px solid #f1f1f1;
+  position: relative;
+  height: 100%;
+  border: 2px solid #b8ffaa;
+  border-radius: 10px;
   z-index: 9;
+  margin: 10px;
+  background-color: #f0fff3;
 }
 
 /* Add styles to the form container */
 .form-container {
-  /* max-width: 300px; */
   padding: 10px;
-  background-color: white;
+  border-radius: 10px;
+}
+
+.form-container h1 {
+  font-size: 18px;
 }
 
 /* Full-width input fields */
@@ -138,39 +153,24 @@ background-color: lightgray;
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
-  background: #f1f1f1;
+  border-radius: 5px;
+  background: #b8ffaa;
+  color: #1f1f1f;
 }
 
 /* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
+  background: #b8ffaa;
   outline: none;
+  color: #1f1f1f;
 }
 
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  /* background-color: red; */
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
+.form-container button {
+  margin: 0 0.5rem; 
 }
 
 .newclass{
-  background-color: #cccccc;
+  background-color: #ffffff;
 }
 
 p {

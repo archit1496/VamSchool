@@ -74,7 +74,6 @@
 </footer> -->
 
 <div class=" standardDiv" id="mainOuterDiv">
-  <div style="display: flex;justify-content: center;height: 100%;flex-wrap: wrap;">
     <section class="outerDiv">
       <div class=" innerDiv">
         <div class="col-lg-12">
@@ -108,14 +107,14 @@
               <i class="fa fa-plus" aria-hidden="true" style="font-size: 1rem;"></i>
             </label>
           </div>
-          <div class="form-popup" id="myForm">
-            <form class="form-container">
-              <h1>Add New Topic</h1>
-              <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="topic">
-              <button type="submit" class="btn cancel" (click)="closeForm();postData()">Save</button>
-              <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
-            </form>
-          </div>
+        </div>
+        <div class="form-popup" id="myForm">
+          <form class="form-container">
+            <h1>Add New Topic</h1>
+            <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="topic">
+            <button type="submit" class="solid-btn-green" (click)="closeForm();postData()">Save</button>
+            <button type="submit" class="solid-btn-voilet" (click)="closeForm()">Close</button>
+          </form>
         </div>
 
         <div class="grid" *ngIf="notesVideos">
@@ -155,24 +154,20 @@
             <form class="form-container">
               <h1>Add New Topic</h1>
               <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="newtopic">
-              <select name="" id="" style="margin-right: 10px;" name="dfvf" [(ngModel)]="selectedCourse">
+              <select name="dfvf" [(ngModel)]="selectedCourse">
                 <option value="0">Select Course</option>
                 <option *ngFor="let company of teacherCourseData" [value]="company.id">
                   {{ company.class_of.class_name+ company.class_of.section}}</option>
-
               </select>
               <label for="upload-notes" class="addBtn ml-5">
                 <input type="file" id="upload-notes" class="addBtn" (change)="uploadNotes($event)">
               </label>
-              <button type="submit" class="btn cancel" (click)="closeForm();postNotesData()">Save</button>
-              <button type="submit" class="btn cancel" (click)="closeForm()">Close</button>
-
+              <button type="submit" class="solid-btn-green" (click)="closeForm();postNotesData()">Save</button>
+              <button type="submit" class="solid-btn-voilet" (click)="closeForm()">Close</button>
             </form>
           </div>
-        
+          
         </div>
-
-
       </div>
     </section>
     <!-- <div
@@ -190,5 +185,4 @@
     <div style="order: 3;">
       <div class="footer-card"></div>
     </div> -->
-  </div>
 </div>
