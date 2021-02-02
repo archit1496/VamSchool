@@ -4,6 +4,13 @@
   overflow: scroll !important;
 }
 
+.select-course {
+  width: 25%;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid #8dff77;
+}
 .showlist{
   list-style-type: none; 
 }

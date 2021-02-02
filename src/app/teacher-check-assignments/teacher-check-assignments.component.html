@@ -121,16 +121,14 @@
         </nav>
 
         <ul class="showlist" *ngIf="showHideActivity">
-          <li class="alignlist" *ngFor="let studentActivity of activityData">
-            <div>{{studentActivity.student.first_name + ' ' +studentActivity.student.first_name}} just submitted his
-              assignment</div>
-            <div style="display: flex;">
-              <div>"{{studentActivity.question.topic}}"</div>
-              <div style="margin-left: 10px;">6 page</div>
+          <li class="alignlist row" *ngFor="let studentActivity of activityData">
+            <div class="col-lg-6">{{studentActivity.student.first_name + ' ' +studentActivity.student.first_name}} just submitted his
+              assignment
             </div>
+            <div class="col-lg-3">{{studentActivity.question.topic}}"</div>
+            <div class="col-lg-3">6 page</div>
           </li>
         </ul>
-
       </div>
     </section>
 </div>
