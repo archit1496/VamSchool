@@ -94,9 +94,9 @@
         <h5 class="mt-2"><b>This Week</b> 
           <b><span *ngIf="studentAssignmentDataTopicWise?.length>0">
              > {{studentAssignmentDataTopicWise[0]?.course?.subject?.subject_name}}</span></b></h5>
-        <div *ngIf="studentAssignmentDataSubjectWise.assignment_dirs?.length > 0">
+        <div *ngIf="studentAssignmentDataSubjectWise?.length > 0">
           <div class="grid">
-            <div *ngFor="let data of studentAssignmentDataSubjectWise.assignment_dirs">
+            <div *ngFor="let data of studentAssignmentDataSubjectWise">
               <div class="assignment-card mt-2" (click)="fetchAssignmentDataTopicWise(data?.id)">
                 <span class="mt-4 cursor-pointer">{{data?.file_count}} Files <br />
                 <span style="font-size: 10px">{{ getDate(data.created_on) }}</span>

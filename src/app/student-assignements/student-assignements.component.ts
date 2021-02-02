@@ -12,17 +12,18 @@ export class StudentAssignementsComponent implements OnInit {
   studentAssignmentDataSubjectWise;
   studentAssignmentDataTopicWise;
   assignmentData = [];
-  valueWithOutSubjectFilter;
+  // valueWithOutSubjectFilter;
   subjectFilter: boolean = false;
   assignmentActivityData;
   assignmentTopicDetail;
   questionId: number = -1;
   constructor(public studentService: StudentService, public toaster: ToastrService) {
-    this.fetchAssignmentDataSubject();
-    this.fetchAssignmentActivity();
+
   }
 
   ngOnInit() {
+    this.fetchAssignmentDataSubject();
+    this.fetchAssignmentActivity();
   }
   fetchAssignmentActivity() {
     this.subjectFilter = false;
@@ -38,10 +39,10 @@ export class StudentAssignementsComponent implements OnInit {
     this.isLoading = true;
     this.studentService.fetchAssignmentQuestionsSubject().subscribe(res => {
       this.isLoading = false;
-      this.studentAssignmentDataSubjectWise = res;
+      this.studentAssignmentDataSubjectWise = res.assignment_dirs;
       // alert(res);
-      this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
-      console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
+      // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
+      // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
     });
   }
   fetchAssignmentDataTopicWise(id: number) {
@@ -50,8 +51,8 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentService.fetchAssignmentData(id).subscribe(res => {
       this.isLoading = false;
       this.studentAssignmentDataTopicWise = res;
-     // this.studentAssignmentDataSubjectWise = [];
-      console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
+     this.studentAssignmentDataSubjectWise = [];
+      // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }
 
@@ -100,12 +101,12 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentAssignmentDataTopicWise = [];
     this.studentAssignmentDataSubjectWise = [];
     if (event === 'All') {
-      this.studentAssignmentDataSubjectWise = [...this.valueWithOutSubjectFilter];
+      // this.studentAssignmentDataSubjectWise = [...this.valueWithOutSubjectFilter];
     }
     else {
-      let filterValue = this.valueWithOutSubjectFilter.filter(elm => elm.name == event);
-      this.studentAssignmentDataSubjectWise = filterValue;
-      console.log("ddddd", this.studentAssignmentDataSubjectWise);
+      // let filterValue = this.valueWithOutSubjectFilter.filter(elm => elm.name == event);
+      // this.studentAssignmentDataSubjectWise = filterValue;
+      // console.log("ddddd", this.studentAssignmentDataSubjectWise);
     }
     console.log("DATA 1 = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
   }
