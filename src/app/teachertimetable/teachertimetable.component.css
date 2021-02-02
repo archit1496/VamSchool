@@ -49,7 +49,7 @@
   .outerGrid{
     display: grid;
     grid-template-columns: repeat(7,1fr);
-  }
+  } 
   
 .navbar-nav  {
   flex-direction: inherit;
