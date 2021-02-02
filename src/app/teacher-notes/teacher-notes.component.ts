@@ -74,7 +74,7 @@ notesVideos = false;
     });
    
   }
-  fetchNotesData(id:number) {
+  fetchNotesData() {
 this.studentNotesDataTopicWise = [];
  this.notesVideos = true;
   }
