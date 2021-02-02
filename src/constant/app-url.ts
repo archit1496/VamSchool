@@ -91,6 +91,9 @@ export class AppUrl {
   static FETCH_NOTES_QUESTIONS_CHAPTER(id): string {
     return AppUrl.APP_URL + `v1/student/dir/?sub_dir=${id}`;
   }
+  static FETCH_NOTES_QUESTIONS_CHAPTER2(course_id): string {
+    return AppUrl.APP_URL + `v1/student/dir/${course_id}/study-material-topics/`;
+  }
   static FETCH_TEACHER_NOTES_QUESTIONS_CHAPTER(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/?sub_dir=${id}`;
   }
@@ -137,6 +140,10 @@ export class AppUrl {
 
   static FETCH_NOTES(id): string {
     return AppUrl.APP_URL + `v1/student/dir/${id}/notes/`;
+  }
+
+  static FETCH_NOTES2(dir_id, url): string {
+    return AppUrl.APP_URL + `v1/student/dir/study-material-topics/${dir_id}?type=${url}`;
   }
 
   static FETCH_TEACHER_NOTES(id): string {
