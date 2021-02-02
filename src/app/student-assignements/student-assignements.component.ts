@@ -17,6 +17,8 @@ export class StudentAssignementsComponent implements OnInit {
   assignmentActivityData;
   assignmentTopicDetail;
   questionId: number = -1;
+
+  subjectFilterData = [];
   constructor(public studentService: StudentService, public toaster: ToastrService) {
 
   }
@@ -45,6 +47,20 @@ export class StudentAssignementsComponent implements OnInit {
       // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
     });
   }
+
+  fetchAssignmentDataSubject2(id) {
+    this.subjectFilter = false;
+    this.isLoading = true;
+    this.studentService.fetchAssignmentQuestionsSubject2(id).subscribe(res => {
+      this.isLoading = false;
+      this.subjectFilterData = res.assignment_dirs;
+      this.studentAssignmentDataSubjectWise = [];
+      // alert(res);
+      // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
+      // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
+    });
+  }
+
   fetchAssignmentDataTopicWise(id: number) {
     this.subjectFilter = false;
     this.isLoading = true;
@@ -52,6 +68,7 @@ export class StudentAssignementsComponent implements OnInit {
       this.isLoading = false;
       this.studentAssignmentDataTopicWise = res;
      this.studentAssignmentDataSubjectWise = [];
+     this.subjectFilterData = [];
       // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }
@@ -72,7 +89,7 @@ export class StudentAssignementsComponent implements OnInit {
     const files: File = fileInput.target.files;
     formData.append('doc_answer', files[0], files[0].name);
     formData.append('question', String(this.questionId));
-    formData.append('student', sessionStorage.getItem('student_id'));
+    formData.append('student',  sessionStorage.getItem('student_id'));
     this.studentService.uploadAssignment(formData).subscribe(data => {
       this.toaster.success("File uploaded succesfully!", "Success");
     },
