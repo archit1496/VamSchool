@@ -76,7 +76,7 @@ export class TeacherCheckAssignmentsComponent {
     this.secondClass = false;
 
     // this.fetchCourse();
-    // document.getElementById('myForm').style.display = 'block';
+
     // this.topicName = '';
     // this.topicQuestion = '';
     // this.files = null;
