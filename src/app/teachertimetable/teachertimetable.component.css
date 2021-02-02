@@ -49,24 +49,8 @@
   .outerGrid{
     display: grid;
     grid-template-columns: repeat(7,1fr);
-  }
+  } 
   
-  .standardDiv{
-    margin-left: 15rem;
-    margin-right: 20rem;
-    padding: 10px;
-    border: 1px solid rgb(150, 206, 255);
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 3px 0 #9e48b9;
-}
-  @media screen and (max-width: 600px) {
-  .standardDiv {
-    margin-left: inherit;
-    margin-right: inherit;
-    padding: 5px;
-}
 .navbar-nav  {
   flex-direction: inherit;
 }
-  }
