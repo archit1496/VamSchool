@@ -67,6 +67,9 @@ export class StudentHomeDashboardComponent implements OnInit {
         "when": "14:00"
       }
     ]
+
+    // $('carousel');
+
   }
   fetchDashboardActivityData(){
     this.studentService.fetchDashboardActivity().subscribe(res => {
@@ -134,4 +137,5 @@ export class StudentHomeDashboardComponent implements OnInit {
       }
     })
   }
+ 
 }

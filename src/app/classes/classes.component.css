@@ -1,17 +1,11 @@
-#classes {
-  border-radius: 10px;
-  background-color: aliceblue;
-  border: 1px solid rgb(150, 206, 255);
-  box-shadow: 0 0 3px 0  rgb(79, 111, 139);
-}
 .active{
     color: blue !important;
 }
 
-
 .nav-item {
   cursor: pointer;
 }
+
 @media screen and (max-width: 600px) {
   .navbar-nav  {
     flex-direction: inherit;

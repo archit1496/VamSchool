@@ -26,6 +26,29 @@ export class StudentNavBarComponent implements OnInit {
     this.initial=this.firstName.charAt(0)+this.lastName.charAt(0);
   }
 
+  showMenu() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+
+    var y = document.getElementById('navbar');
+    if (y.className === 'navbar navbar-expand-lg') {
+      y.className += ' res-full';
+    } else {
+      y.className = 'navbar navbar-expand-lg';
+    }
+
+    var z = document.getElementById('nav-collapse');
+    if (z.className === 'navbar-collapse justify-content-center') {
+      z.className += ' res-full-top';
+    } else {
+      z.className = 'navbar-collapse justify-content-center';
+    }
+  }
+  
   logout()
   {
    
