@@ -51,6 +51,11 @@ export class AppUrl {
   static get FETCH_ASSIGNMENT_QUESTIONS_SUBJECT(): string {
     return AppUrl.APP_URL + "v1/student/dir/?dir_type=1";
   }
+
+  static FETCH_ASSIGNMENT_QUESTIONS_SUBJECT2(subject_id): string {
+    return AppUrl.APP_URL + `v1/student/dir/?subject=${subject_id}`;
+  }
+
   static get FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT(): string {
     return AppUrl.APP_URL + "v1/teacher/dir/?dir_type=1";
   }
@@ -85,6 +90,9 @@ export class AppUrl {
   }
   static FETCH_NOTES_QUESTIONS_CHAPTER(id): string {
     return AppUrl.APP_URL + `v1/student/dir/?sub_dir=${id}`;
+  }
+  static FETCH_NOTES_QUESTIONS_CHAPTER2(course_id): string {
+    return AppUrl.APP_URL + `v1/student/dir/${course_id}/study-material-topics/`;
   }
   static FETCH_TEACHER_NOTES_QUESTIONS_CHAPTER(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/?sub_dir=${id}`;
@@ -132,6 +140,10 @@ export class AppUrl {
 
   static FETCH_NOTES(id): string {
     return AppUrl.APP_URL + `v1/student/dir/${id}/notes/`;
+  }
+
+  static FETCH_NOTES2(dir_id, url): string {
+    return AppUrl.APP_URL + `v1/student/dir/study-material-topics/${dir_id}?type=${url}`;
   }
 
   static FETCH_TEACHER_NOTES(id): string {

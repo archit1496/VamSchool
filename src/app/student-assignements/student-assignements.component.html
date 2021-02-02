@@ -3,6 +3,7 @@
   <div style="display: flex; justify-content: center; height: 100%;flex-wrap: wrap;">
     <section class="outerDiv">
       <div class="mt-1 innerDiv">
+<!-- <<<<<<< HEAD
         <app-student-class-subject (subjectSelected)="subjectSelected($event)"></app-student-class-subject>
         <hr><h5 class="mt-2"><b>This Week</b> 
           <b><span *ngIf="studentAssignmentDataTopicWise?.length>0">
@@ -23,11 +24,43 @@
 
       <div *ngIf="studentAssignmentDataTopicWise?.length > 0">
         <div class="cursor-pointer student-assignment-description-cnt mt-2" *ngFor="let data of studentAssignmentDataTopicWise"  
+======= -->
+        <!-- <app-student-class-subject (subjectSelected)="subjectSelected($event)"></app-student-class-subject> -->
+        <hr><h5 class="mt-2"><b>This Week</b> 
+          <b><span *ngIf="studentAssignmentDataTopicWise?.length>0">
+             > {{studentAssignmentDataTopicWise[0]?.course?.subject?.subject_name}}</span></b></h5>
+             <hr>
+        <div *ngIf="studentAssignmentDataSubjectWise?.length > 0">
+          <div class="grid">
+            <div class='assignment-file-cnt' *ngFor="let data of studentAssignmentDataSubjectWise">
+              <div class="assignment-file" (click)="fetchAssignmentDataSubject2(data?.id)"></div>
+              <div class="assignment-description"> 
+                <p class="class-name cursor-pointer">{{ data?.subject_name }}</p>
+              </div>   
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="subjectFilterData?.length > 0">
+          <div class="grid">
+            <div class='assignment-file-cnt' *ngFor="let data of subjectFilterData">
+              <div class="assignment-file mt-2" (click)="fetchAssignmentDataTopicWise(data?.id)"></div>
+              <div class="assignment-description"> 
+                <p class="class-name cursor-pointer">{{ data?.name }} </p>
+                <p>{{ getDate(data.created_on) }}</p>
+                <p>{{data?.file_count}} Files</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div *ngIf="studentAssignmentDataTopicWise?.length > 0">
+        <div class="cursor-pointer student-assignment-description-cnt" *ngFor="let data of studentAssignmentDataTopicWise"  
               (click)="getTopicDetails(data?.id)">
           <div class="row">
             <div class="topicName col-lg-3"><p>{{data?.topic}}</p></div>
             <div class="teacherName col-lg-3"><p>{{data?.teacher?.name}}</p></div>
-            <div style="flex: 1;">
+            <div class='file-type col-lg-3'>
               <p>{{getFileType(data?.doc_question)}}<span *ngIf="data?.doc_question"> file</span></p> 
             </div>
           </div>

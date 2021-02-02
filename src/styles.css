@@ -353,7 +353,17 @@ p {
     display: inline-block;
   }
 }
-
+.assignment-card{
+  background-image: url('assets/images/folderIcon.svg');
+  background-position-x: center;
+  background-size: 132px 136px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+} 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .wtchVideo{
