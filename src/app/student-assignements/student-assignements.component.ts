@@ -97,7 +97,13 @@ export class StudentAssignementsComponent implements OnInit {
     formData.append('question', String(this.questionId));
     formData.append('student',  sessionStorage.getItem('student_id'));
     this.studentService.uploadAssignment(formData).subscribe(data => {
-      this.toaster.success("File uploaded succesfully!", "Success");
+
+      if (data && data['status'] === false) {
+        alert(data['detail'])
+      } else {
+        this.toaster.success("File uploaded succesfully!", "Success");
+      }
+
     },
       error => {
         // this.spinnerFlag = false;
