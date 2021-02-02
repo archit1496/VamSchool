@@ -92,7 +92,7 @@ export class AppUrl {
     return AppUrl.APP_URL + `v1/student/dir/?sub_dir=${id}`;
   }
   static FETCH_NOTES_QUESTIONS_CHAPTER2(course_id): string {
-    return AppUrl.APP_URL + `v1/student/dir/${course_id}/study-material-topics/`;
+    return AppUrl.APP_URL + `v1/student/dir/study-material-topics/?subject=${course_id}`;
   }
   static FETCH_TEACHER_NOTES_QUESTIONS_CHAPTER(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/?sub_dir=${id}`;
