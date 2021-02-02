@@ -433,12 +433,10 @@ p {
 }
 
 .footer-card{
-  border: 1px solid black;
-  height: 75px;
-  width: 98vw;
-  background-color: lightgray;
+  background-color: aliceblue;
+  border: 1px solid #96ceff;
   margin-top: 10px;
-  
+  border-radius: 10px;
 }
 .footer-div{
   height: 120px !important;
@@ -451,7 +449,6 @@ p {
     border-radius: 10px;
     margin-right: 8px;
     margin-bottom: 8px;
-
 }
 
 .sec-heading-txt {

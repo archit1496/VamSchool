@@ -1,8 +1,20 @@
 .boxModel{
   padding: 0;
-  /* height: 100%; */
-  /* overflow: scroll !important; */
+  height: 100%;
 }
+
+.table-head {
+  padding: 0 10px;
+}
+
+.tt-cnt {
+  padding: 10px;
+  border: 1px solid rgb(150, 206, 255);
+  box-shadow: 0 0 3px 0 rgb(79 111 139);
+  border-radius: 10px;
+  background: #ddefff;
+}
+
 .outerDiv{
   justify-content: center;
   display: flex;
@@ -12,15 +24,14 @@
 .innerDiv{
   width: 100%;
   max-width: 832px;
-  height: 650px;
+  height: 622px;
 }
 
 .outerGrid{
   display: grid;
   grid-template-columns: repeat(7,1fr);
-  grid-gap: 5px;
-}
+} 
 
-.outerGridBox{
-  
+.navbar-nav  {
+flex-direction: inherit;
 }
