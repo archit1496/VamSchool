@@ -3,22 +3,7 @@
   height: 100%;
   overflow: scroll !important;
 }
-.standardDiv{
-  margin-left: 20rem;
-  margin-right: 20rem;
-  padding: 10px;
-  border: 1px solid rgb(150, 206, 255);
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 3px 0 #9e48b9;
-}
-@media screen and (max-width: 600px) {
-  .standardDiv {
-    margin-left: inherit;
-    margin-right: inherit;
-    padding: 5px;
-  }
-}
+
 .outerDiv{
   flex: 3 70%;
   display: flex;
@@ -200,11 +185,6 @@ p {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.assignment-nav {
-  border-radius: 10px;
-  background-color: aliceblue;
-  border: 2px solid rgb(150, 206, 255);
-}
 
 .table-head {
   padding: 10px;
@@ -219,11 +199,11 @@ p {
   color: #598c6a;
 }
 @media screen and (max-width: 600px) {
-.innerDiv {
-  max-width: inherit;
-  padding: 5px;
-}
-.navbar-nav  {
-  flex-direction: inherit;
-}
+  .innerDiv {
+    max-width: inherit;
+    padding: 5px;
+  }
+  .navbar-nav  {
+    flex-direction: inherit;
+  }
 }

@@ -1,28 +1,56 @@
+.navbar {
+    background-color: #9e48b9;
+  }
+  
 .nav-link.active{
-    border-bottom: 1px solid black;
-    border-width: 10px;
-}
-
-.name
-{
-    position:absolute;
-    padding-left:200px;
-    font-size:30px;
+  border-bottom: 1px solid #007bff;
+  border-width: 4px;
+  color: #0AFFED !important;
+  background-color: none!important;
 }
 
 .logo-img{
-    margin-top: -4px !important;
-    position: absolute;
-    margin-left: -17rem;
-    width: 85px;
-    height: 85px;
-    background-image: url('../../assets/images/headerCircle.svg');
+    width:50px;
+    height: 50px;
+    background-color: aqua;
     text-align: center;
-    padding-top: 23px;
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex!important;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+.student-name-div {
+    color: #BADEFC;
+    font-weight: bolder;
+    font-size: 14px;
+    float: left;
 }
 
-.logo-name{
-    color: black;
+.student-details-cnt p {
+    margin: 0;
+}
+
+.student-details-cnt {
+    background-color:#9e48b9;
+    position: relative;
+    float: left;
+    margin-right: 2rem;
+    padding: 0 1.5rem;
+}
+
+.student-name {
+    color: #ebf3fa;
+    font-weight: bold;
+    font-size: 10px
 }
 
 .logo-name-div{
@@ -30,18 +58,105 @@
     margin-left: -11rem;
 }
 
-.logo-school-div{
-    position: absolute;
-    margin-top: 2rem;
-    margin-left: -11rem;
-}
-
 .titleColor{
     color: black;
 }
 
-.nav-link.active{
-    border-bottom: 1px solid #007bff;
-    border-width: 4px;
-    color: #007bff !important;
+.topnav {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: transparent;
+    color: #0AFFED;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    /* background-color: #4CAF50; */
+    color: white;
+  }
+  
+  a.icon:hover {
+    background-color: transparent!important;
+    color: white!important;
+  }
+
+  a.icon:active {
+    background-color: transparent!important;
+    color: white!important;
+  }
+
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
+  .logout {
+    color: #a5d6a7!important;
+    cursor: pointer;
+    position: relative;
+  }
+
+@media screen and (max-width: 1400px) {
+    .topnav {
+      width: 100%;
+    }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+    .res-full   {
+        background-color: #9e48b9;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        display: block;
+    }  
+        
+    .res-full-top {
+        top: 0;
+    }
+        
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+        float: right;
+        top: 0;
+        position: absolute;
+        display: block;
+        right: 0;
+        margin: 0.5rem 1rem;
+    }
+
+    .topnav.responsive {position: relative; transition-duration: 1s;}
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+    }
+    
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .logout {
+        left: 0;
+        color: #a5d6a7;
+    }
 }

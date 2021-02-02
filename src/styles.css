@@ -87,6 +87,26 @@ p {
   background-color: #598c6a;
 }
 
+.standardDiv{
+  margin-left: 15rem;
+  margin-right: 15rem;
+  padding: 10px;
+}
+@media screen and (max-width: 600px) {
+  .standardDiv {
+      margin-left: inherit;
+      margin-right: inherit;
+      padding: 5px;
+  }
+}
+
+.img-cnt, #classes, .assignment-nav {
+  background-color: aliceblue;
+  border: 1px solid #96ceff;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
 @media (min-width: 640px) { body {font-size:1rem;} } 
 @media (min-width:960px) { body {font-size:1.2rem;} } 
 @media (min-width:1100px) { body {font-size:1.5rem;} } 
@@ -115,9 +135,6 @@ p {
     height: 60px;
 }
 
-.student-name{
-    padding-left: 80px;
-}
 
 /* .navbar-light .navbar-nav .active.nav-link{
     background-color: #007bff;
@@ -374,15 +391,6 @@ p {
 
 .font-size12{
   font-size: 12px !important;
-}
-
-.standardDiv{
-    margin-left: 26rem;
-    margin-right: 26rem;
-}
-.studentStandardDiv{
-  margin-left: 21rem;
-  margin-right: 18rem;
 }
 
 .studymat-activity-div{

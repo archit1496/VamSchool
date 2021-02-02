@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="img-cnt">   
-            <img alt="" height="350">
+            <img alt="" height="350"> 
         </div>
         <div class="stats row mt-3" *ngIf="true">
             <div class="col-3 col-lg-3 col-md-3 text-center">
@@ -27,34 +27,35 @@
                 <p class="font-size14"><b>Testing</b></p>
             </div>
         </div>
-        <hr class="mt-2">
+        <hr>
         <div class="mt-3">
             <h5 style="width: fit-content; position: relative; float: left;"><b>Classes Today</b></h5>
-            <a class="" href="#myCarousel" role="button" data-slide="prev" *ngIf="hideArrow">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="" href="#myCarousel" role="button" data-slide="next" *ngIf="hideArrow">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div *ngFor="let data of todaysTimeTable;let i = index"
-                        [ngClass]="{'active' : i == 0}" class="carousel-item row">
-                            <div class="col-4 col-lg-4 col-sm-4">
+            <div class="myCarousel-container">
+                <a class="" href="#myCarousel" role="button" data-slide="prev" *ngIf="hideArrow">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="" href="#myCarousel" role="button" data-slide="next" *ngIf="hideArrow">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div *ngFor="let data of todaysTimeTable;let i = index"
+                            [ngClass]="{'active' : i == 0}" class="carousel-item row">
+                            <div class="col-3 col-lg-3 col-sm-3">
                                 <div class="today-card">
-                                    <img class='image' src='../../assets/images/cls-bg-1.jpg'>
+                                    <img class='image' src='../../assets/images/cls-bg-1.jpg'> 
                                     <p>
                                         {{data.class_of.class_name}} {{data.class_of.section}}<br>
                                         {{data.start_time}}
                                     </p>
                                 </div>
+                            </div>    
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            </div> 
         </div>
         <hr>
         <div class="mt-2">
@@ -77,7 +78,6 @@
                             <span>
                                 <!-- <b>{{data.class_of.class_name}} {{data.class_of.section}}</b> -->
                                 <b>static class name and section</b>
-                               
                                 <br>
                                 10:00 AM
                             </span>

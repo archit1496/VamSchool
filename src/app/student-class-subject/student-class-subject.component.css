@@ -1,15 +1,16 @@
 
-.active{
-    color: blue !important;
-}
-
-ul{
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    list-style: none;
-    background-color: lightgrey;
-    text-decoration: none;
-}
-ul:hover{
-    text-decoration: none;
-}
+  .active{
+      color: blue !important;
+  }
+  
+  .nav-item {
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .navbar-nav  {
+      flex-direction: inherit;
+    }
+  }
+  
+  
