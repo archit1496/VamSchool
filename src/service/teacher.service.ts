@@ -86,6 +86,12 @@ export class TeacherService extends BaseService {
     return this.getRequestNew(AppUrl.FETCHTEACHERCOURSE);
   }
 
+  fetchSelectedTeacherCourse(course_id): Observable<any> {
+    let params = new HttpParams().set("course_id", course_id);
+    return this.postRequest(AppUrl.FETCH_SELECTED_TEACHER_COURSE(),params );
+    // return this.getRequestNew(AppUrl.FETCHSELECTEDTEACHERCOURSE);
+  }
+  
   // fetchNotes(): Observable<any>{
   //   return this.getRequest(AppUrl.FETCH_NOTES);
   // }
