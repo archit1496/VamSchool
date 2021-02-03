@@ -34,6 +34,13 @@ export class TeacherDashboardComponent implements OnInit {
     this.fetchTodaysTimeTable();
   }
 
+  createMeeting(course_id){
+    this.teacherService.createZoomMeeting(this.topicName, this.agenda, course_id).subscribe(res => {
+      this.fetchTeacherCourseForHostUrl(course_id);
+      
+    })
+  }
+
   getSignature(meetingNumber,meetingPassword) {
     // meetingNumber = 73519189461
     alert(meetingNumber);
@@ -89,6 +96,17 @@ export class TeacherDashboardComponent implements OnInit {
       this.teacherCourseData = res.data;
     })
   }
+
+  fetchTeacherCourseForHostUrl(course_id){
+    this.teacherService.fetchSelectedTeacherCourse(course_id).subscribe(res => {
+      let data = res.data;
+      console.log("teacher Response = "+JSON.stringify(res.data))
+      this.getSignature(data.meeting_id,data.meeting_password)
+    })
+    
+  }
+
+
 
   fetchTodaysTimeTable(){
     this.teacherService.fetchTimetableToday().subscribe(res => {
