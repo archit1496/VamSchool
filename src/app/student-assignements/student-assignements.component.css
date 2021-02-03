@@ -12,7 +12,6 @@
 }
 .innerDiv{
   width: 100%;
-  max-width: 796px;
   align-self: flex-end;
 }
 
@@ -59,7 +58,7 @@
   margin-top: 10px;
   border-radius: 10px;
   height: 70vh;
-  width: 300px;
+  width: 100%;
   padding: 15px 20px;
   overflow-y: scroll ;
 } 
@@ -156,4 +155,17 @@
   height: 0;
   overflow: hidden;
   width: 0;
+}
+
+.stu-standardDiv{
+  margin-left: 15rem;
+  margin-right: 0;
+  padding: 10px;
+}
+@media screen and (max-width: 600px) {
+  .stu-standardDiv {
+      margin-left: inherit;
+      margin-right: inherit;
+      padding: 5px;
+  }
 }

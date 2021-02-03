@@ -445,6 +445,7 @@ p {
   border: 1px solid #96ceff;
   margin-top: 10px;
   border-radius: 10px;
+  height: 20vh;
 }
 .footer-div{
   height: 120px !important;
