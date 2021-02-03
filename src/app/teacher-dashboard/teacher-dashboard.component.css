@@ -75,16 +75,6 @@
     cursor: pointer;
 }
 
-.carousel-control-next{
-    top: -130px !important;
-    right: 0 !important;
-}
-  
-.carousel-control-prev{
-    top: -133px !important;
-    left: 520px !important;
-}
-
 .class-in-div{
     position: absolute  ;
     bottom: 0;
@@ -103,13 +93,40 @@
     top: 4rem;
 }
 
-.stats .text-center h1 {
+.stats h1 {
     color: #007bff;
+  }
+  
+  .stats-text {
+    font-size: 14px;
+  }
+  
+@media screen and (max-width: 600px) {
+    .stats h1 {
+      font-size: 1.5rem;
+    }
+    .stats-text {
+      font-size: 10px;
+    }
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
-    background-color: #d7d7d7 !important;
-    margin: 0 7px!important;
+.classes-container {
+    margin: .5rem 0;
+  } 
+
+.carousel-control-prev {
+    right: 30px!important;
+    left:auto;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    display: block;
+    bottom: auto;
+    width: fit-content;
+}
+
+.carousel-control-next-icon i, .carousel-control-prev-icon i{
+  color: #303030;
 }
 
 .activity-head h5 {

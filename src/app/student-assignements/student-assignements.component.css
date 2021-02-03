@@ -15,10 +15,19 @@
   max-width: 796px;
   align-self: flex-end;
 }
+
 .grid{
   display: grid;
   grid-template-columns: repeat(5,1fr);
   grid-gap: 2px;
+}
+
+@media screen and (max-width: 600px) {
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2px;
+  }
 }
 
 .activity-column {
@@ -105,6 +114,9 @@
   border-radius: 5px;
   transition-duration: 0.3s;
   padding: 5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .student-assignment-description-cnt:hover {
@@ -120,7 +132,7 @@
 .topicName{
   flex: 2;
   color: black;
-  font-weight: 500;
+  font-weight: bold;
 }
 .teacherName{
   color: lightgreys;

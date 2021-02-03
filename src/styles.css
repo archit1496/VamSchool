@@ -62,7 +62,8 @@ p {
   padding: 5px;
   background-color: transparent;
   transition-duration: .5s;
-  margin: 0 4px;
+  margin: 4px;
+
 }
 
 .solid-btn-voilet:hover {
@@ -79,7 +80,7 @@ p {
   padding: 5px;
   background-color: transparent;
   transition-duration: .5s;
-  margin: 0 4px;
+  margin: 4px;
 }
 
 .solid-btn-green:hover {
@@ -437,11 +438,6 @@ p {
 .subject{
   position: relative !important;
   bottom: -8px !important;
-}
-
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-    background-color: black !important;
 }
 
 .footer-card{

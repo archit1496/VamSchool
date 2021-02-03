@@ -15,9 +15,25 @@ a b:hover{
   height: 100%;
 }
 
+.stats {
+  padding: 1.5rem;
+}
 
-.stats .text-center h1 {
+.stats h1 {
   color: #007bff;
+}
+
+.stats-text {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  .stats h1 {
+    font-size: 1.5rem;
+  }
+  .stats-text {
+    font-size: 10px;
+  }
 }
 
 .live-card:before {
@@ -73,14 +89,19 @@ a b:hover{
   padding: 0.5rem 0;
 }
 
-.carousel-control-next{
-  /* top: -130px !important; */
-  /* right: 0 !important; */
+.carousel-control-prev {
+    right: 30px!important;
+    left:auto;
 }
 
-.carousel-control-prev{
-  /* top: -130px !important; */
-  /* left: 598px !important; */
+.carousel-control-next, .carousel-control-prev {
+    display: block;
+    bottom: auto;
+    width: fit-content;
+}
+
+.carousel-control-next-icon i, .carousel-control-prev-icon i{
+  color: #303030;
 }
 
 .class-in-div{
@@ -142,13 +163,15 @@ a b:hover{
 
 
 .today-card p{
-  top: 0;
-  width: 100%;
+  bottom: 0;
   position: absolute;
   z-index: 2;
-  height: 100%;
+  font-weight: bold;
+  float: left;
+  text-align:left!important;
   padding: 5px;
   color: black;
+  margin: 0;
 } 
 
 .carousel-inner {

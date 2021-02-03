@@ -1,5 +1,5 @@
 <app-student-nav-bar  [studentDataList]="studentData"></app-student-nav-bar>
-<section class="container-fluid boxModel">
+<section class="container-fluid">
     <div class="mt-1 standardDiv">
         <app-student-class-subject></app-student-class-subject>
         <div *ngIf="isLoading" class="text-center">
@@ -8,37 +8,48 @@
         <div class="img-cnt">   
             <img alt="" height="350"> 
         </div>        
-        <div class="stats row mt-3" *ngIf="true">
+        <div class="stats row" *ngIf="true">
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>{{studentDataList?.hw_pending}}</b></h1>
-                <p class="font-size14"><b>HW Pending</b></p>
+                <p class="stats-text"><b>HW Pending</b></p>
             </div>
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>{{studentDataList?.attendance}}</b></h1>
-                <p class="font-size14"><b>Attendance</b></p>
+                <p class="stats-text"><b>Attendance</b></p>
             </div>
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>{{studentDataList?.average}}</b></h1>
-                <p class="font-size14"><b>Average</b></p>
+                <p class="stats-text"><b>Average</b></p>
             </div>
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>{{studentDataList?.test}}</b></h1>
-                <p class="font-size14"><b>Testing</b></p>
+                <p class="stats-text"><b>Testing</b></p>
             </div>
         </div>
         <hr class="mt-2">
 
         <div class="classes-container col-lg-12 col-sm-12 col-md-12">
-            <h5><b>Classes Today</b></h5>
+            <h5><b>Classes Today</b>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" *ngIf="hideArrow">
+                    <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 15px;
+                    height: 15px;"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next" *ngIf="hideArrow">
+                    <span class="carousel-control-next-icon" aria-hidden="true" style="width: 15px;
+                    height: 15px;"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </h5>
             <div class="myCarousel-container">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div *ngFor="let data of todayClassData;let i = index"
                             [ngClass]="{'active' : i == 0}" class="carousel-item">
-                            <div class="col-3 col-lg-3 col-sm-3">
+                            <div class="col-6 col-lg-3 col-sm-6">
                                 <div class="today-card">
                                     <img class='image' src='../../assets/images/cls-bg-1.jpg'>
-                                    <p class="mt-4">
+                                    <p>
                                         {{ data?.course?.subject?.subject_name}} <br>
                                         {{ data?.start_time }}
                                     </p>
@@ -46,51 +57,15 @@
                             </div>
                         </div>
                     </div> 
-                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" *ngIf="hideArrow">
-                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 15px;
-                        height: 15px;"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next" *ngIf="hideArrow">
-                        <span class="carousel-control-next-icon" aria-hidden="true" style="width: 15px;
-                        height: 15px;"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
             </div>
-            <!-- <h5><b>Classes Today</b></h5>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item" *ngFor="let data of todayClassData;let i = index"
-                        [ngClass]="{'active' : i == 0}">
-                        <div class="row">
-                            <div class="col">
-                                <div class="main-card">
-                                    <span class="mt-4">
-                                      {{ data?.class_of?.class_name }} {{ data?.class_of?.section }} <br>
-                                        {{ data?.start_time }}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a> -->
-            <!-- </div> -->
         </div>
         <hr>
         <div class="mt-2">
             <div class="row callNowActivityDiv">
-                <div class="col-lg-5 col-sm-10 col-12 classNowDiv">
+                <div class="col-lg-5 col-sm-12 col-12">
                     <h5><b>Now</b></h5>
-                    <div class="live-card mr-3">
+                    <div class="live-card">
                         <img src='../../assets/images/now-bg.jpg' alt='img'/>
                         <div class="ongoingClassDiv">
                             <div class="text-left mr-2">
@@ -108,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 col-sm-12 mb-4">
+                <div class="col-lg-7 col-sm-12 col-12 mb-4">
                     <div class="activityDiv">
                         <div class="activity-head row">
                             <div class="col-lg-6 col-sm-6 col-md-6 col-6">

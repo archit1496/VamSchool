@@ -1,9 +1,8 @@
-<div class="container-fluid boxModel">
+
   <app-student-nav-bar></app-student-nav-bar>
-  <div
-    style="display: flex;justify-content: center;flex-wrap: wrap;">
-    <section class="outerDiv">
-      <div class="mt-1 innerDiv">
+  <div class="container-fluid">
+    <section>
+      <div class="mt-1 standardDiv">
         <hr>
         <h5 class="mt-2"><b>This Week</b></h5>
         <hr>
@@ -48,7 +47,7 @@
         </div>
 
         <div  *ngIf="notesData?.length > 0">
-          <div class="mt-2" *ngFor="let data of notesData" >
+          <div class="mt-2 student-assignment-description-cnt" *ngFor="let data of notesData" >
             <div class='row'>
               <div class="topicName col-lg-3">{{data?.name}}</div>
               <div class="teacherName col-lg-6">
@@ -86,4 +85,3 @@
       <div class="footer-card"></div>
     </div>
   </div>
-</div>
