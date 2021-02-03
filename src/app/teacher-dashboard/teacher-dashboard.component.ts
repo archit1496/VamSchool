@@ -25,7 +25,9 @@ export class TeacherDashboardComponent implements OnInit {
   teacherCourseData: any;
   todaysTimeTable: any;
   hideArrow = true;
-
+  topicName = "test Topic"
+  agenda = "agenda"
+  
   constructor(private teacherService: TeacherService) {
   }
 
