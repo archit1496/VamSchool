@@ -82,10 +82,7 @@
     padding: .5rem 1rem;
   }
   .activity-heading {
-    background-color: aliceblue;
-    border: 1px solid #96ceff;
     margin-top: 10px;
-    border-radius: 10px;
     width: 100%;
     text-align: center;
     padding: 5px;
@@ -101,10 +98,9 @@
     border: 1px solid #96ceff;
     margin-top: 10px;
     border-radius: 10px;
-    height: 70vh;
+    height: 90vh;
     width: 100%;
     padding: 15px 20px;
-    overflow-y: scroll ;
   } 
   
   .activity-card-element p {

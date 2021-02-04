@@ -4,11 +4,9 @@
     <div class='col-lg-9'>
       <div class="mt-1 stu-standardDiv">
         <div class="mt-1 innerDiv">
-          <hr>
           <h5 class="mt-2"><b>This Week<span *ngIf="studentAssignmentDataTopicWise?.length>0"> 
             > {{studentAssignmentDataTopicWise[0]?.course?.subject?.subject_name}}</span></b>
           </h5>
-          <hr>
           <div *ngIf="studentAssignmentDataSubjectWise?.length > 0">
             <div class="grid">
               <div class='assignment-file-cnt' *ngFor="let data of studentAssignmentDataSubjectWise">
@@ -66,17 +64,17 @@
             </div>
           </div>
         </div>
-        <div class="footer-card"></div>
+        <!-- <div class="footer-card"></div> -->
       </div>
     </div>
 
     <div class="activity-column">
-      <div class="activity-heading">
-        <h2>Activity</h2>
-      </div>
       <div class="activity-card">
-        <div *ngFor="let data of assignmentActivityData" style="display: flex;flex-direction: rows;">
-          <div  class='activity-card-element'>
+        <div class="activity-heading">
+          <h2>Activity</h2>
+        </div>
+        <div  class='activity-card-element'>
+          <div *ngFor="let data of assignmentActivityData" style="display: flex;flex-direction: rows;">
             <p><span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
             {{data.student?.first_name}}  {{data.student?.last_name}} Has Submitted The Answers
             </p>

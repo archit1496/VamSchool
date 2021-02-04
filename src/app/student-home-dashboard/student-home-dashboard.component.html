@@ -1,16 +1,16 @@
 <app-student-nav-bar  [studentDataList]="studentData"></app-student-nav-bar>
 <section class="container-fluid">
-    <div class="mt-1 standardDiv">
+    <div class="standardDiv">
         <app-student-class-subject></app-student-class-subject>
         <div *ngIf="isLoading" class="text-center">
             Loading Data, Please wait... 
         </div>     
         <div class="img-cnt">   
-            <img alt="" height="350"> 
+            <img src="../../assets/images/main-view.png" alt="main"> 
         </div>    
         
         <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
-        <!-- <div class="stats row" *ngIf="true">
+        <div class="stats row" *ngIf="true">
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>{{studentDataList?.hw_pending}}</b></h1>
                 <p class="stats-text"><b>HW Pending</b></p>
@@ -27,7 +27,7 @@
                 <h1><b>{{studentDataList?.test}}</b></h1>
                 <p class="stats-text"><b>Testing</b></p>
             </div>
-        </div> -->
+        </div>
         <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
 
         <hr class="mt-2">
@@ -52,7 +52,9 @@
                             [ngClass]="{'active' : i == 0}" class="carousel-item">
                             <div class="col-6 col-lg-3 col-sm-6">
                                 <div class="today-card">
-                                    <img class='image' src='../../assets/images/cls-bg-1.jpg'>
+                                    <div class='carousel-overlay'>
+                                        <img class='image' src='../../assets/images/cls-bg-1.jpg'>
+                                    </div>
                                     <p>
                                         {{ data?.course?.subject?.subject_name}} <br>
                                         {{ data?.start_time }}
@@ -64,22 +66,22 @@
                 </div>
             </div>
         </div>
-        <hr>
+        <hr> 
         <div class="mt-2">
             <div class="row callNowActivityDiv">
                 <div class="col-lg-5 col-sm-12 col-12">
                     <h5><b>Now</b></h5>
                     <div class="live-card">
                         <img src='../../assets/images/now-bg.jpg' alt='img'/>
-                        <div class="ongoingClassDiv">
+                        <div class="now-status">
                             <div class="text-left mr-2">
-                                <span class="dot"></span>OnGoing
+                                <p><span class="red-dot"></span>OnGoing</p>
                             </div>
                             <div class="startNow">
                                <a (click)="getSignature();hideArrow = false;" target="_new"><b>Join Now ></b></a>
                             </div>
                         </div>
-                        <div class="ongoingClassInfo">
+                        <div class="class-in-div">
                             <span *ngIf="todayClassData?.length>0">
                               {{ todayClassData[0]?.class_of?.class_name }} {{ todayClassData[0]?.class_of?.section }} <br>
                               {{ todayClassData[0]?.start_time }}
@@ -98,12 +100,9 @@
                             </div>
                         </div>
                         <div class="activity-card">
-                            <div *ngFor="let data of dashboardActivityData" style="display: flex;flex-direction: rows;">
+                            <div *ngFor="let data of dashboardActivityData" class="activity-status">
                                 <div>
-                                    <img class="activity-image" src="../../assets/images/circleIcon.svg">
-                                </div> 
-                                <div>
-                                    {{data.activity}}
+                                    <p><span class="green-dot"></span> {{data.activity}}</p>
                                 </div>
                             </div>
                         </div>

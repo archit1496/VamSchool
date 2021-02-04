@@ -3,9 +3,7 @@
   <div class="row">
     <div class='col-lg-9'>
       <div class="mt-1 stu-standardDiv">
-        <hr>
         <h5 class="mt-2"><b>This Week</b></h5>
-        <hr>
         <div *ngIf="isLoading" class="text-center">Loading Data, Please wait...</div>
         <div *ngIf="studentNotesDataSubjectWise?.length > 0">
           <div class="grid">
@@ -60,14 +58,14 @@
         <div *ngIf="studentNotesDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
           <b>No Data To Display</b>
         </div>
-        <div class="footer-card"></div>
+        <!-- <div class="footer-card"></div> -->
       </div>
     </div>
     <div class="activity-column col-lg-3">
-      <div class="activity-heading">
-        <h2>Activity</h2>
-      </div>
       <div class="activity-card">
+        <div class="activity-heading">
+          <h2>Activity</h2>
+        </div>
         <div *ngFor="let data of notesActivity" style="display: flex;flex-direction: rows;">
           <div class='activity-card-element' >
             <p>

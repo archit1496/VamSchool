@@ -1,12 +1,12 @@
 <section class="container-fluid">
-    <div class="mt-1 standardDiv">
+    <div class="standardDiv" style="padding-bottom: 5rem;">
         <div class="row">
             <div class="col-12">
                 <app-classes></app-classes>
             </div>
         </div>
         <div class="img-cnt">   
-            <img alt="" height="350"> 
+            <img src="../../assets/images/main-view.png" alt="main"> 
         </div>
         
         <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
@@ -51,7 +51,9 @@
                             [ngClass]="{'active' : i == 0}" class="carousel-item row">
                             <div class="col-lg-3 col-sm-6 col-6">
                                 <div class="today-card">
-                                    <img class='image' src='../../assets/images/cls-bg-1.jpg'> 
+                                    <div class='carousel-overlay'>
+                                        <img class='image' src='../../assets/images/cls-bg-1.jpg'>
+                                    </div> 
                                     <p>
                                         {{data.class_of.class_name}} {{data.class_of.section}}<br>
                                         {{data.start_time}}
@@ -72,8 +74,7 @@
                         <img src='../../assets/images/now-bg.jpg' alt='img'/>
                         <div class='now-status'>
                             <div class="text-left mr-2">
-                                <span class="dot"></span>
-                                Overdue
+                                <p><span class="red-dot"></span> Overdue</p>
                             </div>
                             <div class="startNow">
                                <a (click)="getSignature(4354,4553);hideArrow = false;" 
@@ -100,6 +101,11 @@
                         </div>
                     </div>
                     <div class="activity-card">
+                        <div class="activity-status"> 
+                            <div>
+                                <p><span class="green-dot"></span> King of the Ring</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
