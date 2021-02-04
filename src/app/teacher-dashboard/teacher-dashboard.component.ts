@@ -14,8 +14,8 @@ ZoomMtg.prepareJssdk();
 })
 export class TeacherDashboardComponent implements OnInit {
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
-  apiKey = 'oy0BFe2gSXadvEYjBmkYfw'
-  // meetingNumber: number;
+  apiKey = 'pgl-ugf3QLubAI30B5EBag'
+  meetingNumber: "1234567892";
   role = '1'
   leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
   userName = 'Daily Standup Meeting'
@@ -25,8 +25,10 @@ export class TeacherDashboardComponent implements OnInit {
   teacherCourseData: any;
   todaysTimeTable: any;
   hideArrow = true;
-  topicName = "test Topic"
-  agenda = "agenda"
+  teacherCourseId : any;
+  meetingpassWord="1234"
+  topicName = "test Topic1"
+  agenda = "agenda1"
   
   constructor(private teacherService: TeacherService) {
   }
@@ -36,23 +38,27 @@ export class TeacherDashboardComponent implements OnInit {
     this.fetchTodaysTimeTable();
   }
 
-  createMeeting(course_id){
+  createMeeting(){
+    var course_id = this.teacherCourseId;
     this.teacherService.createZoomMeeting(this.topicName, this.agenda, course_id).subscribe(res => {
       this.fetchTeacherCourseForHostUrl(course_id);
       
     })
   }
 
-  getSignature(meetingNumber,meetingPassword) {
+  getSignature(meetingNumber, meetingPassword) {
+    // let meetingNumber = this.meetingNumber
     // meetingNumber = 73519189461
     alert(meetingNumber);
-    alert(meetingPassword);
+    // alert(meetingPassword);
     console.log(meetingNumber, 'meetingNumber');
-    
+    // let meetingPassword = this.meetingpassWord
+
     this.signature = ZoomMtg.generateSignature({
       meetingNumber: meetingNumber,
+      
       apiKey: this.apiKey,
-      apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
+      apiSecret: 'TeOVSOTTEyzK2RuQ2eFI7pctZet0YHiKJxxf',
       role: '1',
       success: (res) => {
         console.log(res.result);
@@ -96,6 +102,9 @@ export class TeacherDashboardComponent implements OnInit {
   fetchTeacherCourse(){
     this.teacherService.fetchTeacherCourse().subscribe(res => {
       this.teacherCourseData = res.data;
+      console.log(res.data)
+      console.log("teacher course :" + JSON.stringify(res.data[0].id))
+      this.teacherCourseId = JSON.stringify(res.data[0].id);
     })
   }
 
