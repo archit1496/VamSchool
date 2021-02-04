@@ -13,9 +13,12 @@
     width: 50%;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #4CAF50;
+    border-bottom: 1px solid #4CAF50;
     color:#000000;
     margin: 0.1rem;
+    border-right: none;
+    border-top: none;
+    border-left: none;
   }
 
   .select-course {
@@ -30,9 +33,12 @@
     width: 100%;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #4CAF50;
+    border-bottom: 1px solid #4CAF50;
     color:#000000;
     margin: 0.1rem;
+    border-right: none;
+    border-top: none;
+    border-left: none;
   }
 
   .upload-assign-cnt{
@@ -166,11 +172,6 @@
     width: 100%;
     margin-bottom:10px;
     opacity: 0.8;
-  }
-  
-  /* Add a red background color to the cancel button */
-  .form-container .cancel {
-    /* background-color: red; */
   }
   
   /* Add some hover effects to buttons */

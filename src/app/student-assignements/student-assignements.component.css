@@ -12,13 +12,21 @@
 }
 .innerDiv{
   width: 100%;
-  max-width: 796px;
   align-self: flex-end;
 }
+
 .grid{
   display: grid;
   grid-template-columns: repeat(5,1fr);
   grid-gap: 2px;
+}
+
+@media screen and (max-width: 600px) {
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2px;
+  }
 }
 
 .activity-column {
@@ -30,10 +38,7 @@
   padding: .5rem 1rem;
 }
 .activity-heading {
-  background-color: aliceblue;
-  border: 1px solid #96ceff;
   margin-top: 10px;
-  border-radius: 10px;
   width: 100%;
   text-align: center;
   padding: 5px;
@@ -49,11 +54,11 @@
   border: 1px solid #96ceff;
   margin-top: 10px;
   border-radius: 10px;
-  height: 70vh;
-  width: 300px;
+  height: 90vh;
+  width: 100%;
   padding: 15px 20px;
-  overflow-y: scroll ;
 } 
+
 
 .activity-card-element p {
   border-radius: 5px;
@@ -105,6 +110,9 @@
   border-radius: 5px;
   transition-duration: 0.3s;
   padding: 5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .student-assignment-description-cnt:hover {
@@ -120,7 +128,7 @@
 .topicName{
   flex: 2;
   color: black;
-  font-weight: 500;
+  font-weight: bold;
 }
 .teacherName{
   color: lightgreys;
@@ -144,4 +152,17 @@
   height: 0;
   overflow: hidden;
   width: 0;
+}
+
+.stu-standardDiv{
+  margin-left: 15rem;
+  margin-right: 0;
+  padding: 10px;
+}
+@media screen and (max-width: 600px) {
+  .stu-standardDiv {
+      margin-left: inherit;
+      margin-right: inherit;
+      padding: 5px;
+  }
 }

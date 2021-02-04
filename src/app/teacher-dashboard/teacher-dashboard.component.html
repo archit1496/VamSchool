@@ -1,51 +1,59 @@
-<section class="container-fluid boxModel">
-    <!-- <app-teacher-navbar></app-teacher-navbar> -->
-    <div class="mt-1 standardDiv">
+<section class="container-fluid">
+    <div class="standardDiv" style="padding-bottom: 5rem;">
         <div class="row">
             <div class="col-12">
                 <app-classes></app-classes>
             </div>
         </div>
         <div class="img-cnt">   
-            <img alt="" height="350"> 
+            <img src="../../assets/images/main-view.png" alt="main"> 
         </div>
-        <div class="stats row mt-3" *ngIf="true">
+        
+        <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
+        <!-- <div class="stats row mt-3" *ngIf="true">
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>3</b></h1>
-                <p class="font-size14"><b>HW Pending</b></p>
+                <p class="stats-text"><b>HW Pending</b></p>
             </div>
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>98%</b></h1>
-                <p class="font-size14"><b>Attendance</b></p>
+                <p class="stats-text"><b>Attendance</b></p>
             </div>
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>68%</b></h1>
-                <p class="font-size14"><b>Average</b></p>
+                <p class="stats-text"><b>Average</b></p>
             </div>
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>1</b></h1>
-                <p class="font-size14"><b>Testing</b></p>
+                <p class="stats-text"><b>Testing</b></p>
             </div>
-        </div>
+        </div> -->
+        <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
+
         <hr>
-        <div class="mt-3">
-            <h5 style="width: fit-content; position: relative; float: left;"><b>Classes Today</b></h5>
-            <div class="myCarousel-container">
-                <a class="" href="#myCarousel" role="button" data-slide="prev" *ngIf="hideArrow">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <div class="mt-3 classes-container col-lg-12 col-sm-12 col-md-12">
+            <h5><b>Classes Today</b>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" *ngIf="hideArrow">
+                    <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 15px;
+                    height: 15px;"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="" href="#myCarousel" role="button" data-slide="next" *ngIf="hideArrow">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next" *ngIf="hideArrow">
+                    <span class="carousel-control-next-icon" aria-hidden="true" style="width: 15px;
+                    height: 15px;"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                     <span class="sr-only">Next</span>
                 </a>
+            </h5>
+            <div class="myCarousel-container">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div *ngFor="let data of todaysTimeTable;let i = index"
                             [ngClass]="{'active' : i == 0}" class="carousel-item row">
-                            <div class="col-3 col-lg-3 col-sm-3">
+                            <div class="col-lg-3 col-sm-6 col-6">
                                 <div class="today-card">
-                                    <img class='image' src='../../assets/images/cls-bg-1.jpg'> 
+                                    <div class='carousel-overlay'>
+                                        <img class='image' src='../../assets/images/cls-bg-1.jpg'>
+                                    </div> 
                                     <p>
                                         {{data.class_of.class_name}} {{data.class_of.section}}<br>
                                         {{data.start_time}}
@@ -66,8 +74,7 @@
                         <img src='../../assets/images/now-bg.jpg' alt='img'/>
                         <div class='now-status'>
                             <div class="text-left mr-2">
-                                <span class="dot"></span>
-                                Overdue
+                                <p><span class="red-dot"></span> Overdue</p>
                             </div>
                             <div class="startNow">
                                <a (click)="createMeeting();hideArrow = false;" 
@@ -94,6 +101,11 @@
                         </div>
                     </div>
                     <div class="activity-card">
+                        <div class="activity-status"> 
+                            <div>
+                                <p><span class="green-dot"></span> King of the Ring</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -9,10 +9,33 @@
 
 .tt-cnt {
   padding: 10px;
-  border: 1px solid rgb(150, 206, 255);
-  box-shadow: 0 0 3px 0 rgb(79 111 139);
   border-radius: 10px;
-  background: #ddefff;
+}
+
+/* width */
+.tt-cnt::-webkit-scrollbar {
+  height: 3px;
+}
+
+/* Track */
+.tt-cnt::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.tt-cnt::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.tt-cnt::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.grid {
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .outerDiv{

@@ -1,121 +1,103 @@
-<div class="container-fluid boxModel">
-  <app-student-nav-bar></app-student-nav-bar>
-  <section>
-    <div class="mt-1 standardDiv">
-      <app-student-class-subject (subjectSelected)="subjectSelected($event)"></app-student-class-subject>
-      
-      <div class="table-head">
-        <div class="col-lg-12">
-          <hr><h5 class="mt-2"><b>This Week</b></h5><hr>
-        </div>  
-      </div>
-      <div class="col-12 tt-cnt" style='overflow-x: scroll;'>
-        <div *ngIf="isLoading" class="text-center">
-          Loading Data, Please wait...
-        </div> 
-
-        <div style="margin: 40px 0;display: grid; grid-template-columns: repeat(7, 1fr)" 
-              *ngIf="timeTableData?.length>0">
-          <div style="display: grid">
-            <div class="outerGrid">
-              <b style="padding: 0px 10px;">Monday</b>
-            </div>
-            <div class="main-card mt-2" *ngFor="let data of mondayData">
-              <span class="mt-4">
-                {{ data?.course?.subject?.subject_name }} <br />
-                <span style="font-size: 13px">
-                  {{ data?.start_time }}
-                </span>
-              </span>
-            </div>
+<app-student-nav-bar></app-student-nav-bar>
+  <div class="container-fluid">
+    <section> 
+      <div class="standardDiv">
+        <div class="innerDiv">
+          <app-student-class-subject (subjectSelected)="subjectSelected($event)"></app-student-class-subject>
+          <div class="table-head">
+            <div class="col-lg-12">
+              <h5 class="mt-4 mb-4"><b>This Week</b></h5>
+            </div>  
           </div>
-
-          <div style="display: grid">
-            <div class="outerGrid">
-              <b style="padding: 0px 10px;">Tuesday</b>
-            </div>
-            <div class="main-card mt-2" *ngFor="let data of tuesdayData">
-              <span class="mt-4">
-                {{ data?.course?.subject?.subject_name }} <br />
-                <span style="font-size: 13px">
-                  {{ data?.start_time }}
-                </span>
-              </span>
-            </div>
+          <div class="col-12 tt-cnt" style='overflow-x: scroll;'>
+            <div *ngIf="isLoading" class="text-center">
+              Loading Data, Please wait...
+            </div> 
+            <div class="grid" *ngIf="timeTableData?.length>0">
+              <div style="display: grid">
+                <div class="outerGrid"><b style="padding: 0px 10px;">Monday</b></div>
+                  <div class="main-card mt-2" *ngFor="let data of mondayData">
+                    <span class="mt-4">
+                      {{ data?.course?.subject?.subject_name }} <br />
+                      <span style="font-size: 13px">
+                        {{ data?.start_time }}
+                      </span>
+                    </span>
+                  </div>
+              </div>
+              <div style="display: grid">
+                <div class="outerGrid"><b style="padding: 0px 10px;">Tuesday</b></div>
+                  <div class="main-card mt-2" *ngFor="let data of tuesdayData">
+                    <span class="mt-4">
+                      {{ data?.course?.subject?.subject_name }} <br />
+                      <span style="font-size: 13px">
+                        {{ data?.start_time }}
+                      </span>
+                    </span>
+                  </div>
+              </div>
+              <div style="display: grid">
+                <div class="outerGrid"><b style="padding: 0px 10px;">Wednesday</b></div>
+                  <div class="main-card mt-2" *ngFor="let data of wednesdayData">
+                    <span class="mt-4">
+                      {{ data?.course?.subject?.subject_name }} <br />
+                      <span style="font-size: 13px">
+                        {{ data?.start_time }}
+                      </span>
+                    </span>
+                  </div>
+              </div>
+              <div style="display: grid">
+                <div class="outerGrid"><b style="padding: 0px 10px;">Thursday</b></div>
+                  <div class="main-card mt-2" *ngFor="let data of thrusdayData">
+                    <span class="mt-4">
+                      {{ data?.course?.subject?.subject_name }} <br />
+                      <span style="font-size: 13px">
+                        {{ data?.start_time }}
+                      </span>
+                    </span>
+                  </div>
+              </div>
+              <div style="display: grid">
+                <div class="outerGrid"><b style="padding: 0px 10px;">Friday</b></div>
+                  <div class="main-card mt-2" *ngFor="let data of fridayData">
+                    <span class="mt-4">
+                      {{ data?.course?.subject?.subject_name }} <br />
+                      <span style="font-size: 13px">
+                        {{ data?.start_time }}
+                      </span>
+                    </span>
+                  </div>
+              </div>
+              <div style="display: grid">
+                <div class="outerGrid"><b style="padding: 0px 10px;">Saturday</b></div>
+                <div class="main-card mt-2" *ngFor="let data of saturdayData">
+                  <span class="mt-4">
+                    {{ data?.course?.subject?.subject_name }} <br />
+                    <span style="font-size: 13px">
+                      {{ data?.start_time }}
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div style="display: grid">
+                <div class="outerGrid"><b style="padding: 0px 10px;">Sunday</b></div>
+                  <div class="main-card mt-2" *ngFor="let data of sundayData">
+                    <span class="mt-4">
+                      {{ data?.course?.subject?.subject_name }} <br />
+                      <span style="font-size: 13px">
+                        {{ data?.start_time }}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="timeTableData?.length==0" style="text-align: center;">
+                <b>No Data To Display</b>
+              </div>
           </div>
-
-          <div style="display: grid">
-            <div class="outerGrid">
-              <b style="padding: 0px 10px;">Wednesday</b>
-            </div>
-            <div class="main-card mt-2" *ngFor="let data of wednesdayData">
-              <span class="mt-4">
-                {{ data?.course?.subject?.subject_name }} <br />
-                <span style="font-size: 13px">
-                  {{ data?.start_time }}
-                </span>
-              </span>
-            </div>
-          </div>
-          <div style="display: grid">
-            <div class="outerGrid">
-              <b style="padding: 0px 10px;">Thursday</b>
-            </div>
-            <div class="main-card mt-2" *ngFor="let data of thrusdayData">
-              <span class="mt-4">
-                {{ data?.course?.subject?.subject_name }} <br />
-                <span style="font-size: 13px">
-                  {{ data?.start_time }}
-                </span>
-              </span>
-            </div>
-          </div>
-          <div style="display: grid">
-            <div class="outerGrid">
-              <b style="padding: 0px 10px;">Friday</b>
-            </div>
-            <div class="main-card mt-2" *ngFor="let data of fridayData">
-              <span class="mt-4">
-                {{ data?.course?.subject?.subject_name }} <br />
-                <span style="font-size: 13px">
-                  {{ data?.start_time }}
-                </span>
-              </span>
-            </div>
-          </div>
-          <div style="display: grid">
-            <div class="outerGrid">
-              <b style="padding: 0px 10px;">Saturday</b>
-            </div>
-            <div class="main-card mt-2" *ngFor="let data of saturdayData">
-              <span class="mt-4">
-                {{ data?.course?.subject?.subject_name }} <br />
-                <span style="font-size: 13px">
-                  {{ data?.start_time }}
-                </span>
-              </span>
-            </div>
-          </div>
-          <div style="display: grid">
-            <div class="outerGrid">
-              <b style="padding: 0px 10px;">Sunday</b>
-            </div>
-            <div class="main-card mt-2" *ngFor="let data of sundayData">
-              <span class="mt-4">
-                {{ data?.course?.subject?.subject_name }} <br />
-                <span style="font-size: 13px">
-                  {{ data?.start_time }}
-                </span>
-              </span>
-            </div>
-          </div>
-        </div>
-      
-        <div *ngIf="timeTableData?.length==0" style="text-align: center;">
-          <b>No Data To Display</b>
+          <!-- <div class="footer-card" style="height: 95px;"></div> -->
         </div>
       </div>
-      <div class="footer-card" style="height: 95px;"></div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>

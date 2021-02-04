@@ -9,48 +9,69 @@ app-home-header {
     position: absolute;
     width: 100%;
     z-index: 2;
-    background: #ec407a;
+    background: lightgrey;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-nav {
+    flex-direction: column;
+  }
 }
 
 button.requestDemo.btn {
-  border: 2px solid #6d0f8a;
+  border: 2px solid #616161;
   background-color: transparent;
-  color: #ffffff;
+  color: #616161;
   width: max-content;
   transition-duration: 0.3s;
 }
 
 button.requestDemo.btn:hover {
   background-color: #9e48b9;
-  border: 2px solid #ffffff;
+  border: 2px solid #616161;
   color: white;
 }
 
 li .login-items{
   font-family: 'Mulish', sans-serif;
-  font-weight: 500;
-  color: white;
+  font-weight: bolder;
+  color: #616161;
   margin: 0 1rem;
 }
 
 li .login-items:hover {
-  color: #000000;
+  color: #9e48b9;
+}
+
+li .login-items.active {
+  color: #9e48b9;
 }
 
 .homeNavbrand{
   font-family: 'Mulish', sans-serif;
   color: #202020!important;
   font-size: 2rem;
-  font-weight: 600;
   margin: 0;
 }
 
 .homeNavbrand h1{
   margin: 0;
+  font-weight: bolder;
 }
 
 .homeNavbrand:hover {
-  color: #9e48b9!important;
+  color: #420057!important;
 }
 
 .card{

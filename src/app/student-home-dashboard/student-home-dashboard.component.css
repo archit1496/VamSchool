@@ -1,5 +1,3 @@
-
-
 a b{
   color: black;
   cursor: pointer;
@@ -15,14 +13,31 @@ a b:hover{
   height: 100%;
 }
 
+.stats {
+  padding: 1.5rem;
+}
 
-.stats .text-center h1 {
+.stats h1 {
   color: #007bff;
+}
+
+.stats-text {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  .stats h1 {
+    font-size: 1.5rem;
+  }
+  .stats-text {
+    font-size: 10px;
+  }
 }
 
 .live-card:before {
   content: '';
-  background-image: linear-gradient(45deg, #00c6d07a, #0010837d);
+  background-image: linear-gradient(45deg, #000000, #000000);
+  opacity: 0.25;    
   width: 100%;
   height: 100%;
   top: 0;
@@ -40,14 +55,50 @@ a b:hover{
   border-radius: 10px;
 }
 
-.activity-card{
-  background-color: aliceblue;
-  border: 1px solid rgb(150, 206, 255);
-  box-shadow: 0 0 3px 0  rgb(79, 111, 139);
-  border-radius: 10px;
-  height: 200px !important;
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #E52828;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.img-cnt {
   width: 100%;
-  padding: 0.5rem;
+}
+.img-cnt img {
+  width: 100%;
+}
+
+.activity-card{
+  border-radius: 10px;
+  background-image: url("../../assets/images/trophy.png");
+  background-size: 100% 100%;
+  position: relative;
+  height: 100% !important;
+  width: 100%!important;
+  min-height: 358px;
+  padding: 5px 14px;
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .activity-card{
+    background-size: 100% 100%;
+    position: relative;
+    height: 100% !important;
+    width: 100%!important;
+    min-height: 210px;
+    opacity: 1;
+  }
+}
+
+.activity-status {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
 }
 
 .activity-head h5 {
@@ -59,9 +110,38 @@ a b:hover{
   font-size: 14px;
 }
 
+.now-status .text-left {
+  font-size: 24px;
+}
+
+
+.now-status {
+  top: 0;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 14px;
+  color: #ffffff!important;
+  z-index: 2;
+}
+
 .startNow{
   display: flex;
   justify-content:flex-end; 
+  right: 0;
+  color: rgb(235, 235, 255);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.class-in-div{
+  position: absolute  ;
+  bottom: 0;
+  color: #ffffff;
+  padding: 4px 14px;
+  font-size: 24px;
+  z-index: 2;
 }
 
 .classes-container {
@@ -73,18 +153,19 @@ a b:hover{
   padding: 0.5rem 0;
 }
 
-.carousel-control-next{
-  /* top: -130px !important; */
-  /* right: 0 !important; */
+.carousel-control-prev {
+    right: 30px!important;
+    left:auto;
 }
 
-.carousel-control-prev{
-  /* top: -130px !important; */
-  /* left: 598px !important; */
+.carousel-control-next, .carousel-control-prev {
+    display: block;
+    bottom: auto;
+    width: fit-content;
 }
 
-.class-in-div{
-  margin-top: 7.5rem;
+.carousel-control-next-icon i, .carousel-control-prev-icon i{
+  color: #303030;
 }
 
 .outerDiv{
@@ -142,20 +223,21 @@ a b:hover{
 
 
 .today-card p{
-  top: 0;
-  width: 100%;
+  bottom: 0;
   position: absolute;
   z-index: 2;
-  height: 100%;
-  padding: 5px;
-  color: black;
-} 
+  padding: 10px 10px;
+  color: #ffffff;
+  margin: 0;
+  font-size: 24px;
+}
 
-.carousel-inner {
+
+/* .carousel-inner {
   display: flex;
   text-align: center;
   justify-content: center;
-}
+} */
 
 @media only screen and (max-width: 400px) {
   .outerDiv{
@@ -177,4 +259,22 @@ a b:hover{
     margin-top: 10px;
     max-width: 350px !important;
   }
+}
+
+.carousel-overlay {
+  position: relative;
+}
+
+
+.carousel-overlay:after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background: #000000;
+  position: absolute;
+  top: 0;
+  content: '';
+  left: 0;
+  opacity: 0.30;
+  border-radius: 10px;
 }

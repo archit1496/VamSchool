@@ -16,11 +16,21 @@
     max-width: 796px;
     align-self: flex-end;
   }
+
   .grid{
     display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-gap: 5px;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 2px;
   }
+  
+  @media screen and (max-width: 600px) {
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-gap: 2px;
+    }
+  }
+  
   .activity-card{
     border: 1px solid black;
   height: 650px;
@@ -72,10 +82,7 @@
     padding: .5rem 1rem;
   }
   .activity-heading {
-    background-color: aliceblue;
-    border: 1px solid #96ceff;
     margin-top: 10px;
-    border-radius: 10px;
     width: 100%;
     text-align: center;
     padding: 5px;
@@ -91,10 +98,9 @@
     border: 1px solid #96ceff;
     margin-top: 10px;
     border-radius: 10px;
-    height: 70vh;
-    width: 300px;
+    height: 90vh;
+    width: 100%;
     padding: 15px 20px;
-    overflow-y: scroll ;
   } 
   
   .activity-card-element p {
@@ -105,3 +111,40 @@
     background-color: #dfeffc;
   } 
   
+  .student-assignment-description-cnt:hover {
+    background-color: #b2dafc;
+    border: 1px solid aliceblue;
+  }
+  
+  .student-assignment-description-cnt p{
+    margin: 0;
+    font: bold;
+    font-size: 18px;
+  }
+
+  .student-assignment-description-cnt {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .topicName{
+    flex: 2;
+    color: black;
+    font-weight: bold;
+  }
+
+  .stu-standardDiv{
+    margin-left: 15rem;
+    margin-right: 0;
+    padding: 10px;
+  }
+  @media screen and (max-width: 600px) {
+    .stu-standardDiv {
+        margin-left: inherit;
+        margin-right: inherit;
+        padding: 5px;
+    }
+  }

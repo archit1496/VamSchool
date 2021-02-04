@@ -1,44 +1,49 @@
 <nav id='navbar' class="navbar navbar-expand-lg">
     <div id='nav-collapse' class="navbar-collapse justify-content-center">   
-        <div id="myTopnav" class="topnav">
-            <div class="teacher-details-cnt">
-                <div class="d-inline-block align-center logo-img rounded-circle">
-                    <p>{{initial}}</p>
-                </div> 
+        <div class="teacher-details-cnt">
+            <div class="d-inline-block align-center logo-img rounded-circle">
+                <p>{{initial}}</p>
+            </div> 
+            <div class="logo-text"> 
                 <div class="teacher-name-div">
                     <p class="logo-name">{{firstName}} {{lastName}}</p>
                 </div>
                 <div class="logo-school-div">
-                    <p class="teacher-name">{{subject}} Teacher {{school}}</p>
+                    <p class="teacher-name">{{subject}} Teacher</p>
+                    <p class="school-name"> {{school}}</p>
                 </div>
             </div>
+        </div> 
+        <div id="myTopnav" class="topnav">
             <div class="dashboard-nav-menu">
                 <a href="javascript:void(0);" class="icon" (click)="showMenu()">
                     <i class="fa fa-bars" aria-hidden='true'></i>
                 </a>
-                <a id="nav-link" class="nav-link  mr-5"  (click)='showMenu()'
-                    routerLink="/wrapper/teacherNav/teacherdashboard" routerLinkActive="active">
-                    <strong>Dashboard</strong>
-                </a>
-                <a id="nav-link" class="nav-link  mr-5"  (click)='showMenu()'
-                    routerLink="/wrapper/teacherNav/teachertimetable" routerLinkActive="active">
-                    <strong>Time Table</strong>
-                </a>
-                <a id="nav-link" class="nav-link  mr-5"  (click)='showMenu()'
-                    routerLink="/wrapper/teacherNav/teachercheckassignments" routerLinkActive="active">
-                    <strong>Assignments</strong>
-                </a>
-                <a id="nav-link" class="nav-link" (click)='showMenu()'
-                    routerLink="/wrapper/teacherNav/teachernotes" routerLinkActive="active">
-                    <strong>Study Material</strong>
-                </a>
-                <a id="nav-link" class="nav-link logout" (click)="logout()">
-                    <strong>Log Out</strong>
-                </a> 
+                <div class="menu">
+                    <a id="nav-link" class="cursor-pointer nav-link"  (click)='showMenu()'
+                        routerLink="/wrapper/teacherNav/teacherdashboard" routerLinkActive="active">
+                        <strong>Dashboard</strong>
+                    </a>
+                    <a id="nav-link" class="cursor-pointer nav-link"  (click)='showMenu()'
+                        routerLink="/wrapper/teacherNav/teachertimetable" routerLinkActive="active">
+                        <strong>Time Table</strong>
+                    </a>
+                    <a id="nav-link" class="cursor-pointer nav-link"  (click)='showMenu()'
+                        routerLink="/wrapper/teacherNav/teachercheckassignments" routerLinkActive="active">
+                        <strong>Assignments</strong>
+                    </a>
+                    <a id="nav-link" class="cursor-pointer nav-link" (click)='showMenu()'
+                        routerLink="/wrapper/teacherNav/teachernotes" routerLinkActive="active">
+                        <strong>Study Material</strong>
+                    </a>
+                    <a id="nav-link" class="cursor-pointer nav-link logout" (click)="logout()">
+                        <strong>Log Out</strong>
+                    </a>
+                </div> 
             </div>           
         </div>
     </div>
 </nav>
-<div class="col-12 offset">
+<div>
     <router-outlet></router-outlet>
 </div>
