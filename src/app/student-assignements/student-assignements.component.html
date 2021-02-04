@@ -4,7 +4,7 @@
     <div class='col-lg-9'>
       <div class="mt-1 stu-standardDiv">
         <div class="mt-1 innerDiv">
-          <h5 class="mt-2"><b>This Week<span *ngIf="studentAssignmentDataTopicWise?.length>0"> 
+          <h5 class="mt-4 mb-4"><b>This Week<span *ngIf="studentAssignmentDataTopicWise?.length>0"> 
             > {{studentAssignmentDataTopicWise[0]?.course?.subject?.subject_name}}</span></b>
           </h5>
           <div *ngIf="studentAssignmentDataSubjectWise?.length > 0">
@@ -41,11 +41,11 @@
             <div class="cursor-pointer student-assignment-description-cnt" *ngFor="let data of studentAssignmentDataTopicWise"  
                   (click)="getTopicDetails(data?.id)">
               <div class="row">
-                <div class="topicName col-lg-3 col-sm-6 col-12"><p>{{data?.topic}}</p></div>
-                <div class="teacherName col-lg-3 col-sm-6 col-12"><p>{{data?.teacher?.name}}</p></div>
-                <div class='file-type col-lg-3 col-sm-12 col-12'>
+                <div class="topicName col-lg-6 col-sm-6 col-12"><p>{{data?.topic}}</p></div>
+                <div class="teacherName col-lg-6 col-sm-6 col-12"><p>{{data?.teacher?.name}}</p></div>
+                <!-- <div class='file-type col-lg-3 col-sm-12 col-12'>
                   <p>{{getFileType(data?.doc_question)}}<span *ngIf="data?.doc_question"> file</span></p> 
-                </div>
+                </div> -->
               </div>
               <div *ngIf="data?.id==questionId" class="assignment-btn-cnt row">
                 <div class="col-lg-3 col-sm-6 col-6">
