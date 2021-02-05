@@ -34,6 +34,7 @@ export class StudentHomeDashboardComponent implements OnInit {
   dashboardActivityData;
 
   hideJoinBtn = true;
+  disableJoinBtn = true;
   constructor(private router: Router,public studentService:StudentService) {
     this.fetchStudentDetails();
     this.fetchDashboardActivityData();
@@ -55,13 +56,15 @@ export class StudentHomeDashboardComponent implements OnInit {
   fetchStudentDetails() {
     this.isLoading = true;
     this.studentService.fetchStudentDetails().subscribe(res => {
+      console.log('studentDataList', res);
+      
       this.isLoading = false;
       this.studentDataList = res;
       StorageService.setItem('class_id',this.studentDataList.student_class.id);
       if (this.studentDataList.courses.length) {
         StorageService.setItem('subjectName',
       
-        this.studentDataList.courses[0].subject.subject_name);
+        this.studentDataList.courses.subject.subject_name);
       }
  
       StorageService.setItem('schoolName',this.studentDataList.school);
@@ -77,9 +80,15 @@ export class StudentHomeDashboardComponent implements OnInit {
 
 
   getData(){
-    this.studentService.fetchZoomIdPassword(this.studentDataList.courses[0].id).subscribe(res=>{
-      this.getSignature(res.course.meeting_id, res.course.meeting_password)
-    })
+    if (Object.keys(this.studentDataList.courses).length) {
+      this.studentService.fetchZoomIdPassword(this.studentDataList.courses.id).subscribe(res=>{
+        this.hideJoinBtn = false
+        this.getSignature(res.course.meeting_id, res.course.meeting_password)
+      })
+    } else {
+      alert('class not start');
+    }
+
   }
 
   getSignature(id, pass) {
