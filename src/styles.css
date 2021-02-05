@@ -62,7 +62,8 @@ p {
   padding: 5px;
   background-color: transparent;
   transition-duration: .5s;
-  margin: 0 4px;
+  margin: 4px;
+
 }
 
 .solid-btn-voilet:hover {
@@ -79,7 +80,7 @@ p {
   padding: 5px;
   background-color: transparent;
   transition-duration: .5s;
-  margin: 0 4px;
+  margin: 4px;
 }
 
 .solid-btn-green:hover {
@@ -92,7 +93,7 @@ p {
 .standardDiv{
   margin-left: 15rem;
   margin-right: 15rem;
-  padding: 10px;
+  padding: 0 10px 10px 10px;;
 }
 @media screen and (max-width: 600px) {
   .standardDiv {
@@ -102,11 +103,28 @@ p {
   }
 }
 
-.img-cnt, #classes, .assignment-nav {
+.red-dot {
+  height: 10px;
+  width: 10px;
+  background-color: #E52828;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.green-dot {
+  height: 10px;
+  width: 10px;
+  background-color: #43bd1e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#classes, .assignment-nav {
   background-color: aliceblue;
   border: 1px solid #96ceff;
   margin-top: 10px;
   border-radius: 10px;
+  padding: 0 .5rem!important;
 }
 
 @media (min-width: 640px) { body {font-size:1rem;} } 
@@ -208,7 +226,7 @@ p {
   left:0;
   width: 100%;
   z-index: 2;
-  background: #ec407a;
+  background: lightgrey;
   padding: 0.5rem 1rem;
   transition-duration: 0.5s ;
 }
@@ -419,7 +437,8 @@ p {
 
 .main-card{
   color: #0e7dff;
-  border: .5px solid #9ecbf3 !important;
+  border-left: .5px solid #9ecbf3 !important;
+  border-bottom: .5px solid #9ecbf3 !important;
   height: 100%;
   width: 100%;
   background-color: #f0f8ff !important;
@@ -439,16 +458,12 @@ p {
   bottom: -8px !important;
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-    background-color: black !important;
-}
-
 .footer-card{
   background-color: aliceblue;
   border: 1px solid #96ceff;
   margin-top: 10px;
   border-radius: 10px;
+  height: 20vh;
 }
 .footer-div{
   height: 120px !important;

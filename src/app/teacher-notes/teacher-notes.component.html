@@ -77,7 +77,7 @@
     <section class="outerDiv">
       <div class=" innerDiv">
         <div class="col-lg-12">
-          <hr><h5 class=""><b>This Week</b></h5><hr>
+          <h5 class="mt-4 mb-4"><b>This Week</b></h5>
         </div> 
         <div *ngIf="isLoading" class="text-center">
           Loading Data, Please wait...
@@ -139,7 +139,7 @@
             <div class="notes-card"></div>
               <div class="assignment-description">
                 <p class="class-name cursor-pointer">{{data.name}}</p>
-                <p style="font-size: 10px">{{data.note ? (data.note.slice((Math.max(0, data.note.lastIndexOf(".")) || Infinity) + 1)) : ''}} file</p> 
+                <p class="class-subname">{{data.note ? (data.note.slice((Math.max(0, data.note.lastIndexOf(".")) || Infinity) + 1)) : ''}} file</p> 
               </div>
             </div>
             <div class="notes-card-cnt" (click)="openForm()">

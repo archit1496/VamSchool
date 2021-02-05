@@ -1,37 +1,31 @@
-<div class="container-fluid boxModel">
-  <app-student-nav-bar></app-student-nav-bar>
-  <div
-    style="display: flex;justify-content: center;flex-wrap: wrap;">
-    <section class="outerDiv">
-      <div class="mt-1 innerDiv">
-        <hr>
-        <h5 class="mt-2"><b>This Week</b></h5>
-        <hr>
+<app-student-nav-bar></app-student-nav-bar>
+<div class="container-fluid">
+  <div class="row">
+    <div class='col-lg-9'>
+      <div class="mt-1 stu-standardDiv">
+        <h5 class="mt-4 mb-4"><b>This Week</b></h5>
         <div *ngIf="isLoading" class="text-center">Loading Data, Please wait...</div>
-          <div *ngIf="studentNotesDataSubjectWise?.length > 0">
-            <div class="grid">
-              <div class='assignment-file-cnt' *ngFor="let data of studentNotesDataSubjectWise">
-                <div class="assignment-file" (click)="fetchNotesDataTopicWise(data?.id)"></div>
-                  <div class="assignment-description"> 
-                    <p class="class-name cursor-pointer">{{ data?.subject_name }}</p>
-                  </div>
+        <div *ngIf="studentNotesDataSubjectWise?.length > 0">
+          <div class="grid">
+            <div class='assignment-file-cnt' *ngFor="let data of studentNotesDataSubjectWise">
+              <div class="assignment-file" (click)="fetchNotesDataTopicWise(data?.id)"></div>
+                <div class="assignment-description"> 
+                  <p class="class-name cursor-pointer">{{ data?.subject_name }}</p>
                 </div>
-            </div>
+              </div>
           </div>
-        
-            <div class="grid" *ngIf="studentNotesDataTopicWise?.length > 0">
-              <div class="assignment-file-cnt" *ngFor="let data of studentNotesDataTopicWise"
-                  (click)="openNotesData();selectedStudentNotesData = data">
-                  <div class="assignment-file"></div>
-                  <div class="assignment-description"> 
-                    <p class="class-name">{{ data?.name }}</p>
-                    <p class="cursor-pointer">{{data?.file_count}} Files</p>
-                    <p style="font-size: 10px">{{ getDate(data.created_on) }}</p>
-                  </div>
-                </div>
+        </div>
+        <div class="grid" *ngIf="studentNotesDataTopicWise?.length > 0">
+          <div class="assignment-file-cnt" *ngFor="let data of studentNotesDataTopicWise"
+              (click)="openNotesData();selectedStudentNotesData = data">
+              <div class="assignment-file"></div>
+              <div class="assignment-description"> 
+                <p class="class-name">{{ data?.name }}</p>
+                <p class="cursor-pointer">{{data?.file_count}} Files</p>
+                <p style="font-size: 10px">{{ getDate(data.created_on) }}</p>
+              </div>
             </div>
-          
-
+        </div>
         <div class="grid" *ngIf="studentNotesVideos">
           <div class="cursor-pointer assignment-file-cnt" (click)="fetchNotesData('note')">
             <div class="assignment-file"></div>
@@ -46,15 +40,14 @@
             </div>
           </div>
         </div>
-
         <div  *ngIf="notesData?.length > 0">
-          <div class="mt-2" *ngFor="let data of notesData" >
+          <div class="mt-2 student-assignment-description-cnt" *ngFor="let data of notesData" >
             <div class='row'>
-              <div class="topicName col-lg-3">{{data?.name}}</div>
-              <div class="teacherName col-lg-6">
+              <div class="topicName col-lg-6">{{data?.name}}</div>
+              <!-- <div class="teacherName col-lg-6">
                 {{getFileType(data.note? data?.note : data?.video)}} <span *ngIf="data.note? data?.note : data?.video">file</span>
-              </div>
-              <div class='col-lg-3'>
+              </div> -->
+              <div class='col-lg-6'>
                 <button class="solid-btn-green" (click)="onDownloadClick('https://api.vamschool.in' + 
                 (data.note? data?.note : data?.video))">
                   Download</button>
@@ -65,25 +58,22 @@
         <div *ngIf="studentNotesDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
           <b>No Data To Display</b>
         </div>
+        <!-- <div class="footer-card"></div> -->
       </div>
-    </section>
-    
-    <div class="activity-column">
-      <div class="activity-heading">
-        <h2>Activity</h2>
-      </div>
+    </div>
+    <div class="activity-column col-lg-3">
       <div class="activity-card">
+        <div class="activity-heading">
+          <h2>Activity</h2>
+        </div>
         <div *ngFor="let data of notesActivity" style="display: flex;flex-direction: rows;">
           <div class='activity-card-element' >
             <p>
               <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span>{{data.activity}}
             </p>
           </div>
-       </div>
+        </div>
       </div>
-    </div>
-    <div style="order: 3;">
-      <div class="footer-card"></div>
     </div>
   </div>
 </div>

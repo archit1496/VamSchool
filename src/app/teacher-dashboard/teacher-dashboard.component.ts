@@ -24,7 +24,7 @@ export class TeacherDashboardComponent implements OnInit {
   signature: any;
   teacherCourseData: any;
   todaysTimeTable: any;
-  hideArrow = true;
+
   teacherCourseId : any;
   meetingpassWord="1234"
   topicName = "test Topic1"

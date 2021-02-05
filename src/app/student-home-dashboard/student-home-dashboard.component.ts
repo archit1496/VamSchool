@@ -32,7 +32,7 @@ export class StudentHomeDashboardComponent implements OnInit {
   todayClassData;
 
   dashboardActivityData;
-  hideArrow = true;
+
   hideJoinBtn = true;
   constructor(private router: Router,public studentService:StudentService) {
     this.fetchStudentDetails();
