@@ -70,12 +70,16 @@
 
 .assignment-file-cnt p.class-name {
   font-weight: bold;
+  font-size: 18px;
 }
 
 .alignlist{
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid #676767;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .subitem{
@@ -85,12 +89,12 @@ width: 100%;
 hr {
   border: none;
   height: 1px;
-  /* Set the hr color */
   color: #333; /* old IE */
   background-color: #333; /* Modern Browsers */
 }
 .showlist{
   list-style-type: none; 
+  margin-top: 1.5rem;
 }
 
 * {box-sizing: border-box;}

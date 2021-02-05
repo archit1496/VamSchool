@@ -31,6 +31,9 @@ export class AppUrl {
   static get FETCH_CLASS_TODAY_DATA(): string {
     return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/?today=true`;
   }
+  static FETCH_MEETING_ID_PASSWORD(course_id): string {
+    return AppUrl.APP_URL + `v1/student/get-course?course=${course_id}`;
+  }
   static get FETCH_DASHBOARD_ACTIVITY(): string {
     return AppUrl.APP_URL + `v1/student/dashboard/activity/`;
   }
@@ -85,6 +88,13 @@ export class AppUrl {
   static FETCH_ASSIGNMENT_QUESTIONS_CHAPTER(id): string {
     return AppUrl.APP_URL + `v1/student/dir/?sub_dir=${id}`;
   }
+
+  static FETCH_ZOOM_DETAILS(): string {
+    return AppUrl.APP_URL + `v1/student/course`;
+  }
+
+  
+
   static FETCH_TEACHER_QUESTIONS_CHAPTER(id): string {
     return AppUrl.APP_URL + `v1/teacher/dir/?sub_dir=${id}`;
   }

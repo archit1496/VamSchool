@@ -15,12 +15,16 @@ export class StudentService extends BaseService{
   ) { 
     super(http)
   }
+  
 
   fetchStudentDetails(): Observable<any> {
     return this.studentGetRequest(AppUrl.STUDENT_COURSE_LIST);
   }
   fetchClassTodayData(): Observable<any> {
     return this.studentGetRequest(AppUrl.FETCH_CLASS_TODAY_DATA);
+  }
+  fetchZoomIdPassword(id): Observable<any> {
+    return this.studentGetRequest(AppUrl.FETCH_MEETING_ID_PASSWORD(id));
   }
   fetchDashboardActivity(): Observable<any> {
     return this.getRequest(AppUrl.FETCH_DASHBOARD_ACTIVITY);
@@ -43,6 +47,11 @@ export class StudentService extends BaseService{
   fetchAssignmentQuestionsTopic(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_ASSIGNMENT_QUESTIONS_CHAPTER(id));
   }
+
+  fetchStudentCourse(): Observable<any>{
+    return this.getRequest(AppUrl.FETCH_ZOOM_DETAILS());
+  }
+
   fetchAssignmentData(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_ASSIGNMENT_DATA(id));
   }

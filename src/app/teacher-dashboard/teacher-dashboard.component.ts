@@ -15,7 +15,7 @@ ZoomMtg.prepareJssdk();
 export class TeacherDashboardComponent implements OnInit {
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
   apiKey = 'pgl-ugf3QLubAI30B5EBag'
-  meetingNumber: "1234567892";
+  // meetingNumber: "1234567892";
   role = '1'
   leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
   userName = 'Daily Standup Meeting'
@@ -24,12 +24,12 @@ export class TeacherDashboardComponent implements OnInit {
   signature: any;
   teacherCourseData: any;
   todaysTimeTable: any;
-  hideArrow = true;
+
   teacherCourseId : any;
   meetingpassWord="1234"
   topicName = "test Topic1"
   agenda = "agenda1"
-  
+  hideJoin = true;
   constructor(private teacherService: TeacherService) {
   }
 
@@ -41,7 +41,13 @@ export class TeacherDashboardComponent implements OnInit {
   createMeeting(){
     var course_id = this.teacherCourseId;
     this.teacherService.createZoomMeeting(this.topicName, this.agenda, course_id).subscribe(res => {
+      this.hideJoin = false;
+     if (res && res.status === false) {
+       alert(res.detail);
+     } else {
       this.fetchTeacherCourseForHostUrl(course_id);
+     }
+
       
     })
   }
@@ -49,9 +55,9 @@ export class TeacherDashboardComponent implements OnInit {
   getSignature(meetingNumber, meetingPassword) {
     // let meetingNumber = this.meetingNumber
     // meetingNumber = 73519189461
-    alert(meetingNumber);
-    // alert(meetingPassword);
-    console.log(meetingNumber, 'meetingNumber');
+
+ 
+    // console.log(meetingNumber, 'meetingNumber');
     // let meetingPassword = this.meetingpassWord
 
     this.signature = ZoomMtg.generateSignature({
