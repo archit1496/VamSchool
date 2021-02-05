@@ -41,10 +41,11 @@ export class TeacherDashboardComponent implements OnInit {
   createMeeting(){
     var course_id = this.teacherCourseId;
     this.teacherService.createZoomMeeting(this.topicName, this.agenda, course_id).subscribe(res => {
-      this.hideJoin = false;
+  
      if (res && res.status === false) {
        alert(res.detail);
      } else {
+      this.hideJoin = false;
       this.fetchTeacherCourseForHostUrl(course_id);
      }
 
