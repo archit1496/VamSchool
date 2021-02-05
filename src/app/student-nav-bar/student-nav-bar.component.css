@@ -72,6 +72,9 @@
     color: #616161!important;
   }
 
+  .rounded-circle.dropdown-toggle::after {
+    display: none!important;
+  }
 
 @media screen and (max-width: 1400px) {
   .topnav {

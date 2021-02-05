@@ -1,8 +1,16 @@
 <nav id='navbar' class="navbar navbar-expand-lg">
     <div id='nav-collapse' class="navbar-collapse justify-content-center">   
         <div class="teacher-details-cnt">
-            <div class="d-inline-block align-center logo-img rounded-circle">
+            <div class="cursor-pointer d-inline-block align-center logo-img rounded-circle dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <p>{{initial}}</p>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a id="nav-link" class="nav-link logout" (click)="logout()">
+                            <strong>Logout</strong>
+                        </a>
+                    </li>
+                </ul>
             </div> 
             <div class="logo-text"> 
                 <div class="teacher-name-div">
@@ -35,9 +43,6 @@
                     <a id="nav-link" class="cursor-pointer nav-link" (click)='showMenu()'
                         routerLink="/wrapper/teacherNav/teachernotes" routerLinkActive="active">
                         <strong>Study Material</strong>
-                    </a>
-                    <a id="nav-link" class="cursor-pointer nav-link logout" (click)="logout()">
-                        <strong>Log Out</strong>
                     </a>
                 </div> 
             </div>           
