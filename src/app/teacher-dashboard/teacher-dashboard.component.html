@@ -60,7 +60,7 @@
         <hr>
         <div class="mt-2">
             <div class="row">
-                <div class="col-lg-5 col-sm-10 col-12">
+                <div class="col-lg-5 col-sm-10 col-12" *ngIf="hideJoin">
                     <h5><b>Now</b></h5>
                     <div class="live-card mr-3" >
                         <img src='../../assets/images/now-bg.jpg' alt='img'/>
@@ -70,7 +70,7 @@
                                 Overdue
                             </div>
                             <div class="startNow">
-                               <a (click)="createMeeting();hideArrow = false;" 
+                               <a (click)="createMeeting();" 
                                     target="_new"><b>Start Now ></b></a>
                             </div>
                         </div>

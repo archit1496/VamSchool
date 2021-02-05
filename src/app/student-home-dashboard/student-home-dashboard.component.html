@@ -1,4 +1,4 @@
-<app-student-nav-bar  [studentDataList]="studentData"></app-student-nav-bar>
+<app-student-nav-bar  [studentDataList]="studentDataList"></app-student-nav-bar>
 <section class="container-fluid boxModel">
     <div class="mt-1 standardDiv">
         <app-student-class-subject></app-student-class-subject>
@@ -88,7 +88,7 @@
         <hr>
         <div class="mt-2">
             <div class="row callNowActivityDiv">
-                <div class="col-lg-5 col-sm-10 col-12 classNowDiv">
+                <div class="col-lg-5 col-sm-10 col-12 classNowDiv" *ngIf="hideJoinBtn">
                     <h5><b>Now</b></h5>
                     <div class="live-card mr-3">
                         <img src='../../assets/images/now-bg.jpg' alt='img'/>
@@ -97,7 +97,7 @@
                                 <span class="dot"></span>OnGoing
                             </div>
                             <div class="startNow">
-                               <a (click)="getSignature();hideArrow = false;" target="_new"><b>Join Now ></b></a>
+                               <a (click)="getData();hideJoinBtn = false;" target="_new"><b>Join Now ></b></a>
                             </div>
                         </div>
                         <div class="ongoingClassInfo">

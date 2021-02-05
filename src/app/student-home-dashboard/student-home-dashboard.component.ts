@@ -17,22 +17,23 @@ ZoomMtg.prepareJssdk();
 
 export class StudentHomeDashboardComponent implements OnInit {
 
-  dummyData: { class: string; when: string; }[];
+
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
-  apiKey = 'oy0BFe2gSXadvEYjBmkYfw';
-  meetingNumber: string = '4583021480';
+  apiKey = 'pgl-ugf3QLubAI30B5EBag';
+  // meetingNumber: string = '84675760804';
   role: string = '1';
   leaveUrl = 'https://vamschool.in/wrapper/studashboard';
   userName = 'Daily Standup Meeting'
   userEmail = ''
-  passWord = 'vamdeepak'
+  // passWord = 'WHliSWRZUkFiV3lJOE5KNUVWYTNZdz09'
   signature: any;
   isLoading:boolean;
   studentDataList;
   todayClassData;
-  studentData;
+
   dashboardActivityData;
   hideArrow = true;
+  hideJoinBtn = true;
   constructor(private router: Router,public studentService:StudentService) {
     this.fetchStudentDetails();
     this.fetchDashboardActivityData();
@@ -41,32 +42,7 @@ export class StudentHomeDashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dummyData = [
-      {
-        "class": "X Std A",
-        "when": "10:00"
-      },
-      {
-        "class": "X Std B",
-        "when": "11:00"
-      },
-      {
-        "class": "X Std C",
-        "when": "12:00"
-      },
-      {
-        "class": "X Std D",
-        "when": "13:00"
-      },
-      {
-        "class": "X Std E",
-        "when": "14:00"
-      },
-      {
-        "class": "X Std E",
-        "when": "14:00"
-      }
-    ]
+
 
     // $('carousel');
 
@@ -82,9 +58,14 @@ export class StudentHomeDashboardComponent implements OnInit {
       this.isLoading = false;
       this.studentDataList = res;
       StorageService.setItem('class_id',this.studentDataList.student_class.id);
-      StorageService.setItem('subjectName',this.studentDataList.courses[0].subject.subject_name);
+      if (this.studentDataList.courses.length) {
+        StorageService.setItem('subjectName',
+      
+        this.studentDataList.courses[0].subject.subject_name);
+      }
+ 
       StorageService.setItem('schoolName',this.studentDataList.school);
-      this.studentData=res;
+      // this.studentData=res;
       this.getTodayClassData();
     });
   }
@@ -93,20 +74,29 @@ export class StudentHomeDashboardComponent implements OnInit {
       this.todayClassData = res;
     });
   }
-  getSignature() {
+
+
+  getData(){
+    this.studentService.fetchZoomIdPassword(this.studentDataList.courses[0].id).subscribe(res=>{
+      this.getSignature(res.course.meeting_id, res.course.meeting_password)
+    })
+  }
+
+  getSignature(id, pass) {
+
     this.signature = ZoomMtg.generateSignature({
-      meetingNumber: this.meetingNumber,
+      meetingNumber: id,
       apiKey: this.apiKey,
-      apiSecret: 'j7AzrE6bowVSbM14ck24AqopRK1OPoTGneFE',
-      role: '1',
+      apiSecret: 'TeOVSOTTEyzK2RuQ2eFI7pctZet0YHiKJxxf',
+      role: '0',
       success: (res) => {
         console.log(res.result);
-        this.startMeeting(res.result)
+        this.startMeeting(res.result, id, pass)
       }
     });
   }
 
-  startMeeting(signature){
+  startMeeting(signature, meetingNumber, passWord){
     console.log("Signature = "+signature)
    document.getElementById('zmmtg-root').style.display = 'block';
 
@@ -118,11 +108,11 @@ export class StudentHomeDashboardComponent implements OnInit {
 
         ZoomMtg.join({
           signature: signature,
-          meetingNumber: this.meetingNumber,
+          meetingNumber: meetingNumber,
           userName: this.userName,
           apiKey: this.apiKey,
           userEmail: this.userEmail,
-          passWord: this.passWord,
+          passWord: passWord,
           success: (success) => {
             console.log(success)
           },
