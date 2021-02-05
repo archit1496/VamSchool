@@ -14,6 +14,8 @@ export class TeacherService extends BaseService {
     super(http);
 
    }
+
+   teacherDetails;
  
   getTeacherCourselist(): Observable<any> {
     return this.getRequest(AppUrl.TEACHER_COURSE_LIST);

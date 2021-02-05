@@ -29,6 +29,7 @@ export class TeacherNavbarComponent implements OnInit {
 
   fetchTeacher() {
     this.teacherService.fetchTeacher().subscribe(res => {
+      this.teacherService.teacherDetails = {'email': res.email, 'name': res.first_name};
       this.subject = res.subject;
       this.school = res.school;
     })

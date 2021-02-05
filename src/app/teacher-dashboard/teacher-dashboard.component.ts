@@ -18,8 +18,8 @@ export class TeacherDashboardComponent implements OnInit {
   // meetingNumber: "1234567892";
   role = '1'
   leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
-  userName = 'Daily Standup Meeting'
-  userEmail = 'test@gmail.com'
+  userName = '';
+  userEmail = '';
   // passWord = 'QkllV1NieEkyQlpKMmxtbjVHNWdIdz09'
   signature: any;
   teacherCourseData: any;
@@ -110,7 +110,10 @@ export class TeacherDashboardComponent implements OnInit {
     this.teacherService.fetchTeacherCourse().subscribe(res => {
       this.teacherCourseData = res.data;
       console.log(res.data)
-      console.log("teacher course :" + JSON.stringify(res.data[0].id))
+
+this.userName =this.teacherService.teacherDetails.name;
+this.userEmail =this.teacherService.teacherDetails.email;
+
       this.teacherCourseId = JSON.stringify(res.data[0].id);
     })
   }
