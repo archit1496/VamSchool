@@ -80,16 +80,15 @@ export class StudentAssignementsComponent implements OnInit {
   }
 
   getTopicDetails(id) {
-
     this.questionId = id;
     this.subjectFilter = false;
     this.isLoading = true;
     this.studentService.fetchAssignmentTopicData({ 'question': id }).subscribe(res => {
     this.isLoading = false;
     this.assignmentTopicDetail = res;
-
     })
   }
+  
   uploadNotes(fileInput) {
     const formData: FormData = new FormData();
     const files: File = fileInput.target.files;
