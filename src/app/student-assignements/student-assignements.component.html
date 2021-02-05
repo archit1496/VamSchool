@@ -6,7 +6,7 @@
         <div class="mt-1 innerDiv">
           <h5 class="mt-4 mb-4"><b>This Week<span *ngIf="studentAssignmentDataTopicWise?.length>0"> 
             > {{studentAssignmentDataTopicWise[0]?.course?.subject?.subject_name}}</span></b>
-          </h5>
+          </h5> 
           <div *ngIf="studentAssignmentDataSubjectWise?.length > 0">
             <div class="grid">
               <div class='assignment-file-cnt' *ngFor="let data of studentAssignmentDataSubjectWise">
@@ -38,27 +38,26 @@
             <div *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
               <b>No Data To Display</b>
             </div> 
-            <div class="cursor-pointer student-assignment-description-cnt" *ngFor="let data of studentAssignmentDataTopicWise"  
-                  (click)="getTopicDetails(data?.id)">
-              <div class="row">
-                <div class="topicName col-lg-6 col-sm-6 col-12"><p>{{data?.topic}}</p></div>
-                <div class="teacherName col-lg-6 col-sm-6 col-12"><p>{{data?.teacher?.name}}</p></div>
+            <div class="cursor-pointer student-assignment-description-cnt" 
+                  *ngFor="let data of studentAssignmentDataTopicWise" (click)="getTopicDetails(data?.id)">
+                <div class="row">
+                  <div class="due-date">Due Date: 11/06/2020</div>
+                  <div class="topicName col-lg-12 col-sm-12 col-12"><p>{{data?.topic}}</p></div>
+                  <div class="teacherName col-lg-12 col-sm-12 col-12"><p>Marks: </p></div>
+                </div>
                 <!-- <div class='file-type col-lg-3 col-sm-12 col-12'>
                   <p>{{getFileType(data?.doc_question)}}<span *ngIf="data?.doc_question"> file</span></p> 
                 </div> -->
-              </div>
               <div *ngIf="data?.id==questionId" class="assignment-btn-cnt row">
-                <div class="col-lg-3 col-sm-6 col-6">
-                  <button class="solid-btn-voilet" (click)="onDownloadClick(data?.doc_question)">Download</button>
+                <div class="assignment-description-text col-lg-12 col-sm-12">
+                  <hr style="width: 100%">
+                  <p>Assignment Description:</p>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-6">
-                    <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
-                    <label for='upload-notes' class="solid-btn-green">Upload</label>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                  <button class="solid-btn-green">Marks - <span *ngIf="assignmentTopicDetail?.length>0">
-                    {{this.assignmentTopicDetail[0]?.mark}}</span>
-                  </button>
+                <div class="student-assignment-description-btn-cnt col-lg-12 col-sm-12 col-12">
+                  <button class="solid-btn-voilet">Download Correction</button>
+                  <!-- <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
+                  <label for='upload-notes' class="solid-btn-green">Upload</label> -->
+                  <button class="solid-btn-green" (click)="onDownloadClick(data?.doc_question)">Download Assignment</button>
                 </div>
               </div>
             </div>
@@ -83,5 +82,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
