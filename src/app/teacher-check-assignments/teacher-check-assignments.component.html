@@ -71,7 +71,7 @@
           </div>
           <div *ngIf="showHideList">
             <div class="showlist" *ngIf="showHideFinalActivity">
-              <div class="header row" *ngFor="let studentActivity of particularAssign; let j = index" (click)="showSubItem(j)">
+              <div class="header row" *ngFor="let studentActivity of particularAssign; let j = index" (click)="showSubItem(j); specificStudent = studentActivity">
                 <div class="due-date">Within Deadline</div>
                 <div class="col-lg-12">
                   <div class='student-name col-lg-12 col-sm-12 col-12 text-overflow-ellipse'>
@@ -96,10 +96,10 @@
         </div>
       </div>
     </div>
-    <div class="activity-column col-lg-3 col-sm-12">
+    <div class="activity-column col-lg-3 col-sm-12" *ngIf="showCommentSection">
       <div class="activity-card">
         <div class="activity-heading">
-          <h2>Student's Name Work</h2>
+          <h2>{{specificStudent.student.first_name + ' ' +specificStudent.student.last_name}}'s Work</h2>
         </div>
         <div class="width-full text-center">
           <button style="width: 100%;" type="submit" class="solid-btn-voilet">
@@ -108,7 +108,7 @@
         </div>
         <div class="width-full upload-cnt">
           <label style="text-align: center;" for="upload-notes">Upload Correction</label>
-          <input name="upload-notes" type="file" id="upload-notes" (change)="uploadNotes($event)">
+          <input name="upload-notes" type="file" id="upload-notes">
         </div>
         <hr>
         <div class="activity-heading">

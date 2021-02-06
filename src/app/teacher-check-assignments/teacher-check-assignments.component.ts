@@ -15,6 +15,7 @@ export class TeacherCheckAssignmentsComponent {
     this.fetchAssignmentDataSubject();
     this.getActivityData('week=this');
   }
+  specificStudent;
   AssignmentClick2;
   openAddNewAssignmentPage;
   status;
@@ -38,7 +39,7 @@ export class TeacherCheckAssignmentsComponent {
   AssignmentClick;
   // valueWithOutSubjectFilter;
   particularAssign = [];
-
+  showCommentSection = false;
   activityData = [];
   // teacherCourseData = [];
   visibleIndex = -1;
@@ -241,10 +242,10 @@ export class TeacherCheckAssignmentsComponent {
       this.status = 'all';
       this.secondClass = false;
       this.thirdClass = false;
-      this.showHideList = false;
+      this.showHideList = true;
       this.showHideActivity = false;
       this.particularAssign = res;
-
+      this.showCommentSection = true;
     });
   }
 
