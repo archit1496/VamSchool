@@ -4,18 +4,25 @@
   overflow: scroll !important;
 }
 
+.stu-standardDiv{
+  margin-left: 15rem;
+  margin-right: 0;
+  padding: 10px;
+}
+
 .outerDiv{
-  flex: 3 70%;
+  flex: 3 70%; 
   display: flex;
   flex-direction: column;
   align-items: center;
   order: 1;
 }
+
 .innerDiv{
   width: 100%;
-  max-width: 796px;
-  /* align-self: flex-end; */
+  align-self: flex-end;
 }
+
 .grid{
   display: grid;
   grid-template-columns: repeat(5,1fr);
@@ -262,4 +269,44 @@ p {
   .navbar-nav  {
     flex-direction: inherit;
   }
+}
+
+.activity-column {
+  flex: 1 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  order: 2;
+  padding: .5rem 1rem;
+}
+.activity-heading {
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+}
+
+.activity-heading h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.activity-card{
+  background-color: aliceblue;
+  border: 1px solid #96ceff;
+  margin-top: 10px;
+  border-radius: 10px;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  padding: 15px 20px;
+} 
+
+
+.activity-card-element p {
+  border-radius: 5px;
+}
+
+.activity-card-element p:hover {
+  background-color: #dfeffc;
 }

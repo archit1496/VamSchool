@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="img-cnt">   
-            <img src="../../assets/images/main-view.png" alt="main"> 
+            <img src="../../assets/images/main-v.png" alt="main"> 
         </div>
         
         <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
@@ -52,11 +52,11 @@
                             <div class="col-lg-3 col-sm-6 col-6">
                                 <div class="today-card">
                                     <div class='carousel-overlay'>
-                                        <img class='image' src='../../assets/images/cls-bg-1.jpg'>
+                                        <img class='image' src='../../assets/images/subject.png'>
                                     </div> 
                                     <p>
                                         {{data.class_of.class_name}} {{data.class_of.section}}<br>
-                                        {{data.start_time}}
+                                        {{getStartTime(data.start_time)}}
                                     </p>
                                 </div>
                             </div>    
@@ -71,10 +71,10 @@
                 <div class="col-lg-5 col-sm-10 col-12" *ngIf="hideJoin">
                     <h5><b>Now</b></h5>
                     <div class="live-card mr-3" >
-                        <img src='../../assets/images/now-bg.jpg' alt='img'/>
+                        <img src='../../assets/images/subject.png' alt='img'/>
                         <div class='now-status'>
                             <div class="text-left mr-2">
-                                <p><span class="red-dot"></span> Overdue</p>
+                                <!-- <p><span class="red-dot"></span> Overdue</p> -->
                             </div>
                             <div class="startNow">
                                <a (click)="createMeeting();" 
@@ -82,28 +82,30 @@
                             </div>
                         </div>
                         <div class="class-in-div">
-                            <span>
+                            <span *ngIf="todayClassData?.length>0">
                                 <!-- <b>{{data.class_of.class_name}} {{data.class_of.section}}</b> -->
-                                <b>static class name and section</b>
+                                <b>{{todaysTimeTable[0]?.class_of?.class_name}} {{todaysTimeTable[0]?.class_of?.section}}</b>
                                 <br>
-                                10:00 AM
+                                {{ todaysTimeTable[0]?.start_time }}
                             </span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-7 col-sm-12 mb-4" *ngIf="hideJoin">
-                    <div class="activity-head row">
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-6">
-                            <h5><strong>Activity</strong></h5>
+                    <div class="activityDiv">
+                        <div class="activity-head row">
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6">
+                                <h5><strong>Activity</strong></h5>
+                            </div>
+                            <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-6">
+                                <span><a href="">This Week</a> | <a href=''>All Time</a></span>
+                            </div> -->
                         </div>
-                        <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-6">
-                            <span><a href="">This Week</a> | <a href=''>All Time</a></span>
-                        </div> -->
-                    </div>
-                    <div class="activity-card">
-                        <div class="activity-status"> 
-                            <div>
-                                <p><span class="green-dot"></span> King of the Ring</p>
+                        <div class="activity-card">
+                            <div class="activity-status"> 
+                                <div>
+                                    <p><span class="green-dot"></span> King of the Ring</p>
+                                </div>
                             </div>
                         </div>
                     </div>

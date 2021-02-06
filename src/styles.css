@@ -450,6 +450,7 @@ p {
   border-bottom: .5px solid #9ecbf3 !important;
   height: 100%;
   width: 100%;
+  min-height: 70px;
   background-color: #f0f8ff !important;
   padding: 4px;
 }

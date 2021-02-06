@@ -92,6 +92,10 @@ export class StudentHomeDashboardComponent implements OnInit {
 
   }
 
+  getStartTime(time) {
+    return (time.substring(0,5) + " Hrs");
+  }
+  
   getSignature(id, pass) {
 
     this.signature = ZoomMtg.generateSignature({

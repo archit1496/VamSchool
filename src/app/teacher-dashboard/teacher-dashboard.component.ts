@@ -53,6 +53,10 @@ export class TeacherDashboardComponent implements OnInit {
     })
   }
 
+  getStartTime(time) {
+    return (time.substring(0,5) + " Hrs");
+  }
+
   getSignature(meetingNumber, meetingPassword) {
     // let meetingNumber = this.meetingNumber
     // meetingNumber = 73519189461
@@ -110,9 +114,8 @@ export class TeacherDashboardComponent implements OnInit {
     this.teacherService.fetchTeacherCourse().subscribe(res => {
       this.teacherCourseData = res.data;
       console.log(res.data)
-
-this.userName =this.teacherService.teacherDetails.name;
-this.userEmail =this.teacherService.teacherDetails.email;
+      this.userName = this.teacherService.teacherDetails.name;
+      this.userEmail = this.teacherService.teacherDetails.email;
 
       this.teacherCourseId = JSON.stringify(res.data[0].id);
     })
@@ -132,7 +135,6 @@ this.userEmail =this.teacherService.teacherDetails.email;
   fetchTodaysTimeTable(){
     this.teacherService.fetchTimetableToday().subscribe(res => {
       console.log(res, '2');
-
       this.todaysTimeTable = res;
     })
   }
