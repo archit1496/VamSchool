@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { HomeFeaturesComponent } from './home-features/home-features.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ContactusComponent,
     HomeHeaderComponent,
     PasswordChangeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    HomeFeaturesComponent
   ],
   imports: [
     FormsModule,
