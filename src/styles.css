@@ -106,6 +106,21 @@ p {
   background-color: #598c6a;
 }
 
+.add-file {
+  width: 30%;
+  background: #29b6f6;
+  color: white;
+  text-align: center;
+  border-radius: 30px;
+  position: relative;
+  padding: 5px;
+}
+
+.add-file span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .standardDiv{
   margin-left: 15rem;
   margin-right: 15rem;

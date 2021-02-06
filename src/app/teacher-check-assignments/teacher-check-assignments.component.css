@@ -64,20 +64,18 @@
    background-repeat: no-repeat;
 } 
 
-.add-file {
-  width: 30%;
-  background: grey;
-  color: white;
-  text-align: center;
-  border-radius: 30px;
-  position: relative;
-  padding: 5px;
-}
+.assignment-file-doc{
+  background-image: url('../../assets/images/document.svg');
+  background-position-x: center;
+  background-size: 100%;
+  padding: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+} 
 
-.add-file span {
-  font-size: 18px;
-  font-weight: bold;
-}
 .assignment-file-cnt p {
   font-size: 12px;
   justify-content: center;

@@ -71,6 +71,19 @@ background-color: lightgray;
   background-repeat: no-repeat;
 }
 
+
+.notes-card-file{
+  background-image: url('../../assets/images/document.svg');
+  background-position-x: center;
+  background-size: 100%;
+  padding: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
 .assignment-description p {
   font-size: 14px;
   justify-content: center;
@@ -174,3 +187,4 @@ background-color: lightgray;
 p {
   font-family: Lato;
 }
+

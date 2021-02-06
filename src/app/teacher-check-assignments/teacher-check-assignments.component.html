@@ -40,7 +40,7 @@
           <div *ngIf="secondClass">
             <div class="cursor-pointer mt-2 mb-2" id="secondClass" (click)="openForm()">
               <div class='add-file'>
-                <span>Add Assignment <i class="fa fa-plus" aria-hidden="true"></i></span>
+                <span>Add Topic <i class="fa fa-plus" aria-hidden="true"></i></span>
               </div>
             </div>
             <div  class="grid">
@@ -56,12 +56,12 @@
           <div *ngIf="thirdClass">
             <div class="cursor-pointer mt-2 mb-2" id="thirdClass" (click)="openForm2()">
               <div class='add-file'>
-                <span>Add topic <i class="fa fa-plus" aria-hidden="true"></i></span>
+                <span>Add Assignment <i class="fa fa-plus" aria-hidden="true"></i></span>
               </div>
             </div>
             <div class="grid">
               <div class="assignment-file-cnt mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);">
-                <div class='assignment-file'></div>
+                <div class='assignment-file-doc'></div>
                 <div class="assignment-description">
                   <p class="cursor-pointer class-name">{{data?.topic}}</p>
                 </div>

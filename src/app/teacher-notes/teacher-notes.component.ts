@@ -15,7 +15,7 @@ export class TeacherNotesComponent implements OnInit {
   studentNotesDataSubjectWise = [];
   studentNotesDataTopicWise;
   isLoading:boolean;
-notesVideos = false;
+  notesVideos = false;
   teacherId;
   spinnerFlag;
   uploadedNotesResp;
@@ -27,6 +27,7 @@ notesVideos = false;
   selectedData;
   newtopic;
   url = '';
+  notesOrVideo: string;
   constructor(public teacherService:TeacherService,private toaster: ToastrService) { }
   get Math() {
     return Math;
@@ -176,15 +177,14 @@ if (this.url === 'notes') {
   fetchNotes(type){
     if (type === 'note') {
       this.url = 'notes';
+      this.notesOrVideo = 'Notes'
     } else if (type === 'vid') {
       this.url = 'videos';
-
+      this.notesOrVideo = 'Videos'
     }
-    this.teacherService.getTeacherNotes(this.selectedNotesData.id, this.url).subscribe(res => {
+      this.teacherService.getTeacherNotes(this.selectedNotesData.id, this.url).subscribe(res => {
       this.notesVideos = false;
       this.notesData = res.notes_obj;
-
     })
   }
-
 }
