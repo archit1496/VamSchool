@@ -18,6 +18,8 @@ export class StudentAssignementsComponent implements OnInit {
   assignmentTopicDetail;
   questionId: number = -1;
   subjectFilterData = [];
+  enableActivity = true;
+  enableComment = false;
   constructor(public studentService: StudentService, public toaster: ToastrService) {
 
   }
@@ -74,6 +76,8 @@ export class StudentAssignementsComponent implements OnInit {
       this.studentAssignmentDataTopicWise = res;
      this.studentAssignmentDataSubjectWise = [];
      this.subjectFilterData = [];
+     this.enableActivity = false;
+     this.enableComment = true;
       // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }

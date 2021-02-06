@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <!-- <div class="activity-column col-lg-3 col-sm-12">
+    <div class="activity-column col-lg-3 col-sm-12" *ngIf="enableComment">
       <div class="activity-card">
         <div class="activity-heading">
           <h2>Your Work</h2>
@@ -81,9 +81,9 @@
           <h2>Private Comments</h2>
         </div>
       </div>
-    </div> -->
+    </div>
 
-    <div class="activity-column col-lg-3 col-sm-12">
+    <div class="activity-column col-lg-3 col-sm-12" *ngIf="enableActivity">
       <div class="activity-card">
         <div class="activity-heading">
           <h2>Activity</h2>
