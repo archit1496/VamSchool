@@ -133,6 +133,7 @@
 
 .classes-container {
     margin: .5rem 0;
+    position: relative;
   } 
 
 .carousel-control-prev {
