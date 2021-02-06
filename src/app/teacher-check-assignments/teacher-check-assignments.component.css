@@ -64,6 +64,20 @@
    background-repeat: no-repeat;
 } 
 
+.add-file {
+  width: 30%;
+  background: grey;
+  color: white;
+  text-align: center;
+  border-radius: 30px;
+  position: relative;
+  padding: 5px;
+}
+
+.add-file span {
+  font-size: 18px;
+  font-weight: bold;
+}
 .assignment-file-cnt p {
   font-size: 12px;
   justify-content: center;
