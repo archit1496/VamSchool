@@ -36,35 +36,39 @@
             </div>
           </div>
 
-          <div class="grid" *ngIf="secondClass">
-            <div class="assignment-file-cnt mt-2" *ngFor="let data of assignmentData" (click)="onAssignmentClick(data?.id);this.AssignmentClick = data;">
-              <div class='assignment-file'></div>
-              <div class="assignment-description">
-                <p class="cursor-pointer class-name">{{data?.name}}</p>
+          
+          <div *ngIf="secondClass">
+            <div class="cursor-pointer mt-2 mb-2" id="secondClass" (click)="openForm()">
+              <div class='add-file'>
+                <span>Add Assignment <i class="fa fa-plus" aria-hidden="true"></i></span>
+              </div>
+            </div>
+            <div  class="grid">
+              <div class="assignment-file-cnt mt-2" *ngFor="let data of assignmentData" (click)="onAssignmentClick(data?.id);this.AssignmentClick = data;">
+                <div class='assignment-file'></div>
+                <div class="assignment-description">
+                  <p class="cursor-pointer class-name">{{data?.name}}</p>
+                </div>
               </div>
             </div> 
-            <div class="assignment-file-cnt mt-2" id="secondClass" (click)="openForm()">
-              <div class='assignment-file'></div>
-              <label for="upload-notes" class="addBtn ml-5">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-              </label>
-            </div>
           </div>
 
-          <div class="grid" *ngIf="thirdClass">
-            <div class="assignment-file-cnt mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);">
-              <div class='assignment-file'></div>
-              <div class="assignment-description">
-                <p class="cursor-pointer class-name">{{data?.topic}}</p>
+          <div *ngIf="thirdClass">
+            <div class="cursor-pointer mt-2 mb-2" id="thirdClass" (click)="openForm2()">
+              <div class='add-file'>
+                <span>Add topic <i class="fa fa-plus" aria-hidden="true"></i></span>
               </div>
             </div>
-            <div class="assignment-file-cnt mt-2" id="thirdClass" (click)="openForm2()">
-              <img src="https://img.icons8.com/cotton/64/000000/regular-document.png"/>
-              <label for="upload-notes" class="addBtn ml-5">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-              </label>
+            <div class="grid">
+              <div class="assignment-file-cnt mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);">
+                <div class='assignment-file'></div>
+                <div class="assignment-description">
+                  <p class="cursor-pointer class-name">{{data?.topic}}</p>
+                </div>
+              </div>
             </div>
           </div>
+            
           <app-add-new-assignment [status]="status" (classSelected)="postAssignmentData($event)" *ngIf="openAddNewAssignmentPage"></app-add-new-assignment>
           <div *ngIf="studentAssignmentDataSubjectWise?.length == 0" style="text-align: center">
             <b>No Data To Display</b>

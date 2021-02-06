@@ -1,14 +1,4 @@
-a b{
-  color: black;
-  cursor: pointer;
-}
-
-a b:hover{
-  color: blue;
-}
-
-
-.boxModel{
+  .boxModel{
   padding: 0;
   height: 100%;
 }
@@ -142,6 +132,10 @@ a b:hover{
   color: rgb(235, 235, 255);
   font-size: 24px;
   cursor: pointer;
+}
+
+.startNow a b {
+  color:rgb(235, 235, 255);
 }
 
 .class-in-div{
