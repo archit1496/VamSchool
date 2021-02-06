@@ -199,6 +199,7 @@ p {
   position: absolute;
   right: 0;
   top: 0;
+  width: fit-content;
   background: #598c6a;
   padding: 0 5px;
   color: white;

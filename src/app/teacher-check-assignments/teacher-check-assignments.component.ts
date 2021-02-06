@@ -30,7 +30,7 @@ export class TeacherCheckAssignmentsComponent {
   studentAssignmentDataSubjectWise;
   selectedStudentAssignmentDataSubjectWise;
   selectedCourse = '0';
-
+  submissionDate;
   assignmentData = [];
   topicName;
   topicQuestion;
@@ -200,6 +200,12 @@ export class TeacherCheckAssignmentsComponent {
   get Infinity() {
     return Infinity;
   }
+
+  getSubmissionDate(date) {
+    let d = new Date(date);
+    return (d.getDate()+'-' + (d.getMonth()+1) + '-'+d.getFullYear());
+  }
+
   getDate(date) {
     return (new Date(date).getDate() + '-' + new Date(date).getMonth() + '-' + new Date(date).getFullYear());
   }
