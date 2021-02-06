@@ -17,7 +17,6 @@ export class StudentAssignementsComponent implements OnInit {
   assignmentActivityData;
   assignmentTopicDetail;
   questionId: number = -1;
-
   subjectFilterData = [];
   constructor(public studentService: StudentService, public toaster: ToastrService) {
 
@@ -87,6 +86,18 @@ export class StudentAssignementsComponent implements OnInit {
     this.isLoading = false;
     this.assignmentTopicDetail = res;
     })
+  }
+
+  getId(id) {
+    return("item");
+  }
+
+  getBsId(id){
+    return("item");
+  }
+
+  getHeaderId(id) {
+    return("header");
   }
   
   uploadNotes(fileInput) {

@@ -24,7 +24,7 @@
     "@angular/router": "~8.0.0",
     "@zoomus/websdk": "^1.8.6",
     "angular-agora-rtc": "^0.1.0",
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^5.0.0-beta1",
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",

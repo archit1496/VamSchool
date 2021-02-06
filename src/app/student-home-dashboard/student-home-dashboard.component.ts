@@ -56,8 +56,6 @@ export class StudentHomeDashboardComponent implements OnInit {
   fetchStudentDetails() {
     this.isLoading = true;
     this.studentService.fetchStudentDetails().subscribe(res => {
-      console.log('studentDataList', res);
-      
       this.isLoading = false;
       this.studentDataList = res;
       this.userName = res.first_name;

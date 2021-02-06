@@ -105,9 +105,7 @@
 }
 
 .student-assignment-description-cnt {
-  margin: 5px 0;
-  border: 1px solid #616161;
-  border-radius: 5px;
+  border: 0.5px solid lightgrey;
   transition-duration: 0.2s;
   padding: 5px;
   overflow-wrap: break-word;
@@ -137,6 +135,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  width: fit-content;
   background: #ec2d2d;
   padding: 0 5px;
   color: white;
@@ -165,11 +164,6 @@
     margin: 0px;
     padding: 5px;
 }
-[type="file"] {
-  height: 0;
-  overflow: hidden;
-  width: 0;
-}
 
 .stu-standardDiv{
   margin-left: 15rem;
@@ -183,3 +177,20 @@
       padding: 5px;
   }
 }
+
+.upload-cnt {
+  margin-bottom: 1rem;
+}
+
+.upload-cnt input {
+  color: #598c6a;
+  width: 100%;
+}
+
+.upload-cnt label {
+  color: #598c6a;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
