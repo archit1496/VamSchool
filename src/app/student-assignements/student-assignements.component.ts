@@ -59,12 +59,13 @@ export class StudentAssignementsComponent implements OnInit {
     this.subjectFilter = false;
     this.isLoading = true;
     this.studentService.fetchAssignmentQuestionsSubject2(id).subscribe(res => {
-      this.isLoading = false;
-      this.subjectFilterData = res.assignment_dirs;
-      this.studentAssignmentDataSubjectWise = [];
-      // alert(res);
-      // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
-      // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
+    this.isLoading = false;
+    this.subjectFilterData = res.assignment_dirs;
+    this.studentAssignmentDataSubjectWise = [];
+    
+    // alert(res);
+    // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
+    // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
     });
   }
 
@@ -72,13 +73,13 @@ export class StudentAssignementsComponent implements OnInit {
     this.subjectFilter = false;
     this.isLoading = true;
     this.studentService.fetchAssignmentData(id).subscribe(res => {
-      this.isLoading = false;
-      this.studentAssignmentDataTopicWise = res;
-     this.studentAssignmentDataSubjectWise = [];
-     this.subjectFilterData = [];
-     this.enableActivity = false;
-     this.enableComment = true;
-      // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
+    this.isLoading = false;
+    this.studentAssignmentDataTopicWise = res;
+    this.studentAssignmentDataSubjectWise = [];
+    this.subjectFilterData = [];
+    this.enableActivity = false;
+    this.enableComment = true;
+    // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }
 

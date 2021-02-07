@@ -37,6 +37,10 @@ p {
   font-family: 'Lato', sans-serif;
 }
 
+.sec-heading-cnt {
+  position: relative;
+}
+
 .font-size14{
   font-size: 14px;
 }

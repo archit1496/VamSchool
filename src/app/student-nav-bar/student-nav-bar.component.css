@@ -29,7 +29,7 @@
     display: block;
     color:#616161;
     text-align: center;
-    padding: 10px 16px;
+    padding: 6px 16px;
     text-decoration: none;
     font-size: 17px;
   }
@@ -178,7 +178,7 @@
   margin-right: 2rem;
   padding: 0 1.5rem;
   left: 0;
-  top: 30px;
+  top: 20px;
   display: flex;
 }
 

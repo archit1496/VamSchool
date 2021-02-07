@@ -47,9 +47,9 @@
 
 .activity-card{
   border: 1px solid black;
-height: 580px;
-width: 300px;
-background-color: lightgray;
+  height: 580px;
+  width: 300px;
+  background-color: lightgray;
 }
 
 .notes-card-cnt {
@@ -76,7 +76,7 @@ background-color: lightgray;
   background-image: url('../../assets/images/document.svg');
   background-position-x: center;
   background-size: 100%;
-  padding: 2.5rem;
+  padding: 50%;
   cursor: pointer;
   display: flex;
   justify-content: center;

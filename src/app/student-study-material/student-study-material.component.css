@@ -96,9 +96,9 @@
   .activity-card{
     background-color: aliceblue;
     border: 1px solid #96ceff;
-    margin-top: 10px;
+    margin-top: 5rem;
     border-radius: 10px;
-    height: 90vh;
+    height: 60vh;
     width: 100%;
     padding: 15px 20px;
   } 
