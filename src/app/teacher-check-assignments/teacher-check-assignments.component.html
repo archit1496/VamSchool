@@ -25,7 +25,7 @@
           <div *ngIf="isLoading" class="text-center">
             Loading Data, Please wait...
           </div> 
-          <!-- <p *ngIf="serverCreated;then firstClass else secondClass"></p> -->
+
           <div class="grid" *ngIf="firstClass">
             <div class='assignment-file-cnt' *ngFor="let data of studentAssignmentDataSubjectWise"
               (click)="fetchAssignmentData(data?.id);selectedStudentAssignmentDataSubjectWise= data">
@@ -66,7 +66,7 @@
               </div>
             </div>
             <div class="grid">
-              <div class="assignment-file-cnt mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);">
+              <div class="assignment-file-cnt mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);AssignmentClick2 = data">
                 <div class='assignment-file-doc'></div>
                 <div class="assignment-description">
                   <p class="cursor-pointer class-name">{{data?.topic}}</p>
@@ -109,7 +109,7 @@
     <div class="activity-column col-lg-3 col-sm-12" *ngIf="showCommentSection">
       <div class="activity-card">
         <div class="activity-heading">
-          <h2>{{specificStudent.student.first_name + ' ' +specificStudent.student.last_name}}'s Work</h2>
+          <h2>{{specificStudent.student.first_name + ' ' +specificStudent.student.last_name}} <span *ngIf="specificStudent.student.first_name!= ''">'s Work</span>  </h2>
         </div>
         <div class="width-full text-center">
           <button style="width: 100%;" type="submit" class="solid-btn-voilet">
@@ -126,13 +126,13 @@
         </div>
       </div>
     </div>
-    <!-- <div class="activity-column col-lg-3 col-sm-12">
+    <div class="activity-column col-lg-3 col-sm-12" *ngIf="showActivity">
       <div class="activity-card">
         <div class="activity-heading">
           <h2>Activity</h2>
         </div>
         <div class='activity-card-element'>
-          <div class="showlist" *ngIf="showHideActivity">
+          <div class="showlist">
             <div class="alignlist" *ngFor="let studentActivity of activityData">
               <div class="width-full">
                 <p>{{studentActivity.student.first_name + ' ' +studentActivity.student.first_name}} just submitted hisassignment</p>
@@ -141,6 +141,6 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </section>

@@ -15,7 +15,7 @@ export class TeacherCheckAssignmentsComponent {
     this.fetchAssignmentDataSubject();
     this.getActivityData('week=this');
   }
-  specificStudent;
+  specificStudent = {student : {first_name: '', last_name: ''}};
   AssignmentClick2;
   openAddNewAssignmentPage;
   status;
@@ -24,7 +24,7 @@ export class TeacherCheckAssignmentsComponent {
   secondClass = false;
   thirdPage = [];
   showHideList = true;
-  showHideActivity = true;
+
   showHideFinalActivity = false;
   updateHeaderText = 'This week';
   isLoading: boolean;
@@ -43,6 +43,7 @@ export class TeacherCheckAssignmentsComponent {
   activityData = [];
   // teacherCourseData = [];
   visibleIndex = -1;
+  showActivity = true;
 
   update(studentActivity, e) {
 
@@ -133,7 +134,6 @@ export class TeacherCheckAssignmentsComponent {
       this.secondClass = true;
       this.thirdClass = false;
       this.showHideList = false;
-      this.showHideActivity = false;
       this.isLoading = false;
 
       this.assignmentData = res.data;
@@ -224,7 +224,7 @@ export class TeacherCheckAssignmentsComponent {
       this.secondClass = false;
       this.thirdClass = true;
       this.showHideList = false;
-      this.showHideActivity = false;
+
       this.thirdPage = res;
 
     });
@@ -243,9 +243,9 @@ export class TeacherCheckAssignmentsComponent {
       this.secondClass = false;
       this.thirdClass = false;
       this.showHideList = true;
-      this.showHideActivity = false;
       this.particularAssign = res;
       this.showCommentSection = true;
+      this.showActivity = false;
     });
   }
 

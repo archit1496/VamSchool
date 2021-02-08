@@ -22,7 +22,7 @@ export class TeachertimetableComponent implements OnInit {
     "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday", "Sunday"
   ]
   constructor(
-    private teacherService: TeacherService
+    public teacherService: TeacherService
   ) { }
 
   ngOnInit() {

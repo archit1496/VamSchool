@@ -30,11 +30,12 @@ export class TeacherDashboardComponent implements OnInit {
   topicName = "test Topic1"
   agenda = "agenda1"
   hideJoin = true;
-  constructor(private teacherService: TeacherService) {
+  constructor(public teacherService: TeacherService) {
   }
 
   ngOnInit() {
-    this.fetchTeacherCourse();
+    this.fetchTeacher();
+
     this.fetchTodaysTimeTable();
   }
 
@@ -110,14 +111,21 @@ export class TeacherDashboardComponent implements OnInit {
     })
   }
 
-  fetchTeacherCourse(){
+  fetchTeacherCourse(userName, userEmail){
     this.teacherService.fetchTeacherCourse().subscribe(res => {
       this.teacherCourseData = res.data;
       console.log(res.data)
-      this.userName = this.teacherService.teacherDetails.name;
-      this.userEmail = this.teacherService.teacherDetails.email;
+      this.userName = userName;
+      this.userEmail = userEmail;
 
       this.teacherCourseId = JSON.stringify(res.data[0].id);
+    })
+  }
+
+  fetchTeacher() {
+    this.teacherService.fetchTeacher().subscribe(res => {
+      console.log(res, 'fetchTeacher');
+      this.fetchTeacherCourse(res.email, res.first_name);
     })
   }
 

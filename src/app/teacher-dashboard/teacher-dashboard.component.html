@@ -86,7 +86,8 @@
                                 <!-- <b>{{data.class_of.class_name}} {{data.class_of.section}}</b> -->
                                 <b>{{todaysTimeTable[0]?.class_of?.class_name}} {{todaysTimeTable[0]?.class_of?.section}}</b>
                                 <br>
-                                {{ todaysTimeTable[0]?.start_time }}
+                                {{ teacherService.convertFrom24To12Format((todaysTimeTable[0]?.start_time)) }}
+                                
                             </span>
                         </div>
                     </div>
