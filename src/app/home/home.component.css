@@ -86,3 +86,13 @@ button.requestDemo.btn {
 .loginItems{
   font-family: 'Arimo', sans-serif;
 }
+
+.scroll-top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 3rem;
+  margin-bottom: 3rem;
+  font-size: 40px;
+  color: mediumaquamarine;
+}
