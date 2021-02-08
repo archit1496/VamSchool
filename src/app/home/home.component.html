@@ -1,5 +1,5 @@
 <app-home-header></app-home-header>
-  <div class="landing-page">
+  <div id="home" class="landing-page">
     <div class="landing-image">
       <div class="image"></div>
       <!-- <img src="../../assets/images/landing-home.jpg" alt="img"> -->
@@ -12,6 +12,7 @@
       </div>
     </div>
   </div>
+  <div class="scroll-top"><a (click)="scrollToForm('home')"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a></div>
 <app-why-us></app-why-us>
 <app-home-features></app-home-features>
 <app-aboutus [fromHome]="true"></app-aboutus>

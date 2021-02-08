@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,13 @@ export class HomeComponent implements OnInit {
   @Input() showHeader: Boolean;
 
   constructor(
-    public router: Router
+    public router: Router, private viewportScroller: ViewportScroller
   ) { }
 
   ngOnInit() {
   }
 
+  public scrollToForm(elementId: string): void {
+    this.viewportScroller.scrollToAnchor(elementId);
+  }
 }

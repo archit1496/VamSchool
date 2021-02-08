@@ -1,12 +1,16 @@
 #footer {
-    margin-top: 2rem;
-    padding: 1rem 0;
+    padding: 3rem 0 1rem 0;
     height: auto;
+}
+
+h2 {
+    margin: 2rem 0;
 }
 
 h3 {
     color: #ffffff;
     font-size: 22px;
+    margin: 2rem 0;
 }
 
 .align-center {
@@ -45,10 +49,10 @@ h3 {
     color:#6ece20;
 }
 
-.social-media-cnt {
+/* .social-media-cnt {
     text-align: center;
     justify-content: center;
-}
+} */
 
 .contact-details {
     padding-top: 1rem;
@@ -86,4 +90,9 @@ h3 {
 
 .hover-animation span:hover::before {
     width: 80px;
+}
+
+.footer-txt{
+    color: rgb(255, 241, 241);
+    font-size: 12px;
 }

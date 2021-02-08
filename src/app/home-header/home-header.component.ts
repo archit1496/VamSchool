@@ -1,5 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-
+import { ViewportScroller } from '@angular/common';
 @Component({
   selector: 'app-home-header',
   templateUrl: './home-header.component.html',
@@ -12,7 +12,7 @@ export class HomeHeaderComponent implements OnInit, AfterViewInit {
   sticky: boolean = false;
   elementPosition: any;
 
-  constructor() { }
+  constructor(private viewportScroller: ViewportScroller) { }
 
   ngOnInit() {
   }
@@ -31,4 +31,7 @@ export class HomeHeaderComponent implements OnInit, AfterViewInit {
       }
     }
 
+    public scrollToForm(elementId: string): void {
+      this.viewportScroller.scrollToAnchor(elementId);
+    }
 }
