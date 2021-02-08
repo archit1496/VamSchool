@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AboutusComponent implements OnInit {
 
-  @Input('fromHome') fromHome: boolean;
+  // @Input('fromHome') fromHome: boolean;
 
   constructor() { }
 

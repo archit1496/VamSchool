@@ -1,0 +1,20 @@
+#subscribe {
+    background-image: linear-gradient(45deg, #2c8148, #33d469 );
+    padding: 0 0 5rem 0 ;
+}
+
+.sec-heading-txt {
+    color: #f1fafd!important;
+}
+
+button {
+    width: 100%!important;
+}
+
+input {
+    width: 100%;
+    padding: 10px 10px 10px 50px;
+    font-size: 18px;
+    border-radius: 100px;
+    border: none;
+}

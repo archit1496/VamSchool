@@ -26,9 +26,17 @@
     width: 100%;
     height: 100vh;
     position: absolute;
-}
+  }
 }
 
+.image:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: aqua;
+  opacity: 0.2;
+  position: absolute;
+}
   .container.cnt-txt {
     position: absolute;
     top: 0;
@@ -53,6 +61,7 @@
   font-size: 3rem;
   font-weight: 700;
   color:black!important;
+  text-shadow: 0 4px 10px #5da9e8;
 }
 
 button.requestDemo.btn {

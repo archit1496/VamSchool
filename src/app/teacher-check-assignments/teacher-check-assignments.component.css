@@ -35,6 +35,11 @@
     grid-template-columns: repeat(3,1fr);
     grid-gap: 2px;
   }
+  .stu-standardDiv{
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+  }
 }
 
 .activity-card{
@@ -200,6 +205,7 @@ p {
 .subheader {
   /* background-color: #f3c062; */
   display: flex;
+  float: left;
 }
 
 .header {
@@ -212,6 +218,10 @@ p {
   word-wrap: break-word;
   hyphens: auto;
   position: relative;
+}
+
+.header p {
+  margin : 0;
 }
 
 .due-date {

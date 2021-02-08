@@ -1,5 +1,7 @@
-#aboutus {
-    margin: 10rem 0;
+
+  #features {
+    background: #dffdff;
+    padding: 5rem 0; 
   }
   .aboutCard{
     border-radius: 10px;
@@ -73,4 +75,48 @@
     color: #9e48b9;
     font-weight: 700!important;
   }
-  
+
+  .feature-elements{
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .feature-elements h4 {
+    font-weight: bold;
+    color: #9e48b9;
+    margin-top: 1rem
+  }
+
+  .features-cnt > div {
+    display: flex;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: center;
+    align-self: center;
+    position: relative;
+  }
+
+  lottie-player {
+    border-radius: 50%;
+    /* background-image: linear-gradient(-45deg, #35d0ff, #0055d4); */
+    /* padding-top: 100%; */
+    width: 250px;
+    height: 250px;
+    min-width: 250px ;
+    min-height: 250px;
+  }
+
+  .feature-content {
+    padding: 5rem 0;
+  }
+
+  h4.title {
+    color:#9e48b9;
+    font-weight: bold;
+  }
+
+  .why-us-img img {
+    width: 100%;
+  }

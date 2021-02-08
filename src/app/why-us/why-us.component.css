@@ -1,0 +1,18 @@
+.item {
+    padding-top: 75%;
+    width: 95%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.features-cnt {
+    position: relative;
+    padding: 4rem 0;
+}
+
+.features-cnt img {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}

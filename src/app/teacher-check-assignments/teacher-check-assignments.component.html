@@ -61,7 +61,7 @@
             </div>
             <div class="no-data row" *ngIf="thirdPage?.length == 0">
               <p><strong>There hasn’t been any submissions yet.</strong></p>
-              <div class="center-gif col-4 col-lg-4">
+              <div class="center-gif col-12 col-sm-12 col-lg-4">
                 <img src="../../assets/images/empty.gif">
               </div>
             </div>
@@ -93,10 +93,10 @@
                   </div>
                 </div>
                 <div *ngIf="visibleIndex === j" class="col-lg-12">
-                  <div class="subheader col-lg-6 col-sm-12 col-12">
+                  <div class="subheader col-lg-6 col-sm-6 col-6">
                     <p><strong>Submitted on:</strong> {{getSubmissionDate(studentActivity.question.created_on)}} </p>
                   </div>
-                  <div class="assignment-description-btn-cnt col-lg-6 col-sm-12 col-12">
+                  <div class="assignment-description-btn-cnt col-lg-6 col-sm-6 col-6">
                     <button class="submit-marks solid-btn-green">Submit Marks</button>
                   </div>
                 </div>

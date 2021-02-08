@@ -112,6 +112,7 @@ p {
 
 .add-file {
   width: 30%;
+  min-width: fit-content;
   background: #29b6f6;
   color: white;
   text-align: center;
@@ -130,6 +131,24 @@ p {
   margin-right: 15rem;
   padding: 0 10px 10px 10px;;
 }
+
+button.home-voilet-btn{
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  background-image: linear-gradient(45deg, #9e48b9, #670785 ) ;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition-duration: 0.5s;
+}
+
+button.home-voilet-btn:hover {
+  width: 155px;
+  background-image: linear-gradient(45deg, #ca67e9, #8f43a7 ) ;
+  box-shadow: 0 2px 5px 0 #4a065f;
+}
+
 @media screen and (max-width: 600px) {
   .standardDiv {
       margin-left: inherit;
@@ -261,9 +280,10 @@ p {
   left:0;
   width: 100%;
   z-index: 2;
-  background: lightgrey;
+  background: #b2ebf2;
   padding: 0.5rem 1rem;
   transition-duration: 0.5s ;
+  box-shadow: 0 3px 10px 0 rgba(41, 41, 99, 0.801);
 }
 
 /* Extra small devices (phones, 600px and down) */

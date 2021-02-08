@@ -10,6 +10,7 @@ export class HomeFeaturesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
