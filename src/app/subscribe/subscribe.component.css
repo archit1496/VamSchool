@@ -19,9 +19,22 @@ button {
 }
 
 input {
+    margin-top: 1rem;
     width: 100%;
     padding: 10px 10px 10px 50px;
     font-size: 18px;
     border-radius: 100px;
     border: none;
 }
+
+h2.sec-heading-txt:after, h2.sec-heading-txt:before {
+    background-color: #11331c!important;
+  }
+  
+  h2.sec-heading-txt:after {
+    right: 50%;
+  }
+  
+  h2.sec-heading-txt:before {
+    right: 51%;
+  }
