@@ -8,7 +8,14 @@
 }
 
 button {
+    margin-top: 1rem;
     width: 100%!important;
+}
+
+@media screen and (max-width: 600px) {
+    button {
+        width: 50%!important;
+    }
 }
 
 input {

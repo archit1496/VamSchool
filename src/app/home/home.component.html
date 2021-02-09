@@ -1,13 +1,19 @@
 <app-home-header></app-home-header>
   <div id="home" class="landing-page">
     <div class="landing-image">
-      <div class="image"></div>
+      <video autoplay muted loop id="myVideo">
+        <source src="../../assets/images/girl.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <div class="video-overlay"></div>
+      <!-- <div class="image"></div> -->
       <!-- <img src="../../assets/images/landing-home.jpg" alt="img"> -->
     </div>
     <div class="container cnt-txt">
       <div class="home-txt ">
-          <h1><span>Welcome to</span><br>
-          <span> VAM School</span></h1>
+          <h1><span>VAM welcome you</span><br>
+          <span>to your</span><span class="virtual-school"> Virtual School</span></h1>
+          <h2 class="landing-subheading">Spark Productivity from day one.</h2>
           <!-- <button type="button" class="requestDemo btn">Request Demo</button> -->
       </div>
     </div>
