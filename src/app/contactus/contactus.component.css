@@ -54,6 +54,11 @@ h3 {
     justify-content: center;
 } */
 
+.homeNavbrand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
 .contact-details {
     padding-top: 1rem;
 }

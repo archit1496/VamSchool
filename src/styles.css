@@ -9,12 +9,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 html, body { 
   font-family: 'Lato', sans-serif!important;
   min-height: 100%!important;
@@ -280,7 +285,7 @@ button.home-voilet-btn:hover {
   left:0;
   width: 100%;
   z-index: 2;
-  background: #b2ebf2;
+  background: #f9feff;
   padding: 0.5rem 1rem;
   transition-duration: 0.5s ;
   box-shadow: 0 3px 10px 0 rgba(41, 41, 99, 0.801);
@@ -528,20 +533,28 @@ button.home-voilet-btn:hover {
 }
 
 .sec-heading-txt {
-  font-weight: 600;
-  font-family: 'Mulish' sans-serif;
   justify-content: center;
   text-align: center;
+}
+
+.sec-heading-txt {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
   color: #073b4c;
 }
 
 .sec-subheading-txt {
-  font-weight: 500;
-  font-family: 'Lato' sans-serif;
   justify-content: center;
-  text-align: center;
+  text-align: center; 
+}
+
+.sec-subheading-txt h3 {
+  font-weight: 300!important;
+  font-size: 20px!important;
+  font-family: 'Lato' sans-serif;
   color: #616161;
 }
+
 
 h2.sec-heading-txt:after, h2.sec-heading-txt:before {
   content: "";
