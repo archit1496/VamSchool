@@ -82,7 +82,7 @@
             </div>
             <div class="showlist" *ngIf="showHideFinalActivity">
               <div class="header row" *ngFor="let studentActivity of particularAssign; let j = index" (click)="showSubItem(j); specificStudent = studentActivity">
-                <div class="due-date">Within Deadline</div>
+                <div [ngClass]="(studentActivity.within_deadline === true)?'due-date':'my-class2'">Within Deadline</div>
                 <div class="col-lg-12">
                   <div class='student-name col-lg-12 col-sm-12 col-12 text-overflow-ellipse'>
                     <p>{{studentActivity.student.first_name + ' ' +studentActivity.student.last_name}}</p>
@@ -123,6 +123,13 @@
         <hr>
         <div class="activity-heading">
           <h2>Private Comments</h2>
+          <input type="text" name="" id="" [(ngModel)]="commentText">
+          <button (click)="addComment()">add</button>
+          <ul>
+            <li *ngFor="let i of  commentData">
+              {{i}}
+            </li>
+          </ul>
         </div>
       </div>
     </div>

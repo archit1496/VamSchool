@@ -128,6 +128,14 @@ export class AppUrl {
   static FETCH_TEACHER_ASSIGNMENT_DATA2(): string {
     return AppUrl.APP_URL + `v1/teacher/get-assignment-topic-dir/`;
   }
+
+  static COMMENT(): string {
+    return AppUrl.APP_URL + `v1/teacher/get-chat/`;
+  }
+
+  static ADD_COMMENT(): string {
+    return AppUrl.APP_URL + `v1/teacher/send-message/`;
+  }
   static get FETCH_TIMETABLE(): string {
     return AppUrl.APP_URL + `v1/student/${StorageService.getItem('class_id')}/time-table/`;
   }

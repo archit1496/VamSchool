@@ -132,6 +132,13 @@ export class TeacherService extends BaseService {
     return this.postRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_DATA2(), obj);
   }
 
+  fetchComments(obj): Observable<any>{
+    return this.postRequest(AppUrl.COMMENT(), obj);
+  }
+
+  addComments(obj): Observable<any>{
+    return this.postRequest(AppUrl.ADD_COMMENT(), obj);
+  }
   fetchNoteData(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_STUDY_MATERIAL_DATA(id));
   }

@@ -15,6 +15,7 @@ export class TeacherCheckAssignmentsComponent {
     this.fetchAssignmentDataSubject();
     this.getActivityData('week=this');
   }
+  commentText = '';
   specificStudent = {student : {first_name: '', last_name: ''}};
   AssignmentClick2;
   openAddNewAssignmentPage;
@@ -24,7 +25,7 @@ export class TeacherCheckAssignmentsComponent {
   secondClass = false;
   thirdPage = [];
   showHideList = true;
-
+commentData = [];
   showHideFinalActivity = false;
   updateHeaderText = 'This week';
   isLoading: boolean;
@@ -245,8 +246,29 @@ export class TeacherCheckAssignmentsComponent {
       this.showHideList = true;
       this.particularAssign = res;
       this.showCommentSection = true;
+      this.showComments(id);
       this.showActivity = false;
     });
+  }
+
+  showComments(id) {
+    const obj = {'assignment_answer': id};
+    this.teacherService.fetchComments(obj).subscribe((res) => {
+   console.log(res, 'res');
+   this.commentData = res.chat;
+    });
+  }
+
+  addComment() {
+    const formData: FormData = new FormData();
+    formData.append('assignment_answer', this.AssignmentClick2.id);
+
+    formData.append('content', this.commentText);
+    
+    this.teacherService.addComments(formData).subscribe((res) => {
+      console.log(res, 'res');
+
+       }); 
   }
 
   getActivityData(id, e?) {
