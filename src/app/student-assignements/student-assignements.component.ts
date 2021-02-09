@@ -1,3 +1,4 @@
+import { TeacherService } from 'src/service/teacher.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { StudentService } from 'src/service/student.service';
@@ -9,6 +10,9 @@ import { StudentService } from 'src/service/student.service';
 })
 export class StudentAssignementsComponent implements OnInit {
   isLoading: boolean;
+  commentText = '';
+  commentData = [];
+  specificTopicDetail;
   studentAssignmentDataSubjectWise;
   studentAssignmentDataTopicWise;
   assignmentData = [];
@@ -20,7 +24,8 @@ export class StudentAssignementsComponent implements OnInit {
   subjectFilterData = [];
   enableActivity = true;
   enableComment = false;
-  constructor(public studentService: StudentService, public toaster: ToastrService) {
+  constructor(public studentService: StudentService, public toaster: ToastrService, 
+    public teacherService: TeacherService) {
 
   }
 
@@ -162,5 +167,30 @@ export class StudentAssignementsComponent implements OnInit {
   getFileType(url:string){
     if(url)
     return url.split(".")[url.split(".").length-1];
+  }
+
+  showComments(id) {
+    const obj = {'assignment_answer': id};
+    this.teacherService.fetchComments(obj).subscribe((res) => {
+   this.commentData = res.chat;
+    });
+  }
+
+  addComment() {
+ 
+    const formData: FormData = new FormData();
+    formData.append('assignment_answer', this.specificTopicDetail.assignment_answer.id);
+
+    formData.append('content', this.commentText);
+    
+    this.teacherService.addComments(formData).subscribe((res) => {
+      if (res.status) {
+        this.toaster.success('Added succesfully!', 'Success');
+        this.commentText = '';
+        this.showComments(this.specificTopicDetail.assignment_answer.id);
+      }
+  
+
+       }); 
   }
 }

@@ -271,6 +271,7 @@ commentData = [];
     this.teacherService.addComments(formData).subscribe((res) => {
       if (res.status) {
         this.toastr.success('Added succesfully!', 'Success');
+        this.commentText = '';
         this.showComments(this.specificStudent.id);
       }
   

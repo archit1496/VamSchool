@@ -1,3 +1,4 @@
+import { TeacherService } from 'src/service/teacher.service';
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/service/student.service';
 
@@ -21,7 +22,7 @@ export class StudentTimetableComponent implements OnInit {
     "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday","Sunday"
   ]
   
-  constructor(public studentService:StudentService) {
+  constructor(public studentService:StudentService, public teacherService:TeacherService) {
     this.fetchTimeTableData();
    }
 

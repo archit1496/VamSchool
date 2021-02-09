@@ -1,3 +1,4 @@
+import { TeacherService } from 'src/service/teacher.service';
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -35,7 +36,7 @@ export class StudentHomeDashboardComponent implements OnInit {
 
   hideJoinBtn = true;
   disableJoinBtn = true;
-  constructor(private router: Router,public studentService:StudentService) {
+  constructor(private router: Router,public studentService:StudentService,  public teacherService: TeacherService) {
     this.fetchStudentDetails();
     this.fetchDashboardActivityData();
     console.log("width",screen.width)

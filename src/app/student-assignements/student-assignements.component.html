@@ -33,7 +33,7 @@
 
             <div class="container" *ngIf="studentAssignmentDataTopicWise?.length > 0">
               <div class="cursor-pointer student-assignment-description-cnt" 
-                    *ngFor="let data of studentAssignmentDataTopicWise" (click)="getTopicDetails(data?.id)">
+                    *ngFor="let data of studentAssignmentDataTopicWise" (click)="getTopicDetails(data?.id);showComments(data.assignment_answer.id);specificTopicDetail = data; commentText = ''">
                   <div class="row">
                     <div class="due-date">Due Date: {{data?.deadline}}</div>
                     <div class="topicName col-lg-12 col-sm-12 col-12"><p>{{data?.topic}}</p></div>
@@ -77,6 +77,13 @@
         <hr>
         <div class="activity-heading">
           <h2>Private Comments</h2>
+          <input type="text" name="" id="" [(ngModel)]="commentText">
+          <button (click)="addComment()">add</button>
+          <ul>
+            <li *ngFor="let i of  commentData">
+              {{i.content}}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
