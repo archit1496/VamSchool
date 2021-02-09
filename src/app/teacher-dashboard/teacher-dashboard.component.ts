@@ -138,40 +138,40 @@ export class TeacherDashboardComponent implements OnInit {
     
   }
 
-  getNextClass(todaysTimeTable) {
-    var d = new Date();
-    var current_time = d.getHours()*60*60+d.getMinutes()*60+d.getSeconds();
-    // last class end time > current time => No more classes 
+  // getNextClass(todaysTimeTable) {
+  //   var d = new Date();
+  //   var current_time = d.getHours()*60*60+d.getMinutes()*60+d.getSeconds();
+  //   // last class end time > current time => No more classes 
    
-    var temp_start_time = [];
-    var temp_end_time = [];
-
-    for(var i=0; i<todaysTimeTable.length; i++) {
-      temp_start_time.unshift(current_time - ((60*60*(parseInt(todaysTimeTable[i].start_time.substr(0,2))))+
-      (60*(parseInt(todaysTimeTable[i].start_time.substr(3,2))))+
-      (parseInt(todaysTimeTable[i].start_time.substr(6,2)))));
-
-      temp_end_time.unshift(current_time - ((60*60*(parseInt(todaysTimeTable[i].end_time.substr(0,2))))+
-      (60*(parseInt(todaysTimeTable[i].end_time.substr(3,2))))+
-      (parseInt(todaysTimeTable[i].end_time.substr(6,2)))));
-    }
-    if (current_time - Math.max(...temp_end_time) < 0) {
-      temp_start_time = temp_start_time.filter(function(x){ return x > -1 });
+  //   var temp_start_time = [];
+  //   var temp_end_time = [];
+  //   console.log("length", Object.keys(todaysTimeTable).length);
+  //   for(var i=0; i<Object.keys(todaysTimeTable).length; i++) {
+  //     temp_start_time.unshift(current_time - ((60*60*(parseInt(todaysTimeTable[i].start_time.substr(0,2))))+
+  //     (60*(parseInt(todaysTimeTable[i].start_time.substr(3,2))))+
+  //     (parseInt(todaysTimeTable[i].start_time.substr(6,2)))));
+      
+  //     temp_end_time.unshift(current_time - ((60*60*(parseInt(todaysTimeTable[i].end_time.substr(0,2))))+
+  //     (60*(parseInt(todaysTimeTable[i].end_time.substr(3,2))))+
+  //     (parseInt(todaysTimeTable[i].end_time.substr(6,2)))));
+  //   }
+  //   if (current_time - Math.max(...temp_end_time) < 0) {
+  //     temp_start_time = temp_start_time.filter(function(x){ return x > -1 });
     
-      var h = Math.floor(temp_start_time[0] / 3600);
-      var m = Math.floor(temp_start_time[0] % 3600 / 60);
-      var s = Math.floor(temp_start_time[0] % 3600 % 60);
+  //     var h = Math.floor(temp_start_time[0] / 3600);
+  //     var m = Math.floor(temp_start_time[0] % 3600 / 60);
+  //     var s = Math.floor(temp_start_time[0] % 3600 % 60);
   
-      var hDisplay = h > 0 ? h+":" : "00:";
-      var mDisplay = m > 0 ? m+":" : "00:";
-      var sDisplay = s > 0 ? s+"" : "00";
-      this.isClass = true;
-      return(hDisplay + mDisplay + sDisplay); 
-    } else {
-      this.isClass = false;
-      return "No More Classes Today";
-    }
-  }
+  //     var hDisplay = h > 0 ? h+":" : "00:";
+  //     var mDisplay = m > 0 ? m+":" : "00:";
+  //     var sDisplay = s > 0 ? s+"" : "00";
+  //     this.isClass = true;
+  //     return(hDisplay + mDisplay + sDisplay); 
+  //   } else {
+  //     this.isClass = false;
+  //     return "No More Classes Today";
+  //   }
+  // }
 
   fetchTodaysTimeTable(){
     this.teacherService.fetchTimetableToday().subscribe(res => {
