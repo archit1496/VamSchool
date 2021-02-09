@@ -16,7 +16,7 @@ export class TeacherCheckAssignmentsComponent {
     this.getActivityData('week=this');
   }
   commentText = '';
-  specificStudent = {student : {first_name: '', last_name: ''}};
+  specificStudent = {student : {first_name: '', last_name: ''}, id: null};
   AssignmentClick2;
   openAddNewAssignmentPage;
   status;
@@ -69,8 +69,11 @@ commentData = [];
   showSubItem(ind) {
     if (this.visibleIndex === ind) {
       this.visibleIndex = -1;
+      this.commentText = '';
     } else {
       this.visibleIndex = ind;
+      this.commentText = '';
+
     }
   }
 
@@ -246,7 +249,7 @@ commentData = [];
       this.showHideList = true;
       this.particularAssign = res;
       this.showCommentSection = true;
-      this.showComments(id);
+
       this.showActivity = false;
     });
   }
@@ -254,19 +257,23 @@ commentData = [];
   showComments(id) {
     const obj = {'assignment_answer': id};
     this.teacherService.fetchComments(obj).subscribe((res) => {
-   console.log(res, 'res');
    this.commentData = res.chat;
     });
   }
 
   addComment() {
+ 
     const formData: FormData = new FormData();
-    formData.append('assignment_answer', this.AssignmentClick2.id);
+    formData.append('assignment_answer', this.specificStudent.id);
 
     formData.append('content', this.commentText);
     
     this.teacherService.addComments(formData).subscribe((res) => {
-      console.log(res, 'res');
+      if (res.status) {
+        this.toastr.success('Added succesfully!', 'Success');
+        this.showComments(this.specificStudent.id);
+      }
+  
 
        }); 
   }

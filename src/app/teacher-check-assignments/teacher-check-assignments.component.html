@@ -81,7 +81,7 @@
               <b>No Data To Display</b>
             </div>
             <div class="showlist" *ngIf="showHideFinalActivity">
-              <div class="header row" *ngFor="let studentActivity of particularAssign; let j = index" (click)="showSubItem(j); specificStudent = studentActivity">
+              <div class="header row" *ngFor="let studentActivity of particularAssign; let j = index" (click)="showSubItem(j);showComments(studentActivity.id); specificStudent = studentActivity">
                 <!-- <div [ngClass]="(studentActivity.within_deadline === true)?'due-date':'my-class2'">Within Deadline</div> -->
                 <span *ngIf='studentActivity.within_deadline; else elseBlock' class="due-date">Within Deadline</span>
                 <ng-template #elseBlock><span class="due-date-crossed">Deadline Crossed</span></ng-template>
@@ -129,7 +129,7 @@
           <button (click)="addComment()">add</button>
           <ul>
             <li *ngFor="let i of  commentData">
-              {{i}}
+              {{i.content}}
             </li>
           </ul>
         </div>
