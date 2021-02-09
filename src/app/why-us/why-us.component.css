@@ -3,15 +3,22 @@
     min-height: 300px;
     /* border: 1px solid black; */
     border-radius: 10px;
+    font-size: 19px;
     margin: 5px;
-    text-align: center;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     justify-content: center;
     display: flex;
-    align-items: center;
+}
+
+.item p {
+    font-family: 'Montserrat', sans-serif!important;
+}
+
+.item p strong {
+    color: #ab236d;
 }
 
 .features-cnt {

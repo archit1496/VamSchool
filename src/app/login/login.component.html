@@ -1,25 +1,21 @@
 <app-home-header></app-home-header>
-
-<section id='login' class="container">
-    <div class="row" style="padding-bottom: 5rem;margin-bottom: 5rem; padding-top: 5rem;">
-      <div class="col-md-8 col-lg-8 col-sm-12 login-image">
-        <img src="../../assets/images/blogging.svg" alt="img">
-      </div>
+<section id='login'>
+  <div class="img-cnt"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12"></div>
       <div class="col-lg-4 col-md-4 col-sm-12 login-box">
         <div class="card text-center">
           <div class="card-body">
             <div class="login-title">
-              <h3 style="color: #9e48b9;">Welcome to the VAM School.</h3>
-              <h3 style="color: #616161;">"Let's Learn Together"</h3>
+              <h3 style="color: #000000;">Welcome to the VAM</h3>
+              <h3 style="color: #ffffff;">"Let's Learn Together"</h3>
             </div>
             <div class="loginform">
               <form [formGroup]="loginForm">
                 <div class="form-group">
                   <div class="input-group mb-3 loginInputDiv">
-                    <span class="input-group-text loginAddIcons" id="basic-addon2">
-                      <i class="fa fa-envelope" aria-hidden="true"></i>
-                    </span>
-                    <input type="text" formControlName="email" name="email" placeholder="Email"
+                    <input type="text" formControlName="email" name="email" placeholder="&#xf2b6; Search" style="font-family:Arial, FontAwesome" 
                     aria-label="Email" aria-describedby="basic-addon2" class="inputText" required>
                     <div class="input-group-append ">
                     </div>
@@ -27,17 +23,14 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group mb-3 loginInputDiv">
-                    <span class="input-group-text loginAddIcons" id="basic-addon2">
-                      <i class="fa fa-lock" aria-hidden="true"></i>
-                    </span>
                     <input type="password" formControlName="password" name="password" class="form-control"
-                      placeholder="Password" aria-label="Email" aria-describedby="basic-addon2" class="inputText" required>
+                      placeholder="&#xf023; Password" style="font-family:Arial, FontAwesome" aria-label="Email" aria-describedby="basic-addon2" class="inputText" required>
                     <div class="input-group-append">
                     </div>
                   </div>
                 </div>
                 <div (click)="onForgotPasswordClick()" class="form-group text-right">
-                  <a  style="color: #613CD5;">Forgot Password?</a>
+                  <a  style="color: #bcfff9;">Forgot Password?</a>
                 </div>
                 <div *ngIf="isLoading">
                   Logging In, Please wait...
@@ -61,4 +54,5 @@
         </div>
       </div>
     </div>
+  </div>
 </section>
