@@ -235,6 +235,17 @@ p {
   border-radius: 0 0 0 5px;
 }
 
+.due-date-crossed{ 
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: fit-content;
+  background: #c93406;
+  padding: 0 5px;
+  color: white;
+  border-radius: 0 0 0 5px;
+}
+
 .header:hover {
   border-bottom: 1px solid #212121;
   box-shadow: 0 1px 2px 0 grey;

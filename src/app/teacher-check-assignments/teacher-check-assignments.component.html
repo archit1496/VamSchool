@@ -83,6 +83,7 @@
             <div class="showlist" *ngIf="showHideFinalActivity">
               <div class="header row" *ngFor="let studentActivity of particularAssign; let j = index" (click)="showSubItem(j); specificStudent = studentActivity">
                 <div class="due-date">Within Deadline</div>
+                <div class="due-date-crossed">Deadline Crossed</div>
                 <div class="col-lg-12">
                   <div class='student-name col-lg-12 col-sm-12 col-12 text-overflow-ellipse'>
                     <p>{{studentActivity.student.first_name + ' ' +studentActivity.student.last_name}}</p>
