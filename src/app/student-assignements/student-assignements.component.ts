@@ -17,8 +17,9 @@ export class StudentAssignementsComponent implements OnInit {
   assignmentActivityData;
   assignmentTopicDetail;
   questionId: number = -1;
-
   subjectFilterData = [];
+  enableActivity = true;
+  enableComment = false;
   constructor(public studentService: StudentService, public toaster: ToastrService) {
 
   }
@@ -58,12 +59,13 @@ export class StudentAssignementsComponent implements OnInit {
     this.subjectFilter = false;
     this.isLoading = true;
     this.studentService.fetchAssignmentQuestionsSubject2(id).subscribe(res => {
-      this.isLoading = false;
-      this.subjectFilterData = res.assignment_dirs;
-      this.studentAssignmentDataSubjectWise = [];
-      // alert(res);
-      // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
-      // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
+    this.isLoading = false;
+    this.subjectFilterData = res.assignment_dirs;
+    this.studentAssignmentDataSubjectWise = [];
+    
+    // alert(res);
+    // this.valueWithOutSubjectFilter = [...this.studentAssignmentDataSubjectWise.assignment_dirs];
+    // console.log("DATA = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
     });
   }
 
@@ -71,25 +73,38 @@ export class StudentAssignementsComponent implements OnInit {
     this.subjectFilter = false;
     this.isLoading = true;
     this.studentService.fetchAssignmentData(id).subscribe(res => {
-      this.isLoading = false;
-      this.studentAssignmentDataTopicWise = res;
-     this.studentAssignmentDataSubjectWise = [];
-     this.subjectFilterData = [];
-      // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
+    this.isLoading = false;
+    this.studentAssignmentDataTopicWise = res;
+    this.studentAssignmentDataSubjectWise = [];
+    this.subjectFilterData = [];
+    this.enableActivity = false;
+    this.enableComment = true;
+    // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }
 
   getTopicDetails(id) {
-
     this.questionId = id;
     this.subjectFilter = false;
     this.isLoading = true;
     this.studentService.fetchAssignmentTopicData({ 'question': id }).subscribe(res => {
     this.isLoading = false;
     this.assignmentTopicDetail = res;
-
     })
   }
+
+  getId(id) {
+    return("item");
+  }
+
+  getBsId(id){
+    return("item");
+  }
+
+  getHeaderId(id) {
+    return("header");
+  }
+  
   uploadNotes(fileInput) {
     const formData: FormData = new FormData();
     const files: File = fileInput.target.files;

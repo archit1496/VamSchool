@@ -23,8 +23,8 @@ export class StudentHomeDashboardComponent implements OnInit {
   // meetingNumber: string = '84675760804';
   role: string = '1';
   leaveUrl = 'https://vamschool.in/wrapper/studashboard';
-  userName = 'Daily Standup Meeting'
-  userEmail = ''
+  userName = '';
+  userEmail = '';
   // passWord = 'WHliSWRZUkFiV3lJOE5KNUVWYTNZdz09'
   signature: any;
   isLoading:boolean;
@@ -56,10 +56,11 @@ export class StudentHomeDashboardComponent implements OnInit {
   fetchStudentDetails() {
     this.isLoading = true;
     this.studentService.fetchStudentDetails().subscribe(res => {
-      console.log('studentDataList', res);
-      
       this.isLoading = false;
       this.studentDataList = res;
+      this.userName = res.first_name;
+      this.userEmail = res.email;
+
       StorageService.setItem('class_id',this.studentDataList.student_class.id);
       if (this.studentDataList.courses.length) {
         StorageService.setItem('subjectName',
@@ -91,6 +92,10 @@ export class StudentHomeDashboardComponent implements OnInit {
 
   }
 
+  getStartTime(time) {
+    return (time.substring(0,5) + " Hrs");
+  }
+  
   getSignature(id, pass) {
 
     this.signature = ZoomMtg.generateSignature({

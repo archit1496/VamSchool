@@ -15,6 +15,8 @@ export class TeacherCheckAssignmentsComponent {
     this.fetchAssignmentDataSubject();
     this.getActivityData('week=this');
   }
+  commentText = '';
+  specificStudent = {student : {first_name: '', last_name: ''}, id: null};
   AssignmentClick2;
   openAddNewAssignmentPage;
   status;
@@ -23,14 +25,14 @@ export class TeacherCheckAssignmentsComponent {
   secondClass = false;
   thirdPage = [];
   showHideList = true;
-  showHideActivity = true;
+commentData = [];
   showHideFinalActivity = false;
   updateHeaderText = 'This week';
   isLoading: boolean;
   studentAssignmentDataSubjectWise;
   selectedStudentAssignmentDataSubjectWise;
   selectedCourse = '0';
-
+  submissionDate;
   assignmentData = [];
   topicName;
   topicQuestion;
@@ -38,10 +40,11 @@ export class TeacherCheckAssignmentsComponent {
   AssignmentClick;
   // valueWithOutSubjectFilter;
   particularAssign = [];
-
+  showCommentSection = false;
   activityData = [];
   // teacherCourseData = [];
   visibleIndex = -1;
+  showActivity = true;
 
   update(studentActivity, e) {
 
@@ -66,8 +69,11 @@ export class TeacherCheckAssignmentsComponent {
   showSubItem(ind) {
     if (this.visibleIndex === ind) {
       this.visibleIndex = -1;
+      this.commentText = '';
     } else {
       this.visibleIndex = ind;
+      this.commentText = '';
+
     }
   }
 
@@ -132,7 +138,6 @@ export class TeacherCheckAssignmentsComponent {
       this.secondClass = true;
       this.thirdClass = false;
       this.showHideList = false;
-      this.showHideActivity = false;
       this.isLoading = false;
 
       this.assignmentData = res.data;
@@ -200,6 +205,12 @@ export class TeacherCheckAssignmentsComponent {
   get Infinity() {
     return Infinity;
   }
+
+  getSubmissionDate(date) {
+    let d = new Date(date);
+    return (d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear());
+  }
+
   getDate(date) {
     return (new Date(date).getDate() + '-' + new Date(date).getMonth() + '-' + new Date(date).getFullYear());
   }
@@ -217,7 +228,7 @@ export class TeacherCheckAssignmentsComponent {
       this.secondClass = false;
       this.thirdClass = true;
       this.showHideList = false;
-      this.showHideActivity = false;
+
       this.thirdPage = res;
 
     });
@@ -235,11 +246,36 @@ export class TeacherCheckAssignmentsComponent {
       this.status = 'all';
       this.secondClass = false;
       this.thirdClass = false;
-      this.showHideList = false;
-      this.showHideActivity = false;
+      this.showHideList = true;
       this.particularAssign = res;
+      this.showCommentSection = true;
 
+      this.showActivity = false;
     });
+  }
+
+  showComments(id) {
+    const obj = {'assignment_answer': id};
+    this.teacherService.fetchComments(obj).subscribe((res) => {
+   this.commentData = res.chat;
+    });
+  }
+
+  addComment() {
+ 
+    const formData: FormData = new FormData();
+    formData.append('assignment_answer', this.specificStudent.id);
+
+    formData.append('content', this.commentText);
+    
+    this.teacherService.addComments(formData).subscribe((res) => {
+      if (res.status) {
+        this.toastr.success('Added succesfully!', 'Success');
+        this.showComments(this.specificStudent.id);
+      }
+  
+
+       }); 
   }
 
   getActivityData(id, e?) {

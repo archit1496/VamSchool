@@ -1,0 +1,40 @@
+#quote {
+    margin: 5rem 0;
+}
+input {
+    width: 100%;
+    padding: 10px 10px 10px 50px;
+    font-size: 18px;
+    border-radius: 100px;
+    border: 1px solid #616161;
+    margin-top: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px 10px 10px 50px;
+    font-size: 18px;
+    border: 1px solid #616161;
+    margin-top: 10px;
+    height: 100px!important;
+    border-radius: 20px!important;
+    margin-top: 10px;
+}
+
+.input-cnt {
+    margin: 15px 0;
+}
+
+.input-cnt label {
+    font-weight: bold;
+    color: #616161;
+    font-size: 22px;
+}
+
+.quote-img {
+    width: 100%;
+}
+
+.quote-img img {
+    width: 100%;
+}

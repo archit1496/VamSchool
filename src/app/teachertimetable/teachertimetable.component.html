@@ -13,9 +13,9 @@
           <div class="outerGrid"><b style="padding: 0px 10px;">Monday</b></div>
             <div class="main-card mt-2" *ngFor="let data of mondayData">
               <span class="mt-4">
-                {{ data?.course?.subject?.subject_name }} <br />
+                {{ data?.class_of?.class_name }}{{ data?.class_of?.section }}  <br />
                 <span style="font-size: 13px">
-                  {{ data?.start_time }}
+                  {{ teacherService.convertFrom24To12Format(data?.start_time) }}
                 </span>
               </span>
             </div>
@@ -24,9 +24,9 @@
           <div class="outerGrid"><b style="padding: 0px 10px;">Tuesday</b></div>
           <div class="main-card mt-2" *ngFor="let data of tuesdayData">
             <span class="mt-4">
-              {{ data?.course?.subject?.subject_name }} <br />
+              {{ data?.class_of?.class_name }}{{ data?.class_of?.section }}  <br />
               <span style="font-size: 13px">
-                {{ data?.start_time }}
+                {{ teacherService.convertFrom24To12Format(data?.start_time) }}
               </span>
             </span>
           </div>
@@ -35,9 +35,9 @@
           <div class="outerGrid"><b style="padding: 0px 10px;">Wednesday</b></div>
           <div class="main-card mt-2" *ngFor="let data of wednesdayData">
             <span class="mt-4">
-              {{ data?.course?.subject?.subject_name }} <br />
+              {{ data?.class_of?.class_name }}{{ data?.class_of?.section }} <br />
               <span style="font-size: 13px">
-                {{ data?.start_time }}
+                {{ teacherService.convertFrom24To12Format(data?.start_time) }}
               </span>
             </span>
           </div>
@@ -46,9 +46,9 @@
           <div class="outerGrid"><b style="padding: 0px 10px;">Thursday</b></div>
           <div class="main-card mt-2" *ngFor="let data of thrusdayData">
             <span class="mt-4">
-              {{ data?.course?.subject?.subject_name }} <br />
+              {{ data?.class_of?.class_name }}{{ data?.class_of?.section }}  <br />
               <span style="font-size: 13px">
-                {{ data?.start_time }}
+                {{ teacherService.convertFrom24To12Format(data?.start_time) }}
               </span>
             </span>
           </div>
@@ -57,9 +57,9 @@
           <div class="outerGrid"><b style="padding: 0px 10px;">Friday</b></div>
           <div class="main-card mt-2" *ngFor="let data of fridayData">
             <span class="mt-4">
-              {{ data?.course?.subject?.subject_name }} <br />
+              {{ data?.class_of?.class_name }}{{ data?.class_of?.section }} <br />
               <span style="font-size: 13px">
-                {{ data?.start_time }}
+                {{teacherService.convertFrom24To12Format(data?.start_time) }}
               </span>
             </span>
           </div>
@@ -68,9 +68,9 @@
           <div class="outerGrid"><b style="padding: 0px 10px;">Saturday</b></div>
           <div class="main-card mt-2" *ngFor="let data of saturdayData">
             <span class="mt-4">
-              {{ data?.course?.subject?.subject_name }} <br />
+              {{ data?.class_of?.class_name }}{{ data?.class_of?.section }}  <br />
               <span style="font-size: 13px">
-                {{ data?.start_time }}
+                {{ teacherService.convertFrom24To12Format(data?.start_time) }}
               </span>
             </span>
           </div>
@@ -79,9 +79,9 @@
           <div class="outerGrid"><b style="padding: 0px 10px;">Sunday</b></div>
           <div class="main-card mt-2" *ngFor="let data of sundayData">
             <span class="mt-4">
-              {{ data?.course?.subject?.subject_name }} <br />
+              {{ data?.class_of?.class_name }}{{ data?.class_of?.section }}  <br />
               <span style="font-size: 13px">
-                {{ data?.start_time }}
+                {{ teacherService.convertFrom24To12Format(data?.start_time)}}
               </span>
             </span>
           </div>

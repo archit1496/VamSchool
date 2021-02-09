@@ -6,7 +6,7 @@
             Loading Data, Please wait... 
         </div>     
         <div class="img-cnt">   
-            <img src="../../assets/images/main-view.png" alt="main"> 
+            <img src="../../assets/images/main-v.png" alt="main"> 
         </div>    
         
         <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
@@ -53,11 +53,11 @@
                             <div class="col-6 col-lg-3 col-sm-6">
                                 <div class="today-card">
                                     <div class='carousel-overlay'>
-                                        <img class='image' src='../../assets/images/cls-bg-1.jpg'>
+                                        <img class='image' src='../../assets/images/subject_flat.png'>
                                     </div>
                                     <p>
                                         {{ data?.course?.subject?.subject_name}} <br>
-                                        {{ data?.start_time }}
+                                        {{getStartTime(data.start_time)}}
                                     </p>
                                 </div>
                             </div>
@@ -72,10 +72,10 @@
                 <div class="col-lg-5 col-sm-12 col-12" *ngIf="hideJoinBtn">
                     <h5><b>Now</b></h5>
                     <div class="live-card">
-                        <img src='../../assets/images/now-bg.jpg' alt='img'/>
+                        <img src='../../assets/images/subject_flat.png' alt='img'/>
                         <div class="now-status">
                             <div class="text-left mr-2">
-                                <p><span class="red-dot"></span>OnGoing</p>
+                                <!-- <p><span class="red-dot"></span> OnGoing</p> -->
                             </div>
                             <div class="startNow">
                                <a (click)="getData();" target="_new"><b>Join Now ></b></a>
@@ -95,9 +95,9 @@
                             <div class="col-lg-6 col-sm-6 col-md-6 col-6">
                                 <h5><strong>Activity</strong></h5>
                             </div>
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-6">
+                            <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-6">
                                 <span><a href="">This Week</a> | <a href=''>All Time</a></span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="activity-card">
                             <div *ngFor="let data of dashboardActivityData" class="activity-status">

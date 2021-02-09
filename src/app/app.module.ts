@@ -21,6 +21,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { HomeFeaturesComponent } from './home-features/home-features.component';
+import { WhyUsComponent } from './why-us/why-us.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
+import { HomeQuoteComponent } from './home-quote/home-quote.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ContactusComponent,
     HomeHeaderComponent,
     PasswordChangeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    HomeFeaturesComponent,
+    WhyUsComponent,
+    SubscribeComponent,
+    HomeQuoteComponent
   ],
   imports: [
     FormsModule,

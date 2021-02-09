@@ -18,8 +18,8 @@ export class TeacherDashboardComponent implements OnInit {
   // meetingNumber: "1234567892";
   role = '1'
   leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
-  userName = 'Daily Standup Meeting'
-  userEmail = 'test@gmail.com'
+  userName = '';
+  userEmail = '';
   // passWord = 'QkllV1NieEkyQlpKMmxtbjVHNWdIdz09'
   signature: any;
   teacherCourseData: any;
@@ -30,11 +30,14 @@ export class TeacherDashboardComponent implements OnInit {
   topicName = "test Topic1"
   agenda = "agenda1"
   hideJoin = true;
-  constructor(private teacherService: TeacherService) {
+  isClass: boolean = false;
+  
+  constructor(public teacherService: TeacherService) {
   }
 
   ngOnInit() {
-    this.fetchTeacherCourse();
+    this.fetchTeacher();
+
     this.fetchTodaysTimeTable();
   }
 
@@ -48,9 +51,11 @@ export class TeacherDashboardComponent implements OnInit {
       this.hideJoin = false;
       this.fetchTeacherCourseForHostUrl(course_id);
      }
-
-      
     })
+  }
+
+  getStartTime(time) {
+    return (time.substring(0,5) + " Hrs");
   }
 
   getSignature(meetingNumber, meetingPassword) {
@@ -106,12 +111,21 @@ export class TeacherDashboardComponent implements OnInit {
     })
   }
 
-  fetchTeacherCourse(){
+  fetchTeacherCourse(userName, userEmail){
     this.teacherService.fetchTeacherCourse().subscribe(res => {
       this.teacherCourseData = res.data;
       console.log(res.data)
-      console.log("teacher course :" + JSON.stringify(res.data[0].id))
+      this.userName = userName;
+      this.userEmail = userEmail;
+
       this.teacherCourseId = JSON.stringify(res.data[0].id);
+    })
+  }
+
+  fetchTeacher() {
+    this.teacherService.fetchTeacher().subscribe(res => {
+      console.log(res, 'fetchTeacher');
+      this.fetchTeacherCourse(res.email, res.first_name);
     })
   }
 
@@ -124,12 +138,44 @@ export class TeacherDashboardComponent implements OnInit {
     
   }
 
+  getNextClass(todaysTimeTable) {
+    var d = new Date();
+    var current_time = d.getHours()*60*60+d.getMinutes()*60+d.getSeconds();
+    // last class end time > current time => No more classes 
+   
+    var temp_start_time = [];
+    var temp_end_time = [];
 
+    for(var i=0; i<todaysTimeTable.length; i++) {
+      temp_start_time.unshift(current_time - ((60*60*(parseInt(todaysTimeTable[i].start_time.substr(0,2))))+
+      (60*(parseInt(todaysTimeTable[i].start_time.substr(3,2))))+
+      (parseInt(todaysTimeTable[i].start_time.substr(6,2)))));
+
+      temp_end_time.unshift(current_time - ((60*60*(parseInt(todaysTimeTable[i].end_time.substr(0,2))))+
+      (60*(parseInt(todaysTimeTable[i].end_time.substr(3,2))))+
+      (parseInt(todaysTimeTable[i].end_time.substr(6,2)))));
+    }
+    if (current_time - Math.max(...temp_end_time) < 0) {
+      temp_start_time = temp_start_time.filter(function(x){ return x > -1 });
+    
+      var h = Math.floor(temp_start_time[0] / 3600);
+      var m = Math.floor(temp_start_time[0] % 3600 / 60);
+      var s = Math.floor(temp_start_time[0] % 3600 % 60);
+  
+      var hDisplay = h > 0 ? h+":" : "00:";
+      var mDisplay = m > 0 ? m+":" : "00:";
+      var sDisplay = s > 0 ? s+"" : "00";
+      this.isClass = true;
+      return(hDisplay + mDisplay + sDisplay); 
+    } else {
+      this.isClass = false;
+      return "No More Classes Today";
+    }
+  }
 
   fetchTodaysTimeTable(){
     this.teacherService.fetchTimetableToday().subscribe(res => {
       console.log(res, '2');
-
       this.todaysTimeTable = res;
     })
   }

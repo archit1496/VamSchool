@@ -1,7 +1,25 @@
 #footer {
-    margin-top: 2rem;
-    padding: 1rem 0;
+    padding: 3rem 0 1rem 0;
     height: auto;
+}
+
+h2 {
+    margin: 2rem 0;
+}
+
+h3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin: 2rem 0;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+    justify-content: end;
 }
 
 #footer hr {
@@ -13,26 +31,32 @@
 }
 
 #footer p{
-    color: #8ea942;
+    color: #6ece20;
 }
 
 #footer h2{
-    color: #598c6a;
+    color: #ffffff;
 }
 
 .social-media-cnt i{
-    color: #598c6a;
+    color: #ffffff;
     font-size: 2rem;
     margin: 0 1rem;
+    transition-duration: 0.2s;
 }
 
 .social-media-cnt i:hover{
-    color:#8ea942;
+    color:#6ece20;
 }
 
-.social-media-cnt {
+/* .social-media-cnt {
     text-align: center;
     justify-content: center;
+} */
+
+.homeNavbrand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .contact-details {
@@ -43,32 +67,37 @@
     font-size: 1rem;
 }
 
-.calling span::before {
+.hover-animation span::before {
     content: '';
     width: 0px;
-    height: 1px;
-    background: #4caf50;;
+    height: 2px;
+    background: #6ece20;;
     position: absolute;
     justify-content: center;
     transition-property: 'width';
     transition-duration: 0.5s;
 }
 
-.calling span:hover::before {
+.hover-animation span:hover::before {
     width: 80px;
 }
 
-.whatsapp span::before {
+.hover-animation span::before {
     content: '';
     width: 0px;
-    height: 1px;
-    background: #4caf50;;
+    height: 2px;
+    background: #6ece20;;
     position: absolute;
     justify-content: center;
     transition-property: 'width';
     transition-duration: 0.5s;
 }
 
-.whatsapp span:hover::before {
+.hover-animation span:hover::before {
     width: 80px;
+}
+
+.footer-txt{
+    color: rgb(255, 241, 241);
+    font-size: 12px;
 }

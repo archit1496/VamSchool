@@ -14,6 +14,17 @@ export class TeacherService extends BaseService {
     super(http);
 
    }
+
+   convertFrom24To12Format = (time24) => {
+     if (time24) {
+      const [sHours, minutes] = time24.match(/([0-9]{1,2}):([0-9]{2})/).slice(1);
+      const period = +sHours < 12 ? 'AM' : 'PM';
+      const hours = +sHours % 12 || 12;
+    
+      return `${hours}:${minutes} ${period}`;
+     }
+   return '';
+   }
  
   getTeacherCourselist(): Observable<any> {
     return this.getRequest(AppUrl.TEACHER_COURSE_LIST);
@@ -121,6 +132,13 @@ export class TeacherService extends BaseService {
     return this.postRequest(AppUrl.FETCH_TEACHER_ASSIGNMENT_DATA2(), obj);
   }
 
+  fetchComments(obj): Observable<any>{
+    return this.postRequest(AppUrl.COMMENT(), obj);
+  }
+
+  addComments(obj): Observable<any>{
+    return this.postRequest(AppUrl.ADD_COMMENT(), obj);
+  }
   fetchNoteData(id): Observable<any>{
     return this.getRequest(AppUrl.FETCH_STUDY_MATERIAL_DATA(id));
   }

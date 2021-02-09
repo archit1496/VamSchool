@@ -1,6 +1,7 @@
 #aboutus {
-  margin: 10rem 0;
+  padding: 5rem 0; 
 }
+
 .aboutCard{
   border-radius: 10px;
   background: #FFFFFF;

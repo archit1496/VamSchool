@@ -1,0 +1,122 @@
+
+  #features {
+    background: #dffdff;
+    padding: 5rem 0; 
+  }
+  .aboutCard{
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 2px rgb(207, 155, 223);
+    height: 440px;
+    padding: 10px;
+    transition-duration: 0.5s;
+    margin: 1rem;
+  }
+  
+  .aboutCard:hover{
+    box-shadow: 0 0px 20px 0px rgb(207, 155, 223);
+  }
+  
+  .exploreBtn{
+    width: fit-content;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 2px solid #9e48b9;
+    color: #9e48b9;
+    transition-duration: 0.5s;
+  }
+  
+  .exploreBtn:hover{
+    color: aliceblue;
+    background-color: #9e48b9;
+    border: 2px solid #9e48b9;
+  }
+  
+  .about-btn-cnt {
+      justify-content: center;
+      text-align: center;
+  }
+  
+  .about-glimpse-cnt {
+    padding: 2rem;
+  }
+  
+  .about-glimpse-txt{
+    margin: 1rem 0;
+  }
+  
+  .about-glimpse-txt-1 h3{
+    font-size: 2rem;
+    font-family: 'Mulish' sans-serif;
+    font-weight: 700;
+    color: #9e48b9;
+  }
+  
+  .about-glimpse-txt-2 h4, .about-glimpse-txt-3 h4{
+    font-size: 24px;
+    font-family: 'Mulish' sans-serif;
+    font-weight: 700;
+    color: #9e48b9;
+  }
+  
+  .about-glimpse-txt-2 h4 i, .about-glimpse-txt-3 h4 i{
+    color: #ef476f;
+    background-color: #073b4c;
+    border-radius: 50px;
+    padding: 5px;
+  }
+  
+  .about-card-img img {
+    width: 100%;
+  }
+  
+  .card-title {
+    margin: 1rem 0;
+    color: #9e48b9;
+    font-weight: 700!important;
+  }
+
+  .feature-elements{
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .feature-elements h4 {
+    font-weight: bold;
+    color: #9e48b9;
+    margin-top: 1rem
+  }
+
+  .features-cnt > div {
+    display: flex;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: center;
+    align-self: center;
+    position: relative;
+  }
+
+  lottie-player {
+    border-radius: 50%;
+    /* background-image: linear-gradient(-45deg, #35d0ff, #0055d4); */
+    /* padding-top: 100%; */
+    width: 250px;
+    height: 250px;
+    min-width: 250px ;
+    min-height: 250px;
+  }
+
+  .feature-content {
+    padding: 5rem 0;
+  }
+
+  h4.title {
+    color:#9e48b9;
+    font-weight: bold;
+  }
+
+  .why-us-img img {
+    width: 100%;
+  }

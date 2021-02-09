@@ -1,12 +1,12 @@
 <app-student-nav-bar></app-student-nav-bar>
 <div class="container-fluid">
   <div class="row">
-    <div class='col-lg-9'>
+    <div class='col-lg-9 col-sm-12'>
       <div class="mt-1 stu-standardDiv">
         <div class="mt-1 innerDiv">
           <h5 class="mt-4 mb-4"><b>This Week<span *ngIf="studentAssignmentDataTopicWise?.length>0"> 
             > {{studentAssignmentDataTopicWise[0]?.course?.subject?.subject_name}}</span></b>
-          </h5>
+          </h5> 
           <div *ngIf="studentAssignmentDataSubjectWise?.length > 0">
             <div class="grid">
               <div class='assignment-file-cnt' *ngFor="let data of studentAssignmentDataSubjectWise">
@@ -30,45 +30,58 @@
               </div>
             </div>
           </div>
-      
-          <div *ngIf="studentAssignmentDataTopicWise?.length > 0">
-            <div *ngIf="isLoading" class="text-center">
-              Loading Data, Please wait...
-            </div> 
-            <div *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
-              <b>No Data To Display</b>
-            </div> 
-            <div class="cursor-pointer student-assignment-description-cnt" *ngFor="let data of studentAssignmentDataTopicWise"  
-                  (click)="getTopicDetails(data?.id)">
-              <div class="row">
-                <div class="topicName col-lg-6 col-sm-6 col-12"><p>{{data?.topic}}</p></div>
-                <div class="teacherName col-lg-6 col-sm-6 col-12"><p>{{data?.teacher?.name}}</p></div>
-                <!-- <div class='file-type col-lg-3 col-sm-12 col-12'>
-                  <p>{{getFileType(data?.doc_question)}}<span *ngIf="data?.doc_question"> file</span></p> 
-                </div> -->
-              </div>
-              <div *ngIf="data?.id==questionId" class="assignment-btn-cnt row">
-                <div class="col-lg-3 col-sm-6 col-6">
-                  <button class="solid-btn-voilet" (click)="onDownloadClick(data?.doc_question)">Download</button>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-6">
-                    <input type="file" id="upload-notes" class="downloadBtn" (change)="uploadNotes($event)">
-                    <label for='upload-notes' class="solid-btn-green">Upload</label>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                  <button class="solid-btn-green">Marks - <span *ngIf="assignmentTopicDetail?.length>0">
-                    {{this.assignmentTopicDetail[0]?.mark}}</span>
-                  </button>
+
+            <div class="container" *ngIf="studentAssignmentDataTopicWise?.length > 0">
+              <div class="cursor-pointer student-assignment-description-cnt" 
+                    *ngFor="let data of studentAssignmentDataTopicWise" (click)="getTopicDetails(data?.id)">
+                  <div class="row">
+                    <div class="due-date">Due Date: {{data?.deadline}}</div>
+                    <div class="topicName col-lg-12 col-sm-12 col-12"><p>{{data?.topic}}</p></div>
+                    <div class="teacherName col-lg-12 col-sm-12 col-12"><p>Marks: {{data?.assignment_answer?.mark}} / {{data?.max_mark}}</p></div>
+                  </div>
+                  <div *ngIf="data?.id==questionId" class="row assignment-btn-cnt">
+                    <div class="assignment-description-text col-lg-12 col-sm-12">
+                      <hr style="width: 100%">
+                      <p><strong>Assignment Description: </strong>{{data?.description}}</p>
+                    </div>
+                    <div class="student-assignment-description-btn-cnt col-lg-12 col-sm-12 col-12">
+                      <button class="solid-btn-voilet">Download Correction</button>
+                      <button class="solid-btn-green" (click)="onDownloadClick(data?.doc_question)">Download Assignment</button>
+                    </div>
                 </div>
               </div>
+              <div *ngIf="isLoading" class="text-center">
+                Loading Data, Please wait...
+              </div> 
             </div>
-          </div>
+          <!-- <div *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
+            <b>No Data To Display</b>
+          </div>  -->
         </div>
         <!-- <div class="footer-card"></div> -->
       </div>
     </div>
 
-    <div class="activity-column">
+    <div class="activity-column col-lg-3 col-sm-12" *ngIf="enableComment">
+      <div class="activity-card">
+        <div class="activity-heading">
+          <h2>Your Work</h2>
+        </div>
+        <div class="width-full upload-cnt">
+          <label style="text-align: center;" for="upload-notes">Upload Assignment</label>
+          <input name="upload-notes" type="file" id="upload-notes" (change)="uploadNotes($event)">
+        </div>
+        <div class="width-full text-center">
+          <button style="width: 100%;" type="submit" class="solid-btn-voilet">Submit</button>
+        </div>
+        <hr>
+        <div class="activity-heading">
+          <h2>Private Comments</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-column col-lg-3 col-sm-12" *ngIf="enableActivity">
       <div class="activity-card">
         <div class="activity-heading">
           <h2>Activity</h2>
@@ -83,5 +96,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>

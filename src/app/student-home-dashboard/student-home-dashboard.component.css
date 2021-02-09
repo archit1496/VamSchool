@@ -1,14 +1,4 @@
-a b{
-  color: black;
-  cursor: pointer;
-}
-
-a b:hover{
-  color: blue;
-}
-
-
-.boxModel{
+  .boxModel{
   padding: 0;
   height: 100%;
 }
@@ -71,8 +61,9 @@ a b:hover{
 }
 
 .activity-card{
+  padding-top: 75%;
   border-radius: 10px;
-  background-image: url("../../assets/images/trophy.png");
+  background-image: url("../../assets/images/prize.jpg");
   background-size: 100% 100%;
   position: relative;
   height: 100% !important;
@@ -82,23 +73,32 @@ a b:hover{
   opacity: 1;
 }
 
+.activity-card:after {
+  content: '';
+  background: grey;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.2;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+}
+
 @media screen and (max-width: 600px) {
   .activity-card{
-    background-size: 100% 100%;
-    position: relative;
-    height: 100% !important;
-    width: 100%!important;
-    min-height: 210px;
-    opacity: 1;
+    padding-top: 100%;
+    background-image: url("../../assets/images/prize-sq.jpg");
   }
 }
 
 .activity-status {
-  position: relative;
+  position: absolute;
   z-index: 2;
   width: 100%;
   height: 100%;
   font-size: 24px;
+  top: 0;
 }
 
 .activity-head h5 {
@@ -113,7 +113,6 @@ a b:hover{
 .now-status .text-left {
   font-size: 24px;
 }
-
 
 .now-status {
   top: 0;
@@ -135,6 +134,10 @@ a b:hover{
   cursor: pointer;
 }
 
+.startNow a b {
+  color:rgb(235, 235, 255);
+}
+
 .class-in-div{
   position: absolute  ;
   bottom: 0;
@@ -146,6 +149,7 @@ a b:hover{
 
 .classes-container {
   margin: .5rem 0;
+  position: relative;
 }
 
 .myCarousel-container {

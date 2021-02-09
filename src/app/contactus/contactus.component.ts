@@ -7,11 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ContactusComponent implements OnInit {
 
-  @Input('fromHome') fromHome: boolean;
+  // @Input('fromHome') fromHome: boolean;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  getCurrentYear () {
+    var d = new Date();
+    return d.getUTCFullYear();
+  }
 }

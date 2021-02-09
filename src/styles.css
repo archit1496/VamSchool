@@ -9,12 +9,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 html, body { 
   font-family: 'Lato', sans-serif!important;
   min-height: 100%!important;
@@ -37,6 +42,26 @@ p {
   font-family: 'Lato', sans-serif;
 }
 
+.sec-heading-cnt {
+  position: relative;
+}
+
+.font-size14{
+  font-size: 14px;
+}
+
+.font-size12{
+  font-size: 12px !important;
+}
+
+.width-full {
+  width: 100%;
+}
+
+.text-center {
+  justify-content: center;
+  text-align: center;
+}
 .chapter{
     color: rgba(0,0,0,.5);
 }
@@ -57,7 +82,7 @@ p {
 
 .solid-btn-voilet {
   color: #9e48b9;
-  border: 1px solid;
+  border: 1.5px solid;
   border-radius: 5px;
   padding: 5px;
   background-color: transparent;
@@ -68,14 +93,14 @@ p {
 
 .solid-btn-voilet:hover {
   color: white;
-  border: 1px solid #9e48b9;
+  border: 1.5px solid #9e48b9;
   border-radius: 5px;
   background-color: #9e48b9;
 }
 
 .solid-btn-green {
   color: #598c6a;
-  border: 1px solid;
+  border: 1.5px solid;
   border-radius: 5px;
   padding: 5px;
   background-color: transparent;
@@ -85,9 +110,25 @@ p {
 
 .solid-btn-green:hover {
   color: white;
-  border: 1px solid #598c6a;
+  border: 1.5px solid #598c6a;
   border-radius: 5px;
   background-color: #598c6a;
+}
+
+.add-file {
+  width: 30%;
+  min-width: fit-content;
+  background: #29b6f6;
+  color: white;
+  text-align: center;
+  border-radius: 30px;
+  position: relative;
+  padding: 5px;
+}
+
+.add-file span {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .standardDiv{
@@ -95,6 +136,24 @@ p {
   margin-right: 15rem;
   padding: 0 10px 10px 10px;;
 }
+
+button.home-voilet-btn{
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  background-image: linear-gradient(45deg, #9e48b9, #670785 ) ;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition-duration: 0.5s;
+}
+
+button.home-voilet-btn:hover {
+  width: 155px;
+  background-image: linear-gradient(45deg, #ca67e9, #8f43a7 ) ;
+  box-shadow: 0 2px 5px 0 #4a065f;
+}
+
 @media screen and (max-width: 600px) {
   .standardDiv {
       margin-left: inherit;
@@ -226,9 +285,10 @@ p {
   left:0;
   width: 100%;
   z-index: 2;
-  background: lightgrey;
+  background: #f9feff;
   padding: 0.5rem 1rem;
   transition-duration: 0.5s ;
+  box-shadow: 0 3px 10px 0 rgba(41, 41, 99, 0.801);
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -415,13 +475,6 @@ p {
   display: none;
 }
 
-.font-size14{
-  font-size: 14px;
-}
-
-.font-size12{
-  font-size: 12px !important;
-}
 
 .studymat-activity-div{
   margin-left: 26rem;
@@ -441,6 +494,7 @@ p {
   border-bottom: .5px solid #9ecbf3 !important;
   height: 100%;
   width: 100%;
+  min-height: 70px;
   background-color: #f0f8ff !important;
   padding: 4px;
 }
@@ -479,12 +533,28 @@ p {
 }
 
 .sec-heading-txt {
-  font-weight: 600;
-  font-family: 'Mulish' sans-serif;
   justify-content: center;
   text-align: center;
+}
+
+.sec-heading-txt {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
   color: #073b4c;
 }
+
+.sec-subheading-txt {
+  justify-content: center;
+  text-align: center; 
+}
+
+.sec-subheading-txt h3 {
+  font-weight: 300!important;
+  font-size: 20px!important;
+  font-family: 'Lato' sans-serif;
+  color: #313131;
+}
+
 
 h2.sec-heading-txt:after, h2.sec-heading-txt:before {
   content: "";
@@ -508,3 +578,5 @@ h2.sec-heading-txt:before {
 .sec-heading-cnt {
   padding: 2rem 0;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

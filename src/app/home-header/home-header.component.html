@@ -3,7 +3,7 @@
       <div class="container">
         <!-- <a class="navbar-brand homeNavbrand" href="#">
           <h1>VAM</h1>
-        </a> --> 
+        </a>  -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -14,30 +14,35 @@
           </a>
           <ul class="navbar-nav ml-auto mr-5">
             <li class="nav-item">
-              <a class="nav-link login-items" routerLink="/aboutus" routerLinkActive="active">
+              <a class="nav-link login-items" (click)="scrollToForm('features')" routerLinkActive="active">
+                FEATURES
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link login-items" (click)="scrollToForm('aboutus')" routerLinkActive="active">
                 ABOUT
               </a>
             </li>
             <li class="nav-item"> 
-              <a class="nav-link login-items" routerLink="/contact" routerLinkActive="active">
+              <a class="nav-link login-items" (click)="scrollToForm('footer')" routerLinkActive="active">
                 CONTACT US
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link login-items" routerLink="/login" routerLinkActive="active">
-                LOGIN
+              <a class="nav-link login-items my-login-btn" routerLink="/login" routerLinkActive="active">
+                LOGIN to VAM
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link login-items" routerLink="/register" routerLinkActive="active">
-                REGISTER
+              <a class="nav-link login-items quote" (click)="scrollToForm('quote')" routerLinkActive="active">
+                REQUEST A QUOTE
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link">
                 <b><button type="button" class="requestDemo btn">REQUEST DEMO</button></b>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
