@@ -114,6 +114,10 @@ export class TeacherService extends BaseService {
   fetchTimetableToday(): Observable<any>{
     return this.getRequestNew(AppUrl.FETCH_TEACHER_TIMETABLE_TODAY);
   }
+
+  fetchClasses(): Observable<any>{
+    return this.getRequestNew(AppUrl.FETCH_CLASSES);
+  }
   
   fetchAssignmentQuestionsSubject(): Observable<any>{
     return this.getRequest2(AppUrl.FETCH_TEACHER_ASSIGNMENT_QUESTIONS_SUBJECT);

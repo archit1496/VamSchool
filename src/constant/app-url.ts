@@ -231,4 +231,8 @@ export class AppUrl {
   static get FETCH_TEACHER_TIMETABLE_TODAY(): string {
     return AppUrl.APP_URL + 'v1/teacher/time-table/?today=true';
   }
+
+  static get FETCH_CLASSES(): string {
+    return AppUrl.APP_URL + 'v1/teacher/class/';
+  }
 }
