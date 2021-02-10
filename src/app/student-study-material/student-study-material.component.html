@@ -48,7 +48,7 @@
                 {{getFileType(data.note? data?.note : data?.video)}} <span *ngIf="data.note? data?.note : data?.video">file</span>
               </div> -->
               <div class='col-lg-6'>
-                <button style="float:right;" class="solid-btn-green" (click)="onDownloadClick('https://api.vamschool.in' + 
+                <button style="float:right;" class="solid-btn-green" (click)="onDownloadClick('' + 
                 (data.note? data?.note : data?.video))">
                   Download</button>
               </div>

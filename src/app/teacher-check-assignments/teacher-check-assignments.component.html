@@ -22,8 +22,11 @@
           <div class="col-lg-12">
             <h5 class="mt-4 mb-4"><b>{{updateHeaderText}}</b></h5>
           </div> 
-          <div *ngIf="isLoading" class="text-center">
-            Loading Data, Please wait...
+          <div *ngIf="isLoading" class="loading text-center">
+            <p>Loading, Please wait...</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
           </div> 
 
           <div class="grid" *ngIf="firstClass">
@@ -96,7 +99,7 @@
                 </div>
                 <div *ngIf="visibleIndex === j" class="col-lg-12">
                   <div class="subheader col-lg-6 col-sm-6 col-6">
-                    <p><strong>Submitted on:</strong> {{getSubmissionDate(studentActivity.question.created_on)}} </p>
+                    <p><strong>Submitted on:</strong> {{getSubmissionDate(studentActivity.created_on)}} </p>
                   </div>
                   <div class="assignment-description-btn-cnt col-lg-6 col-sm-6 col-6">
                     <button class="submit-marks solid-btn-green">Submit Marks</button>

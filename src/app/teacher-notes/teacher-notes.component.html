@@ -69,7 +69,7 @@
         </div>
         <div class="grid" *ngIf="notesData?.length > 0">
           <div class="notes-card-cnt " *ngFor="let data of notesData" 
-          (click)="onNotesClick('https://api.vamschool.in' + (data.note ? data.note : data.video))">
+          (click)="onNotesClick('' + (data.note ? data.note : data.video))">
           <div class="notes-card-file"></div>
             <div class="assignment-description">
               <p class="class-name cursor-pointer">{{data.name}}</p>

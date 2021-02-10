@@ -47,7 +47,8 @@ commentData = [];
   showActivity = true;
 
   update(studentActivity, e) {
-
+    console.log(e);
+    console.log(studentActivity);
     const formData: FormData = new FormData();
     if (e.target.files) {
       formData.append('doc_answer', e.target.files[0], e.target.files[0].name);

@@ -100,9 +100,9 @@
   }
 
   .feature-elements h4 {
-    font-weight: bold;
     color: #9e48b9;
-    margin-top: 1rem
+    margin-top: 1rem;
+    font-size: 18px;
   }
 
   .features-cnt > div {
