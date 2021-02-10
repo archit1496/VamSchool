@@ -117,7 +117,7 @@
           <h2>{{specificStudent.student.first_name + ' ' +specificStudent.student.last_name}} <span *ngIf="specificStudent.student.first_name!= ''">'s Work</span>  </h2>
         </div>
         <div class="width-full text-center">
-          <button style="width: 100%;" type="submit" class="solid-btn-voilet">
+          <button style="width: 100%;" type="submit" class="solid-btn-download">
             <i class="fa fa-download" aria-hidden="true"></i> Download Assignment
           </button>
         </div>
@@ -128,12 +128,17 @@
         <hr>
         <div class="activity-heading">
           <h2>Private Comments</h2>
-          <input type="text" name="" id="" [(ngModel)]="commentText">
-          <button (click)="addComment()">add</button>
-          <ul>
-            <li *ngFor="let i of  commentData">
-              {{i.content}}
+          <div class="comment-div">
+            <input class="type-cmnt" type="text" name="" id="" [(ngModel)]="commentText">
+            <button (click)="addComment()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+          </div>
+          <ul class="comments-list">
+            <li class="me" *ngFor="let i of commentData">
+              <span class="cmnt-text">{{i.content}}</span><span class="cmnt-time">{{formatAMPM(i.timestamp)}}</span>
             </li>
+            <!-- <li class="other" *ngFor="let i of commentData">
+              <span class="cmnt-text">{{i.content}}</span><span class="cmnt-time">{{formatAMPM(i.timestamp)}}</span>
+            </li> -->
           </ul>
         </div>
       </div>

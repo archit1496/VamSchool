@@ -25,7 +25,7 @@ export class TeacherCheckAssignmentsComponent {
   secondClass = false;
   thirdPage = [];
   showHideList = true;
-commentData = [];
+  commentData = [];
   showHideFinalActivity = false;
   updateHeaderText = 'This week';
   isLoading: boolean;
@@ -109,23 +109,18 @@ commentData = [];
 
 
   fetchAssignmentDataSubject() {
-
     this.isLoading = true;
     this.teacherService.fetchTeacherCourse().subscribe(res => {
-
-      this.isLoading = false;
-      this.firstClass = true;
-      this.studentAssignmentDataSubjectWise = res.data;
+    this.isLoading = false;
+    this.firstClass = true;
+    this.studentAssignmentDataSubjectWise = res.data;
     });
   }
 
   // fetchAssignmentDataTopicWise(id:number) {
-
   //   this.isLoading = true;
   //   this.teacherService.fetchAssignmentQuestionsTopic(id).subscribe(res => {
-
   //     this.isLoading = false;
-
   //   });
   // }
 
@@ -140,10 +135,7 @@ commentData = [];
       this.thirdClass = false;
       this.showHideList = false;
       this.isLoading = false;
-
       this.assignmentData = res.data;
-
-
     });
   }
 
@@ -194,10 +186,6 @@ commentData = [];
 
       this.openAddNewAssignmentPage = false;
     }
-
-
-
-
   }
 
   get Math() {
@@ -205,6 +193,18 @@ commentData = [];
   }
   get Infinity() {
     return Infinity;
+  }
+  
+  formatAMPM(d) {
+    var date = new Date(d);
+    var hours:any = date.getHours();
+    var minutes:any = date.getMinutes();
+    var ampm:string = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime:string = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
   }
 
   getSubmissionDate(date) {

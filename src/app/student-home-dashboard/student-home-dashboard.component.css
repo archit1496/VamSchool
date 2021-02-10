@@ -1,4 +1,4 @@
-  .boxModel{
+.boxModel{
   padding: 0;
   height: 100%;
 }
@@ -8,7 +8,7 @@
 }
 
 .stats h1 {
-  color: #007bff;
+  color: #9e48b9;
 }
 
 .stats-text {
@@ -26,7 +26,7 @@
 
 .live-card:before {
   content: '';
-  background-image: linear-gradient(45deg, #000000, #000000);
+  background-image: linear-gradient(45deg, #abd5da, #88b2b9);
   opacity: 0.25;    
   width: 100%;
   height: 100%;
@@ -75,7 +75,7 @@
 
 .activity-card:after {
   content: '';
-  background: grey;
+  background-image: linear-gradient(45deg, #abd5da, #88b2b9);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -121,7 +121,7 @@
   display: flex;
   justify-content: space-between;
   padding: 4px 14px;
-  color: #ffffff!important;
+  color: #313131!important;
   z-index: 2;
 }
 
@@ -129,19 +129,19 @@
   display: flex;
   justify-content:flex-end; 
   right: 0;
-  color: rgb(235, 235, 255);
+  color: #313131;
   font-size: 24px;
   cursor: pointer;
 }
 
 .startNow a b {
-  color:rgb(235, 235, 255);
+  color:#080872;
 }
 
 .class-in-div{
   position: absolute  ;
   bottom: 0;
-  color: #ffffff;
+  color: #313131;
   padding: 4px 14px;
   font-size: 24px;
   z-index: 2;
@@ -231,7 +231,7 @@
   position: absolute;
   z-index: 2;
   padding: 10px 10px;
-  color: #ffffff;
+  color: #313131;
   margin: 0;
   font-size: 24px;
 }
@@ -274,7 +274,7 @@
   width: 100%;
   height: 100%;
   opacity: 1;
-  background: #000000;
+  background-image: linear-gradient(45deg, #abd5da, #88b2b9);
   position: absolute;
   top: 0;
   content: '';
