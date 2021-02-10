@@ -1,11 +1,13 @@
 import {HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {throwError} from 'rxjs';
+import {BehaviorSubject, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
 
 @Injectable()
 export class BaseService {
+
+
   constructor(public http: HttpClient) {
   }
 

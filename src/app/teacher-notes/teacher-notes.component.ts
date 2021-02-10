@@ -14,7 +14,7 @@ export class TeacherNotesComponent implements OnInit {
   notesData;
   studentNotesDataSubjectWise = [];
   studentNotesDataTopicWise;
-  isLoading:boolean;
+  // isLoading:boolean;
   notesVideos = false;
   teacherId;
   spinnerFlag;
@@ -60,16 +60,16 @@ export class TeacherNotesComponent implements OnInit {
 
   fetchNotesDataSubject() {
 
-    this.isLoading = true;
+    // this.isLoading = true;
     this.teacherService.fetchTeacherCourse().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.studentNotesDataSubjectWise = res.data;
     });
   }
   fetchNotesDataTopicWise(id:number) {
-    this.isLoading = true;
+    // this.isLoading = true;
     this.teacherService.fetchNoteData(id).subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.studentNotesDataSubjectWise=[];
       this.studentNotesDataTopicWise = res;
     });

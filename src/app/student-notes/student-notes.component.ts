@@ -15,7 +15,7 @@ export class StudentNotesComponent implements OnInit {
 
   //Chat = require('twilio-chat');
   notesList = [];
-  isLoading = false;
+  // isLoading = false;
   twilioToken;
   accessToken: any;
   roomName: string;

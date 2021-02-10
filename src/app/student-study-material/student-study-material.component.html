@@ -4,7 +4,7 @@
     <div class='col-lg-9'>
       <div class="mt-1 stu-standardDiv">
         <h5 class="mt-4 mb-4"><b>This Week</b></h5>
-        <div *ngIf="isLoading" class="text-center">Loading Data, Please wait...</div>
+        <!-- <div *ngIf="isLoading" class="text-center">Loading Data, Please wait...</div> -->
         <div *ngIf="studentNotesDataSubjectWise?.length > 0">
           <div class="grid">
             <div class='assignment-file-cnt' *ngFor="let data of studentNotesDataSubjectWise">

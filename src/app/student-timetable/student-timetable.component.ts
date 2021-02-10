@@ -8,7 +8,7 @@ import { StudentService } from 'src/service/student.service';
   styleUrls: ['./student-timetable.component.css']
 })
 export class StudentTimetableComponent implements OnInit {
-  isLoading:boolean;
+  // isLoading:boolean;
   timeTableData=[];
   mondayData;
   tuesdayData;
@@ -29,9 +29,9 @@ export class StudentTimetableComponent implements OnInit {
   ngOnInit() {
   }
   fetchTimeTableData() {
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchTimeTable().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.timeTableData = res;
       this.valueWithOutSubjectFilter=[...this.timeTableData];
       this.prepareTimeTableData();

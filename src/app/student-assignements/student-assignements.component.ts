@@ -9,7 +9,7 @@ import { StudentService } from 'src/service/student.service';
   styleUrls: ['./student-assignements.component.css']
 })
 export class StudentAssignementsComponent implements OnInit {
-  isLoading: boolean;
+  // isLoading: boolean;
   commentText = '';
   commentData = [];
   specificTopicDetail;
@@ -35,9 +35,9 @@ export class StudentAssignementsComponent implements OnInit {
   }
   fetchAssignmentActivity() {
     this.subjectFilter = false;
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchAssignmentActivity().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.assignmentActivityData = res;
     });
   }
@@ -62,9 +62,9 @@ export class StudentAssignementsComponent implements OnInit {
 
   fetchAssignmentDataSubject2(id) {
     this.subjectFilter = false;
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchAssignmentQuestionsSubject2(id).subscribe(res => {
-    this.isLoading = false;
+    // this.isLoading = false;
     this.subjectFilterData = res.assignment_dirs;
     this.studentAssignmentDataSubjectWise = [];
     
@@ -76,9 +76,9 @@ export class StudentAssignementsComponent implements OnInit {
 
   fetchAssignmentDataTopicWise(id: number) {
     this.subjectFilter = false;
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchAssignmentData(id).subscribe(res => {
-    this.isLoading = false;
+    // this.isLoading = false;
     this.studentAssignmentDataTopicWise = res;
     this.studentAssignmentDataSubjectWise = [];
     this.subjectFilterData = [];
@@ -91,9 +91,9 @@ export class StudentAssignementsComponent implements OnInit {
   getTopicDetails(id) {
     this.questionId = id;
     this.subjectFilter = false;
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchAssignmentTopicData({ 'question': id }).subscribe(res => {
-    this.isLoading = false;
+    // this.isLoading = false;
     this.assignmentTopicDetail = res;
     })
   }

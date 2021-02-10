@@ -10,7 +10,7 @@ export class StudentStudyMaterialComponent implements OnInit {
   notesData;
   studentNotesDataSubjectWise;
   studentNotesDataTopicWise;
-  isLoading:boolean;
+  // isLoading:boolean;
   valueWithOutSubjectFilter;
   subjectFilter:boolean=false;
   notesActivity;
@@ -25,9 +25,9 @@ export class StudentStudyMaterialComponent implements OnInit {
   }
   fetchNotesActivity() {
     this.subjectFilter=false;
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchNotesActivity().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.notesActivity = res;
       
     });
@@ -43,18 +43,18 @@ export class StudentStudyMaterialComponent implements OnInit {
   // }
 
   fetchNotesDataSubject() {
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchStudentSubject().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.studentNotesDataSubjectWise = res;
     });
   }
 
   fetchNotesDataTopicWise(id:number) {
     // this.subjectFilter=false;
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchNotesQuestionsTopic2(id).subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.studentNotesDataTopicWise = res;
       this.studentNotesDataSubjectWise=[];
     });

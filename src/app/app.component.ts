@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { BaseService } from 'src/service/base.service';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { StorageService } from 'src/service/storage.service';
 import { AuthService } from 'src/service/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,8 +12,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent {
   title = 'vamschool';
 
-  constructor(public authService:AuthService,public router:Router){
+  constructor(public authService:AuthService,public router:Router, public _data: StorageService, 
+    private cdr?: ChangeDetectorRef){
     this.checkLogin();
+  }
+
+  loading = false;
+
+  async ngOnInit() {
+
+
+    this._data.isLoading.subscribe((loadingStatus) => {
+      this.loading = loadingStatus;
+
+      this.cdr.detectChanges();
+    });
   }
   
   checkLogin() {

@@ -4,9 +4,9 @@
       <div class="col-lg-12">
         <h5 class="mt-4 mb-4"><b>This Week</b></h5>
       </div> 
-      <div *ngIf="isLoading" class="text-center">
+      <!-- <div *ngIf="isLoading" class="text-center">
         Loading Data, Please wait...
-      </div>
+      </div> -->
 
       <div class="grid" *ngIf="studentNotesDataSubjectWise?.length > 0">
         <div class="notes-card-cnt " *ngFor="let data of studentNotesDataSubjectWise"

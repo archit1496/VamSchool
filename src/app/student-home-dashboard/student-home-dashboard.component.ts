@@ -28,7 +28,7 @@ export class StudentHomeDashboardComponent implements OnInit {
   userEmail = '';
   // passWord = 'WHliSWRZUkFiV3lJOE5KNUVWYTNZdz09'
   signature: any;
-  isLoading:boolean;
+  // isLoading:boolean;
   studentDataList;
   todayClassData;
 
@@ -55,9 +55,9 @@ export class StudentHomeDashboardComponent implements OnInit {
     });
   }
   fetchStudentDetails() {
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchStudentDetails().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.studentDataList = res;
       this.userName = res.first_name;
       this.userEmail = res.email;
