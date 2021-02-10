@@ -25,7 +25,7 @@ export class AppComponent {
     this._data.isLoading.subscribe((loadingStatus) => {
       this.loading = loadingStatus;
 
-      this.cdr.detectChanges();
+      // this.cdr.detectChanges();
     });
   }
   
