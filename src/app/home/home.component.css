@@ -153,3 +153,10 @@ button.requestDemo.btn {
   font-weight: 200!important;
   color: #724080;
 }
+
+@media screen and (max-width: 600px) {
+  .landing-subheading {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
