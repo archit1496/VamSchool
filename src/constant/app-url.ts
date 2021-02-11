@@ -169,7 +169,7 @@ export class AppUrl {
   }
 
   static FETCH_CLASS_DETAIL(class_id): string {
-    return AppUrl.APP_URL + `/v1/teacher/class/?id=${class_id}`;
+    return AppUrl.APP_URL + `v1/teacher/class/?id=${class_id}`;
   }
 
   static UPDATE_TEACHER_NOTES(): string {

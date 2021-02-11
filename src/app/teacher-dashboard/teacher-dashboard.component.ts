@@ -24,7 +24,7 @@ export class TeacherDashboardComponent implements OnInit {
   signature: any;
   teacherCourseData: any;
   todaysTimeTable: any;
-selectedClassId;
+  selectedClassId;
   // teacherCourseId : any;
   meetingpassWord="1234"
   topicName = "test Topic1"
@@ -50,7 +50,9 @@ selectedClassId;
        alert(res.detail);
      } else {
       this.hideJoin = false;
+      this.userName = res.data.zoomUserName
       this.fetchTeacherCourseForHostUrl(res.data.meeting_id, res.data.meeting_password);
+
      }
     })
   } else {
@@ -69,10 +71,8 @@ selectedClassId;
  
     // console.log(meetingNumber, 'meetingNumber');
     // let meetingPassword = this.meetingpassWord
-
     this.signature = ZoomMtg.generateSignature({
       meetingNumber: meetingNumber,
-      
       apiKey: this.apiKey,
       apiSecret: 'TeOVSOTTEyzK2RuQ2eFI7pctZet0YHiKJxxf',
       role: '1',
@@ -99,7 +99,6 @@ this.todaysTimeTable = res.data;
       isSupportAV: true,
       success: (success) => {
         console.log(success)
-
         ZoomMtg.join({
           signature: signature,
           meetingNumber: meetingNumber,
@@ -111,6 +110,7 @@ this.todaysTimeTable = res.data;
             console.log(success)
           },
           error: (error) => {
+            alert(error);
             console.log(error)
           }
         })
@@ -126,8 +126,8 @@ this.todaysTimeTable = res.data;
     this.teacherService.fetchTeacherCourse().subscribe(res => {
       this.teacherCourseData = res.data;
   
-      this.userName = userName;
-      this.userEmail = userEmail;
+      // this.userName = userName;
+      // this.userEmail = userEmail;
 
       // this.teacherCourseId = JSON.stringify(res.data[0].id);
     })
