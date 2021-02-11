@@ -1,3 +1,4 @@
+import { TeacherService } from 'src/service/teacher.service';
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/service/student.service';
 
@@ -7,7 +8,7 @@ import { StudentService } from 'src/service/student.service';
   styleUrls: ['./student-timetable.component.css']
 })
 export class StudentTimetableComponent implements OnInit {
-  isLoading:boolean;
+  // isLoading:boolean;
   timeTableData=[];
   mondayData;
   tuesdayData;
@@ -21,16 +22,16 @@ export class StudentTimetableComponent implements OnInit {
     "Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday","Sunday"
   ]
   
-  constructor(public studentService:StudentService) {
+  constructor(public studentService:StudentService, public teacherService:TeacherService) {
     this.fetchTimeTableData();
    }
 
   ngOnInit() {
   }
   fetchTimeTableData() {
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchTimeTable().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.timeTableData = res;
       this.valueWithOutSubjectFilter=[...this.timeTableData];
       this.prepareTimeTableData();

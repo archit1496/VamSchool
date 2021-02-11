@@ -42,12 +42,7 @@
   }
 }
 
-.activity-card{
-  border: 1px solid black;
-  height: 580px;
-  width: 300px;
-  background-color: lightgray;
-}
+
 
 .assignment-file-cnt {
   width: 100%;
@@ -97,12 +92,14 @@
   font-size: 18px;
 }
 
-.alignlist{
+.alignlist {
   display: flex;
   justify-content: space-around;
-  border-bottom: 1px solid #676767;
+  /* border-bottom: 1px solid #ffffff; */
   overflow-wrap: break-word;
   word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
   hyphens: auto;
 }
 
@@ -196,11 +193,6 @@ button {
   padding: 5px;
   margin-right: 5px;
 }
-
-p {
-  font-family: Lato;
-}
-
 
 .subheader {
   /* background-color: #f3c062; */
@@ -304,46 +296,6 @@ p {
   }
 }
 
-.activity-column {
-  flex: 1 23%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  order: 2;
-  padding: .5rem 1rem;
-}
-.activity-heading {
-  margin-top: 10px;
-  width: 100%;
-  text-align: left;
-  padding: 5px;
-}
-
-.activity-heading h2 {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.activity-card{
-  background-color: aliceblue;
-  border: 1px solid #96ceff;
-  margin-top: 5rem;
-  border-radius: 10px;
-  min-height: 60vh;
-  height: 100%;
-  width: 100%;
-  padding: 15px 20px;
-} 
-
-
-.activity-card-element p {
-  border-radius: 5px;
-}
-
-.activity-card-element p:hover {
-  background-color: #dfeffc;
-}
-
 .no-data {
   width: 100%;
   height: 50vh;
@@ -365,3 +317,7 @@ p {
 .center-gif img {
   width: 100%;
 }
+
+
+
+

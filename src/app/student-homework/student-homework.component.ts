@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class StudentHomeworkComponent implements OnInit {
 
   assignmentQuestions = [];
-  isLoading = false;
+  // isLoading = false;
   uploadedAnswerResp: any;
   answers = [];
 

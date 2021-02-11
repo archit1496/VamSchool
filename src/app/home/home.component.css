@@ -50,7 +50,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background: #8da0fc;;
+  background: #edf0ffc7;
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -81,8 +81,8 @@
 .home-txt h1 {
   font-size: 5rem;
   font-weight: 700;
-  color: #ffffff!important;
-  font-family: 'Montserrat', sans-serif;;
+  color: #7127a9!important;
+  font-family: MontserratExtraBold;
 }
 
 @media screen and (max-width: 998px) {
@@ -94,6 +94,14 @@
 @media screen and (max-width: 600px) {
   .home-txt h1 {
     font-size: 2rem;
+  }
+
+  .container.cnt-txt {
+    padding-left: 1rem!important;
+  }
+
+  .landing-page {
+    padding-top: 80vh;
   }
 }
 
@@ -115,10 +123,6 @@ button.requestDemo.btn {
 .loginInputDiv{
   border-bottom: 1px solid #D3D3D3;
 }
-  
-.loginItems{
-  font-family: 'Arimo', sans-serif;
-}
 
 .scroll-top {
   position: fixed;
@@ -128,19 +132,27 @@ button.requestDemo.btn {
   margin-bottom: 3rem;
   font-size: 40px;
   color: mediumaquamarine;
+  z-index: 100;
 }
 
-.virtual-school {
+/* .virtual-school {
   color:#4a055f;
   text-shadow: -1px 1px 0 #ffffff,
 				  1px 1px 0 #00e1ff,
 				 1px -1px 0 #00e1ff,
 				-1px -1px 0 #ffffff;
   font-family: 'Limelight', cursive;;
-}
+} */
 
 .landing-subheading {
-  font-family: 'Montserrat', sans-serif;
+  font-family: MontserratRegular;
   font-weight: 200!important;
-  color: #ffffff;
+  color: #724080;
+}
+
+@media screen and (max-width: 600px) {
+  .landing-subheading {
+    font-size: 14px;
+    font-weight: bold;
+  }
 }

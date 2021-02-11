@@ -1,153 +1,117 @@
 .boxModel{
-    padding: 0;
-    /* height: 100%;
-    overflow: scroll !important; */
-  }
-  
-  .outerDiv{
-    flex: 3 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    order: 1;
-  }
-  .innerDiv{
-    width: 100%;
-    max-width: 796px;
-    align-self: flex-end;
-  }
+  padding: 0;
+}
 
+.outerDiv{
+  flex: 3 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  order: 1;
+}
+
+.innerDiv{
+  width: 100%;
+  max-width: 796px;
+  align-self: flex-end;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-gap: 2px;
+}
+
+@media screen and (max-width: 600px) {
   .grid{
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(3,1fr);
     grid-gap: 2px;
   }
-  
-  @media screen and (max-width: 600px) {
-    .grid{
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      grid-gap: 2px;
-    }
-  }
-  
-  .activity-card{
-    border: 1px solid black;
-  height: 650px;
-  width: 300px;
-  background-color: lightgray;
+}
+
+.assignment-file-cnt {
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  max-width: 106px;
+  position: relative;
+}
+ 
+.assignment-file{
+   background-image: url('../../assets/images/folder-y.svg');
+   background-position-x: center;
+   background-size: 100%;
+   padding: 2.5rem;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-repeat: no-repeat;
+} 
+
+.assignment-file-cnt p {
+  font-size: 12px;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.assignment-file-cnt p.class-name {
+  font-weight: bold;
+}
+
+.activity-column {
+  flex: 1 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  order: 2;
+  padding: .5rem 1rem;
+}
+
+.student-assignment-description-cnt:hover {
+  border-bottom: 1px solid #212121;
+  box-shadow: 0 1px 2px 0 grey;
+}
+
+.student-assignment-description-cnt p{
+  margin: 0;
+  font: bold;
+  font-size: 18px;
+}
+
+.student-assignment-description-cnt {
+  margin: 5px 0;
+  border-bottom: 1px solid #616161;
+  border-radius: 5px;
+  transition-duration: 0.2s;
   padding: 5px;
-  }
-  .assignment-file-cnt {
-    width: 100%;
-    height: 100%;
-    padding: 12px;
-    max-width: 106px;
-    position: relative;
-  }
-   
-  .assignment-file{
-     background-image: url('../../assets/images/folder-y.svg');
-     background-position-x: center;
-     background-size: 100%;
-     padding: 2.5rem;
-     cursor: pointer;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background-repeat: no-repeat;
-  } 
-  
-  .assignment-file-cnt p {
-    font-size: 12px;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
-    padding: 0 4px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  .assignment-file-cnt p.class-name {
-    font-weight: bold;
-  }
-  
-  .activity-column {
-    flex: 1 23%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    order: 2;
-    padding: .5rem 1rem;
-  }
-  .activity-heading {
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
-    padding: 5px;
-  }
-  
-  .activity-heading h2 {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .activity-card{
-    background-color: aliceblue;
-    border: 1px solid #96ceff;
-    margin-top: 5rem;
-    border-radius: 10px;
-    height: 60vh;
-    width: 100%;
-    padding: 15px 20px;
-  } 
-  
-  .activity-card-element p {
-    border-radius: 5px;
-  }
-  
-  .activity-card-element p:hover {
-    background-color: #dfeffc;
-  } 
-  
-  .student-assignment-description-cnt:hover {
-    border-bottom: 1px solid #212121;
-    box-shadow: 0 1px 2px 0 grey;
-  }
-  
-  .student-assignment-description-cnt p{
-    margin: 0;
-    font: bold;
-    font-size: 18px;
-  }
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
 
-  .student-assignment-description-cnt {
-    margin: 5px 0;
-    border-bottom: 1px solid #616161;
-    border-radius: 5px;
-    transition-duration: 0.2s;
-    padding: 5px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
+.topicName{
+  flex: 2;
+  color: black;
+  font-weight: bold;
+}
 
-  .topicName{
-    flex: 2;
-    color: black;
-    font-weight: bold;
-  }
+.stu-standardDiv{
+  margin-left: 15rem;
+  margin-right: 0;
+  padding: 10px;
+}
 
-  .stu-standardDiv{
-    margin-left: 15rem;
-    margin-right: 0;
-    padding: 10px;
+@media screen and (max-width: 600px) {
+  .stu-standardDiv {
+      margin-left: inherit;
+      margin-right: inherit;
+      padding: 5px;
   }
-  @media screen and (max-width: 600px) {
-    .stu-standardDiv {
-        margin-left: inherit;
-        margin-right: inherit;
-        padding: 5px;
-    }
-  }
+}

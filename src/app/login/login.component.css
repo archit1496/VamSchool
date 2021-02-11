@@ -1,7 +1,7 @@
 #login {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(45deg, #b6fffb, #97f8ff);
+  background:#ecfeff;
   overflow: hidden;
 }
 
@@ -46,7 +46,7 @@
 }
 
 a{
-  font-family: 'Montserrat', sans-serif;
+  font-family: MontserratRegular;
 }
 
 .card{

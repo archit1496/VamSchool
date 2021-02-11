@@ -1,5 +1,5 @@
 .navbar {
-  background-color: lightgrey;
+  background-color: #abd5da;
 }
 
 .nav-link.active{
@@ -27,7 +27,7 @@
   .topnav a {
     float: left;
     display: block;
-    color:#616161;
+    color:#191847;
     text-align: center;
     padding: 6px 16px;
     text-decoration: none;
@@ -202,7 +202,7 @@
 }
 
 .school-name, .student-name {
-  color: #616161;
+  color: #191847;
   font-weight: bold;
   font-size: 14px
 }
@@ -221,6 +221,7 @@
     position: relative;
     float: left;
     margin-right: 2rem;
+    margin-left: .4rem;
     padding: 0;
     top: 0;
     left: 0;

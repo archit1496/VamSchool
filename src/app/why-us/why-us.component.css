@@ -4,17 +4,17 @@
     /* border: 1px solid black; */
     border-radius: 10px;
     font-size: 19px;
-    margin: 5px;
+    text-align: left;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    justify-content: center;
+    justify-content: left;
     display: flex;
 }
 
 .item p {
-    font-family: 'Montserrat', sans-serif!important;
+    font-family: MontserratBold!important;
 }
 
 .item p strong {
@@ -30,4 +30,14 @@
     width: 100%;
     position: absolute;
     z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+    .item {
+        padding: 40px;
+    }
+
+    .features-cnt img {
+        position: relative;
+    }
 }

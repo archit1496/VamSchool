@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
-
+  isLoading = new BehaviorSubject(false);
   static getItem(key) {
     return sessionStorage.getItem(key) ? JSON.parse(sessionStorage.getItem(key)) : null;
   }

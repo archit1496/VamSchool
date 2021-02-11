@@ -10,7 +10,7 @@ import { StudentService } from '../../service/student.service';
 export class StudentsMainPageComponent implements OnInit {
 
   studentDataList = [];
-  isLoading = false;
+  // isLoading = false;
 
   constructor(
     private router: Router,

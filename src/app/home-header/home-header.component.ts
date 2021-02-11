@@ -34,4 +34,18 @@ export class HomeHeaderComponent implements OnInit, AfterViewInit {
     public scrollToForm(elementId: string): void {
       this.viewportScroller.scrollToAnchor(elementId);
     }
+
+    showMenu() {
+      console.log("hi");
+      var x = document.getElementById("navbarSupportedContent");
+      if (x.className === "navbar-collapse collapse show") {
+        x.className = "navbar-collapse collapse";
+      } 
+      else if (x.className === "navbar-collapse sticky collapse show") {
+        x.className = "navbar-collapse sticky collapse";
+      }
+      else {
+        x.className = "collapse navbar-collapse show";
+      }
+    }
 }

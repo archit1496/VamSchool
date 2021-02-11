@@ -2,14 +2,16 @@ app-home-header {
   width: 100%;
 }
 
-.navbar-light .navbar-toggler {
-  border-color: transparent!important;
-}
 .navbar {
     position: absolute;
     width: 100%;
     z-index: 2;
     background-image: aqua;
+}
+
+.navbar-light .navbar-toggler {
+  color: transparent;
+  border-color: transparent;
 }
 
 .navbar-nav {
@@ -43,23 +45,19 @@ button.requestDemo.btn:hover {
 }
 
 .homeNavbrand{
-  font-family: 'Mulish', sans-serif;
-  color: #202020!important;
+  position: fixed;
+  top: 0;
+  left: 2rem;
   font-size: 2rem;
   margin: 0;
-}
-
-.homeNavbrand h1{
-  margin: 0;
   font-weight: bolder;
-  font-family: 'Oleo Script Swash Caps', cursive;
-  /* -webkit-text-stroke-width: 0.2px;
-  -webkit-text-stroke-color: #7306a0; */
+  font-family: OleoScriptBold;
   text-shadow: -1px 1px 0 #ffffff,
 				  1px 1px 0 #ffffff,
 				 1px -1px 0 #ffffff,
 				-1px -1px 0 #ffffff;
   color: #4a055f;
+  z-index: 5;
 }
 
 .homeNavbrand:hover {
@@ -104,8 +102,59 @@ button.requestDemo.btn:hover {
 } 
 
 li .login-items{
-  font-family: 'Mulish', sans-serif;
+  font-family: MulishBold;
   font-weight: bolder;
   margin: 0 1rem;
   color: #4a055f;
+}
+
+.sticky{
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  z-index: 2;
+  background: #f9feff;
+  padding: 0.5rem 1rem;
+  transition-duration: 0.5s ;
+  box-shadow: 0 3px 10px 0 rgba(41, 41, 99, 0.801);
+}
+
+.show {    
+  background-color: rgba(255, 255, 255, 75%);  
+  /* backdrop-filter: blur(0px); */
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+@media screen and (max-width: 600px) {
+  .quote, .my-login-btn {
+    margin-top: 0.5rem!important;
+    padding: 5px 10px;
+    width: fit-content;
+  }
+
+  .navbar-light {
+    background: transparent!important;
+  }
+
+  .responsive-full {
+    height: 100%
+  }
+
+  .sticky{
+    position: relative;
+    padding: 0.5rem 1rem;
+    padding: 1rem;
+    /* transition-duration: 1s; */
+    background-color: rgb(255, 255, 255, 75%);  
+  /* backdrop-filter: blur(0px); */
+  }
+
+  .homeNavbrand {
+    position: relative;
+    z-index: 5;
+    left: 0.5rem;
+  }
 }

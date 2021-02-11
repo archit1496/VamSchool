@@ -30,11 +30,11 @@
                   </div>
                 </div>
                 <div (click)="onForgotPasswordClick()" class="form-group text-right">
-                  <a  style="color: #bcfff9;">Forgot Password?</a>
+                  <a  style="color: #134541;">Forgot Password?</a>
                 </div>
-                <div *ngIf="isLoading">
+                <!-- <div *ngIf="isLoading">
                   Logging In, Please wait...
-                </div>
+                </div> -->
                 <div class="alert alert-danger alert-dismissible fade show" *ngIf="loginError == 'Unauthorised'">
                   Username or password is incorrect!
                   <button type="button" class="close" data-dismiss="alert">&times;</button>

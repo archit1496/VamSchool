@@ -4,7 +4,7 @@
     <div class='col-lg-9'>
       <div class="mt-1 stu-standardDiv">
         <h5 class="mt-4 mb-4"><b>This Week</b></h5>
-        <div *ngIf="isLoading" class="text-center">Loading Data, Please wait...</div>
+        <!-- <div *ngIf="isLoading" class="text-center">Loading Data, Please wait...</div> -->
         <div *ngIf="studentNotesDataSubjectWise?.length > 0">
           <div class="grid">
             <div class='assignment-file-cnt' *ngFor="let data of studentNotesDataSubjectWise">
@@ -48,7 +48,7 @@
                 {{getFileType(data.note? data?.note : data?.video)}} <span *ngIf="data.note? data?.note : data?.video">file</span>
               </div> -->
               <div class='col-lg-6'>
-                <button style="float:right;" class="solid-btn-green" (click)="onDownloadClick('https://api.vamschool.in' + 
+                <button style="float:right;" class="solid-btn-green" (click)="onDownloadClick('' + 
                 (data.note? data?.note : data?.video))">
                   Download</button>
               </div>

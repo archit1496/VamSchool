@@ -1,50 +1,47 @@
-
-    <nav class="navbar navbar-expand-md navbar-light ">
-      <div class="container">
-        <!-- <a class="navbar-brand homeNavbrand" href="#">
-          <h1>VAM</h1>
-        </a>  -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" #stickyMenu [class.sticky] = "sticky">
-          <a class="navbar-brand homeNavbrand" href="#">
-            <h1>VAM</h1>
+<nav class="navbar navbar-expand-md navbar-light ">
+  <div class="container-fluid responsive-full">
+    <a class="navbar-brand homeNavbrand" href="#">VAM</a> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" #stickyMenu [class.sticky] = "sticky">
+      <!-- <a class="navbar-brand homeNavbrand" href="#">
+        <h1>VAM</h1>
+      </a> -->
+      <ul class="navbar-nav ml-auto mr-5">
+        <li class="nav-item">
+          <a class="nav-link login-items" (click)="showMenu();scrollToForm('aboutus')" routerLinkActive="active">
+            ABOUT US
           </a>
-          <ul class="navbar-nav ml-auto mr-5">
-            <li class="nav-item">
-              <a class="nav-link login-items" (click)="scrollToForm('features')" routerLinkActive="active">
-                FEATURES
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link login-items" (click)="scrollToForm('aboutus')" routerLinkActive="active">
-                ABOUT
-              </a>
-            </li>
-            <li class="nav-item"> 
-              <a class="nav-link login-items" (click)="scrollToForm('footer')" routerLinkActive="active">
-                CONTACT US
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link login-items my-login-btn" routerLink="/login" routerLinkActive="active">
-                LOGIN to VAM
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link login-items quote" (click)="scrollToForm('quote')" routerLinkActive="active">
-                REQUEST A QUOTE
-              </a>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link">
-                <b><button type="button" class="requestDemo btn">REQUEST DEMO</button></b>
-              </a>
-            </li> -->
-          </ul>
-        </div>
-      </div>
-    </nav>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link login-items" (click)="showMenu();scrollToForm('features')" routerLinkActive="active">
+            FEATURES
+          </a>
+        </li>
+        <li class="nav-item"> 
+          <a class="nav-link login-items" (click)="showMenu();scrollToForm('footer')" routerLinkActive="active">
+            CONTACT US
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link login-items my-login-btn" routerLink="/login" routerLinkActive="active">
+            LOGIN to VAM
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link login-items quote" (click)="scrollToForm('quote')" routerLinkActive="active">
+            REQUEST A QUOTE
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link">
+            <b><button type="button" class="requestDemo btn">REQUEST DEMO</button></b>
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
   

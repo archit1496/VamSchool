@@ -6,13 +6,52 @@
     5. #bb5b4a (Red) => Secondary
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+@font-face {
+  font-family: MontserratExtraBold ;
+  src: url('assets/fonts/Montserrat/Montserrat-ExtraBold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MontserratRegular ;
+  src: url('assets/fonts/Montserrat/Montserrat-Regular.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MontserratBold ;
+  src: url('assets/fonts/Montserrat/Montserrat-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: OleoScriptBold ;
+  src: url('assets/fonts/OleoScriptSwashCaps/OleoScriptSwashCaps-Bold.ttf');
+  font-weight: bold;
+}
+ 
+@font-face {
+  font-family: MulishBold ;
+  src: url('assets/fonts/Mulish/Mulish-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MulishExtraBold ;
+  src: url('assets/fonts/Mulish/Mulish-ExtraBold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MulishRegular ;
+  src: url('assets/fonts/Mulish/Mulish-Regular.ttf');
+  font-weight: bold;
+}
+
 
 * {
   box-sizing: border-box;
@@ -21,7 +60,7 @@
 }
 
 html, body { 
-  font-family: 'Lato', sans-serif!important;
+  font-family: MulishBold!important;
   min-height: 100%!important;
   min-width: auto!important;
   height: 100%!important;
@@ -34,12 +73,39 @@ body {
     margin: 0;
 }
 
+p {
+  font-family: MulishBold;
+}
+
 a{
   cursor: pointer;
 }
 
-p {
-  font-family: 'Lato', sans-serif;
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.2rem;} } 
+@media (min-width:1100px) { body {font-size:1.5rem;} } 
+
+
+.app-loading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.app-loading img {
+  height: 200px;
+  width: 200px;
+  animation: rotate 2s linear infinite;
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .sec-heading-cnt {
@@ -186,9 +252,6 @@ button.home-voilet-btn:hover {
   padding: 0 .5rem!important;
 }
 
-@media (min-width: 640px) { body {font-size:1rem;} } 
-@media (min-width:960px) { body {font-size:1.2rem;} } 
-@media (min-width:1100px) { body {font-size:1.5rem;} } 
 
 .liveBtn{
     width: 180px;
@@ -214,12 +277,6 @@ button.home-voilet-btn:hover {
     height: 60px;
 }
 
-
-/* .navbar-light .navbar-nav .active.nav-link{
-    background-color: #007bff;
-    border-radius: .25rem;
-} */
-
 .myOverlay {
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
@@ -235,6 +292,7 @@ button.home-voilet-btn:hover {
     padding-top: 20%;
 
 }
+
 .rotate {
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
@@ -279,17 +337,6 @@ button.home-voilet-btn:hover {
     }
 } 
 
-.sticky{
-  position: fixed;
-  top: 0;
-  left:0;
-  width: 100%;
-  z-index: 2;
-  background: #f9feff;
-  padding: 0.5rem 1rem;
-  transition-duration: 0.5s ;
-  box-shadow: 0 3px 10px 0 rgba(41, 41, 99, 0.801);
-}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -539,7 +586,7 @@ button.home-voilet-btn:hover {
 
 .sec-heading-txt {
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: MontserratExtraBold;
   color: #073b4c;
 }
 
@@ -551,7 +598,7 @@ button.home-voilet-btn:hover {
 .sec-subheading-txt h3 {
   font-weight: 300!important;
   font-size: 20px!important;
-  font-family: 'Lato' sans-serif;
+  font-family: MulishRegular;
   color: #313131;
 }
 
@@ -563,7 +610,7 @@ h2.sec-heading-txt:after, h2.sec-heading-txt:before {
   background-color: #e91e63;
   position: absolute;
   justify-self: center;
-  top: 80px;
+  bottom: 27px;
   transform: rotate(30deg);
 }
 
@@ -575,8 +622,401 @@ h2.sec-heading-txt:before {
   right: 51%;
 }
 
+@media screen and (max-width: 600px) {
+  h2.sec-heading-txt:before {
+  right: 45%;
+  }
+}
 .sec-heading-cnt {
   padding: 2rem 0;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.loading {
+  position: absolute;
+  background: #01848d9e;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.simple-loading {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.progress {
+  width: 50%;
+  justify-content: center;
+}
+
+.progress p {
+  position: absolute;
+  color: white;
+}
+
+
+/* ----------------------- */
+/*  comment Box  */
+/* ---------------------- */
+
+.type-cmnt {
+  border: none;
+  padding: 5px 0 5px 10px;
+  border-radius: 50px;
+}
+
+  .comment-div {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.comment-div i {
+  font-size: 30px;
+  margin-left: 5px;
+  color: white;
+  transition-duration: 0.5s;
+}
+
+.comment-div i:hover {
+  color: #abd5da;
+  transform: scale(1.1);
+}
+
+/* .comments-list li.other {
+  color: #f0f3bd;
+  width: fit-content;
+  background: #238286;
+  padding: 3px 5px;
+  margin: 3px 0;
+  border-radius: 5px;
+  border: 1px solid white;
+  position: relative;
+} */
+ 
+.comments-list li.me {
+  color: #f0f3bd;
+  width: fit-content;
+  background: #313131;
+  padding: 3px 5px;
+  margin: 3px 0;
+  border-radius: 5px;
+  border: 1px solid white;
+  position: relative;
+  margin-left: auto;
+}
+
+.comments-list li span.cmnt-time {
+  position: relative;
+  bottom: -3px;
+  right: 0px;
+  font-size: 10px;
+  color: #96ceff;
+  margin-left: 5px;
+}
+
+.comments-list li span.cmnt-text {
+  margin-bottom: 10px;
+}
+
+.comments-list {
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid white;
+  position: relative;
+  margin-top: 1rem;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  overflow-y: scroll;
+  height: 250px;
+  background: #abd5da;
+}
+
+/* width */
+.comments-list::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+.comments-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.comments-list::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.comments-list::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+ul.comments-list > li {
+  transform: rotate(-180deg);
+}
+
+.showlist {
+  list-style-type: none;
+}
+
+/* ----------------------- */
+/*  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   */
+
+
+/* Activity and Private Comment Panel */
+
+.activity-card {
+  background-color: #22878b;
+  border: 1px solid #96ceff;
+  min-height: 60vh;
+  height: 100%;
+  width: 300px;
+  padding: 15px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.upload-cnt {
+  margin-bottom: 1rem;
+}
+
+.upload-cnt input {
+  color: #598c6a;
+  width: 100%;
+}
+ 
+.upload-cnt label {
+  color: #598c6a;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+@media screen and (max-width: 600px) {
+  .activity-card {
+    background-color: #22878b;
+    border: 1px solid #96ceff;
+    min-height: 60vh;
+    height: 100%;
+    width: 100%;
+    padding: 15px 20px;
+    position: relative;
+  }
+}
+
+.activity-card-element p {
+  color: #abd5da;
+  font-size: 18px;
+}
+
+.activity-card-element p:hover {
+  color: #ffffff;
+}
+
+button.btn.add-comment {
+  color: white;
+  font-size: 22px;
+}
+
+button.btn.add-comment:hover {
+  color: #4db6ac;
+}
+
+.solid-btn-download {
+  color: white;
+  border: 1.5px solid #4db6ac;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.solid-btn-download:hover {
+  color: white;
+  border: 1.5px solid #ffffff;
+  border-radius: 5px;
+  background-color: #4db6ac;
+}
+
+.upload-cnt {
+  margin-top: 1rem;
+}
+
+.upload-cnt label {
+  font-size: 18px;
+  color: white;
+}
+
+.upload-cnt input {
+  color: #81d4fa;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+
+.activity-column {
+  flex: 1 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  order: 2;
+  padding: .5rem 1rem;
+}
+.activity-heading {
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+}
+
+.activity-heading h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #b3f7ff;
+}
+
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+
+
+/* Dashboard Footer  */
+
+.now-activity-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 30px auto;
+  column-gap: 5px;
+}   
+
+
+.now-child-grid {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.activity-child-grid {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    justify-self: stretch;
+    overflow: hidden;
+}
+
+.activity-card-dashboard{
+    border-radius: 10px;
+    position: relative;
+    height: 100%;
+    padding: 5px 14px;
+}
+
+.activity-img-dashboard {
+    background-image: url("assets/images/prize-sq.jpg");
+    position: relative;
+    background-size: auto 100%;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.activity-card-dashboard:after {
+    content: '';
+    background: #006272;
+    border: 2px solid #4a9fe3;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    opacity: 0.2;
+}
+
+.activity-status {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    top: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .activity-img-dashboard {
+        background-image: url("assets/images/prize-sq.jpg");
+        position: absolute;
+        top: 0;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .activity-status {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        font-size: 24px;
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .now-activity-grid {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, 1fr 9fr);
+        row-gap: 10px;
+      }
+
+    .d-now {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        justify-self: stretch;
+    }
+    .now-child-grid {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+    
+    .d-activity {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 3;
+        justify-self: stretch;
+    }
+    .activity-child-grid {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 4;
+        grid-row-end: 4;
+        justify-self: stretch;
+    }   
+}
+

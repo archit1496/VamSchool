@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TeacherMarksAssignmentComponent implements OnInit {
   topicId: string;
-  isLoading = false;
+  // isLoading = false;
   assignmentQuestionsList = [];
 
   constructor(private route: ActivatedRoute, public teacherService: TeacherService, private toastr: ToastrService) {
@@ -24,9 +24,9 @@ export class TeacherMarksAssignmentComponent implements OnInit {
   }
 
   getAssignmentQuestions() {
-    this.isLoading = true;
+    // this.isLoading = true;
     this.teacherService.getQuestionsList(this.topicId.split('?')[1]).subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       res.forEach(element => {
         element.updatedDate = element.created_on.split('T')[0];
         element.updatedDate = element.updatedDate.split('-')[1] + '/' + element.updatedDate.split('-')[2] + '/' +

@@ -9,7 +9,7 @@ import { TeacherService } from 'src/service/teacher.service';
 export class TeachertimetableComponent implements OnInit {
   dummyData: { class: string; when: string; }[];
   timeTableData = [];
-  isLoading:boolean;
+  // isLoading:boolean;
   mondayData;
   tuesdayData;
   wednesdayData;
@@ -30,11 +30,11 @@ export class TeachertimetableComponent implements OnInit {
   }
 
   fetchTimetableForTeacher(){
-    this.isLoading = true;
+    // this.isLoading = true;
 
     this.teacherService.fetchTimetable().subscribe(res => {
       this.timeTableData = res;
-    this.isLoading = false;
+    // this.isLoading = false;
     this.prepareTimeTableData();
 
       // console.log("Response TT= "+JSON.stringify(this.timetableData))

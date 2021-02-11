@@ -1,3 +1,4 @@
+import { TeacherService } from 'src/service/teacher.service';
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -27,7 +28,7 @@ export class StudentHomeDashboardComponent implements OnInit {
   userEmail = '';
   // passWord = 'WHliSWRZUkFiV3lJOE5KNUVWYTNZdz09'
   signature: any;
-  isLoading:boolean;
+  // isLoading:boolean;
   studentDataList;
   todayClassData;
 
@@ -35,7 +36,7 @@ export class StudentHomeDashboardComponent implements OnInit {
 
   hideJoinBtn = true;
   disableJoinBtn = true;
-  constructor(private router: Router,public studentService:StudentService) {
+  constructor(private router: Router,public studentService:StudentService,  public teacherService: TeacherService) {
     this.fetchStudentDetails();
     this.fetchDashboardActivityData();
     console.log("width",screen.width)
@@ -54,9 +55,9 @@ export class StudentHomeDashboardComponent implements OnInit {
     });
   }
   fetchStudentDetails() {
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchStudentDetails().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.studentDataList = res;
       this.userName = res.first_name;
       this.userEmail = res.email;

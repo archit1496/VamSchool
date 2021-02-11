@@ -1,12 +1,12 @@
 <div class="mt-4">
-    <div *ngIf="isLoading" class="text-center">
+    <!-- <div *ngIf="isLoading" class="text-center">
         Loading Data, Please wait...
-    </div>
-    <div *ngIf="assignmentQuestions.length == 0 && !isLoading">
+    </div> -->
+    <div *ngIf="assignmentQuestions.length == 0">
         <h2 class="text-center">No records found!</h2>
     </div>
     <div class="col-12">
-        <div class="card" *ngIf="!isLoading && assignmentQuestions.length > 0">
+        <div class="card" *ngIf=" assignmentQuestions.length > 0">
             <div class="card-body">
                 <ul class="list-group" *ngFor="let question of assignmentQuestions">
                     <li class="list-group-item d-flex justify-content-between align-items-center mb-2">

@@ -9,7 +9,7 @@ import { StudentService } from 'src/service/student.service';
 export class StudentVideosComponent implements OnInit {
 
   uploadedVideos = [];
-  isLoading = false;
+  // isLoading = false;
 
   constructor(
     private studentService: StudentService
@@ -20,9 +20,9 @@ export class StudentVideosComponent implements OnInit {
   }
 
   fetchVideos(){
-    this.isLoading = true;
+    // this.isLoading = true;
     this.studentService.fetchVideos().subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.uploadedVideos = res;
     })
   }

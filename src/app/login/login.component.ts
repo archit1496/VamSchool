@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   
   loginForm: FormGroup;
-  isLoading: boolean = false;
+  // isLoading: boolean = false;
   loginError: any;
 
   constructor(private fb:FormBuilder,public authService:AuthService,public router: Router,
@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
   
   loginUser() {
     //this.router.navigate(['wrapper/student-main-page']);
-      this.isLoading = true;
+      // this.isLoading = true;
       this.loginError = '';
       this.loginForm.get('password').markAsTouched();
       this.loginForm.get('email').markAsTouched();
       this.authService.authenticate(this.loginForm.value).subscribe(data => {
-        this.isLoading = false;
+        // this.isLoading = false;
         StorageService.setItem('token',data.token);
         StorageService.setItem('role',data.user.role);
         StorageService.setItem('firstname',data.user.first_name);
@@ -48,6 +48,8 @@ export class LoginComponent implements OnInit {
         if(data.user.role==='TEACHER')
         {
           this.router.navigate(['wrapper/teacherNav']);
+          StorageService.setItem('teacher_id',data.user.id);
+
         } else if(data.user.role==='STUDENT'){
           StorageService.setItem('student_id',data.user.id);
           this.router.navigate(['wrapper/studashboard']);
@@ -68,7 +70,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['wrapper/admin']);
         }
         }error => {
-          this.isLoading = false;
+          // this.isLoading = false;
           this.loginError = error.error['detail'];
           // this.isBusy = false;
           // this.alertService.showError({title: 'Login Failure', message: 'User not found'});

@@ -25,10 +25,10 @@ export class TeacherCheckAssignmentsComponent {
   secondClass = false;
   thirdPage = [];
   showHideList = true;
-commentData = [];
+  commentData = [];
   showHideFinalActivity = false;
   updateHeaderText = 'This week';
-  isLoading: boolean;
+  // isLoading: boolean;
   studentAssignmentDataSubjectWise;
   selectedStudentAssignmentDataSubjectWise;
   selectedCourse = '0';
@@ -45,21 +45,31 @@ commentData = [];
   // teacherCourseData = [];
   visibleIndex = -1;
   showActivity = true;
+  teacherId = sessionStorage.getItem('teacher_id');
 
-  update(studentActivity, e) {
+
+  update(studentActivity) {
+
+    
+if ((studentActivity.mark)<= 90) {
+  
 
     const formData: FormData = new FormData();
-    if (e.target.files) {
-      formData.append('doc_answer', e.target.files[0], e.target.files[0].name);
-    } else {
+    // if (e.target.files) {
+    //   formData.append('doc_answer', e.target.files[0], e.target.files[0].name);
+    // } else {
 
-      formData.append('mark', e.target.value);
-    }
+      formData.append('mark', studentActivity.mark);
+    // }
 
     this.teacherService.updateAssignmentMarks(studentActivity.id, formData).subscribe((res) => {
       this.toastr.success('updated succesfully!', 'Success');
       this.onAssignmentClick2(this.AssignmentClick2.id);
     });
+  } else {
+    alert ('please add marks less than 90');
+  }
+
   }
 
   download(studentActivity) {
@@ -109,40 +119,35 @@ commentData = [];
 
   fetchAssignmentDataSubject() {
 
-    this.isLoading = true;
+    // this.isLoading = true;
     this.teacherService.fetchTeacherCourse().subscribe(res => {
 
-      this.isLoading = false;
+      // this.isLoading = false;
       this.firstClass = true;
       this.studentAssignmentDataSubjectWise = res.data;
     });
   }
 
   // fetchAssignmentDataTopicWise(id:number) {
-
   //   this.isLoading = true;
   //   this.teacherService.fetchAssignmentQuestionsTopic(id).subscribe(res => {
-
   //     this.isLoading = false;
-
   //   });
   // }
 
   fetchAssignmentData(id: number) {
     const data: FormData = new FormData();
     data.append('course_id', id.toString());
-    this.isLoading = true;
+    // this.isLoading = true;
     this.status = 'topic';
     this.teacherService.fetchAssignmentData2(data).subscribe(res => {
       this.firstClass = false;
       this.secondClass = true;
       this.thirdClass = false;
       this.showHideList = false;
-      this.isLoading = false;
+      // this.isLoading = false;
 
       this.assignmentData = res.data;
-
-
     });
   }
 
@@ -153,7 +158,7 @@ commentData = [];
   postAssignmentData(addNewAssignment) {
 
     if (addNewAssignment.type === 'all') {
-      this.isLoading = true;
+      // this.isLoading = true;
       const formData: FormData = new FormData();
       formData.append('topic', addNewAssignment.topic);
       formData.append('description', addNewAssignment.topicQuestion);
@@ -164,7 +169,7 @@ commentData = [];
       formData.append('max_mark', addNewAssignment.marks);
       this.teacherService.addNewAssignmentData(this.AssignmentClick.id, formData).subscribe(res => {
         this.toastr.success('Added succesfully!', 'Success');
-        this.isLoading = false;
+        // this.isLoading = false;
         this.openAddNewAssignmentPage = false;
         this.onAssignmentClick(this.AssignmentClick.id);
         this.thirdClass = true;
@@ -172,13 +177,13 @@ commentData = [];
         this.openAddNewAssignmentPage = false;
       });
     } else if (addNewAssignment.type === 'topic') {
-      this.isLoading = true;
+      // this.isLoading = true;
       const topicData: FormData = new FormData();
       topicData.append('name', addNewAssignment.topic);
       topicData.append('course', this.selectedStudentAssignmentDataSubjectWise.id);
       this.teacherService.addNewAssignmentData2(topicData).subscribe(res => {
         this.toastr.success('Added succesfully!', 'Success');
-        this.isLoading = false;
+        // this.isLoading = false;
         this.fetchAssignmentData(this.selectedStudentAssignmentDataSubjectWise.id);
         this.secondClass = true;
 
@@ -193,10 +198,6 @@ commentData = [];
 
       this.openAddNewAssignmentPage = false;
     }
-
-
-
-
   }
 
   get Math() {
@@ -204,6 +205,18 @@ commentData = [];
   }
   get Infinity() {
     return Infinity;
+  }
+  
+  formatAMPM(d) {
+    var date = new Date(d);
+    var hours:any = date.getHours();
+    var minutes:any = date.getMinutes();
+    var ampm:string = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime:string = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
   }
 
   getSubmissionDate(date) {
@@ -217,11 +230,11 @@ commentData = [];
   // fetchAssignmentData method
   onAssignmentClick(id) {
 
-    this.isLoading = true;
+    // this.isLoading = true;
     this.teacherService.fetchAssignmentData(id).subscribe(res => {
 
       // this.teacherService.fetchTeacherDashboardActivity('question=' + id).subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       // this.showHideFinalActivity = true;
 
       this.status = 'all';
@@ -236,11 +249,11 @@ commentData = [];
 
   onAssignmentClick2(id) {
 
-    this.isLoading = true;
+    // this.isLoading = true;
     // this.teacherService.fetchAssignmentData(id).subscribe(res => {
 
     this.teacherService.fetchTeacherDashboardActivity('question=' + id).subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.showHideFinalActivity = true;
 
       this.status = 'all';
@@ -271,6 +284,7 @@ commentData = [];
     this.teacherService.addComments(formData).subscribe((res) => {
       if (res.status) {
         this.toastr.success('Added succesfully!', 'Success');
+        this.commentText = '';
         this.showComments(this.specificStudent.id);
       }
   
@@ -285,9 +299,9 @@ commentData = [];
       this.updateHeaderText = e.target.innerText;
     }
 
-    this.isLoading = true;
+    // this.isLoading = true;
     this.teacherService.fetchTeacherDashboardActivity(id).subscribe(res => {
-      this.isLoading = false;
+      // this.isLoading = false;
       this.activityData = res;
     });
   }
