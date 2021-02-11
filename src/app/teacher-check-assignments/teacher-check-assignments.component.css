@@ -194,11 +194,6 @@ button {
   margin-right: 5px;
 }
 
-p {
-  font-family: Lato;
-}
-
-
 .subheader {
   /* background-color: #f3c062; */
   display: flex;
@@ -323,11 +318,6 @@ p {
   width: 100%;
 }
 
-.solid-btn-download:hover {
-  color: white;
-  border: 1.5px solid #ffffff;
-  border-radius: 5px;
-  background-color: #4db6ac;
-}
+
 
 

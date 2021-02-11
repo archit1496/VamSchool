@@ -46,14 +46,13 @@
 
 .about-glimpse-txt-1 h3{
   font-size: 2rem;
-  font-family: 'Mulish' sans-serif;
-  font-weight: 700;
+  font-family: MulishExtraBold;
   color: #9e48b9;
 }
 
 .about-glimpse-txt-2 h4, .about-glimpse-txt-3 h4{
   font-size: 24px;
-  font-family: 'Mulish' sans-serif;
+  font-family: MulishBold;
   font-weight: 700;
   color: #9e48b9;
 }

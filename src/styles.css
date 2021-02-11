@@ -6,12 +6,51 @@
     5. #bb5b4a (Red) => Secondary
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
+@font-face {
+  font-family: MontserratExtraBold ;
+  src: url('assets/fonts/Montserrat/Montserrat-ExtraBold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MontserratRegular ;
+  src: url('assets/fonts/Montserrat/Montserrat-Regular.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MontserratBold ;
+  src: url('assets/fonts/Montserrat/Montserrat-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: OleoScriptBold ;
+  src: url('assets/fonts/OleoScriptSwashCaps/OleoScriptSwashCaps-Bold.ttf');
+  font-weight: bold;
+}
+ 
+@font-face {
+  font-family: MulishBold ;
+  src: url('assets/fonts/Mulish/Mulish-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MulishExtraBold ;
+  src: url('assets/fonts/Mulish/Mulish-ExtraBold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: MulishRegular ;
+  src: url('assets/fonts/Mulish/Mulish-Regular.ttf');
+  font-weight: bold;
+}
 
 
 * {
@@ -21,7 +60,7 @@
 }
 
 html, body { 
-  font-family: 'Lato', sans-serif!important;
+  font-family: MulishBold!important;
   min-height: 100%!important;
   min-width: auto!important;
   height: 100%!important;
@@ -35,7 +74,7 @@ body {
 }
 
 p {
-  font-family: 'Lato', sans-serif;
+  font-family: MulishBold;
 }
 
 a{
@@ -547,7 +586,7 @@ button.home-voilet-btn:hover {
 
 .sec-heading-txt {
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: MontserratExtraBold;
   color: #073b4c;
 }
 
@@ -559,7 +598,7 @@ button.home-voilet-btn:hover {
 .sec-subheading-txt h3 {
   font-weight: 300!important;
   font-size: 20px!important;
-  font-family: 'Lato' sans-serif;
+  font-family: MulishRegular;
   color: #313131;
 }
 
@@ -756,6 +795,22 @@ ul.comments-list > li {
   right: 0;
 }
 
+.upload-cnt {
+  margin-bottom: 1rem;
+}
+
+.upload-cnt input {
+  color: #598c6a;
+  width: 100%;
+}
+ 
+.upload-cnt label {
+  color: #598c6a;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
 @media screen and (max-width: 600px) {
   .activity-card {
     background-color: #22878b;
@@ -791,6 +846,13 @@ button.btn.add-comment:hover {
   border: 1.5px solid #4db6ac;
   border-radius: 5px;
   background-color: transparent;
+}
+
+.solid-btn-download:hover {
+  color: white;
+  border: 1.5px solid #ffffff;
+  border-radius: 5px;
+  background-color: #4db6ac;
 }
 
 .upload-cnt {
@@ -832,3 +894,129 @@ button.btn.add-comment:hover {
 
 
 /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+
+
+/* Dashboard Footer  */
+
+.now-activity-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 30px auto;
+  column-gap: 5px;
+}   
+
+
+.now-child-grid {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.activity-child-grid {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    justify-self: stretch;
+    overflow: hidden;
+}
+
+.activity-card-dashboard{
+    border-radius: 10px;
+    position: relative;
+    height: 100%;
+    padding: 5px 14px;
+}
+
+.activity-img-dashboard {
+    background-image: url("assets/images/prize-sq.jpg");
+    position: relative;
+    background-size: auto 100%;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.activity-card-dashboard:after {
+    content: '';
+    background: #006272;
+    border: 2px solid #4a9fe3;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    opacity: 0.2;
+}
+
+.activity-status {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    top: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .activity-img-dashboard {
+        background-image: url("assets/images/prize-sq.jpg");
+        position: absolute;
+        top: 0;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .activity-status {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        font-size: 24px;
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .now-activity-grid {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, 1fr 9fr);
+        row-gap: 10px;
+      }
+
+    .d-now {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        justify-self: stretch;
+    }
+    .now-child-grid {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+    
+    .d-activity {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 3;
+        justify-self: stretch;
+    }
+    .activity-child-grid {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 4;
+        grid-row-end: 4;
+        justify-self: stretch;
+    }   
+}
+

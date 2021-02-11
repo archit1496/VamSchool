@@ -127,21 +127,6 @@
   }
 }
 
-.upload-cnt {
-  margin-bottom: 1rem;
-}
-
-.upload-cnt input {
-  color: #598c6a;
-  width: 100%;
-}
- 
-.upload-cnt label {
-  color: #598c6a;
-  font-size: 16px;
-  font-weight: bold;
-}
-
 .no-data {
   width: 100%;
   height: 50vh;
