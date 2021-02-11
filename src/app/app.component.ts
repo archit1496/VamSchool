@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { StorageService } from 'src/service/storage.service';
 import { AuthService } from 'src/service/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,17 +17,17 @@ export class AppComponent {
     private cdr?: ChangeDetectorRef){
     this.checkLogin();
   }
+  private subscriptions: Subscription[] = [];
 
   loading = false;
 
   async ngOnInit() {
 
 
-    this._data.isLoading.subscribe((loadingStatus) => {
+    this.subscriptions.push(this._data.isLoading.subscribe((loadingStatus) => {
       this.loading = loadingStatus;
 
-      this.cdr.detectChanges();
-    });
+    }));
   }
   
   checkLogin() {
@@ -44,5 +45,9 @@ export class AppComponent {
         this.router.navigate(['/home'])
       }
     }
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }
