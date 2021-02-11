@@ -7,18 +7,18 @@
                     <strong>All</strong>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link mr-3" (click)="onClassTypeClick('X Std')" 
+            <li class="nav-item" *ngFor="let i of classesData">
+                <a class="nav-link mr-3" (click)="onClassTypeClick(i.id)" 
                 [ngClass]="{'active':classType==='X Std'}">
-                    <strong>X Std</strong>
+                    <strong>{{i.class_name}} {{i.section}}</strong>
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link mr-3" (click)="onClassTypeClick('IX Std')" 
                 [ngClass]="{'active':classType==='IX Std'}">
                     <strong>IX Std</strong>
                 </a>
-            </li>
+            </li> -->
         </ul> 
     </div>
 </nav> 

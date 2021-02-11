@@ -48,6 +48,8 @@ export class LoginComponent implements OnInit {
         if(data.user.role==='TEACHER')
         {
           this.router.navigate(['wrapper/teacherNav']);
+          StorageService.setItem('teacher_id',data.user.id);
+
         } else if(data.user.role==='STUDENT'){
           StorageService.setItem('student_id',data.user.id);
           this.router.navigate(['wrapper/studashboard']);

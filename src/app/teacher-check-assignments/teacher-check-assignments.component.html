@@ -93,8 +93,8 @@
                     <p>{{studentActivity.student.first_name + ' ' +studentActivity.student.last_name}}</p>
                   </div> 
                   <div class="col-lg-6 col-sm-12 col-12">
-                    <p>Marks: <input class="marks-input" type="text" value="{{studentActivity.mark}}" 
-                      (change)="update(studentActivity, $event)"><span> / 90</span></p> 
+                    <p>Marks: <input class="marks-input"  min="0" oninput="this.value = Math.abs(this.value)" type="number" [(ngModel)]="studentActivity.mark" 
+                      ><span> / 90</span></p> 
                   </div>
                 </div>
                 <div *ngIf="visibleIndex === j" class="col-lg-12">
@@ -102,7 +102,7 @@
                     <p><strong>Submitted on:</strong> {{getSubmissionDate(studentActivity.created_on)}} </p>
                   </div>
                   <div class="assignment-description-btn-cnt col-lg-6 col-sm-6 col-6">
-                    <button class="submit-marks solid-btn-green">Submit Marks</button>
+                    <button class="submit-marks solid-btn-green" (click)="update(studentActivity)">Submit Marks</button>
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@
             <button (click)="addComment()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
           </div>
           <ul class="comments-list">
-            <li class="me" *ngFor="let i of commentData">
+            <li   [ngClass]="(i.author == teacherId)?'me':'other'" *ngFor="let i of commentData">
               <span class="cmnt-text">{{i.content}}</span><span class="cmnt-time">{{formatAMPM(i.timestamp)}}</span>
             </li>
             <!-- <li class="other" *ngFor="let i of commentData">

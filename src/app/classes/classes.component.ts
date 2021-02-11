@@ -9,6 +9,7 @@ import { TeacherService } from 'src/service/teacher.service';
 export class ClassesComponent implements OnInit {
   @Output() classSelected = new EventEmitter<string>();
   classType:string="All";
+  classesData = [];
   constructor(public teacherService: TeacherService) { }
 
   ngOnInit() {
@@ -23,7 +24,7 @@ export class ClassesComponent implements OnInit {
 
 fetchClassesData(){
   this.teacherService.fetchClasses().subscribe(res => {
-    console.log(res, '2');
+    this.classesData = res.data;
   })
 }
 

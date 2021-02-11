@@ -45,22 +45,31 @@ export class TeacherCheckAssignmentsComponent {
   // teacherCourseData = [];
   visibleIndex = -1;
   showActivity = true;
+  teacherId = sessionStorage.getItem('teacher_id');
 
-  update(studentActivity, e) {
-    console.log(e);
-    console.log(studentActivity);
+
+  update(studentActivity) {
+
+    
+if ((studentActivity.mark)<= 90) {
+  
+
     const formData: FormData = new FormData();
-    if (e.target.files) {
-      formData.append('doc_answer', e.target.files[0], e.target.files[0].name);
-    } else {
+    // if (e.target.files) {
+    //   formData.append('doc_answer', e.target.files[0], e.target.files[0].name);
+    // } else {
 
-      formData.append('mark', e.target.value);
-    }
+      formData.append('mark', studentActivity.mark);
+    // }
 
     this.teacherService.updateAssignmentMarks(studentActivity.id, formData).subscribe((res) => {
       this.toastr.success('updated succesfully!', 'Success');
       this.onAssignmentClick2(this.AssignmentClick2.id);
     });
+  } else {
+    alert ('please add marks less than 90');
+  }
+
   }
 
   download(studentActivity) {

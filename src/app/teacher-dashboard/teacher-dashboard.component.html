@@ -2,7 +2,7 @@
     <div class="standardDiv" style="padding-bottom: 5rem;">
         <div class="row">
             <div class="col-12">
-                <app-classes></app-classes>
+                <app-classes (classSelected)="selectedClass($event)"></app-classes>
             </div>
         </div>
         <div class="img-cnt">   
@@ -56,8 +56,8 @@
                                             <img class='image' src='../../assets/images/leaf.png'>
                                         </div> 
                                         <p>
-                                            {{data.class_of.class_name}} {{data.class_of.section}}<br>
-                                            {{getStartTime(data.start_time)}}
+                                            {{data.class_name}} {{data.section}}<br>
+                                            <!-- {{getStartTime(data.start_time)}} -->
                                         </p>
                                     </div>
                                 </div>  
@@ -71,7 +71,7 @@
         <div class="mt-2">
             <div class="now-activity-grid">
                 <div class="activity-head d-now">
-                    <h5><b>Now</b></h5>
+                    <!-- <h5><b>Now</b></h5> -->
                     <!-- <span *ngIf="isClass">Next Class in </span>
                     <span style="color:rgb(189, 26, 26)">{{ getNextClass(todaysTimeTable) }}</span> -->
                 </div>
@@ -96,9 +96,9 @@
                         <div class="class-in-div">
                             <span *ngIf="todaysTimeTable?.length>0">
                                 <!-- <b>{{data.class_of.class_name}} {{data.class_of.section}}</b> -->
-                                <b>{{todaysTimeTable[0]?.class_of?.class_name}} {{todaysTimeTable[0]?.class_of?.section}}</b>
+                                <b>{{todaysTimeTable[0].class_name}} {{todaysTimeTable[0]?.section}}</b>
                                 <br>
-                                {{ teacherService.convertFrom24To12Format((todaysTimeTable[0]?.start_time)) }}  
+                                <!-- {{ teacherService.convertFrom24To12Format((todaysTimeTable[0]?.start_time)) }}   -->
                                 <!-- <span *ngIf="isClass">Next Class in </span><span style="color:rgb(55, 68, 252)">{{ getNextClass(todaysTimeTable) }}</span> -->
                             </span>
                         </div>

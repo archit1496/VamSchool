@@ -24,6 +24,7 @@ export class StudentAssignementsComponent implements OnInit {
   subjectFilterData = [];
   enableActivity = true;
   enableComment = false;
+  studentId = sessionStorage.getItem('student_id');
   constructor(public studentService: StudentService, public toaster: ToastrService, 
     public teacherService: TeacherService) {
 
