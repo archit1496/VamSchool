@@ -82,7 +82,7 @@
   font-size: 5rem;
   font-weight: 700;
   color: #7127a9!important;
-  font-family: 'Montserrat', sans-serif;;
+  font-family: MontserratExtraBold;
 }
 
 @media screen and (max-width: 998px) {
@@ -123,10 +123,6 @@ button.requestDemo.btn {
 .loginInputDiv{
   border-bottom: 1px solid #D3D3D3;
 }
-  
-.loginItems{
-  font-family: 'Arimo', sans-serif;
-}
 
 .scroll-top {
   position: fixed;
@@ -149,7 +145,14 @@ button.requestDemo.btn {
 } */
 
 .landing-subheading {
-  font-family: 'Montserrat', sans-serif;
+  font-family: MontserratRegular;
   font-weight: 200!important;
   color: #724080;
+}
+
+@media screen and (max-width: 600px) {
+  .landing-subheading {
+    font-size: 14px;
+    font-weight: bold;
+  }
 }

@@ -1,10 +1,15 @@
 <div class='app'>
+  <!-- this loader is for File Upload -->
     <div *ngIf="loading" class="loading text-center">
+      <div class="progress">
         <p>Loading, Please wait...</p>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div> 
+        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div> 
+
+    <div *ngIf="simple-loading" class="loading text-center">
+      <img src="../assets/images/simple-loading.gif" width="300px" height="300px">
+    </div> 
     <router-outlet></router-outlet>
     <!-- <app-password-change></app-password-change> -->
 </div>

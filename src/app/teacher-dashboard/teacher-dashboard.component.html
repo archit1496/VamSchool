@@ -32,7 +32,7 @@
 
         <hr>
         <div class="mt-3 classes-container col-lg-12 col-sm-12 col-md-12" *ngIf="hideJoin">
-            <h5 ><b>Classes Today</b>
+            <h5><b>Classes Today</b>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 15px;
                     height: 15px;"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
@@ -43,23 +43,25 @@
                     height: 15px;"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                     <span class="sr-only">Next</span>
                 </a>
-            </h5>
+            </h5> 
             <div class="myCarousel-container">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div *ngFor="let data of todaysTimeTable;let i = index"
-                            [ngClass]="{'active' : i == 0}" class="carousel-item row">
-                            <div class="col-lg-3 col-sm-6 col-6">
-                                <div class="today-card">
-                                    <div class='carousel-overlay'>
-                                        <img class='image' src='../../assets/images/leaf.png'>
-                                    </div> 
-                                    <p>
-                                        {{data.class_of.class_name}} {{data.class_of.section}}<br>
-                                        {{getStartTime(data.start_time)}}
-                                    </p>
-                                </div>
-                            </div>    
+                            [ngClass]="{'active' : i == 0}" class="carousel-item">
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-6 col-6">
+                                    <div class="today-card">
+                                        <div class='carousel-overlay'>
+                                            <img class='image' src='../../assets/images/leaf.png'>
+                                        </div> 
+                                        <p>
+                                            {{data.class_of.class_name}} {{data.class_of.section}}<br>
+                                            {{getStartTime(data.start_time)}}
+                                        </p>
+                                    </div>
+                                </div>  
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -67,11 +69,19 @@
         </div>
         <hr>
         <div class="mt-2">
-            <div class="row">
-                <div class="col-lg-5 col-sm-10 col-12" *ngIf="hideJoin">
+            <div class="now-activity-grid">
+                <div class="activity-head d-now">
                     <h5><b>Now</b></h5>
                     <!-- <span *ngIf="isClass">Next Class in </span>
                     <span style="color:rgb(189, 26, 26)">{{ getNextClass(todaysTimeTable) }}</span> -->
+                </div>
+                <div class="activity-head d-activity">
+                    <h5><strong>Activity</strong></h5>
+                    <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-6">
+                        <span><a href="">This Week</a> | <a href=''>All Time</a></span>
+                    </div> -->
+                </div>
+                <div class="now-child-grid" *ngIf="hideJoin">
                     <div class="live-card mr-3" >
                         <img src='../../assets/images/leaf.png' alt='img'/>
                         <div class='now-status'>
@@ -94,21 +104,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 col-sm-12 mb-4" *ngIf="hideJoin">
-                    <div class="activityDiv">
-                        <div class="activity-head row">
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-6">
-                                <h5><strong>Activity</strong></h5>
-                            </div>
-                            <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-6">
-                                <span><a href="">This Week</a> | <a href=''>All Time</a></span>
-                            </div> -->
-                        </div>
-                        <div class="activity-card">
-                            <div class="activity-status"> 
-                                <div>
-                                    <p><span class="green-dot"></span> King of the Ring</p>
-                                </div>
+                <div class="activity-child-grid" *ngIf="hideJoin">
+                    <div class="activity-card-dashboard">
+                        <div class="activity-img-dashboard"></div>
+                        <div class="activity-status"> 
+                            <div>
+                                <p><span class="green-dot"></span> King of the Ring</p>
                             </div>
                         </div>
                     </div>

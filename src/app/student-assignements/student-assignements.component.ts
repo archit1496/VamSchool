@@ -74,6 +74,18 @@ export class StudentAssignementsComponent implements OnInit {
     });
   }
 
+  formatAMPM(d) {
+    var date = new Date(d);
+    var hours:any = date.getHours();
+    var minutes:any = date.getMinutes();
+    var ampm:string = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime:string = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  }
+
   fetchAssignmentDataTopicWise(id: number) {
     this.subjectFilter = false;
     // this.isLoading = true;
