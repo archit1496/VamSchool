@@ -990,7 +990,7 @@ button.btn.add-comment:hover {
         row-gap: 10px;
       }
 
-    .d-now {
+    .d-now { 
         grid-column-start: 1;
         grid-column-end: 1;
         grid-row-start: 1;
