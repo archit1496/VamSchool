@@ -10,29 +10,26 @@
               <h3 style="color: #000000;">Welcome to the VAM</h3>
               <h3 style="color: #ffffff;">"Let's Learn Together"</h3>
             </div>
-            <div class="loginform">
+            <div class="loginform js-tilt" data-tilt>
               <form [formGroup]="loginForm">
+                <div class="wrap-input100 mb-3 loginInputDiv">
+                  <input type="text" formControlName="email" name="email" placeholder="Email"
+                  aria-label="Email" aria-describedby="basic-addon2" class="inputText" required>
+                  <span class="focus-input100"></span>
+                  <span class="symbol-input100">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                  </span>
+                </div>
 
-                  <div class="input-group mb-3 loginInputDiv">
-                    <input type="text" formControlName="email" name="email" placeholder="Email"
-                    aria-label="Email" aria-describedby="basic-addon2" class="inputText" required>
+                <div class="wrap-input100 mb-3 loginInputDiv">
+                  <input type="password" formControlName="password" name="password" placeholder="Password" 
+                  aria-label="Password" aria-describedby="basic-addon2" class="inputText form-control" required>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
-                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                      <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
-                  </div>
-
+                </div>
                 
-                  <div class="input-group mb-3 loginInputDiv">
-                    <input type="password" formControlName="password" name="password" class="form-control"
-                      placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" class="inputText" required>
-                      <span class="focus-input100"></span>
-                      <span class="symbol-input100">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                      </span>
-                  </div>
-                
-
                 <div (click)="onForgotPasswordClick()" class="form-group text-right">
                   <a  style="color: #134541;">Forgot Password?</a>
                 </div>
@@ -54,9 +51,15 @@
                 </div>
               </form>
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<script>
+  document.getElementsByClassName('.js-tilt').tilt({
+			scale: 1.1
+		})
+</script>
