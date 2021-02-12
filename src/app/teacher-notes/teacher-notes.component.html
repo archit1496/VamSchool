@@ -18,29 +18,39 @@
         </div>
       </div>
 
-      <div *ngIf="studentNotesDataTopicWise?.length > 0">
-        <div class="mt-2 mb-2" (click)="openForm2()">
-          <div class='add-file'>
-            <span>Add New Topic <i class="fa fa-plus" aria-hidden="true"></i></span>
+      <div *ngIf="studentNotesDataTopicWise?.length >= 0">
+        <div *ngIf="isDatainTopicWise === false">
+          <div class="mt-2 mb-2 cursor-pointer" (click)="openForm2()">
+            <div class='add-file'>
+              <span>Add New Topic <i class="fa fa-plus" aria-hidden="true"></i></span>
+            </div>
           </div>
+          <p>No Data</p>
         </div>
-        <div class="grid">
-          <div class="notes-card-cnt " *ngFor="let data of studentNotesDataTopicWise"
-            (click)="fetchNotesData();selectedNotesData= data;">
-            <div class="notes-card"></div>
-            <div class="assignment-description">
-              <p class="class-name cursor-pointer">{{ data?.name }}</p>
+        <div *ngIf="studentNotesDataTopicWise?.length > 0">
+          <div class="mt-2 mb-2" (click)="openForm2()">
+            <div class='add-file cursor-pointer'>
+              <span>Add New Topic <i class="fa fa-plus" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="notes-card-cnt " *ngFor="let data of studentNotesDataTopicWise"
+              (click)="closeForm2();fetchNotesData();selectedNotesData= data;">
+              <div class="notes-card"></div>
+              <div class="assignment-description">
+                <p class="class-name cursor-pointer">{{ data?.name }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="form-popup" id="myForm2">
-        <form class="form-container">
+        <form class="form-container" (ngSubmit)='closeForm2();postData()' ngNativeValidate>
           <h1>Add Topic</h1>
-          <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="topic">
-          <button type="submit" class="solid-btn-green" (click)="closeForm();postData()">Save</button>
-          <button type="submit" class="solid-btn-voilet" (click)="closeForm2()">Close</button>
+          <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="topic" required>
+          <button type="submit" class="solid-btn-green">Save</button>
+          <button type="button" class="solid-btn-voilet" (click)="closeForm2()">Close</button>
         </form>
       </div>
 
@@ -61,37 +71,47 @@
         </div>
       </div>
 
-      <div *ngIf="notesData?.length > 0">
-        <div class="mt-2 mb-2" (click)="openForm()">
-          <div class='add-file'>
-            <span>Add {{ notesOrVideo }} <i class="fa fa-plus" aria-hidden="true"></i></span>
+      <div *ngIf="notesData?.length >= 0">
+        <div *ngIf="notesData?.length === 0">
+          <div class="mt-2 mb-2 cursor-pointer" (click)="openForm()">
+            <div class='add-file'>
+              <span>Add {{ notesOrVideo }} <i class="fa fa-plus" aria-hidden="true"></i></span>
+            </div>
           </div>
+          <p>No Data</p>
         </div>
-        <div class="grid" *ngIf="notesData?.length > 0">
-          <div class="notes-card-cnt " *ngFor="let data of notesData" 
-          (click)="onNotesClick('' + (data.note ? data.note : data.video))">
-          <div class="notes-card-file"></div>
-            <div class="assignment-description">
-              <p class="class-name cursor-pointer">{{data.name}}</p>
-              <p class="class-subname">{{data.note ? (data.note.slice((Math.max(0, data.note.lastIndexOf(".")) || Infinity) + 1)) : ''}} file</p> 
+        <div *ngIf="notesData?.length > 0">
+          <div class="mt-2 mb-2 cursor-pointer" (click)="openForm()">
+            <div class='add-file'>
+              <span>Add {{ notesOrVideo }} <i class="fa fa-plus" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="notes-card-cnt " *ngFor="let data of notesData" 
+            (click)="closeForm();onNotesClick('' + (data.note ? data.note : data.video))">
+            <div class="notes-card-file"></div>
+              <div class="assignment-description">
+                <p class="class-name cursor-pointer">{{data.name}}</p>
+                <!-- <p class="class-subname">{{data.note ? (data.note.slice((Math.max(0, data.note.lastIndexOf(".")) || Infinity) + 1)) : ''}} file</p>  -->
+              </div>
             </div>
           </div>
         </div>
 
         <div class="form-popup" id="myForm">
-          <form class="form-container">
+          <form class="form-container" (ngSubmit)='Validate(notesOrVideo);closeForm()' ngNativeValidate>
             <h1>Add New Topic</h1>
-            <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="newtopic">
-            <select class="select-course" name="dfvf" [(ngModel)]="selectedCourse">
+            <input type="text" placeholder="Enter topic" name="psw" [(ngModel)]="newtopic" required>
+            <!-- <select class="select-course" name="dfvf" [(ngModel)]="selectedCourse">
               <option value="0">Select Course</option>
               <option *ngFor="let company of teacherCourseData" [value]="company.id">
                 {{ company.class_of.class_name+ company.class_of.section}}</option>
-            </select>
+            </select> -->
             <label for="upload-notes">
-              <input type="file" id="upload-notes" (change)="uploadNotes($event)">
+              <input type="file" id="upload-notes" (change)="uploadNotes($event)" required>
             </label>
-            <button type="submit" class="solid-btn-green" (click)="closeForm();postNotesData()">Save me</button>
-            <button type="submit" class="solid-btn-voilet" (click)="closeForm()">Close</button>
+            <button type="submit" class="solid-btn-green">Save me</button>
+            <button type="button" class="solid-btn-voilet" (click)="closeForm()">Close</button>
           </form>
         </div>
       </div>
