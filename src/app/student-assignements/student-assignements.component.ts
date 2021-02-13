@@ -15,6 +15,7 @@ export class StudentAssignementsComponent implements OnInit {
   specificTopicDetail;
   studentAssignmentDataSubjectWise;
   studentAssignmentDataTopicWise;
+  studentAssignmentData = false;
   assignmentData = [];
   // valueWithOutSubjectFilter;
   subjectFilter: boolean = false;
@@ -25,6 +26,11 @@ export class StudentAssignementsComponent implements OnInit {
   enableActivity = true;
   enableComment = false;
   studentId = sessionStorage.getItem('student_id');
+  clearFiles = '';
+  fileSize = 0;
+  bindFileDetails = [];
+  totalTextFiles = [];
+
   constructor(public studentService: StudentService, public toaster: ToastrService, 
     public teacherService: TeacherService) {
 
@@ -92,11 +98,13 @@ export class StudentAssignementsComponent implements OnInit {
     // this.isLoading = true;
     this.studentService.fetchAssignmentData(id).subscribe(res => {
     // this.isLoading = false;
+    this.studentAssignmentData = true;
+
     this.studentAssignmentDataTopicWise = res;
     this.studentAssignmentDataSubjectWise = [];
     this.subjectFilterData = [];
     this.enableActivity = false;
-    this.enableComment = true;
+    // this.enableComment = true;
     // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
     });
   }
@@ -107,6 +115,10 @@ export class StudentAssignementsComponent implements OnInit {
     // this.isLoading = true;
     this.studentService.fetchAssignmentTopicData({ 'question': id }).subscribe(res => {
     // this.isLoading = false;
+    this.studentAssignmentData = false;
+
+    this.enableComment = true;
+
     this.assignmentTopicDetail = res;
     })
   }
@@ -123,10 +135,13 @@ export class StudentAssignementsComponent implements OnInit {
     return("header");
   }
   
-  uploadNotes(fileInput) {
+  uploadNotes(files) {
     const formData: FormData = new FormData();
-    const files: File = fileInput.target.files;
-    formData.append('doc_answer', files[0], files[0].name);
+    // const files: File = fileInput.target.files;
+
+      formData.append('files', (files));
+
+    // formData.append('doc_answer', files, files.name);
     formData.append('question', String(this.questionId));
     formData.append('student',  sessionStorage.getItem('student_id'));
     this.studentService.uploadAssignment(formData).subscribe(data => {
@@ -134,6 +149,10 @@ export class StudentAssignementsComponent implements OnInit {
       if (data && data['status'] === false) {
         alert(data['detail'])
       } else {
+        this.clearFiles = '';
+        this.totalTextFiles = [];
+        this.fileSize = 0;
+        this.bindFileDetails = [];
         this.toaster.success("File uploaded succesfully!", "Success");
       }
 
@@ -205,5 +224,52 @@ export class StudentAssignementsComponent implements OnInit {
   
 
        }); 
+  }
+
+  uploadedData(target) {
+    let totalUploadedImageSize = 0;
+
+    for (let i = 0; i < target.files.length; i++) {
+        this.totalTextFiles = target.files;
+        const imageSize = (Math.round((((target.files[i].size) / 1024) / 1024) * 100) / 100).toString();
+        totalUploadedImageSize += parseFloat(imageSize);
+        let mbSize;
+        if (target.files[i].size >= 1048576) {
+          mbSize = (((target.files[i].size) / 1024) / 1024).toFixed(2) + 'MB';
+        } else if (target.files[i].size >= 1024 && target.files[i].size < 1048576) {
+          mbSize = ((target.files[i].size) / 1024).toFixed(3) + 'KB';
+        } else if (target.files[i].size < 1024) {
+          mbSize = ((target.files[i].size) / 1024).toFixed(3) + 'bytes';
+        }
+        this.bindFileDetails.push({
+          fileName: target.files[i].name,
+          fileSize: mbSize,
+          fileSizeInMB: imageSize
+        });
+    }
+    this.fileSize = this.fileSize + totalUploadedImageSize;
+  }
+
+  removeItem(index: number) {
+    this.fileSize = 0;
+    let tempSize = 0;
+    this.bindFileDetails.splice(index, 1);
+    for (let i = 0; i < this.bindFileDetails.length; i++) {
+      tempSize += parseFloat(this.bindFileDetails[i].fileSizeInMB);
+    }
+    let fileArray = Array.from(this.totalTextFiles);
+    fileArray.splice(index, 1);
+    this.totalTextFiles = fileArray;
+    this.fileSize = this.fileSize + (Math.round(tempSize * 100) / 100);
+
+  }
+
+  uploadDocument() {
+    if (this.totalTextFiles.length === 0) {
+alert('Please Upload files.')
+    } else {
+
+this.uploadNotes(this.totalTextFiles)
+    }
   }
 }

@@ -30,7 +30,7 @@
               </div>
             </div>
           </div>
-            <div class="container" *ngIf="studentAssignmentDataTopicWise?.length > 0">
+            <div class="container" *ngIf="studentAssignmentData">
               <div class="cursor-pointer student-assignment-description-cnt" 
                     *ngFor="let data of studentAssignmentDataTopicWise" (click)="getTopicDetails(data?.id);showComments(data.assignment_answer.id);specificTopicDetail = data; commentText = ''">
                   <div class="row">
@@ -38,24 +38,22 @@
                     <div class="topicName col-lg-12 col-sm-12 col-12"><p>{{data?.topic}}</p></div>
                     <div class="teacherName col-lg-12 col-sm-12 col-12"><p>Marks: {{data?.assignment_answer?.mark}} / {{data?.max_mark}}</p></div>
                   </div>
-                  <div *ngIf="data?.id==questionId" class="row assignment-btn-cnt">
-                    <div class="assignment-description-text col-lg-12 col-sm-12">
-                      <hr style="width: 100%">
-                      <p><strong>Assignment Description: </strong>{{data?.description}}</p>
-                    </div>
-                    <div class="student-assignment-description-btn-cnt col-lg-12 col-sm-12 col-12">
-                      <button class="solid-btn-voilet">Download Correction</button>
-                      <button class="solid-btn-green" (click)="onDownloadClick(data?.doc_question)">Download Assignment</button>
-                    </div>
-                </div>
+
               </div>
-              <!-- <div *ngIf="isLoading" class="text-center">
-                Loading Data, Please wait...
-              </div>  -->
             </div>
-          <!-- <div *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
+            <div *ngIf="enableComment" class="row assignment-btn-cnt">
+              <div class="assignment-description-text col-lg-12 col-sm-12">
+                <hr style="width: 100%">
+                <p><strong>Assignment Description: </strong>{{specificTopicDetail?.description}}</p>
+              </div>
+              <div class="student-assignment-description-btn-cnt col-lg-12 col-sm-12 col-12">
+                <button class="solid-btn-voilet">Download Correction</button>
+                <button class="solid-btn-green" (click)="onDownloadClick(specificTopicDetail?.doc_question)">Download Assignment</button>
+              </div>
+          </div>
+          <div *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
             <b>No Data To Display</b>
-          </div>  -->
+          </div> 
         </div>
         <!-- <div class="footer-card"></div> -->
       </div>
@@ -68,10 +66,29 @@
         </div>
         <div class="width-full upload-cnt">
           <label style="text-align: center;" for="upload-notes">Upload Assignment</label>
-          <input name="upload-notes" type="file" id="upload-notes" (change)="uploadNotes($event)">
+          <!-- <input name="upload-notes" type="file" id="upload-notes" #fileInput> -->
+          <div style="display:flex">
+            <input type="file" id="docs" [(ngModel)]="clearFiles" (change)="uploadedData($event.target)" multiple style="padding: 5px;margin-top: 10px;">
+            <p style="margin-top: 17px;margin-left: 70px">Total size: {{fileSize | number : '1.2-2'}} Mb</p>
+          </div>
+
+          <div class="col-1-1 upload-list-nn">
+            <ul id="fileList">
+              <li id="lifileupload" *ngFor="let i of bindFileDetails;let ind=index">
+                <span>{{i.fileName}}</span>
+                <span style="text-align: center">{{i.fileSize}}</span>
+                <span (click)="removeItem(ind)">
+                  *
+<!-- add close icon here -->
+                  <!-- <img src="./assets/images/CLOSE-iconpng"> -->
+                </span>
+              </li>
+            </ul>
+          </div>
+
         </div>
         <div class="width-full text-center">
-          <button style="width: 100%;" type="submit" class="solid-btn-download">Submit</button>
+          <button style="width: 100%;" type="submit" class="solid-btn-download" (click)="uploadDocument()">Submit</button>
         </div>
         <hr>
         <div class="activity-heading">

@@ -16,7 +16,7 @@ export class TeacherCheckAssignmentsComponent {
     this.getActivityData('week=this');
   }
   commentText = '';
-  specificStudent = {student : {first_name: '', last_name: ''}, id: null};
+  specificStudent = {student : {first_name: '', last_name: ''}, id: null, question: {doc_question: ''}};
   AssignmentClick2;
   openAddNewAssignmentPage;
   status;
@@ -43,10 +43,10 @@ export class TeacherCheckAssignmentsComponent {
   showCommentSection = false;
   activityData = [];
   // teacherCourseData = [];
-  visibleIndex = -1;
+  // visibleIndex = -1;
   showActivity = true;
   teacherId = sessionStorage.getItem('teacher_id');
-
+  studentActivity;
 
   update(studentActivity) {
 
@@ -64,7 +64,7 @@ if ((studentActivity.mark)<= 90) {
 
     this.teacherService.updateAssignmentMarks(studentActivity.id, formData).subscribe((res) => {
       this.toastr.success('updated succesfully!', 'Success');
-      this.onAssignmentClick2(this.AssignmentClick2.id);
+      // this.onAssignmentClick2(this.AssignmentClick2.id);
     });
   } else {
     alert ('please add marks less than 90');
@@ -73,19 +73,20 @@ if ((studentActivity.mark)<= 90) {
   }
 
   download(studentActivity) {
-    window.open(studentActivity.doc_answer);
+    // window.open(studentActivity.doc_answer);
+    window.open(studentActivity)
   }
 
-  showSubItem(ind) {
-    if (this.visibleIndex === ind) {
-      this.visibleIndex = -1;
-      this.commentText = '';
-    } else {
-      this.visibleIndex = ind;
-      this.commentText = '';
+  // showSubItem(ind) {
+  //   if (this.visibleIndex === ind) {
+  //     this.visibleIndex = -1;
+  //     this.commentText = '';
+  //   } else {
+  //     this.visibleIndex = ind;
+  //     this.commentText = '';
 
-    }
-  }
+  //   }
+  // }
 
   openForm() {
     this.openAddNewAssignmentPage = true;
@@ -261,16 +262,19 @@ if ((studentActivity.mark)<= 90) {
       this.thirdClass = false;
       this.showHideList = true;
       this.particularAssign = res;
-      this.showCommentSection = true;
 
       this.showActivity = false;
     });
   }
 
-  showComments(id) {
-    const obj = {'assignment_answer': id};
+  showComments(studentActivity) {
+    this.studentActivity = studentActivity;
+    const obj = {'assignment_answer': studentActivity.id};
     this.teacherService.fetchComments(obj).subscribe((res) => {
    this.commentData = res.chat;
+   this.showHideFinalActivity = false;
+   this.showCommentSection = true;
+
     });
   }
 
@@ -285,7 +289,7 @@ if ((studentActivity.mark)<= 90) {
       if (res.status) {
         this.toastr.success('Added succesfully!', 'Success');
         this.commentText = '';
-        this.showComments(this.specificStudent.id);
+        this.showComments(this.specificStudent);
       }
   
 
