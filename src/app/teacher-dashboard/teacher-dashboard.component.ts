@@ -84,16 +84,16 @@ export class TeacherDashboardComponent implements OnInit {
   }
 
   selectedClass(id) {
-this.selectedClassId = id;
+    this.selectedClassId = id;
     this.teacherService.fetchClassDetails(id).subscribe(res => {
-this.todaysTimeTable = res.data;
+    this.todaysTimeTable = res.data;
     })
   }
 
   startMeeting(signature, meetingNumber, meetingPassword){
     console.log("Signature = "+signature)
     document.getElementById('zmmtg-root').style.display = 'block';
-
+    document.getElementById('teacher-dashboard-id').style.display = 'none';
     ZoomMtg.init({
       leaveUrl: this.leaveUrl,
       isSupportAV: true,
