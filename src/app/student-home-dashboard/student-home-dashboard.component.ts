@@ -17,8 +17,6 @@ ZoomMtg.prepareJssdk();
 })
 
 export class StudentHomeDashboardComponent implements OnInit {
-
-
   signatureEndpoint = 'https://api.onwardlearn.in/live/signature';
   apiKey = 'pgl-ugf3QLubAI30B5EBag';
   // meetingNumber: string = '84675760804';
@@ -31,24 +29,20 @@ export class StudentHomeDashboardComponent implements OnInit {
   // isLoading:boolean;
   studentDataList;
   todayClassData;
-
   dashboardActivityData;
-
   hideJoinBtn = true;
   disableJoinBtn = true;
+
   constructor(private router: Router,public studentService:StudentService,  public teacherService: TeacherService) {
     this.fetchStudentDetails();
     this.fetchDashboardActivityData();
     console.log("width",screen.width)
   }
 
-
   ngOnInit() {
-
-
     // $('carousel');
-
   }
+
   fetchDashboardActivityData(){
     this.studentService.fetchDashboardActivity().subscribe(res => {
       this.dashboardActivityData = res;
@@ -82,14 +76,15 @@ export class StudentHomeDashboardComponent implements OnInit {
 
 
   getData(){
-    if (Object.keys(this.studentDataList.courses).length) {
-      this.studentService.fetchZoomIdPassword(this.studentDataList.courses.id).subscribe(res=>{
-        this.hideJoinBtn = false
-        this.getSignature(res.course.meeting_id, res.course.meeting_password)
-      })
-    } else {
-      alert('class not start');
-    }
+    // if (Object.keys(this.studentDataList.courses).length) {
+    //   this.studentService.fetchZoomIdPassword(this.studentDataList.courses.id).subscribe(res=>{
+    //     this.hideJoinBtn = false
+    //     this.getSignature(res.course.meeting_id, res.course.meeting_password)
+    //   })
+    // } else {
+    //   alert('class not start');
+    // }
+    this.getSignature(this.studentDataList.student_class.meeting_id, this.studentDataList.student_class.meeting_password)
 
   }
 
@@ -113,11 +108,15 @@ export class StudentHomeDashboardComponent implements OnInit {
 
   startMeeting(signature, meetingNumber, passWord){
     console.log("Signature = "+signature)
-   document.getElementById('zmmtg-root').style.display = 'block';
-
+    document.getElementById('zmmtg-root').style.display = 'block';
+    document.getElementById('stu-dashboard-id').style.display = 'none';
     ZoomMtg.init({
       leaveUrl: this.leaveUrl,
       isSupportAV: true,
+      // loginWindow: {  // optional,
+      //   width: '400',
+      //   height: '380'
+      // },
       success: (success) => {
         console.log(success)
 
