@@ -138,8 +138,12 @@ export class StudentAssignementsComponent implements OnInit {
   uploadNotes(files) {
     const formData: FormData = new FormData();
     // const files: File = fileInput.target.files;
-
-      formData.append('files', (files));
+for (let index = 0; index < files.length; index++) {
+  // const element = array[index];
+    formData.append('files', files[index], files[index].name);
+  
+}
+      // formData.append('files', (files));
 
     // formData.append('doc_answer', files, files.name);
     formData.append('question', String(this.questionId));
