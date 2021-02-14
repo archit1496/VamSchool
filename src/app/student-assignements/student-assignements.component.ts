@@ -208,7 +208,7 @@ for (let index = 0; index < files.length; index++) {
   //   console.log("DATA 1 = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
   // }
 
-  onDownloadClick(url) {
+  onDownloadClick() {
     let filterValue=this.studentAssignmentDataTopicWise.filter(elm=>elm.id==this.questionId);
 
     window.open(filterValue[0].doc_question);
