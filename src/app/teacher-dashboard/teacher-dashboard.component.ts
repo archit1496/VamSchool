@@ -92,6 +92,26 @@ export class TeacherDashboardComponent implements OnInit {
     })
   }
 
+  // eventZoom(){
+  //   ZoomMtg.inMeetingServiceListener('onUserJoin', function (data) {
+  //     console.log(data);
+  //   });
+  
+    
+  //   ZoomMtg.inMeetingServiceListener('onUserLeave', function (data) {
+  //     console.log(data);
+  //   });
+  
+  //   ZoomMtg.inMeetingServiceListener('onUserIsInWaitingRoom', function (data) {
+  //     console.log(data);
+  //   });
+  
+  //   ZoomMtg.inMeetingServiceListener('onMeetingStatus', function (data) {
+  //     // {status: 1(connecting), 2(connected), 3(disconnected), 4(reconnecting)}
+  //     console.log(data);
+  //   });
+  // }
+
   startMeeting(signature, meetingNumber, meetingPassword){
     console.log("Signature = "+signature)
     document.getElementById('zmmtg-root').style.display = 'block';
