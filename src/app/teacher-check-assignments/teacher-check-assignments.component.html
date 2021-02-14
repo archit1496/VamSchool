@@ -122,7 +122,7 @@
           <button style="width: 100%;" type="submit" class="solid-btn-download" (click)="download(specificStudent.question.doc_question)">
             <i class="fa fa-download" aria-hidden="true" ></i> Download Assignment
           </button>
-        </div>
+        </div> 
         <!-- <div class="width-full upload-cnt">
           <label style="text-align: center;" for="upload-notes">Upload Correction</label>
           <input name="upload-notes" type="file" id="upload-notes">
@@ -130,12 +130,14 @@
         <hr>
         <div class="activity-heading">
           <h2>Private Comments</h2>
-          <div class="comment-div">
-            <input class="type-cmnt" type="text" name="" id="" [(ngModel)]="commentText">
-            <button (click)="addComment()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-          </div>
+          <form ngNativeValidate (ngSubmit)="addComment()">
+            <div class="comment-div">
+              <input class="type-cmnt" type="text" name="" id="" [(ngModel)]="commentText" required>
+              <button type='submit'><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+            </div>
+          </form>
           <ul class="comments-list">
-            <li   [ngClass]="(i.author == teacherId)?'me':'other'" *ngFor="let i of commentData">
+            <li [ngClass]="(i.author == teacherId)?'me':'other'" *ngFor="let i of commentData">
               <span class="cmnt-text">{{i.content}}</span><span class="cmnt-time">{{formatAMPM(i.timestamp)}}</span>
             </li>
           </ul> 

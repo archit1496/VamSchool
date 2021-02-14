@@ -118,7 +118,6 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentAssignmentData = false;
 
     this.enableComment = true;
-
     this.assignmentTopicDetail = res;
     })
   }
@@ -205,6 +204,7 @@ for (let index = 0; index < files.length; index++) {
     return url.split(".")[url.split(".").length-1];
   }
 
+
   showComments(id) {
     const obj = {'assignment_answer': id};
     this.teacherService.fetchComments(obj).subscribe((res) => {
@@ -213,7 +213,6 @@ for (let index = 0; index < files.length; index++) {
   }
 
   addComment() {
- 
     const formData: FormData = new FormData();
     formData.append('assignment_answer', this.specificTopicDetail.assignment_answer.id);
 
@@ -225,9 +224,7 @@ for (let index = 0; index < files.length; index++) {
         this.commentText = '';
         this.showComments(this.specificTopicDetail.assignment_answer.id);
       }
-  
-
-       }); 
+    }); 
   }
 
   uploadedData(target) {

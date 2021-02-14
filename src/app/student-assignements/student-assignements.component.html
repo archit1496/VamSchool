@@ -32,18 +32,27 @@
           </div>
             <div class="container" *ngIf="studentAssignmentData">
               <div class="cursor-pointer student-assignment-description-cnt" 
-                    *ngFor="let data of studentAssignmentDataTopicWise" (click)="getTopicDetails(data?.id);showComments(data.assignment_answer.id);specificTopicDetail = data; commentText = ''">
+                    *ngFor="let data of studentAssignmentDataTopicWise" 
+                    (click)="getTopicDetails(data?.id);showComments(data.assignment_answer.id);specificTopicDetail = data; commentText = ''">
                   <div class="row">
                     <div class="due-date">Due Date: {{data?.deadline}}</div>
                     <div class="topicName col-lg-12 col-sm-12 col-12"><p>{{data?.topic}}</p></div>
                     <div class="teacherName col-lg-12 col-sm-12 col-12"><p>Marks: {{data?.assignment_answer?.mark}} / {{data?.max_mark}}</p></div>
                   </div>
-
               </div>
             </div>
             <div *ngIf="enableComment" class="row assignment-btn-cnt">
+              <div class='assignment-topic-name'>
+                <p>{{specificTopicDetail?.topic}}</p>
+              </div>
+              <div style="display:grid; grid-template-columns: 70% 30%;">
+                <p>Marks: {{specificTopicDetail?.assignment_answer?.mark}} / 
+                  <span style="color:#919191">{{specificTopicDetail?.max_mark}}</span>
+                </p>
+                <p>Due: {{specificTopicDetail?.deadline}}</p>
+              </div>
+              <hr style="width: 100%">
               <div class="assignment-description-text col-lg-12 col-sm-12">
-                <hr style="width: 100%">
                 <p><strong>Assignment Description: </strong>{{specificTopicDetail?.description}}</p>
               </div>
               <div class="student-assignment-description-btn-cnt col-lg-12 col-sm-12 col-12">
@@ -66,21 +75,20 @@
         </div>
         <div class="width-full upload-cnt">
           <label style="text-align: center;" for="upload-notes">Upload Assignment</label>
+          <hr>
           <!-- <input name="upload-notes" type="file" id="upload-notes" #fileInput> -->
-          <div style="display:flex">
-            <input type="file" id="docs" [(ngModel)]="clearFiles" (change)="uploadedData($event.target)" multiple style="padding: 5px;margin-top: 10px;">
-            <p style="margin-top: 17px;margin-left: 70px">Total size: {{fileSize | number : '1.2-2'}} Mb</p>
+          <div class="upload-assign-grid">
+            <input type="file" id="docs" [(ngModel)]="clearFiles" (change)="uploadedData($event.target)" multiple>
+            <span>Total size: {{fileSize | number : '1.2-2'}} Mb</span>
           </div>
 
           <div class="col-1-1 upload-list-nn">
             <ul id="fileList">
-              <li id="lifileupload" *ngFor="let i of bindFileDetails;let ind=index">
-                <span>{{i.fileName}}</span>
-                <span style="text-align: center">{{i.fileSize}}</span>
-                <span (click)="removeItem(ind)">
-                  *
-<!-- add close icon here -->
-                  <!-- <img src="./assets/images/CLOSE-iconpng"> -->
+              <li class="li-file-upload" id="lifileupload" *ngFor="let i of bindFileDetails;let ind=index">
+                <span class="upload-file-name">{{i.fileName}}</span>
+                <span class="upload-file-size">{{i.fileSize}}</span>
+                <span class="upload-file-remove">
+                  <i (click)="removeItem(ind)" class="fa fa-times" aria-hidden="true"></i>
                 </span>
               </li>
             </ul>
@@ -93,12 +101,14 @@
         <hr>
         <div class="activity-heading">
           <h2>Private Comments</h2>
-          <div class="comment-div">
-            <input type="text" name="" id="" [(ngModel)]="commentText">
-            <button (click)="addComment()"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-          </div>
-          <ul>
-            <li *ngFor="let i of commentData">
+          <form ngNativeValidate (ngSubmit)="addComment()">
+            <div class="comment-div">
+              <input class="type-cmnt" type="text" name="comment_typing_box" id="comment-typing-box" [(ngModel)]="commentText" required>
+              <button type='submit'><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+            </div>
+          </form>
+          <ul  class="comments-list" >
+            <li [ngClass]="(i.author == studentId)?'other':'other'" *ngFor="let i of commentData">
               <span class="cmnt-text">{{i.content}}</span><span class="cmnt-time">{{formatAMPM(i.timestamp)}}</span>
             </li>
           </ul>

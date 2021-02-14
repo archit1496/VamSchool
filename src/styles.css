@@ -706,7 +706,7 @@ h2.sec-heading-txt:before {
   transform: scale(1.1);
 }
 
-/* .comments-list li.other {
+.comments-list li.other {
   color: #f0f3bd;
   width: fit-content;
   background: #238286;
@@ -715,7 +715,7 @@ h2.sec-heading-txt:before {
   border-radius: 5px;
   border: 1px solid white;
   position: relative;
-} */
+}
  
 .comments-list li.me {
   color: #f0f3bd;
@@ -792,8 +792,8 @@ ul.comments-list > li {
 .activity-card {
   background-color: #22878b;
   border: 1px solid #96ceff;
-  min-height: 60vh;
-  height: 100%;
+  min-height: 100%;
+  height: fit-content;
   width: 300px;
   padding: 15px 20px;
   position: absolute;
@@ -821,8 +821,8 @@ ul.comments-list > li {
   .activity-card {
     background-color: #22878b;
     border: 1px solid #96ceff;
-    min-height: 60vh;
-    height: 100%;
+    min-height: 100%;
+    height: fit-content;
     width: 100%;
     padding: 15px 20px;
     position: relative;

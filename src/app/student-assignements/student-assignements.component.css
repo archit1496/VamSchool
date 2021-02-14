@@ -64,6 +64,11 @@
   font-weight: bold;
 }
 
+.assignment-topic-name {
+  font-size: 30px;
+  color: #9e48b9;
+}
+
 .student-assignment-description-cnt {
   border: 0.5px solid lightgrey;
   transition-duration: 0.2s;
@@ -147,4 +152,69 @@
 
 .center-gif img {
   width: 100%;
+}
+
+.upload-assign-grid {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 0px;
+}
+
+.upload-assign-grid span {
+  color: #81d4fa;
+}
+
+#fileList {
+  padding: 0;
+}
+
+.li-file-upload {
+  display: grid;
+  grid-template-columns: 80%;
+  grid-template-rows: 2fr 1fr;
+  row-gap: 0px;
+  color: aliceblue;
+  border: 0.5px solid #abd5da;
+  margin-top: 5px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.upload-file-name {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  text-align: left;
+  color: #313131;
+  border-bottom: 1px solid;
+}
+
+.upload-file-size {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  text-align: left;
+  color: #919191;
+}
+
+.upload-file-remove {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  color: #616161;
+  text-align: center;
+  font-size: 30px;
+  border-left: 1px solid;
+  align-items: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
 }
