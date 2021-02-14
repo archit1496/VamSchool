@@ -102,11 +102,13 @@
                 <div class="activity-child-grid">
                     <div class="activity-card-dashboard">
                         <div class="activity-img-dashboard"></div>
-                        <div *ngFor="let data of dashboardActivityData" class="activity-status">
-                            <div>
-                                <p><span class="green-dot"></span> {{data.activity}}</p>
+                        <!-- <ul> -->
+                            <div *ngFor="let data of dashboardActivityData" class="activity-status">
+                                <div>
+                                    <p><span class="green-dot"></span> {{data.activity}}</p>
+                                </div>
                             </div>
-                        </div>   
+                        <!-- </ul>    -->
                     </div>   
                 </div>
             </div>

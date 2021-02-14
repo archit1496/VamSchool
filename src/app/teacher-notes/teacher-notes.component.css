@@ -95,6 +95,12 @@
   white-space: nowrap;
 }
 
+.assignment-description p:hover {
+  text-overflow: clip;
+  white-space: break-spaces;
+  position: relative;
+}
+
 .assignment-description p.class-name {
   font-weight: bold;
   font-size: 18px;

@@ -215,7 +215,7 @@ export class TeacherNotesComponent implements OnInit {
       }
     }
 
-    if(this.files[0].size > 5120) {
+    if(this.files[0].size > 10240) {  //10 MB
         alert("File size too large");
         return false;
     }

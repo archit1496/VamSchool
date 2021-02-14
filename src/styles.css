@@ -706,7 +706,7 @@ h2.sec-heading-txt:before {
   transform: scale(1.1);
 }
 
-/* .comments-list li.other {
+.comments-list li.other {
   color: #f0f3bd;
   width: fit-content;
   background: #238286;
@@ -715,7 +715,7 @@ h2.sec-heading-txt:before {
   border-radius: 5px;
   border: 1px solid white;
   position: relative;
-} */
+}
  
 .comments-list li.me {
   color: #f0f3bd;
@@ -740,6 +740,7 @@ h2.sec-heading-txt:before {
 
 .comments-list li span.cmnt-text {
   margin-bottom: 10px;
+  font-size: 22px;
 }
 
 .comments-list {
@@ -792,8 +793,8 @@ ul.comments-list > li {
 .activity-card {
   background-color: #22878b;
   border: 1px solid #96ceff;
-  min-height: 60vh;
-  height: 100%;
+  min-height: 100%;
+  height: fit-content;
   width: 300px;
   padding: 15px 20px;
   position: absolute;
@@ -821,8 +822,8 @@ ul.comments-list > li {
   .activity-card {
     background-color: #22878b;
     border: 1px solid #96ceff;
-    min-height: 60vh;
-    height: 100%;
+    min-height: 100%;
+    height: fit-content;
     width: 100%;
     padding: 15px 20px;
     position: relative;
@@ -937,7 +938,7 @@ button.btn.add-comment:hover {
 
 .activity-img-dashboard {
     background-image: url("assets/images/prize-sq.jpg");
-    position: relative;
+    position: absolute;
     background-size: auto 100%;
     height: 100%;
     width: 100%;
@@ -959,10 +960,9 @@ button.btn.add-comment:hover {
 }
 
 .activity-status {
-    position: absolute;
+    position: relative;
     z-index: 2;
     width: 100%;
-    height: 100%;
     font-size: 24px;
     top: 0;
 }
@@ -970,7 +970,7 @@ button.btn.add-comment:hover {
 @media screen and (max-width: 600px) {
     .activity-img-dashboard {
         background-image: url("assets/images/prize-sq.jpg");
-        position: absolute;
+        position: relative;
         top: 0;
         background-repeat: no-repeat;
         background-size: 100%;
@@ -979,10 +979,9 @@ button.btn.add-comment:hover {
     }
 
     .activity-status {
-        position: absolute;
+        position: relative;
         z-index: 2;
         width: 100%;
-        height: 100%;
         font-size: 24px;
         top: 0;
     }
