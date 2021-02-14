@@ -178,7 +178,7 @@
 .li-file-upload {
   display: grid;
   grid-template-columns: 80%;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
   row-gap: 0px;
   color: aliceblue;
   border: 0.5px solid #abd5da;

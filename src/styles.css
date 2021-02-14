@@ -752,13 +752,13 @@ h2.sec-heading-txt:before {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
   overflow-y: scroll;
-  height: 250px;
+  height: 350px;
   background: #abd5da;
 }
 
 /* width */
 .comments-list::-webkit-scrollbar {
-  width: 1px;
+  width: 3px;
 }
 
 /* Track */
@@ -791,15 +791,15 @@ ul.comments-list > li {
 /* Activity and Private Comment Panel */
 
 .activity-card {
-  background-color: #22878b;
+  background-color: #009688;
   border: 1px solid #96ceff;
   min-height: 100%;
   height: fit-content;
   width: 300px;
   padding: 15px 20px;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 62px;
+  right: 5px;
 }
 
 .upload-cnt {
