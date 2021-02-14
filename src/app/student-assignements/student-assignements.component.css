@@ -50,7 +50,7 @@
 } 
 
 .assignment-file-cnt p {
-  font-size: 12px;
+  font-size: 16px;
   justify-content: center;
   text-align: center;
   margin: 0;
@@ -58,6 +58,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.assignment-file-cnt p:hover {
+  text-overflow: clip;
+  white-space: break-spaces;
+  position: relative;
 }
 
 .assignment-file-cnt p.class-name {

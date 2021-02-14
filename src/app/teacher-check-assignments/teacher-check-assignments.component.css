@@ -87,6 +87,13 @@
   white-space: nowrap;
 }
 
+.assignment-file-cnt p:hover {
+  text-overflow: clip;
+  white-space: break-spaces;
+  position: relative;
+}
+
+
 .assignment-file-cnt p.class-name {
   font-weight: bold;
   font-size: 18px;
@@ -318,6 +325,8 @@ button {
   width: 100%;
 }
 
-
+.comments-list li span {
+  font-family: MulishRegular;
+}
 
 
