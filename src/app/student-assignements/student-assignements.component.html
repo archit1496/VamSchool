@@ -93,7 +93,6 @@
               </li>
             </ul>
           </div>
-
         </div>
         <div class="width-full text-center"  *ngIf="isAssignmentSubmitted">
           <button style="width: 100%;" type="submit" class="solid-btn-download" (click)="uploadDocument()">Submit</button>
@@ -103,11 +102,11 @@
           <h2>Private Comments</h2>
           <form ngNativeValidate (ngSubmit)="addComment()">
             <div class="comment-div">
-              <input class="type-cmnt" type="text" name="comment_typing_box" id="comment-typing-box" [(ngModel)]="commentText" required>
+              <input class="type-cmnt" autocomplete="off" type="text" name="comment_typing_box" id="comment-typing-box" [(ngModel)]="commentText" required>
               <button type='submit'><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
             </div>
           </form>
-          <ul  class="comments-list" >
+          <ul class="comments-list" >
             <li [ngClass]="(i.author == studentId)?'other':'other'" *ngFor="let i of commentData">
               <span class="cmnt-text">{{i.content}}</span><span class="cmnt-time">{{formatAMPM(i.timestamp)}}</span>
             </li>

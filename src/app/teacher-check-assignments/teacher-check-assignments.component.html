@@ -138,7 +138,7 @@
           <h2>Private Comments</h2>
           <form ngNativeValidate (ngSubmit)="addComment()">
             <div class="comment-div">
-              <input class="type-cmnt" type="text" name="comment_typing_box" id="comment-typing-box" [(ngModel)]="commentText" required>
+              <input class="type-cmnt" autocomplete="off" type="text" name="comment_typing_box" id="comment-typing-box" [(ngModel)]="commentText" required>
               <button type='submit'><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
             </div>
           </form>
