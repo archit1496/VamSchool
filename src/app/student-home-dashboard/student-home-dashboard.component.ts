@@ -66,6 +66,10 @@ export class StudentHomeDashboardComponent implements OnInit {
       StorageService.setItem('schoolName',this.studentDataList.school);
       // this.studentData=res;
       this.getTodayClassData();
+
+      if (res.first_login) {
+   alert(`Hi ${res.first_name}, Welcome to VAM`);
+      }
     });
   }
   getTodayClassData(){

@@ -18,7 +18,7 @@ import { StudentNotesComponent } from '../student-notes/student-notes.component'
 import { TeachertimetableComponent } from '../teachertimetable/teachertimetable.component';
 import { StudentHomeworkComponent } from '../student-homework/student-homework.component';
 import { RouterModule } from '@angular/router';
-import { SharedRoutingModule, routingModule } from './shared-routing.module';
+import { SharedRoutingModule } from './shared-routing.module';
 import { StudentsMainPageComponent } from '../students-main-page/students-main-page.component';
 import { TeacherNavbarComponent } from '../teacher-navbar/teacher-navbar.component';
 import { HeaderComponent } from '../header/header.component';
@@ -66,12 +66,12 @@ const agoraConfig: AgoraConfig = {
     TeacherNavbarComponent,
     HeaderComponent,
     SidebarSsComponent,
-    routingModule,
+    // routingModule,
     StudentHomeDashboardComponent,
     StudentTimetableComponent,
     StudentAssignementsComponent,
     ClassesComponent,
-    routingModule,
+    // routingModule,
     StudentNavBarComponent,
     StudentClassSubjectComponent,
     StudentStudyMaterialComponent,

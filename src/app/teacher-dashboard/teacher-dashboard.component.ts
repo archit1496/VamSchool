@@ -18,6 +18,8 @@ export class TeacherDashboardComponent implements OnInit {
   // meetingNumber: "1234567892";
   role = '1'
   leaveUrl = 'https://vamschool.in/wrapper/teacherdashboard'
+  // leaveUrl = 'http://localhost:4002/wrapper/teacherdashboard'
+
   userName = '';
   userEmail = '';
   // passWord = 'QkllV1NieEkyQlpKMmxtbjVHNWdIdz09'

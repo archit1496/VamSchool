@@ -22,22 +22,7 @@ export class AppComponent {
   loading = false;
 
   async ngOnInit() {
-
-
-    this.subscriptions.push(this._data.isLoading.subscribe((loadingStatus) => {
-      // this.loading = loadingStatus;
-      // if (loadingStatus != this.loading) { // check if it change, tell CD update view
-      //   // this.show = show;
-      // this.loading = loadingStatus;
-
-      //   // this.cdr.detectChanges();
-      // }
-
-      setTimeout(() => this.loading = loadingStatus);
-      // asyncFunctionCall().then(res => {
-      //     this.loadingService.loading = false;
-      // })
-    }));
+    // setTimeout(() => this.loading = loadingStatus);
   }
   
   checkLogin() {

@@ -87,4 +87,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class SharedRoutingModule { }
-export const routingModule = TeacherLiveClassComponent;
+// export const routingModule = TeacherLiveClassComponent;

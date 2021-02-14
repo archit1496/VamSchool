@@ -17,6 +17,8 @@ export class StudentAssignementsComponent implements OnInit {
   studentAssignmentDataTopicWise;
   studentAssignmentData = false;
   assignmentData = [];
+  assignmentQuestion;
+
   // valueWithOutSubjectFilter;
   subjectFilter: boolean = false;
   assignmentActivityData;
@@ -30,7 +32,8 @@ export class StudentAssignementsComponent implements OnInit {
   fileSize = 0;
   bindFileDetails = [];
   totalTextFiles = [];
-
+  isAssignmentSubmitted = true;
+  issubjectFilterData = false;
   constructor(public studentService: StudentService, public toaster: ToastrService, 
     public teacherService: TeacherService) {
 
@@ -72,7 +75,9 @@ export class StudentAssignementsComponent implements OnInit {
     // this.isLoading = true;
     this.studentService.fetchAssignmentQuestionsSubject2(id).subscribe(res => {
     // this.isLoading = false;
+
     this.subjectFilterData = res.assignment_dirs;
+    this.issubjectFilterData = true;
     this.studentAssignmentDataSubjectWise = [];
     
     // alert(res);
@@ -98,11 +103,13 @@ export class StudentAssignementsComponent implements OnInit {
     // this.isLoading = true;
     this.studentService.fetchAssignmentData(id).subscribe(res => {
     // this.isLoading = false;
-    this.studentAssignmentData = true;
+
 
     this.studentAssignmentDataTopicWise = res;
+    this.studentAssignmentData = true;
     this.studentAssignmentDataSubjectWise = [];
-    this.subjectFilterData = [];
+    // this.subjectFilterData = [];
+    this.issubjectFilterData = false;
     this.enableActivity = false;
     // this.enableComment = true;
     // console.log("TOPIC WISE = "+JSON.stringify(this.studentAssignmentDataTopicWise))
@@ -118,8 +125,13 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentAssignmentData = false;
 
     this.enableComment = true;
+if (res.length) {
+  this.isAssignmentSubmitted = false;
 
-    this.assignmentTopicDetail = res;
+} else {
+  this.assignmentTopicDetail = res;
+}
+
     })
   }
 
@@ -180,24 +192,26 @@ for (let index = 0; index < files.length; index++) {
     return (new Date(date).getDate() + '-' + new Date(date).getMonth() + '-' + new Date(date).getFullYear());
   }
 
-  subjectSelected(event) {
-    this.subjectFilter = true;
-    this.assignmentData = [];
-    this.studentAssignmentDataTopicWise = [];
-    this.studentAssignmentDataSubjectWise = [];
-    if (event === 'All') {
+  // subjectSelected(event) {
+  //   this.subjectFilter = true;
+  //   this.assignmentData = [];
+  //   this.studentAssignmentDataTopicWise = [];
+  //   this.studentAssignmentDataSubjectWise = [];
+  //   if (event === 'All') {
       // this.studentAssignmentDataSubjectWise = [...this.valueWithOutSubjectFilter];
-    }
-    else {
+    // }
+    // else {
       // let filterValue = this.valueWithOutSubjectFilter.filter(elm => elm.name == event);
       // this.studentAssignmentDataSubjectWise = filterValue;
       // console.log("ddddd", this.studentAssignmentDataSubjectWise);
-    }
-    console.log("DATA 1 = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
-  }
+  //   }
+  //   console.log("DATA 1 = "+JSON.stringify(this.studentAssignmentDataSubjectWise))
+  // }
 
   onDownloadClick(url) {
-    window.open(url);
+    let filterValue=this.studentAssignmentDataTopicWise.filter(elm=>elm.id==this.questionId);
+
+    window.open(filterValue[0].doc_question);
   }
 
   getFileType(url:string){

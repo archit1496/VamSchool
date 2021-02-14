@@ -18,10 +18,10 @@
             </div>
           </div>
 
-          <div *ngIf="subjectFilterData?.length > 0">
+          <div *ngIf="issubjectFilterData">
             <div class="grid">
               <div class='assignment-file-cnt' *ngFor="let data of subjectFilterData">
-                <div class="assignment-file mt-2" (click)="fetchAssignmentDataTopicWise(data?.id)"></div>
+                <div class="assignment-file mt-2" (click)="fetchAssignmentDataTopicWise(data?.id);"></div>
                 <div class="assignment-description"> 
                   <p class="class-name cursor-pointer">{{ data?.name }} </p>
                   <p>{{ getDate(data.created_on) }}</p>
@@ -48,7 +48,7 @@
               </div>
               <div class="student-assignment-description-btn-cnt col-lg-12 col-sm-12 col-12">
                 <button class="solid-btn-voilet">Download Correction</button>
-                <button class="solid-btn-green" (click)="onDownloadClick(specificTopicDetail?.doc_question)">Download Assignment</button>
+                <button class="solid-btn-green" (click)="onDownloadClick()">Download Assignment</button>
               </div>
           </div>
           <div *ngIf="studentAssignmentDataSubjectWise?.length == 0 && subjectFilter" style="text-align: center">
@@ -64,7 +64,7 @@
         <div class="activity-heading">
           <h2>Your Work</h2>
         </div>
-        <div class="width-full upload-cnt">
+        <div class="width-full upload-cnt" *ngIf="isAssignmentSubmitted">
           <label style="text-align: center;" for="upload-notes">Upload Assignment</label>
           <!-- <input name="upload-notes" type="file" id="upload-notes" #fileInput> -->
           <div style="display:flex">
@@ -87,7 +87,7 @@
           </div>
 
         </div>
-        <div class="width-full text-center">
+        <div class="width-full text-center"  *ngIf="isAssignmentSubmitted">
           <button style="width: 100%;" type="submit" class="solid-btn-download" (click)="uploadDocument()">Submit</button>
         </div>
         <hr>
