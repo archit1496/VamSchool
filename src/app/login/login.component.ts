@@ -75,6 +75,9 @@ export class LoginComponent implements OnInit {
           // this.isBusy = false;
           // this.alertService.showError({title: 'Login Failure', message: 'User not found'});
         }
+      }, err =>{
+        alert(`${err.error.detail[0]}`)
+        
       });
   }
 

@@ -170,6 +170,9 @@ for (let index = 0; index < files.length; index++) {
         this.fileSize = 0;
         this.bindFileDetails = [];
         this.toaster.success("File uploaded succesfully!", "Success");
+        
+        this.isAssignmentSubmitted = false;
+
       }
 
     },
