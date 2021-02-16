@@ -73,30 +73,35 @@
         <div class="activity-heading">
           <h2>Your Work</h2>
         </div>
-        <div class="width-full upload-cnt" *ngIf="isAssignmentSubmitted">
-          <label style="text-align: center;" for="upload-notes">Upload Assignment</label>
-          <hr>
-          <!-- <input name="upload-notes" type="file" id="upload-notes" #fileInput> -->
-          <div class="upload-assign-grid">
-            <input type="file" id="docs" [(ngModel)]="clearFiles" (change)="uploadedData($event.target)" multiple>
-            <span>Total size: {{fileSize | number : '1.2-2'}} Mb</span>
-          </div>
-
-          <div class="col-1-1 upload-list-nn">
-            <ul id="fileList">
-              <li class="li-file-upload" id="lifileupload" *ngFor="let i of bindFileDetails;let ind=index">
-                <span class="upload-file-name">{{i.fileName}}</span>
-                <span class="upload-file-size">{{i.fileSize}}</span>
-                <span class="upload-file-remove">
-                  <i (click)="removeItem(ind)" class="fa fa-times" aria-hidden="true"></i>
-                </span>
-              </li>
-            </ul>
-          </div>
+        <div class="width-full upload-cnt" *ngIf="isAssignmentSubmitted; else elseBlock">
+          <form (ngSubmit)='Validate()' ngNativeValidate>
+            <label style="text-align: center;" for="upload-notes">Upload Assignment</label>
+            <hr>
+            <!-- <input name="upload-notes" type="file" id="upload-notes" #fileInput> -->
+            <div class="upload-assign-grid">
+              <input name="documnets" type="file" id="docs" [(ngModel)]="clearFiles" 
+              (change)="uploadedData($event.target)" multiple>
+              <span>Total size: {{fileSize | number : '1.2-2'}} Mb</span>
+            </div>
+            <div class="col-1-1 upload-list-nn">
+              <ul id="fileList">
+                <li class="li-file-upload" id="lifileupload" *ngFor="let i of bindFileDetails;let ind=index">
+                  <span class="upload-file-name">{{i.fileName}}</span>
+                  <span class="upload-file-size">{{i.fileSize}}</span>
+                  <span class="upload-file-remove">
+                    <i (click)="removeItem(ind)" class="fa fa-times" aria-hidden="true"></i>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="width-full text-center">
+              <button style="width: 100%;" type="submit" class="solid-btn-download">Submit</button>
+            </div>
+          </form>
         </div>
-        <div class="width-full text-center"  *ngIf="isAssignmentSubmitted">
-          <button style="width: 100%;" type="submit" class="solid-btn-download" (click)="uploadDocument()">Submit</button>
-        </div>
+        <ng-template #elseBlock>
+          <span class="submission-status">Your assignment is Submitted</span>
+        </ng-template>
         <hr>
         <div class="activity-heading">
           <h2>Private Comments</h2>

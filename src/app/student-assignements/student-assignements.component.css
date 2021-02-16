@@ -224,3 +224,9 @@
   display: flex;
   justify-content: center;
 }
+
+.submission-status {
+  background: #9ccc65;
+  padding: 5px 10px;
+  border-radius: 25px;
+}

@@ -1025,3 +1025,8 @@ button.btn.add-comment:hover {
     }   
 }
 
+/* zoom */
+
+.footer-button__button-label {
+  color: white;
+}

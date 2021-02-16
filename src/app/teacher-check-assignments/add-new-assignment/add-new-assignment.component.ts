@@ -17,6 +17,7 @@ export class AddNewAssignmentComponent implements OnInit {
   selectedCourse = '0';
   marks;
   files = [];
+  filesValue;
   newTopicName = '';
   constructor(public teacherService: TeacherService) { }
 
@@ -25,6 +26,7 @@ export class AddNewAssignmentComponent implements OnInit {
   }
   uploadAssignment(fileInput) {
     this.files = fileInput.target.files;
+    this.filesValue = fileInput.target.value;
   }
 
   fetchCourse() {
@@ -50,5 +52,22 @@ export class AddNewAssignmentComponent implements OnInit {
       this.classSelected.emit({ 'status':'closetopic'});
     }
 
+  }
+
+  Validate() {
+    if(this.filesValue!='') {
+      var checkimg = this.filesValue.toLowerCase();
+        if (!checkimg.match(/(\.jpg|\.png|\.JPG|\.PNG|\.jpeg|\.pdf|\.mp4|\.flv|\.mkv)$/)) { 
+          alert("File format not supported"); 
+          return false;
+      }
+    }
+
+    if(this.files[0].size > 20971520) {  //20 MB
+        alert("Please Upload Files less than 20MB");
+        return false;
+    }
+    this.save('all');
+    return true;
   }
 }
