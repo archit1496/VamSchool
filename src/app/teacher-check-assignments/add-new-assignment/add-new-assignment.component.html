@@ -1,43 +1,45 @@
 <div *ngIf="status === 'all'">
-  <div style="display: flex;">
-    <div class="assignment-card-cnt">
-      <div class="assignment-card"></div>
-      <label for="upload-notes" class="addBtn ml-5">
-        <i class="fa fa-plus" aria-hidden="true" style="font-size: 1rem;"></i>
-      </label>
+  <form (ngSubmit)='Validate()' ngNativeValidate>
+    <div style="display: flex;">
+      <div class="assignment-card-cnt">
+        <div class="assignment-card"></div>
+        <label for="upload-notes" class="addBtn ml-5">
+          <i class="fa fa-plus" aria-hidden="true" style="font-size: 1rem;"></i>
+        </label>
+      </div>
+      <div style="margin-left: 10px;width: 100%;">
+        <input type="text" placeholder="Title of assignment" 
+                class='assignment-title' name="Topic" required [(ngModel)]="topicName">
+        <input type="date" id="birthday" required
+                class='assignment-deadline' name="birthday" placeholder="Deadline" [(ngModel)]="date">
+        <hr>
+        <input type="text" placeholder="Assignment Description" required
+              class='assignment-description' name="psw" [(ngModel)]="topicQuestion">
+      </div>
     </div>
-    <div style="margin-left: 10px;width: 100%;">
-      <input type="text" placeholder="Title of assignment" 
-              class='assignment-title' name="Topic" required [(ngModel)]="topicName">
-      <input type="date" id="birthday" 
-              class='assignment-deadline'name="birthday" placeholder="Deadline" [(ngModel)]="date">
-      <hr>
-      <input type="text" placeholder="Assignment Description" 
-            class='assignment-description' name="psw" [(ngModel)]="topicQuestion">
+    <div class='upload-assign-cnt'>
+      <input type="file" name="file" id="file" class="inputfile" (change)="uploadAssignment($event)" required>
+      <label class='solid-btn-green' for="file">Upload Assignment</label>
+      <span style="margin-left: 10px;">{{files.length? files[0].name: ''}}</span>
     </div>
-  </div>
-  <div class='upload-assign-cnt'>
-    <input type="file" name="file" id="file" class="inputfile" (change)="uploadAssignment($event)">
-    <label class='solid-btn-green' for="file">Upload Assignment</label>
-    <span style="margin-left: 10px;">{{files.length? files[0].name: ''}}</span>
-  </div>
 
-  <div>
-    <select class='select-course' 
-            name="Course" [(ngModel)]="selectedCourse">
-      <option value="0">Select Course</option>
-      <option *ngFor="let company of teacherCourseData" [value]="company.id">
-      {{ company.class_of.class_name+  company.class_of.section}}</option>
-    </select>
-  </div>
-  <div>
-      <input type="number" placeholder="Total marks" 
-              class='total-marks' name="Topic" required [(ngModel)]="marks">
-  </div>
-  <div class='btn-container'>
-    <button type="submit" class="solid-btn-green cance" (click)="save('all')">Publish</button>
-    <button type="submit" class="solid-btn-voilet cancel" (click)="discard('all')">Discard</button>
-  </div>
+    <div>
+      <select class='select-course' required 
+              name="Course" [(ngModel)]="selectedCourse">
+        <option value="0">Select Course</option>
+        <option *ngFor="let company of teacherCourseData" [value]="company.id">
+        {{ company.class_of.class_name + company.class_of.section}}</option>
+      </select>
+    </div>
+    <div>
+        <input type="number" placeholder="Total marks" 
+                class='total-marks' name="Topic" required [(ngModel)]="marks">
+    </div>
+    <div class='btn-container'>
+      <button type="submit" class="solid-btn-green cance">Publish</button>
+      <button type="button" class="solid-btn-voilet cancel" (click)="discard('all')">Discard</button>
+    </div>
+  </form>
 </div>
 
 <div *ngIf="status === 'topic'">

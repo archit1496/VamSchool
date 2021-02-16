@@ -34,6 +34,8 @@ export class StudentAssignementsComponent implements OnInit {
   totalTextFiles = [];
   isAssignmentSubmitted = true;
   issubjectFilterData = false;
+  files;
+  filesValue;
   constructor(public studentService: StudentService, public toaster: ToastrService, 
     public teacherService: TeacherService) {
 
@@ -123,15 +125,12 @@ export class StudentAssignementsComponent implements OnInit {
     this.studentService.fetchAssignmentTopicData({ 'question': id }).subscribe(res => {
     // this.isLoading = false;
     this.studentAssignmentData = false;
-
     this.enableComment = true;
-if (res.length) {
-  this.isAssignmentSubmitted = false;
-
-} else {
-  this.assignmentTopicDetail = res;
-}
-
+    if (res.length) {
+    this.isAssignmentSubmitted = false;
+    } else {
+    this.assignmentTopicDetail = res;
+    }
     })
   }
 
@@ -150,18 +149,15 @@ if (res.length) {
   uploadNotes(files) {
     const formData: FormData = new FormData();
     // const files: File = fileInput.target.files;
-for (let index = 0; index < files.length; index++) {
-  // const element = array[index];
+    for (let index = 0; index < files.length; index++) {
+    // const element = array[index];
     formData.append('files', files[index], files[index].name);
-  
-}
-      // formData.append('files', (files));
-
+  }
+    // formData.append('files', (files));
     // formData.append('doc_answer', files, files.name);
     formData.append('question', String(this.questionId));
     formData.append('student',  sessionStorage.getItem('student_id'));
     this.studentService.uploadAssignment(formData).subscribe(data => {
-
       if (data && data['status'] === false) {
         alert(data['detail'])
       } else {
@@ -174,7 +170,6 @@ for (let index = 0; index < files.length; index++) {
         this.isAssignmentSubmitted = false;
 
       }
-
     },
       error => {
         // this.spinnerFlag = false;
@@ -213,7 +208,6 @@ for (let index = 0; index < files.length; index++) {
 
   onDownloadClick() {
     let filterValue=this.studentAssignmentDataTopicWise.filter(elm=>elm.id==this.questionId);
-
     window.open(filterValue[0].doc_question);
   }
 
@@ -222,20 +216,17 @@ for (let index = 0; index < files.length; index++) {
     return url.split(".")[url.split(".").length-1];
   }
 
-
   showComments(id) {
     const obj = {'assignment_answer': id};
     this.teacherService.fetchComments(obj).subscribe((res) => {
-   this.commentData = res.chat;
+    this.commentData = res.chat;
     });
   }
 
   addComment() {
     const formData: FormData = new FormData();
     formData.append('assignment_answer', this.specificTopicDetail.assignment_answer.id);
-
     formData.append('content', this.commentText);
-    
     this.teacherService.addComments(formData).subscribe((res) => {
       if (res.status) {
         this.toaster.success('Added succesfully!', 'Success');
@@ -247,6 +238,8 @@ for (let index = 0; index < files.length; index++) {
 
   uploadedData(target) {
     let totalUploadedImageSize = 0;
+    this.files = target.files;
+    this.filesValue = target.value;
 
     for (let i = 0; i < target.files.length; i++) {
         this.totalTextFiles = target.files;
@@ -285,10 +278,30 @@ for (let index = 0; index < files.length; index++) {
 
   uploadDocument() {
     if (this.totalTextFiles.length === 0) {
-alert('Please Upload files.')
+        alert('Please Upload files.')
+    } else if (this.totalTextFiles.length > 3) {
+      alert('Unable to Upload more than three documents');
     } else {
-
-this.uploadNotes(this.totalTextFiles)
+    this.uploadNotes(this.totalTextFiles)
     }
+  }
+
+  Validate() {
+    console.log(this.files[0].length);
+    if(this.filesValue!='') {
+      var checkimg = this.filesValue.toLowerCase();
+        if (!checkimg.match(/(\.jpg|\.png|\.JPG|\.PNG|\.jpeg|\.pdf|\.mp4|\.flv|\.mkv)$/)) { 
+          alert("File format not supported"); 
+          return false;
+      }
+    }
+
+    if(this.files[0].size > 20971520) {  //20 MB
+        alert("Please Upload Files less than 20MB");
+        return false;
+    }
+
+    this.uploadDocument();
+    return true;
   }
 }

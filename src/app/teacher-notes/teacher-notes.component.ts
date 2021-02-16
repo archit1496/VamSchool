@@ -152,11 +152,6 @@ export class TeacherNotesComponent implements OnInit {
     element.classList.remove('newclass');
   }
 
-  uploadNotes(fileInput) {
-    this.files = fileInput.target.files;
-    this.filesValue = fileInput.target.value;
-  }
-
   postNotesData(){
     this.spinnerFlag = true;
     const formData: FormData = new FormData();
@@ -197,26 +192,30 @@ export class TeacherNotesComponent implements OnInit {
     }) 
   }
 
+  uploadNotes(fileInput) {
+    this.files = fileInput.target.files;
+    this.filesValue = fileInput.target.value;
+  }
   // validation of input file size and extension
   Validate(folder_filetype) {
     if(this.filesValue!='') {
-      var checkimg = this.filesValue.toLowerCase();
+      var checkExt = this.filesValue.toLowerCase();
       if( folder_filetype == 'Notes') {
-        if (!checkimg.match(/(\.jpg|\.png|\.JPG|\.PNG|\.jpeg|\.pdf)$/)) { 
+        if (!checkExt.match(/(\.jpg|\.png|\.JPG|\.PNG|\.jpeg|\.pdf)$/)) { 
           alert("File format not supported"); 
           return false;
         }
       }
       else if( folder_filetype == 'Videos') {
-        if (!checkimg.match(/(\.mp4|\.flv|\.mkv)$/)) { 
+        if (!checkExt.match(/(\.mp4|\.flv|\.mkv)$/)) { 
           alert("File format not supported"); 
           return false;
         }
       }
     }
 
-    if(this.files[0].size > 10240) {  //10 MB
-        alert("File size too large");
+    if(this.files[0].size > 20971520) {  //20 MB
+        alert("Please Upload Files less than 20MB");
         return false;
     }
     this.postNotesData();
