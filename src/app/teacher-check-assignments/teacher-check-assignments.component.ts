@@ -47,7 +47,35 @@ export class TeacherCheckAssignmentsComponent {
   showActivity = true;
   teacherId = sessionStorage.getItem('teacher_id');
   studentActivity;
+backLevel = '';
+enableBackBtn = false;
+  backUpdate(level){
 
+if (level === '1') {
+  this.firstClass = true;
+  this.secondClass = false;
+
+ } else if(level === '2') {
+  this.secondClass = true;
+  this.firstClass = false;
+  this.thirdClass = false;
+
+} else if(level === '3') {
+  this.secondClass = false;
+  this.thirdClass = true;
+  this.firstClass = false;
+
+  this.showHideFinalActivity = false;
+
+} else if(level === '4') {
+  this.thirdClass = false;
+  this.secondClass = false;
+  this.firstClass = false;
+  this.showHideFinalActivity = true;
+  this.showCommentSection = false;
+} 
+
+  }
   update(studentActivity) {
 
     
