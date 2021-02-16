@@ -33,13 +33,13 @@ export class TeacherDashboardComponent implements OnInit {
   agenda = "agenda1"
   hideJoin = true;
   isClass: boolean = false;
-  
+  todaysTimeTableAll;
   constructor(public teacherService: TeacherService) {
   }
 
   ngOnInit() {
     this.fetchTeacher();
-
+    this.fetchTodaysTimeTable()
     // this.fetchTodaysTimeTable();
   }
 
@@ -89,7 +89,8 @@ export class TeacherDashboardComponent implements OnInit {
     this.selectedClassId = id;
     this.teacherService.fetchClassDetails(id).subscribe(res => {
     this.todaysTimeTable = res.data;
-    })
+    console.log(this.todaysTimeTable);
+    }) 
   }
 
   // eventZoom(){
@@ -206,11 +207,11 @@ export class TeacherDashboardComponent implements OnInit {
   //   }
   // }
 
-  // fetchTodaysTimeTable(){
-  //   this.teacherService.fetchTimetableToday().subscribe(res => {
-  //     console.log(res, '2');
-  //     this.todaysTimeTable = res;
-  //   })
-  // }
+  fetchTodaysTimeTable(){
+    this.teacherService.fetchTimetableToday().subscribe(res => {
+      this.todaysTimeTableAll = res;
+      console.log('timetable',this.todaysTimeTableAll);
+    })
+  }
 
 }

@@ -33,21 +33,23 @@
         <hr>
         <div class="mt-3 classes-container col-lg-12 col-sm-12 col-md-12" *ngIf="hideJoin">
             <h5><b>Classes Today</b>
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <button class="carousel-control-prev" data-bs-target="#myCarousel" 
+                    type='button' data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 15px;
                     height: 15px;"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" data-bs-target="#myCarousel" 
+                    type="button" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true" style="width: 15px;
                     height: 15px;"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </h5> 
             <div class="myCarousel-container">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div *ngFor="let data of todaysTimeTable;let i = index"
+                        <div *ngFor="let data of todaysTimeTableAll;let i = index"
                             [ngClass]="{'active' : i == 0}" class="carousel-item">
                             <div class="row">
                                 <div class="col-lg-3 col-sm-6 col-6">
@@ -56,8 +58,8 @@
                                             <img class='image' src='../../assets/images/leaf.png'>
                                         </div> 
                                         <p>
-                                            {{data.class_name}} {{data.section}}<br>
-                                            <!-- {{getStartTime(data.start_time)}} -->
+                                            {{ data.class_of.class_name }} {{ data.class_of.section }}<br>
+                                            {{ teacherService.convertFrom24To12Format(data.start_time) }}
                                         </p>
                                     </div>
                                 </div>  
@@ -96,9 +98,9 @@
                         <div class="class-in-div">
                             <span *ngIf="todaysTimeTable?.length>0">
                                 <!-- <b>{{data.class_of.class_name}} {{data.class_of.section}}</b> -->
-                                <b>{{todaysTimeTable[0].class_name}} {{todaysTimeTable[0]?.section}}</b>
+                                <b>{{todaysTimeTableAll[0]?.class_of?.class_name}} {{todaysTimeTableAll[0]?.class_of?.section}}</b>
                                 <br>
-                                <!-- {{ teacherService.convertFrom24To12Format((todaysTimeTable[0]?.start_time)) }}   -->
+                                {{ teacherService.convertFrom24To12Format((todaysTimeTableAll[0]?.start_time)) }}  
                                 <!-- <span *ngIf="isClass">Next Class in </span><span style="color:rgb(55, 68, 252)">{{ getNextClass(todaysTimeTable) }}</span> -->
                             </span>
                         </div>

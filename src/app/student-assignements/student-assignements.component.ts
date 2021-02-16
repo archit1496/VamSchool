@@ -279,9 +279,11 @@ export class StudentAssignementsComponent implements OnInit {
   uploadDocument() {
     if (this.totalTextFiles.length === 0) {
         alert('Please Upload files.')
-    } else if (this.totalTextFiles.length > 3) {
+    } 
+    else if (this.totalTextFiles.length > 3) {
       alert('Unable to Upload more than three documents');
-    } else {
+    } 
+    else {
     this.uploadNotes(this.totalTextFiles)
     }
   }

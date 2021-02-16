@@ -1030,3 +1030,11 @@ button.btn.add-comment:hover {
 .footer-button__button-label {
   color: white;
 }
+
+.open ul.more-button__pop-menu.dropdown-menu {
+  display: block;
+}
+
+.open ul.dropdown-menu.dropdown-menu-right {
+  display: block;
+}
