@@ -19,9 +19,12 @@
               </ul>
             </div>
           </nav> -->
-          <div class="col-lg-12">
-            <h5 class="mt-4 mb-4"><b>{{updateHeaderText}}</b></h5>
-          </div> 
+          <div class="row">
+            <button class="back-btn mt-4 mb-4" (click)="backUpdate(backLevel)" *ngIf="enableBackBtn">
+              <i style="font-size: 24px;" class="fa fa-angle-double-left" aria-hidden="true"></i> 
+            </button>
+            <h5 style="float: left;width: fit-content; padding: 5px;" class="mt-4 mb-4"><b>{{updateHeaderText}}</b></h5>
+          </div>
           <!-- <div *ngIf="isLoading" class="loading text-center">
             <p>Loading, Please wait...</p>
             <div class="progress">
@@ -31,7 +34,7 @@
 
           <div class="grid" *ngIf="firstClass">
             <div class='assignment-file-cnt' *ngFor="let data of studentAssignmentDataSubjectWise"
-              (click)="fetchAssignmentData(data?.id);      this.enableBackBtn = true;selectedStudentAssignmentDataSubjectWise= data;backLevel = '1'">
+              (click)="fetchAssignmentData(data?.id);this.enableBackBtn = true;selectedStudentAssignmentDataSubjectWise= data;backLevel = '1'">
               <div class="assignment-file"></div>
               <div class="assignment-description">
                 <p class="cursor-pointer class-name"> {{ data?.class_of.class_name }}{{ data?.class_of.section }}</p>
@@ -62,7 +65,7 @@
               </div>
             </div> 
           </div>
-          <button (click)="backUpdate(backLevel)" *ngIf="enableBackBtn">Back</button>
+          
           <div *ngIf="thirdClass">
             <div class="cursor-pointer mt-2 mb-2" id="thirdClass" (click)="openForm2()">
               <div class='add-file'>
@@ -84,7 +87,7 @@
               </div>
             </div>
           </div>
-            
+         
           <app-add-new-assignment [status]="status" (classSelected)="postAssignmentData($event)" *ngIf="openAddNewAssignmentPage"></app-add-new-assignment>
           <div *ngIf="showHideList">
             <div *ngIf="studentAssignmentDataSubjectWise?.length == 0" style="text-align: center">

@@ -329,4 +329,17 @@ button {
   font-family: MulishRegular;
 }
 
+.back-btn {
+  float: left;
+  width: fit-content;
+  color: #616161;
+}
 
+.back-btn:hover {
+  color: #22878b;
+}
+
+
+.back-btn:focus {
+  border: none
+}
