@@ -19,6 +19,18 @@
         <button class="home-voilet-btn">Read More</button>
       </div>
     </div>
+    <div style="display: block">
+      <canvas mdbChart
+          [chartType]="chartType"
+          [datasets]="chartDatasets"
+          [labels]="chartLabels"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [legend]="true"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
     <!-- <div class="about-glimpse-cnt row">
       <div class="about-glimpse-txt col-lg-4 col-md-4 col-sm-12">
         <div class="about-glimpse-txt-1">
