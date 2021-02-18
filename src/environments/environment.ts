@@ -1,4 +1,4 @@
 export const environment = {
-  appUrl: 'https://api.vamschool.in/'
+  appUrl: 'https://api.onwardlearn.in/'
   // appUrl: 'http://localhost:8000/'
 };
