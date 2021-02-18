@@ -5,33 +5,109 @@
         <!-- <div *ngIf="isLoading" class="text-center">
             Loading Data, Please wait... 
         </div>      -->
-        <div class="img-cnt">   
+        <div class="img-cnt"  [hidden]="isAttendence || isPerformance || isLeaderboard">   
             <img src="../../assets/images/main-v.png" alt="main"> 
         </div>    
-        
+        <div class="col-lg-12" [hidden]="!isAttendence">
+            <div class='grid'>
+              <canvas class='fifth' id="attendenceChart"></canvas>
+              <div class='filter first pos-center'>
+                <span class="pos-center figure"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                <span class='fig-heading'>Weekly</span>
+              </div>
+              <div class='filter second pos-center'>
+                <span class="pos-center figure"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                <span class='fig-heading'>Monthly</span>
+              </div>
+              <div class='filter-active third pos-center'>
+                <span class="pos-center figure"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                <span class='fig-heading'>Yearly</span>
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-12" [hidden]="!isPerformance">
+            <div class='grid'>
+              <canvas class='fifth' id="performanceChart"></canvas>
+              <div class='filter first pos-center'>
+                <span class="pos-center figure"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                <span class='fig-heading'>Weekly</span>
+              </div>
+              <div class='filter second pos-center'>
+                <span class="pos-center figure"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                <span class='fig-heading'>Monthly</span>
+              </div>
+              <div class='filter-active third pos-center'>
+                <span class="pos-center figure"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                <span class='fig-heading'>Yearly</span>
+              </div>
+            </div>
+        </div>
+        <div class="leaderboard container" [hidden]="!isLeaderboard">
+            <div class='lead-main-heading'><h2>Leaderboard</h2></div>
+            <div class='lead-filters row'>
+                <div class='col-lg-2 col-xs-4'><a href="">All</a></div>
+                <div class='col-lg-2 col-xs-4'><a href="">Popular</a></div>
+            </div>
+            <table class='lead-table'>
+                <tr class='lead-tr-head'>
+                  <th class='lead-th'>Rank</th>
+                  <th class='lead-th'>Name</th>
+                  <th class='lead-th'>Reputation Point</th>
+                </tr>
+                <tr class='lead-tr'>
+                  <td class='lead-td'>1st</td>
+                  <td class='lead-td'>Anuj Kumar</td>
+                  <td class='lead-td'>96</td>
+                </tr>
+                <tr class='lead-tr'>
+                  <td class='lead-td'>2nd</td>
+                  <td class='lead-td'>Sachin Sharma</td>
+                  <td class='lead-td'>89</td>
+                </tr>
+                <tr class='lead-tr'>
+                  <td class='lead-td'>3rd</td>
+                  <td class='lead-td'>Sahil Shukla</td>
+                  <td class='lead-td'>85</td>
+                </tr>
+                <tr class='lead-tr'>
+                  <td class='lead-td'>4th</td>
+                  <td class='lead-td'>Helen Bennett</td>
+                  <td class='lead-td'>84</td>
+                </tr>
+                <tr class='lead-tr'>
+                  <td class='lead-td'>5th</td>
+                  <td class='lead-td'>Yoshi Tannamuri</td>
+                  <td class='lead-td'>80</td>
+                </tr>
+                <tr class='lead-tr'>
+                    <td class='lead-td'>10th</td>
+                    <td class='lead-td'>Omkar <span class="badge bg-warning text-dark">You</span></td>
+                    <td class='lead-td'>80</td>
+                  </tr>
+              </table>
+              
+        </div>
         <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
         <div class="stats row" *ngIf="true">
             <div class="col-3 col-lg-3 col-md-3 text-center">
                 <h1><b>{{studentDataList?.hw_pending}}</b></h1>
                 <p class="stats-text"><b>HW Pending</b></p>
             </div>
-            <div class="col-3 col-lg-3 col-md-3 text-center">
+            <div class="col-3 col-lg-3 col-md-3 text-center cursor-pointer" (click)="toggleAttendence()">
                 <h1><b>{{studentDataList?.attendance}}</b></h1>
                 <p class="stats-text"><b>Attendance</b></p>
             </div>
-            <div class="col-3 col-lg-3 col-md-3 text-center">
+            <div class="col-3 col-lg-3 col-md-3 text-center  cursor-pointer" (click)="toggleLeaderboard()">
                 <h1><b>{{studentDataList?.average}}</b></h1>
                 <p class="stats-text"><b>Average</b></p>
             </div>
-            <div class="col-3 col-lg-3 col-md-3 text-center">
+            <div class="col-3 col-lg-3 col-md-3 text-center cursor-pointer" (click)="togglePerformance()">
                 <h1><b>{{studentDataList?.test}}</b></h1>
-                <p class="stats-text"><b>Testing</b></p>
+                <p class="stats-text"><b>Performance</b></p>
             </div>
         </div>
         <!-- Don't Delete    Don't Delete    Don't Delete    Don't Delete -->
-
         <hr class="mt-2">
-
         <div class="classes-container col-lg-12 col-sm-12 col-md-12">
             <h5><b>Classes Today</b>
                 <button class="carousel-control-prev" data-bs-target="#myCarousel" 
