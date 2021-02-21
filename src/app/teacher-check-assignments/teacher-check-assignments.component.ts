@@ -49,30 +49,36 @@ export class TeacherCheckAssignmentsComponent {
   studentActivity;
 backLevel = '';
 enableBackBtn = false;
-  backUpdate(level){
+newLevel = '';
+  backUpdate(){
 
-if (level === '1') {
+const level = this.backLevel;
+
+if (level == '1') {
   this.firstClass = true;
   this.secondClass = false;
+  this.enableBackBtn = false;
+  this.backLevel = '0';
 
- } else if(level === '2') {
+ } else if(level == '2') {
   this.secondClass = true;
   this.firstClass = false;
   this.thirdClass = false;
-
-} else if(level === '3') {
+  this.backLevel = '1';
+} else if(level == '3') {
   this.secondClass = false;
   this.thirdClass = true;
   this.firstClass = false;
-
+  this.backLevel = '2';
   this.showHideFinalActivity = false;
 
-} else if(level === '4') {
+} else if(level == '4') {
   this.thirdClass = false;
   this.secondClass = false;
   this.firstClass = false;
   this.showHideFinalActivity = true;
   this.showCommentSection = false;
+  this.backLevel = '3';
 } 
 
   }
@@ -150,6 +156,7 @@ if ((studentActivity.mark)<= 90) {
 
     // this.isLoading = true;
     this.teacherService.fetchTeacherCourse().subscribe(res => {
+      this.backLevel = '0';
 
       // this.isLoading = false;
       this.firstClass = true;
@@ -175,7 +182,7 @@ if ((studentActivity.mark)<= 90) {
       this.thirdClass = false;
       this.showHideList = false;
       // this.isLoading = false;
-
+      this.backLevel = '1';
       this.assignmentData = res.data;
     });
   }
@@ -270,7 +277,7 @@ if ((studentActivity.mark)<= 90) {
       this.secondClass = false;
       this.thirdClass = true;
       this.showHideList = false;
-
+      this.backLevel = '2'
       this.thirdPage = res;
 
     });
@@ -290,7 +297,7 @@ if ((studentActivity.mark)<= 90) {
       this.thirdClass = false;
       this.showHideList = true;
       this.particularAssign = res;
-
+      this.backLevel = '3'
       this.showActivity = false;
     });
   }
@@ -302,7 +309,7 @@ if ((studentActivity.mark)<= 90) {
    this.commentData = res.chat;
    this.showHideFinalActivity = false;
    this.showCommentSection = true;
-
+   this.backLevel = '4'
     });
   }
 
