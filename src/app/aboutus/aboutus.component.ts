@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PasswordChangeComponent } from './../password-change/password-change.component';
 
 @Component({
   selector: 'app-aboutus',
@@ -7,11 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AboutusComponent implements OnInit {
 
-  // @Input('fromHome') fromHome: boolean;
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor() { 
   }
 
-}
+  ngOnInit() {
+    }
+  }

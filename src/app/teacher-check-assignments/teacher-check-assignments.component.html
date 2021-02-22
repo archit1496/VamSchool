@@ -20,7 +20,7 @@
             </div>
           </nav> -->
           <div class="row">
-            <button class="back-btn mt-4 mb-4" (click)="backUpdate(backLevel)" *ngIf="enableBackBtn">
+            <button class="back-btn mt-4 mb-4" (click)="backUpdate()" *ngIf="enableBackBtn">
               <i style="font-size: 24px;" class="fa fa-angle-double-left" aria-hidden="true"></i> 
             </button>
             <h5 style="float: left;width: fit-content; padding: 5px;" class="mt-4 mb-4"><b>{{updateHeaderText}}</b></h5>
@@ -34,7 +34,7 @@
 
           <div class="grid" *ngIf="firstClass">
             <div class='assignment-file-cnt' *ngFor="let data of studentAssignmentDataSubjectWise"
-              (click)="fetchAssignmentData(data?.id);this.enableBackBtn = true;selectedStudentAssignmentDataSubjectWise= data;backLevel = '1'">
+              (click)="fetchAssignmentData(data?.id);this.enableBackBtn = true;selectedStudentAssignmentDataSubjectWise= data;">
               <div class="assignment-file"></div>
               <div class="assignment-description">
                 <p class="cursor-pointer class-name"> {{ data?.class_of.class_name }}{{ data?.class_of.section }}</p>
@@ -57,7 +57,7 @@
             </div>
             <div  class="grid">
               <div class="assignment-file-cnt mt-2" *ngFor="let data of assignmentData" 
-              (click)="onAssignmentClick(data?.id);this.AssignmentClick = data;backLevel = '2'">
+              (click)="onAssignmentClick(data?.id);this.AssignmentClick = data;">
                 <div class='assignment-file'></div>
                 <div class="assignment-description">
                   <p class="cursor-pointer class-name">{{data?.name}}</p>
@@ -79,7 +79,7 @@
               </div>
             </div>
             <div class="grid">
-              <div class="assignment-file-cnt mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);AssignmentClick2 = data;backLevel = '3'">
+              <div class="assignment-file-cnt mt-2" *ngFor="let data of thirdPage" (click)="onAssignmentClick2(data?.id);AssignmentClick2 = data;">
                 <div class='assignment-file-doc'></div>
                 <div class="assignment-description">
                   <p class="cursor-pointer class-name">{{data?.topic}}</p>
@@ -94,7 +94,7 @@
               <b>No Data To Display</b>
             </div>
             <div class="showlist" *ngIf="showHideFinalActivity">
-              <div class="header row" *ngFor="let studentActivity of particularAssign; let j = index" (click)="showComments(studentActivity); specificStudent = studentActivity; backLevel = '4'">
+              <div class="header row" *ngFor="let studentActivity of particularAssign; let j = index" (click)="showComments(studentActivity); specificStudent = studentActivity; ">
                 <!-- <div [ngClass]="(studentActivity.within_deadline === true)?'due-date':'my-class2'">Within Deadline</div> -->
                 <span *ngIf='studentActivity.within_deadline; else elseBlock' class="due-date">Within Deadline</span>
                 <ng-template #elseBlock><span class="due-date-crossed">Deadline Crossed</span></ng-template>
