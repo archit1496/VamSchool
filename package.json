@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "aws-deploy" : "aws s3 sync dist/vamschool/ s3://www.onwardlearn.in"
+    "aws-deploy": "aws s3 sync dist/vamschool/ s3://www.onwardlearn.in"
   },
   "private": true,
   "dependencies": {
